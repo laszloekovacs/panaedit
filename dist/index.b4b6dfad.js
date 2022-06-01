@@ -29512,23 +29512,30 @@ var _fileMenu = require("./FileMenu");
 var _fileMenuDefault = parcelHelpers.interopDefault(_fileMenu);
 var _sceneDefaults = require("./SceneDefaults");
 var _sceneDefaultsDefault = parcelHelpers.interopDefault(_sceneDefaults);
+var _sceneList = require("./SceneList");
+var _sceneListDefault = parcelHelpers.interopDefault(_sceneList);
 function Editor() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileMenuDefault.default), {}, void 0, false, {
                 fileName: "src/components/Editor.jsx",
-                lineNumber: 10,
+                lineNumber: 11,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneDefaultsDefault.default), {}, void 0, false, {
                 fileName: "src/components/Editor.jsx",
-                lineNumber: 11,
+                lineNumber: 12,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneListDefault.default), {}, void 0, false, {
+                fileName: "src/components/Editor.jsx",
+                lineNumber: 13,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Editor.jsx",
-        lineNumber: 9,
+        lineNumber: 10,
         columnNumber: 9
     }, this);
 }
@@ -29542,7 +29549,7 @@ $RefreshReg$(_c, "Editor");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./FileMenu":"1YNc4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SceneDefaults":"eTAwC"}],"1YNc4":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./FileMenu":"1YNc4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SceneDefaults":"eTAwC","./SceneList":"3T666"}],"1YNc4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3b0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29721,6 +29728,174 @@ $RefreshReg$(_c, "SceneDefaults");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer":"i0RNR"}]},["1xC6H","6fg2U","d8Dch"], "d8Dch", "parcelRequiree25f")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer":"i0RNR"}],"3T666":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$eac0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$eac0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function SceneList() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "SceneList"
+            }, void 0, false, {
+                fileName: "src/components/SceneList.jsx",
+                lineNumber: 6,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                action: "",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                htmlFor: "title",
+                                children: "Title"
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 9,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "text",
+                                name: "title",
+                                id: "title",
+                                required: true
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 10,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                htmlFor: "niceName",
+                                children: "NiceName"
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 12,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "text",
+                                name: "niceName",
+                                id: "title"
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 13,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                htmlFor: "panorama",
+                                children: "Panorama"
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 15,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "text",
+                                name: "panorama",
+                                id: "panorama",
+                                required: true
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 16,
+                                columnNumber: 21
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/SceneList.jsx",
+                        lineNumber: 8,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                htmlFor: "yaw",
+                                children: "yaw"
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 19,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "text",
+                                name: "yaw"
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 20,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                htmlFor: "pitch",
+                                children: "pitch"
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 21,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "text",
+                                name: "pitch"
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 22,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                children: "set from view"
+                            }, void 0, false, {
+                                fileName: "src/components/SceneList.jsx",
+                                lineNumber: 23,
+                                columnNumber: 21
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/SceneList.jsx",
+                        lineNumber: 18,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "add scene"
+                    }, void 0, false, {
+                        fileName: "src/components/SceneList.jsx",
+                        lineNumber: 25,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/SceneList.jsx",
+                lineNumber: 7,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {}, void 0, false, {
+                fileName: "src/components/SceneList.jsx",
+                lineNumber: 28,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/SceneList.jsx",
+        lineNumber: 5,
+        columnNumber: 9
+    }, this);
+}
+_c = SceneList;
+exports.default = SceneList;
+var _c;
+$RefreshReg$(_c, "SceneList");
+
+  $parcel$ReactRefreshHelpers$eac0.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","6fg2U","d8Dch"], "d8Dch", "parcelRequiree25f")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

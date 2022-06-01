@@ -1,6 +1,7 @@
 import React from 'react'
 import FileMenu from './FileMenu'
 import SceneDefaults from './SceneDefaults'
+import SceneList from './SceneList'
 
 
 function Editor() {
@@ -9,7 +10,7 @@ function Editor() {
         <div>
             <FileMenu></FileMenu>
             <SceneDefaults></SceneDefaults>
-
+            <SceneList></SceneList>
         </div>
     )
 }
