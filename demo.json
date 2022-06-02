@@ -1,21 +1,24 @@
 {
-    "default": {
-        "firstScene": "img1",
-        "sceneFadeDuration": 1000,
-        "type": "equirectangular",
-        "autoLoad": true,
-        "compass": false,
-        "hotSpotDebug": true,
-        "hfov": 110,
-        "vfow": 100,
-        "minPitch": -88,
-        "maxPitch": 88
-    },
-    "scenes": [
-        {
-            "title": "the thing",
-            "yaw": 12,
-            "pitch": 120
-        }
-    ]
+	"default": {
+		"firstScene": "img7",
+		"sceneFadeDuration": 1000,
+		"type": "equirectangular",
+		"autoLoad": true,
+		"compass": false,
+		"hotSpotDebug": true,
+		"hfov": 110,
+		"vfow": 100,
+		"minPitch": -88,
+		"maxPitch": 88
+	},
+	"scenes": {
+		"img7": {
+			"title": "img7",
+			"panorama": "data/pince/img7.jpg"
+		},
+		"img1": {
+			"title": "img1",
+			"panorama": "data/pince/img1.jpg"
+		}
+	}
 }
