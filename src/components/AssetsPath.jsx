@@ -2,13 +2,14 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 
 function AssetsPath() {
-	const basepath = useSelector((s) => s.default.basePath);
+	const defaults = useSelector((s) => s.default);
 
 	return (
 		<div>
 			<fieldset>
 				<legend>asset base path</legend>
-				<p>{basepath}</p>
+				<p>{defaults.basePath}</p>
+				<p>{defaults.imagePath}</p>
 			</fieldset>
 		</div>
 	);

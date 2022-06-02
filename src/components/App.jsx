@@ -1,5 +1,5 @@
 import React from 'react';
-import Articles from './Articles';
+import ArticleList from './ArticleList';
 import AssetsPath from './AssetsPath';
 import FileMenu from './FileMenu';
 import SceneList from './SceneList';
@@ -23,7 +23,7 @@ function App() {
 				<hr />
 				<div>
 					<AddAtricle></AddAtricle>
-					<Articles></Articles>
+					<ArticleList></ArticleList>
 				</div>
 			</div>
 			<div>

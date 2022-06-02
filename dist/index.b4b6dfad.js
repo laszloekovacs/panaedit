@@ -26986,8 +26986,8 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _articles = require("./Articles");
-var _articlesDefault = parcelHelpers.interopDefault(_articles);
+var _articleList = require("./ArticleList");
+var _articleListDefault = parcelHelpers.interopDefault(_articleList);
 var _assetsPath = require("./AssetsPath");
 var _assetsPathDefault = parcelHelpers.interopDefault(_assetsPath);
 var _fileMenu = require("./FileMenu");
@@ -27057,7 +27057,7 @@ function App() {
                                 lineNumber: 25,
                                 columnNumber: 6
                             }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articlesDefault.default), {}, void 0, false, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
                                 fileName: "src/components/App.jsx",
                                 lineNumber: 26,
                                 columnNumber: 6
@@ -27102,214 +27102,11 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./FileMenu":"1YNc4","./AssetsPath":"dIsl3","./Articles":"4YaGz","./View":"h7o8t","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","./AddAtricle":"eDM8t","./SceneList":"3T666"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("react-refresh/runtime");
-function debounce(func, delay) {
-    var args1;
-    var timeout = undefined;
-    return function(args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            timeout = undefined;
-            func.call(null, args);
-        }, delay);
-    };
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30); // Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module) {
-    if (isReactRefreshBoundary(module.exports)) {
-        registerExportsForReactRefresh(module);
-        if (module.hot) {
-            module.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module.exports;
-            });
-            module.hot.accept(function(getParents) {
-                var prevExports = module.hot.data.prevExports;
-                var nextExports = module.exports; // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-} // When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module) {
-    var exports = module.exports, id = module.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        Refresh.register(exportValue, id + " %exports% " + key);
-    }
-}
-
-},{"react-refresh/runtime":"786KC"}],"1YNc4":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$3b0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./AssetsPath":"dIsl3","./FileMenu":"1YNc4","./SceneList":"3T666","./View":"h7o8t","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","./AddAtricle":"eDM8t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3Obs1":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$aefa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3b0a.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-function FileMenu() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                children: "file"
-            }, void 0, false, {
-                fileName: "src/components/FileMenu.jsx",
-                lineNumber: 6,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                children: "Load"
-            }, void 0, false, {
-                fileName: "src/components/FileMenu.jsx",
-                lineNumber: 7,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                children: "Save"
-            }, void 0, false, {
-                fileName: "src/components/FileMenu.jsx",
-                lineNumber: 8,
-                columnNumber: 4
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/FileMenu.jsx",
-        lineNumber: 5,
-        columnNumber: 3
-    }, this);
-}
-_c = FileMenu;
-exports.default = FileMenu;
-var _c;
-$RefreshReg$(_c, "FileMenu");
-
-  $parcel$ReactRefreshHelpers$3b0a.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dIsl3":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$880f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$880f.prelude(module);
+$parcel$ReactRefreshHelpers$aefa.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -27318,55 +27115,92 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRedux = require("react-redux");
+var _article = require("./Article");
+var _articleDefault = parcelHelpers.interopDefault(_article);
 var _s = $RefreshSig$();
-function AssetsPath() {
+function ArticleList() {
     _s();
-    const basepath = (0, _reactRedux.useSelector)((s)=>s.default.basePath);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    const articles = (0, _reactRedux.useSelector)((s)=>s.articles);
+    const list = articles.map((a, k)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleDefault.default), {
+            title: a.title
+        }, k, false, {
+            fileName: "src/components/ArticleList.jsx",
+            lineNumber: 8,
+            columnNumber: 38
+        }, this));
+    /* no articles */ if (articles.length == 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: "asset base path"
+                    children: "Articles"
                 }, void 0, false, {
-                    fileName: "src/components/AssetsPath.jsx",
-                    lineNumber: 10,
-                    columnNumber: 5
+                    fileName: "src/components/ArticleList.jsx",
+                    lineNumber: 15,
+                    columnNumber: 6
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: basepath
+                    children: "no articles loaded"
                 }, void 0, false, {
-                    fileName: "src/components/AssetsPath.jsx",
-                    lineNumber: 11,
-                    columnNumber: 5
+                    fileName: "src/components/ArticleList.jsx",
+                    lineNumber: 16,
+                    columnNumber: 6
                 }, this)
             ]
         }, void 0, true, {
-            fileName: "src/components/AssetsPath.jsx",
-            lineNumber: 9,
-            columnNumber: 4
+            fileName: "src/components/ArticleList.jsx",
+            lineNumber: 14,
+            columnNumber: 5
         }, this)
     }, void 0, false, {
-        fileName: "src/components/AssetsPath.jsx",
-        lineNumber: 8,
-        columnNumber: 3
+        fileName: "src/components/ArticleList.jsx",
+        lineNumber: 13,
+        columnNumber: 4
+    }, this);
+    else /* we have atricles */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                    children: "Articles"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleList.jsx",
+                    lineNumber: 25,
+                    columnNumber: 6
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    children: list
+                }, void 0, false, {
+                    fileName: "src/components/ArticleList.jsx",
+                    lineNumber: 26,
+                    columnNumber: 6
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/ArticleList.jsx",
+            lineNumber: 24,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/ArticleList.jsx",
+        lineNumber: 23,
+        columnNumber: 4
     }, this);
 }
-_s(AssetsPath, "sTmkFoJCsJ3WjfkOuKAa82OO/c8=", false, function() {
+_s(ArticleList, "9qg9NrrI6UYevg7zcP+FosJe59k=", false, function() {
     return [
         (0, _reactRedux.useSelector)
     ];
 });
-_c = AssetsPath;
-exports.default = AssetsPath;
+_c = ArticleList;
+exports.default = ArticleList;
 var _c;
-$RefreshReg$(_c, "AssetsPath");
+$RefreshReg$(_c, "ArticleList");
 
-  $parcel$ReactRefreshHelpers$880f.postlude(module);
+  $parcel$ReactRefreshHelpers$aefa.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon"}],"bdVon":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./Article":"rEDCB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bdVon":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "batch", ()=>(0, _reactBatchedUpdates.unstable_batchedUpdates));
@@ -27683,7 +27517,37 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "unstable_batchedUpdates", ()=>(0, _reactDom.unstable_batchedUpdates));
 var _reactDom = require("react-dom");
 
-},{"react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ikw0G":[function(require,module,exports) {
+},{"react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"ikw0G":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "setBatch", ()=>setBatch);
@@ -29119,11 +28983,11 @@ const useStore = /*#__PURE__*/ createStoreHook();
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4YaGz":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$01f3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"rEDCB":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$01ea = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$01f3.prelude(module);
+$parcel$ReactRefreshHelpers$01ea.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -29131,42 +28995,514 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function Articles() {
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _s = $RefreshSig$();
+function Article({ index , title  }) {
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const [editing, setEditing] = (0, _react.useState)(false);
+    function removeHandler(e) {
+        dispatch((0, _actions.removeArticleAction)(title));
+        console.log("removed");
+    }
+    function editHandler(e) {
+        setEditing(true);
+    }
+    function saveHandler(e) {
+        setEditing(false);
+    }
+    if (!editing) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: title
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 25,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: removeHandler,
+                children: "remove"
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 26,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: editHandler,
+                children: "edit"
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 27,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Article.jsx",
+        lineNumber: 24,
+        columnNumber: 4
+    }, this);
+    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "title",
+                children: "title"
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 33,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: "text",
+                name: "title",
+                id: "title"
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 34,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 35,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "text",
+                children: "article text"
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 36,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                name: "text",
+                id: "text",
+                cols: "30",
+                rows: "4"
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 37,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 38,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: saveHandler,
+                children: "save"
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 39,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Article.jsx",
+        lineNumber: 32,
+        columnNumber: 4
+    }, this);
+}
+_s(Article, "LEdo3qqHcJa8Y0f0ckfgg3MklVQ=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
+_c = Article;
+exports.default = Article;
+var _c;
+$RefreshReg$(_c, "Article");
+
+  $parcel$ReactRefreshHelpers$01ea.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3HrII":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "loadFileAction", ()=>loadFileAction);
+parcelHelpers.export(exports, "addArticleAction", ()=>addArticleAction);
+parcelHelpers.export(exports, "removeArticleAction", ()=>removeArticleAction);
+parcelHelpers.export(exports, "resetAction", ()=>resetAction);
+function loadFileAction(data) {
+    return {
+        type: "LOAD_FILE",
+        payload: data
+    };
+}
+function addArticleAction(title) {
+    return {
+        type: "ADD_ARTICLE",
+        payload: title
+    };
+}
+function removeArticleAction(index) {
+    return {
+        type: "REMOVE_ARTICLE",
+        payload: index
+    };
+}
+function resetAction() {
+    return {
+        type: "RESET",
+        payload: ""
+    };
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
+"use strict";
+var Refresh = require("react-refresh/runtime");
+function debounce(func, delay) {
+    var args1;
+    var timeout = undefined;
+    return function(args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            timeout = undefined;
+            func.call(null, args);
+        }, delay);
+    };
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30); // Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module.id + " " + id);
+    };
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module) {
+    if (isReactRefreshBoundary(module.exports)) {
+        registerExportsForReactRefresh(module);
+        if (module.hot) {
+            module.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module.exports;
+            });
+            module.hot.accept(function(getParents) {
+                var prevExports = module.hot.data.prevExports;
+                var nextExports = module.exports; // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
+                }
+                enqueueUpdate();
+            });
+        }
+    }
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
+    }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
+    }
+    return false;
+} // When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module) {
+    var exports = module.exports, id = module.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        Refresh.register(exportValue, id + " %exports% " + key);
+    }
+}
+
+},{"react-refresh/runtime":"786KC"}],"dIsl3":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$880f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$880f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _s = $RefreshSig$();
+function AssetsPath() {
+    _s();
+    const defaults = (0, _reactRedux.useSelector)((s)=>s.default);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: "Articles"
+                    children: "asset base path"
                 }, void 0, false, {
-                    fileName: "src/components/Articles.jsx",
+                    fileName: "src/components/AssetsPath.jsx",
+                    lineNumber: 10,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: defaults.basePath
+                }, void 0, false, {
+                    fileName: "src/components/AssetsPath.jsx",
+                    lineNumber: 11,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: defaults.imagePath
+                }, void 0, false, {
+                    fileName: "src/components/AssetsPath.jsx",
+                    lineNumber: 12,
+                    columnNumber: 5
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/AssetsPath.jsx",
+            lineNumber: 9,
+            columnNumber: 4
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/AssetsPath.jsx",
+        lineNumber: 8,
+        columnNumber: 3
+    }, this);
+}
+_s(AssetsPath, "uCG6XIsFMxSUNs2SXGipxCyJdSA=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
+_c = AssetsPath;
+exports.default = AssetsPath;
+var _c;
+$RefreshReg$(_c, "AssetsPath");
+
+  $parcel$ReactRefreshHelpers$880f.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1YNc4":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3b0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3b0a.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _s = $RefreshSig$();
+const fileOptions = {
+    types: [
+        {
+            description: "json document",
+            accept: {
+                "application/json": [
+                    ".json"
+                ]
+            }
+        }, 
+    ]
+};
+function FileMenu() {
+    _s();
+    const store = (0, _reactRedux.useSelector)((s)=>s);
+    const dispatch = (0, _reactRedux.useDispatch)();
+    async function saveAsHandler(e) {
+        e.preventDefault();
+        try {
+            const filehandle = await window.showSaveFilePicker(fileOptions);
+            const writable = await filehandle.createWritable();
+            await writable.write(JSON.stringify(store));
+            await writable.close();
+            console.log("file written");
+        } catch (err) {
+            console.error(err);
+        }
+    }
+    async function loadHandler(e) {
+        e.preventDefault();
+        try {
+            const [filehandle] = await window.showOpenFilePicker(fileOptions);
+            const file = await filehandle.getFile();
+            const data = await file.text();
+            console.log(JSON.parse(data));
+            /* replace state in storage */ dispatch((0, _actions.loadFileAction)(JSON.parse(data)));
+            console.log("file loaded");
+        } catch (err) {
+            console.error(err);
+        }
+    }
+    function resetHandler(e) {
+        dispatch((0, _actions.resetAction)());
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                children: "file"
+            }, void 0, false, {
+                fileName: "src/components/FileMenu.jsx",
+                lineNumber: 54,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: resetHandler,
+                children: "Reset"
+            }, void 0, false, {
+                fileName: "src/components/FileMenu.jsx",
+                lineNumber: 55,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: loadHandler,
+                children: "Load.."
+            }, void 0, false, {
+                fileName: "src/components/FileMenu.jsx",
+                lineNumber: 56,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: saveAsHandler,
+                children: "Save As.."
+            }, void 0, false, {
+                fileName: "src/components/FileMenu.jsx",
+                lineNumber: 57,
+                columnNumber: 4
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/FileMenu.jsx",
+        lineNumber: 53,
+        columnNumber: 3
+    }, this);
+}
+_s(FileMenu, "TJyi8xTV/cllwIsFm0O4nJ8aGD4=", false, function() {
+    return [
+        (0, _reactRedux.useSelector),
+        (0, _reactRedux.useDispatch)
+    ];
+});
+_c = FileMenu;
+exports.default = FileMenu;
+var _c;
+$RefreshReg$(_c, "FileMenu");
+
+  $parcel$ReactRefreshHelpers$3b0a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3T666":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$eac0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$eac0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function SceneList() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                    children: "scenes"
+                }, void 0, false, {
+                    fileName: "src/components/SceneList.jsx",
                     lineNumber: 7,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: "no articles loaded"
+                    children: "no scenes loaded"
                 }, void 0, false, {
-                    fileName: "src/components/Articles.jsx",
+                    fileName: "src/components/SceneList.jsx",
                     lineNumber: 8,
                     columnNumber: 5
                 }, this)
             ]
         }, void 0, true, {
-            fileName: "src/components/Articles.jsx",
+            fileName: "src/components/SceneList.jsx",
             lineNumber: 6,
             columnNumber: 4
         }, this)
     }, void 0, false, {
-        fileName: "src/components/Articles.jsx",
+        fileName: "src/components/SceneList.jsx",
         lineNumber: 5,
         columnNumber: 3
     }, this);
 }
-_c = Articles;
-exports.default = Articles;
+_c = SceneList;
+exports.default = SceneList;
 var _c;
-$RefreshReg$(_c, "Articles");
+$RefreshReg$(_c, "SceneList");
 
-  $parcel$ReactRefreshHelpers$01f3.postlude(module);
+  $parcel$ReactRefreshHelpers$eac0.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -29248,7 +29584,7 @@ $RefreshReg$(_c, "View");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon"}],"aXRCO":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aXRCO":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5c62 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29377,30 +29713,62 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _s = $RefreshSig$();
 function AddAtricle() {
+    _s();
+    const [articleName, setArticleName] = (0, _react.useState)("");
+    const dispatch = (0, _reactRedux.useDispatch)();
+    function addArticleHandler(e) {
+        e.preventDefault();
+        dispatch((0, _actions.addArticleAction)(articleName));
+        setArticleName("");
+        console.log("article added");
+    }
+    function changeHandler(e) {
+        setArticleName(e.target.value);
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
                 children: "add article"
             }, void 0, false, {
                 fileName: "src/components/AddAtricle.jsx",
-                lineNumber: 6,
+                lineNumber: 26,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: "text",
+                name: "title",
+                value: articleName,
+                onChange: changeHandler,
+                placeholder: "name of new article"
+            }, void 0, false, {
+                fileName: "src/components/AddAtricle.jsx",
+                lineNumber: 27,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: addArticleHandler,
                 children: "add article"
             }, void 0, false, {
                 fileName: "src/components/AddAtricle.jsx",
-                lineNumber: 7,
+                lineNumber: 34,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/AddAtricle.jsx",
-        lineNumber: 5,
+        lineNumber: 25,
         columnNumber: 3
     }, this);
 }
+_s(AddAtricle, "OrpcU4YB00KyOwpdzpHnBAxVZJg=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
 _c = AddAtricle;
 exports.default = AddAtricle;
 var _c;
@@ -29411,59 +29779,7 @@ $RefreshReg$(_c, "AddAtricle");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3T666":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$eac0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$eac0.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-function SceneList() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: "scenes"
-                }, void 0, false, {
-                    fileName: "src/components/SceneList.jsx",
-                    lineNumber: 7,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: "no scenes loaded"
-                }, void 0, false, {
-                    fileName: "src/components/SceneList.jsx",
-                    lineNumber: 8,
-                    columnNumber: 5
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/SceneList.jsx",
-            lineNumber: 6,
-            columnNumber: 4
-        }, this)
-    }, void 0, false, {
-        fileName: "src/components/SceneList.jsx",
-        lineNumber: 5,
-        columnNumber: 3
-    }, this);
-}
-_c = SceneList;
-exports.default = SceneList;
-var _c;
-$RefreshReg$(_c, "SceneList");
-
-  $parcel$ReactRefreshHelpers$eac0.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cDNB3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cDNB3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "__DO_NOT_USE__ActionTypes", ()=>ActionTypes);
@@ -30044,12 +30360,31 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _storeDefaults = require("./storeDefaults");
 var _storeDefaultsDefault = parcelHelpers.interopDefault(_storeDefaults);
+function clone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
 function reducer(store = (0, _storeDefaultsDefault.default), action) {
-    return store;
+    const copy = clone(store);
+    switch(action.type){
+        case "LOAD_FILE":
+            return action.payload;
+        case "ADD_ARTICLE":
+            copy.articles.push({
+                title: action.payload
+            });
+            return copy;
+        case "REMOVE_ARTICLE":
+            copy.articles = copy.articles.filter((a)=>a.title != action.payload);
+            return copy;
+        case "RESET":
+            return 0, _storeDefaultsDefault.default;
+        default:
+            return store;
+    }
 }
 exports.default = reducer;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./storeDefaults":"3QtA1"}],"3QtA1":[function(require,module,exports) {
+},{"./storeDefaults":"3QtA1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QtA1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = storeDefaults = {
@@ -30064,10 +30399,11 @@ exports.default = storeDefaults = {
         "vfow": 100,
         "minPitch": -88,
         "maxPitch": 88,
-        "basePath": "assets/panorama/"
+        "basePath": "assets/panorama/",
+        "imagePath": "assets/images/"
     },
     scenes: {},
-    articles: {}
+    articles: []
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1xC6H","6fg2U","d8Dch"], "d8Dch", "parcelRequiree25f")

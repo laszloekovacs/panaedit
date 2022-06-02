@@ -11,8 +11,9 @@ export default storeDefaults = {
         "vfow": 100,
         "minPitch": -88,
         "maxPitch": 88,
-        "basePath": "assets/panorama/"
+        "basePath": "assets/panorama/",
+        "imagePath": "assets/images/"
     },
     scenes: {},
-    articles: {}
+    articles: []
 }
