@@ -1,18 +1,1 @@
-{
-	"default": {
-		"firstScene": 0,
-		"sceneFadeDuration": 1000,
-		"type": "equirectangular",
-		"autoLoad": true,
-		"compass": false,
-		"hotSpotDebug": true,
-		"hfov": 110,
-		"vfow": 100,
-		"minPitch": -88,
-		"maxPitch": 88,
-		"basePath": "assets/panorama/",
-		"imagePath": "assets/images/"
-	},
-	"scenes": {},
-	"articles": []
-}
+{"default":{"firstScene":"img1","sceneFadeDuration":1000,"type":"equirectangular","autoLoad":false,"compass":false,"hotSpotDebug":true,"hfov":110,"vfow":100,"minPitch":-88,"maxPitch":88,"basePath":"assets/panorama/","imagePath":"assets/images/"},"scenes":{"img1":{"title":"img1","panorama":"img1.jpg"},"img2":{"title":"img2","panorama":"img2.jpg"},"img7":{"title":"img7","panorama":"img7.jpg"}},"articles":[]}

@@ -24,7 +24,7 @@ export default function reducer(store = storeDefaults, action) {
         case "ADD_SCENE":
             const basename = action.payload.split(".")[0]
 
-            copy.scenes[basename] = { title: basename, panorama: store.default.basePath + action.payload }
+            copy.scenes[basename] = { title: basename, panorama: action.payload }
             return copy;
 
         case "RESET":

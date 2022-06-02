@@ -1,23 +1,25 @@
-import React, {useEffect} from 'react';
-import {useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 function View() {
 	const store = useSelector((s) => s);
 
-	useEffect(() => {
-		window.pannellum.view = window.pannellum.viewer('view', store);
 
-		return () => {
-			window.pannellum.view.destroy();
-		};
-	});
+	function resetHandler(e) {
+		window.panorama?.destroy();
+
+		window.panorama = window.pannellum.viewer('out', store)
+		console.log(store)
+	}
+
 
 	return (
 		<fieldset>
 			<legend>viewer</legend>
+			<button onClick={resetHandler}>Reset</button>
 			<hr />
 			<br />
-			<div id="view"></div>
+			<div id="out"></div>
 		</fieldset>
 	);
 }

@@ -2909,7 +2909,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/App":"bCxdS","redux":"cDNB3","redux-devtools-extension":"fOPxo","./reducer":"i0RNR","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/App":"bCxdS","redux":"cDNB3","redux-devtools-extension":"fOPxo","./reducer":"i0RNR","react-redux":"bdVon","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -29546,46 +29546,53 @@ var _s = $RefreshSig$();
 function View() {
     _s();
     const store = (0, _reactRedux.useSelector)((s)=>s);
-    (0, _react.useEffect)(()=>{
-        window.pannellum.view = window.pannellum.viewer("view", store);
-        return ()=>{
-            window.pannellum.view.destroy();
-        };
-    });
+    function resetHandler(e) {
+        window.panorama?.destroy();
+        window.panorama = window.pannellum.viewer("out", store);
+        console.log(store);
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
                 children: "viewer"
             }, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 17,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                fileName: "src/components/View.jsx",
                 lineNumber: 18,
                 columnNumber: 4
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: resetHandler,
+                children: "Reset"
+            }, void 0, false, {
                 fileName: "src/components/View.jsx",
                 lineNumber: 19,
                 columnNumber: 4
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                id: "view"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/View.jsx",
                 lineNumber: 20,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                fileName: "src/components/View.jsx",
+                lineNumber: 21,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                id: "out"
+            }, void 0, false, {
+                fileName: "src/components/View.jsx",
+                lineNumber: 22,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/View.jsx",
-        lineNumber: 16,
+        lineNumber: 17,
         columnNumber: 3
     }, this);
 }
-_s(View, "CmozXe1r/et4C4A7trhwVLjKchY=", false, function() {
+_s(View, "5ilW2KbvJgah+YZGWDN+yWKc71U=", false, function() {
     return [
         (0, _reactRedux.useSelector)
     ];
@@ -29711,7 +29718,7 @@ $RefreshReg$(_c, "FirstScene");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII"}],"kZDYU":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kZDYU":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3533 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29787,7 +29794,7 @@ $RefreshReg$(_c, "AddPanorama");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII"}],"eDM8t":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eDM8t":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f426 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30466,7 +30473,7 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
             const basename = action.payload.split(".")[0];
             copy.scenes[basename] = {
                 title: basename,
-                panorama: store.default.basePath + action.payload
+                panorama: action.payload
             };
             return copy;
         case "RESET":
