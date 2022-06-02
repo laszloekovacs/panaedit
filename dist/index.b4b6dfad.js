@@ -2881,11 +2881,19 @@ var _reduxDevtoolsExtension = require("redux-devtools-extension");
 var _reducer = require("./reducer");
 var _reducerDefault = parcelHelpers.interopDefault(_reducer);
 var _reactRedux = require("react-redux");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 let store = (0, _redux.legacy_createStore)((0, _reducerDefault.default), (0, _reduxDevtoolsExtension.devToolsEnhancer)());
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
-    store: store,
-    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).StrictMode, {
+    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
+        store: store,
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
+            fileName: "src/index.jsx",
+            lineNumber: 15,
+            columnNumber: 4
+        }, undefined)
+    }, void 0, false, {
         fileName: "src/index.jsx",
         lineNumber: 14,
         columnNumber: 3
@@ -2901,7 +2909,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), 
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/App":"bCxdS","redux":"cDNB3","redux-devtools-extension":"fOPxo","./reducer":"i0RNR","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/App":"bCxdS","redux":"cDNB3","redux-devtools-extension":"fOPxo","./reducer":"i0RNR","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -29127,6 +29135,8 @@ parcelHelpers.export(exports, "loadFileAction", ()=>loadFileAction);
 parcelHelpers.export(exports, "addArticleAction", ()=>addArticleAction);
 parcelHelpers.export(exports, "removeArticleAction", ()=>removeArticleAction);
 parcelHelpers.export(exports, "resetAction", ()=>resetAction);
+parcelHelpers.export(exports, "addSceneAciton", ()=>addSceneAciton);
+parcelHelpers.export(exports, "setFirstSceneAction", ()=>setFirstSceneAction);
 function loadFileAction(data) {
     return {
         type: "LOAD_FILE",
@@ -29149,6 +29159,18 @@ function resetAction() {
     return {
         type: "RESET",
         payload: ""
+    };
+}
+function addSceneAciton(image) {
+    return {
+        type: "ADD_SCENE",
+        payload: image
+    };
+}
+function setFirstSceneAction(scene) {
+    return {
+        type: "SET_FIRST_SCENE",
+        payload: scene
     };
 }
 
@@ -29524,52 +29546,46 @@ var _s = $RefreshSig$();
 function View() {
     _s();
     const store = (0, _reactRedux.useSelector)((s)=>s);
-    function ReloadHandler(e) {
-        if (window.pannellum.view != undefined || window.pannellum.view != null) window.pannellum.view.destroy();
-        window.pannellum.viewer("view", store);
-    }
+    (0, _react.useEffect)(()=>{
+        window.pannellum.view = window.pannellum.viewer("view", store);
+        return ()=>{
+            window.pannellum.view.destroy();
+        };
+    });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
                 children: "viewer"
             }, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 20,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: ReloadHandler,
-                children: "Reload"
-            }, void 0, false, {
-                fileName: "src/components/View.jsx",
-                lineNumber: 21,
+                lineNumber: 17,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 22,
+                lineNumber: 18,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 23,
+                lineNumber: 19,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 id: "view"
             }, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 24,
+                lineNumber: 20,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/View.jsx",
-        lineNumber: 19,
+        lineNumber: 16,
         columnNumber: 3
     }, this);
 }
-_s(View, "5ilW2KbvJgah+YZGWDN+yWKc71U=", false, function() {
+_s(View, "CmozXe1r/et4C4A7trhwVLjKchY=", false, function() {
     return [
         (0, _reactRedux.useSelector)
     ];
@@ -29596,46 +29612,95 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _s = $RefreshSig$();
 function FirstScene() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const store = (0, _reactRedux.useSelector)((s)=>s);
+    let list = [];
+    /* loop trough the scenes, sadly its not an array */ for(let scene in store.scenes)list.push(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+        value: scene,
+        children: scene
+    }, scene, false, {
+        fileName: "src/components/FirstScene.jsx",
+        lineNumber: 13,
+        columnNumber: 4
+    }, this));
+    function setHandler(e) {
+        const start = document.getElementById("startScene").value;
+        dispatch((0, _actions.setFirstSceneAction)(start.toString()));
+    }
+    const isSet = store.default.firstScene == 0 ? "first scene not set" : `is set to: ${store.default.firstScene}`;
+    if (list.length == 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
                 children: "first scene"
             }, void 0, false, {
                 fileName: "src/components/FirstScene.jsx",
-                lineNumber: 6,
-                columnNumber: 4
+                lineNumber: 33,
+                columnNumber: 5
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-                name: "",
-                id: "",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                    value: "",
-                    children: "first"
-                }, void 0, false, {
-                    fileName: "src/components/FirstScene.jsx",
-                    lineNumber: 8,
-                    columnNumber: 5
-                }, this)
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: isSet
             }, void 0, false, {
                 fileName: "src/components/FirstScene.jsx",
-                lineNumber: 7,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                children: "set"
-            }, void 0, false, {
-                fileName: "src/components/FirstScene.jsx",
-                lineNumber: 10,
-                columnNumber: 4
+                lineNumber: 34,
+                columnNumber: 5
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/FirstScene.jsx",
-        lineNumber: 5,
-        columnNumber: 3
+        lineNumber: 32,
+        columnNumber: 4
+    }, this);
+    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                children: "first scene"
+            }, void 0, false, {
+                fileName: "src/components/FirstScene.jsx",
+                lineNumber: 40,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: isSet
+            }, void 0, false, {
+                fileName: "src/components/FirstScene.jsx",
+                lineNumber: 41,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                name: "startScene",
+                id: "startScene",
+                children: list
+            }, void 0, false, {
+                fileName: "src/components/FirstScene.jsx",
+                lineNumber: 42,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: setHandler,
+                children: "set"
+            }, void 0, false, {
+                fileName: "src/components/FirstScene.jsx",
+                lineNumber: 45,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/FirstScene.jsx",
+        lineNumber: 39,
+        columnNumber: 4
     }, this);
 }
+_s(FirstScene, "zw25nIk3XDUGgPuAbVy/YKvKJS8=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch),
+        (0, _reactRedux.useSelector)
+    ];
+});
 _c = FirstScene;
 exports.default = FirstScene;
 var _c;
@@ -29646,7 +29711,7 @@ $RefreshReg$(_c, "FirstScene");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kZDYU":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII"}],"kZDYU":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3533 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29658,39 +29723,60 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _s = $RefreshSig$();
 function AddPanorama() {
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
+    function addSceneHandler(e) {
+        const files = document.getElementById("files").files;
+        if (files.length == 0) return;
+        console.log(files);
+        for (const file of files){
+            /* extract filename */ console.log(file.name);
+            dispatch((0, _actions.addSceneAciton)(file.name));
+        }
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
                 children: "add panorama"
             }, void 0, false, {
                 fileName: "src/components/AddPanorama.jsx",
-                lineNumber: 6,
+                lineNumber: 23,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 type: "file",
                 name: "",
-                id: ""
+                id: "files",
+                multiple: true
             }, void 0, false, {
                 fileName: "src/components/AddPanorama.jsx",
-                lineNumber: 7,
+                lineNumber: 24,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: addSceneHandler,
                 children: "add"
             }, void 0, false, {
                 fileName: "src/components/AddPanorama.jsx",
-                lineNumber: 8,
+                lineNumber: 25,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/AddPanorama.jsx",
-        lineNumber: 5,
+        lineNumber: 22,
         columnNumber: 3
     }, this);
 }
+_s(AddPanorama, "rgTLoBID190wEKCp9+G8W6F7A5M=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
 _c = AddPanorama;
 exports.default = AddPanorama;
 var _c;
@@ -29701,7 +29787,7 @@ $RefreshReg$(_c, "AddPanorama");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eDM8t":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII"}],"eDM8t":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f426 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30376,8 +30462,18 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
         case "REMOVE_ARTICLE":
             copy.articles = copy.articles.filter((a)=>a.title != action.payload);
             return copy;
+        case "ADD_SCENE":
+            const basename = action.payload.split(".")[0];
+            copy.scenes[basename] = {
+                title: basename,
+                panorama: store.default.basePath + action.payload
+            };
+            return copy;
         case "RESET":
             return 0, _storeDefaultsDefault.default;
+        case "SET_FIRST_SCENE":
+            copy.default.firstScene = action.payload;
+            return copy;
         default:
             return store;
     }
@@ -30392,7 +30488,7 @@ exports.default = storeDefaults = {
         "firstScene": 0,
         "sceneFadeDuration": 1000,
         "type": "equirectangular",
-        "autoLoad": true,
+        "autoLoad": false,
         "compass": false,
         "hotSpotDebug": true,
         "hfov": 110,

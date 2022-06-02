@@ -14,3 +14,11 @@ export function removeArticleAction(index) {
 export function resetAction() {
     return { type: "RESET", payload: "" }
 }
+
+export function addSceneAciton(image) {
+    return { type: "ADD_SCENE", payload: image }
+}
+
+export function setFirstSceneAction(scene) {
+    return { type: "SET_FIRST_SCENE", payload: scene }
+}

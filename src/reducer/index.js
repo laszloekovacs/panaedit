@@ -21,8 +21,18 @@ export default function reducer(store = storeDefaults, action) {
             copy.articles = copy.articles.filter(a => a.title != action.payload)
             return copy;
 
+        case "ADD_SCENE":
+            const basename = action.payload.split(".")[0]
+
+            copy.scenes[basename] = { title: basename, panorama: store.default.basePath + action.payload }
+            return copy;
+
         case "RESET":
-            return storeDefaults
+            return storeDefaults;
+
+        case "SET_FIRST_SCENE":
+            copy.default.firstScene = action.payload;
+            return copy;
 
         default:
             return store
