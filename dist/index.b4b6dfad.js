@@ -29489,42 +29489,115 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _scene = require("./Scene");
+var _sceneDefault = parcelHelpers.interopDefault(_scene);
+var _s = $RefreshSig$();
 function SceneList() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: "scenes"
-                }, void 0, false, {
-                    fileName: "src/components/SceneList.jsx",
-                    lineNumber: 7,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: "no scenes loaded"
-                }, void 0, false, {
-                    fileName: "src/components/SceneList.jsx",
-                    lineNumber: 8,
-                    columnNumber: 5
-                }, this)
-            ]
-        }, void 0, true, {
+    _s();
+    const scenes = (0, _reactRedux.useSelector)((s)=>s.scenes);
+    let list = [];
+    for(const scene in scenes)list.push(scenes[scene]);
+    const sceneList = list.map((s, k)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneDefault.default), {
+            title: s.title
+        }, k, false, {
             fileName: "src/components/SceneList.jsx",
-            lineNumber: 6,
-            columnNumber: 4
-        }, this)
-    }, void 0, false, {
+            lineNumber: 15,
+            columnNumber: 40
+        }, this));
+    if (list.length == 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                children: "scenes"
+            }, void 0, false, {
+                fileName: "src/components/SceneList.jsx",
+                lineNumber: 20,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "no scenes loaded"
+            }, void 0, false, {
+                fileName: "src/components/SceneList.jsx",
+                lineNumber: 21,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "src/components/SceneList.jsx",
-        lineNumber: 5,
-        columnNumber: 3
+        lineNumber: 19,
+        columnNumber: 4
+    }, this);
+    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                children: "scenes"
+            }, void 0, false, {
+                fileName: "src/components/SceneList.jsx",
+                lineNumber: 27,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                children: sceneList
+            }, void 0, false, {
+                fileName: "src/components/SceneList.jsx",
+                lineNumber: 28,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/SceneList.jsx",
+        lineNumber: 26,
+        columnNumber: 4
     }, this);
 }
+_s(SceneList, "1c0CYd0LErwMJ2xa0GJiSsLb2uo=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
 _c = SceneList;
 exports.default = SceneList;
 var _c;
 $RefreshReg$(_c, "SceneList");
 
   $parcel$ReactRefreshHelpers$eac0.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Scene":"018hX","react-redux":"bdVon"}],"018hX":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$7640 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$7640.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function Scene({ title  }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+            children: title
+        }, void 0, false, {
+            fileName: "src/components/Scene.jsx",
+            lineNumber: 6,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/Scene.jsx",
+        lineNumber: 5,
+        columnNumber: 9
+    }, this);
+}
+_c = Scene;
+exports.default = Scene;
+var _c;
+$RefreshReg$(_c, "Scene");
+
+  $parcel$ReactRefreshHelpers$7640.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
