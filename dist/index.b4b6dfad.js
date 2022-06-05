@@ -26996,8 +26996,6 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _articleList = require("./ArticleList");
 var _articleListDefault = parcelHelpers.interopDefault(_articleList);
-var _assetsPath = require("./AssetsPath");
-var _assetsPathDefault = parcelHelpers.interopDefault(_assetsPath);
 var _fileMenu = require("./FileMenu");
 var _fileMenuDefault = parcelHelpers.interopDefault(_fileMenu);
 var _sceneList = require("./SceneList");
@@ -27011,94 +27009,84 @@ var _addPanoramaDefault = parcelHelpers.interopDefault(_addPanorama);
 var _addAtricle = require("./AddAtricle");
 var _addAtricleDefault = parcelHelpers.interopDefault(_addAtricle);
 function App() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileMenuDefault.default), {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 15,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _assetsPathDefault.default), {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 16,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 17,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 18,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
-                                fileName: "src/components/App.jsx",
-                                lineNumber: 20,
-                                columnNumber: 6
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneListDefault.default), {}, void 0, false, {
-                                fileName: "src/components/App.jsx",
-                                lineNumber: 21,
-                                columnNumber: 6
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 19,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 23,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addAtricleDefault.default), {}, void 0, false, {
-                                fileName: "src/components/App.jsx",
-                                lineNumber: 25,
-                                columnNumber: 6
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
-                                fileName: "src/components/App.jsx",
-                                lineNumber: 26,
-                                columnNumber: 6
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 24,
-                        columnNumber: 5
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 14,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _viewDefault.default), {}, void 0, false, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            id: "layout",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("aside", {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileMenuDefault.default), {}, void 0, false, {
+                            fileName: "src/components/App.jsx",
+                            lineNumber: 15,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
+                            fileName: "src/components/App.jsx",
+                            lineNumber: 16,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                            fileName: "src/components/App.jsx",
+                            lineNumber: 17,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
+                            fileName: "src/components/App.jsx",
+                            lineNumber: 18,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneListDefault.default), {}, void 0, false, {
+                            fileName: "src/components/App.jsx",
+                            lineNumber: 19,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                            fileName: "src/components/App.jsx",
+                            lineNumber: 20,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addAtricleDefault.default), {}, void 0, false, {
+                                    fileName: "src/components/App.jsx",
+                                    lineNumber: 22,
+                                    columnNumber: 7
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
+                                    fileName: "src/components/App.jsx",
+                                    lineNumber: 23,
+                                    columnNumber: 7
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/App.jsx",
+                            lineNumber: 21,
+                            columnNumber: 6
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "src/components/App.jsx",
-                    lineNumber: 30,
+                    lineNumber: 14,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _viewDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 28,
+                        columnNumber: 6
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/components/App.jsx",
+                    lineNumber: 27,
                     columnNumber: 5
                 }, this)
-            }, void 0, false, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 29,
-                columnNumber: 4
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/App.jsx",
-        lineNumber: 13,
-        columnNumber: 3
-    }, this);
+            ]
+        }, void 0, true, {
+            fileName: "src/components/App.jsx",
+            lineNumber: 13,
+            columnNumber: 4
+        }, this)
+    }, void 0, false);
 }
 _c = App;
 exports.default = App;
@@ -27110,7 +27098,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./AssetsPath":"dIsl3","./FileMenu":"1YNc4","./SceneList":"3T666","./View":"h7o8t","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","./AddAtricle":"eDM8t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3Obs1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./FileMenu":"1YNc4","./SceneList":"3T666","./View":"h7o8t","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","./AddAtricle":"eDM8t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3Obs1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$aefa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29137,6 +29125,8 @@ parcelHelpers.export(exports, "removeArticleAction", ()=>removeArticleAction);
 parcelHelpers.export(exports, "resetAction", ()=>resetAction);
 parcelHelpers.export(exports, "addSceneAciton", ()=>addSceneAciton);
 parcelHelpers.export(exports, "setFirstSceneAction", ()=>setFirstSceneAction);
+parcelHelpers.export(exports, "addHotspotAction", ()=>addHotspotAction);
+parcelHelpers.export(exports, "removeHotspotAction", ()=>removeHotspotAction);
 function loadFileAction(data) {
     return {
         type: "LOAD_FILE",
@@ -29171,6 +29161,21 @@ function setFirstSceneAction(scene) {
     return {
         type: "SET_FIRST_SCENE",
         payload: scene
+    };
+}
+function addHotspotAction(hotspot) {
+    return {
+        type: "ADD_HOTSPOT",
+        payload: hotspot
+    };
+}
+function removeHotspotAction(index, parent) {
+    return {
+        type: "REMOVE_HOTSPOT",
+        payload: {
+            index,
+            parent
+        }
     };
 }
 
@@ -29294,75 +29299,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"dIsl3":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$880f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$880f.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRedux = require("react-redux");
-var _s = $RefreshSig$();
-function AssetsPath() {
-    _s();
-    const defaults = (0, _reactRedux.useSelector)((s)=>s.default);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: "asset base path"
-                }, void 0, false, {
-                    fileName: "src/components/AssetsPath.jsx",
-                    lineNumber: 10,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: defaults.basePath
-                }, void 0, false, {
-                    fileName: "src/components/AssetsPath.jsx",
-                    lineNumber: 11,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: defaults.imagePath
-                }, void 0, false, {
-                    fileName: "src/components/AssetsPath.jsx",
-                    lineNumber: 12,
-                    columnNumber: 5
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/AssetsPath.jsx",
-            lineNumber: 9,
-            columnNumber: 4
-        }, this)
-    }, void 0, false, {
-        fileName: "src/components/AssetsPath.jsx",
-        lineNumber: 8,
-        columnNumber: 3
-    }, this);
-}
-_s(AssetsPath, "uCG6XIsFMxSUNs2SXGipxCyJdSA=", false, function() {
-    return [
-        (0, _reactRedux.useSelector)
-    ];
-});
-_c = AssetsPath;
-exports.default = AssetsPath;
-var _c;
-$RefreshReg$(_c, "AssetsPath");
-
-  $parcel$ReactRefreshHelpers$880f.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1YNc4":[function(require,module,exports) {
+},{"react-refresh/runtime":"786KC"}],"1YNc4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3b0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29499,6 +29436,7 @@ function SceneList() {
     let list = [];
     for(const scene in scenes)list.push(scenes[scene]);
     const sceneList = list.map((s, k)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneDefault.default), {
+            index: k,
             title: s.title
         }, k, false, {
             fileName: "src/components/SceneList.jsx",
@@ -29565,7 +29503,7 @@ $RefreshReg$(_c, "SceneList");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Scene":"018hX","react-redux":"bdVon"}],"018hX":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","./Scene":"018hX"}],"018hX":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7640 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29577,21 +29515,266 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function Scene({ title  }) {
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _hotspotList = require("./HotspotList");
+var _hotspotListDefault = parcelHelpers.interopDefault(_hotspotList);
+var _s = $RefreshSig$();
+function Scene({ index , title  }) {
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const formRef = (0, _react.useRef)(0);
+    const [yaw, setYaw] = (0, _react.useState)(0);
+    const [pitch, setPitch] = (0, _react.useState)(0);
+    const [type, setType] = (0, _react.useState)("");
+    const [sceneId, setSceneId] = (0, _react.useState)("");
+    function getOrientationHandler(e) {
+        e.preventDefault();
+        setYaw(window.panorama.getYaw());
+        setPitch(window.panorama.getPitch());
+    }
+    function yawHandler(e) {
+        e.preventDefault();
+        setYaw(e.target.value);
+    }
+    function pitchHandler(e) {
+        e.preventDefault();
+        setPitch(e.target.value);
+    }
+    function radioHandler(e) {
+        setType(e.target.value);
+    }
+    function sceneHandler(e) {
+        setSceneId(e.target.value);
+    }
+    function addHotspotHandler(e) {
+        e.preventDefault();
+        const form = {
+            title,
+            pitch: pitch.toFixed(2),
+            yaw: yaw.toFixed(2),
+            type,
+            sceneId
+        };
+        dispatch((0, _actions.addHotspotAction)(form));
+        clearForm();
+    }
+    function clearHandler(e) {
+        e.preventDefault();
+        clearForm();
+    }
+    function clearForm() {
+        setSceneId("");
+        setYaw(0);
+        setPitch(0);
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-            children: title
-        }, void 0, false, {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                    children: title
+                }, void 0, false, {
+                    fileName: "src/components/Scene.jsx",
+                    lineNumber: 71,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("details", {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("summary", {
+                            children: "add new hotspot"
+                        }, void 0, false, {
+                            fileName: "src/components/Scene.jsx",
+                            lineNumber: 73,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 75,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    htmlFor: "sceneId",
+                                    children: "sceneId"
+                                }, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 76,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    name: "sceneId",
+                                    value: sceneId,
+                                    onChange: sceneHandler,
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 77,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 78,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: getOrientationHandler,
+                                    children: "from view"
+                                }, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 80,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 81,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    htmlFor: "yaw",
+                                    children: "yaw"
+                                }, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 82,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    name: "yaw",
+                                    value: yaw,
+                                    onChange: yawHandler,
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 83,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 84,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    htmlFor: "pitch",
+                                    children: "pitch"
+                                }, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 85,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    name: "pitch",
+                                    value: pitch,
+                                    onChange: pitchHandler,
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 86,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    onChange: radioHandler,
+                                    defaultChecked: "info",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                            htmlFor: "info",
+                                            children: "info"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Scene.jsx",
+                                            lineNumber: 89,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                            type: "radio",
+                                            name: "type",
+                                            value: "info"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Scene.jsx",
+                                            lineNumber: 90,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                            htmlFor: "scene",
+                                            children: "scene"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Scene.jsx",
+                                            lineNumber: 92,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                            type: "radio",
+                                            name: "type",
+                                            value: "scene"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Scene.jsx",
+                                            lineNumber: 93,
+                                            columnNumber: 29
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 88,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 95,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "submit",
+                                    onClick: addHotspotHandler
+                                }, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 96,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: clearHandler,
+                                    children: "clear"
+                                }, void 0, false, {
+                                    fileName: "src/components/Scene.jsx",
+                                    lineNumber: 97,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Scene.jsx",
+                            lineNumber: 74,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/Scene.jsx",
+                    lineNumber: 72,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotListDefault.default), {
+                    title: title
+                }, void 0, false, {
+                    fileName: "src/components/Scene.jsx",
+                    lineNumber: 100,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
             fileName: "src/components/Scene.jsx",
-            lineNumber: 6,
+            lineNumber: 70,
             columnNumber: 13
         }, this)
-    }, void 0, false, {
+    }, index, false, {
         fileName: "src/components/Scene.jsx",
-        lineNumber: 5,
+        lineNumber: 69,
         columnNumber: 9
     }, this);
 }
+_s(Scene, "FmKOEhKqTF5vIcy5ePTSH89wYOs=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
 _c = Scene;
 exports.default = Scene;
 var _c;
@@ -29602,7 +29785,192 @@ $RefreshReg$(_c, "Scene");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h7o8t":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII","./HotspotList":"6yCK8"}],"6yCK8":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$cde1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$cde1.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _hotspot = require("./Hotspot");
+var _hotspotDefault = parcelHelpers.interopDefault(_hotspot);
+var _s = $RefreshSig$();
+function HotspotList({ title  }) {
+    _s();
+    const hotspots = (0, _reactRedux.useSelector)((s)=>s.scenes[title]?.hotSpots);
+    if (hotspots) {
+        console.log(hotspots);
+        const hotspotList = hotspots.map((v, k)=>{
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotDefault.default), {
+                index: k,
+                parent: title
+            }, k, false, {
+                fileName: "src/components/HotspotList.jsx",
+                lineNumber: 12,
+                columnNumber: 21
+            }, this);
+        });
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                children: hotspotList
+            }, void 0, false, {
+                fileName: "src/components/HotspotList.jsx",
+                lineNumber: 17,
+                columnNumber: 17
+            }, this)
+        }, void 0, false);
+    } else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            children: "no hotspots"
+        }, void 0, false, {
+            fileName: "src/components/HotspotList.jsx",
+            lineNumber: 27,
+            columnNumber: 17
+        }, this)
+    }, void 0, false);
+}
+_s(HotspotList, "CWPVaKh1iXDJLLMMvZ2N0OHLr8s=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
+_c = HotspotList;
+exports.default = HotspotList;
+var _c;
+$RefreshReg$(_c, "HotspotList");
+
+  $parcel$ReactRefreshHelpers$cde1.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","./Hotspot":"4vVNu"}],"4vVNu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a57b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a57b.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _s = $RefreshSig$();
+function Hotspot({ index , parent  }) {
+    _s();
+    const hotspot = (0, _reactRedux.useSelector)((s)=>s.scenes?.[parent]?.hotSpots[index]);
+    const dispatch = (0, _reactRedux.useDispatch)();
+    function removeHandler(e) {
+        dispatch((0, _actions.removeHotspotAction)(index, parent));
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+        className: "hotspotCard",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "index ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                        children: index
+                    }, void 0, false, {
+                        fileName: "src/components/Hotspot.jsx",
+                        lineNumber: 17,
+                        columnNumber: 22
+                    }, this),
+                    " sceneId: ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                        children: hotspot.sceneId
+                    }, void 0, false, {
+                        fileName: "src/components/Hotspot.jsx",
+                        lineNumber: 17,
+                        columnNumber: 46
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Hotspot.jsx",
+                lineNumber: 17,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "Yaw: ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                        children: hotspot.yaw
+                    }, void 0, false, {
+                        fileName: "src/components/Hotspot.jsx",
+                        lineNumber: 18,
+                        columnNumber: 21
+                    }, this),
+                    " Pitch: ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                        children: hotspot.pitch
+                    }, void 0, false, {
+                        fileName: "src/components/Hotspot.jsx",
+                        lineNumber: 18,
+                        columnNumber: 49
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Hotspot.jsx",
+                lineNumber: 18,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "type: ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                        children: hotspot.type
+                    }, void 0, false, {
+                        fileName: "src/components/Hotspot.jsx",
+                        lineNumber: 19,
+                        columnNumber: 22
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Hotspot.jsx",
+                lineNumber: 19,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: removeHandler,
+                children: "remove"
+            }, void 0, false, {
+                fileName: "src/components/Hotspot.jsx",
+                lineNumber: 21,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Hotspot.jsx",
+        lineNumber: 16,
+        columnNumber: 9
+    }, this);
+}
+_s(Hotspot, "bLZZNlXPlwp4D6s0eHCU2X+KFFg=", false, function() {
+    return [
+        (0, _reactRedux.useSelector),
+        (0, _reactRedux.useDispatch)
+    ];
+});
+_c = Hotspot;
+exports.default = Hotspot;
+var _c;
+$RefreshReg$(_c, "Hotspot");
+
+  $parcel$ReactRefreshHelpers$a57b.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII"}],"h7o8t":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d4b4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29622,15 +29990,14 @@ function View() {
     function resetHandler(e) {
         window.panorama?.destroy();
         window.panorama = window.pannellum.viewer("out", store);
-        console.log(store);
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                children: "viewer"
+                children: "pannellum viewer"
             }, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 18,
+                lineNumber: 17,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29638,30 +30005,30 @@ function View() {
                 children: "Reset"
             }, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 19,
+                lineNumber: 18,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 20,
+                lineNumber: 19,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 21,
+                lineNumber: 20,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 id: "out"
             }, void 0, false, {
                 fileName: "src/components/View.jsx",
-                lineNumber: 22,
+                lineNumber: 21,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/View.jsx",
-        lineNumber: 17,
+        lineNumber: 16,
         columnNumber: 3
     }, this);
 }
@@ -30529,6 +30896,23 @@ var _storeDefaultsDefault = parcelHelpers.interopDefault(_storeDefaults);
 function clone(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
+/*
+ * 
+ */ function addHotspot(store, hotspot) {
+    const { title , ...newSpot } = hotspot;
+    if (store.scenes[title]?.hotSpots == undefined) store.scenes[title].hotSpots = [];
+    store.scenes[title].hotSpots.push(newSpot);
+    return store;
+}
+function removeHotspot(store, payload) {
+    const { index , parent  } = payload;
+    console.log(parent);
+    if (store.scenes?.[parent]?.hotSpots[index]) {
+        const hotspots = store.scenes?.[parent]?.hotSpots.filter((v, i)=>i != index);
+        store.scenes[parent].hotSpots = hotspots;
+    }
+    return store;
+}
 function reducer(store = (0, _storeDefaultsDefault.default), action) {
     const copy = clone(store);
     switch(action.type){
@@ -30554,6 +30938,10 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
         case "SET_FIRST_SCENE":
             copy.default.firstScene = action.payload;
             return copy;
+        case "ADD_HOTSPOT":
+            return addHotspot(copy, action.payload);
+        case "REMOVE_HOTSPOT":
+            return removeHotspot(copy, action.payload);
         default:
             return store;
     }

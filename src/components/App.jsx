@@ -1,6 +1,5 @@
 import React from 'react';
 import ArticleList from './ArticleList';
-import AssetsPath from './AssetsPath';
 import FileMenu from './FileMenu';
 import SceneList from './SceneList';
 import View from './View';
@@ -10,26 +9,26 @@ import AddAtricle from './AddAtricle';
 
 function App() {
 	return (
-		<main>
-			<div>
-				<FileMenu></FileMenu>
-				<AssetsPath></AssetsPath>
-				<FirstScene></FirstScene>
-				<hr />
-				<div>
+		<>
+			<div id="layout">
+				<aside>
+					<FileMenu></FileMenu>
+					<FirstScene></FirstScene>
+					<hr />
 					<AddPanorama></AddPanorama>
 					<SceneList></SceneList>
-				</div>
-				<hr />
-				<div>
-					<AddAtricle></AddAtricle>
-					<ArticleList></ArticleList>
-				</div>
+					<hr />
+					<div>
+						<AddAtricle></AddAtricle>
+						<ArticleList></ArticleList>
+					</div>
+				</aside>
+
+				<main>
+					<View></View>
+				</main>
 			</div>
-			<div>
-				<View></View>
-			</div>
-		</main>
+		</>
 	);
 }
 

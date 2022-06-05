@@ -11,13 +11,14 @@
 
     <style>
         body {
+            box-sizing: border-box;
             background-color: darkgray;
             font-family: 'Courier New', Courier, monospace;
         }
 
         #out {
-            width: 800px;
-            height: 500px;
+            width: 580px;
+            height: 400px;
         }
 
         legend {
@@ -25,20 +26,47 @@
             background: black;
         }
 
-        main {
+        #layout {
             display: flex;
             flex-direction: row;
         }
 
-        li {
+        ul {
             list-style: none;
+            padding: 4px;
+        }
+
+        aside {
+            min-width: 400px;
+        }
+
+        input {
+            margin: 2px;
+        }
+
+        details {
+            border: 2px dotted black;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .hotspotCard {
+            margin: 2px;
+            padding: 2px;
+            background-color: rgba(1, 1, 1, 0.2);
+        }
+
+        p {
+            padding: 1px;
+            margin: 1px;
         }
     </style>
 </head>
 
 <body>
     <div id="root"></div>
-
 </body>
 
 <script src="index.jsx" type="module"></script>

@@ -10,13 +10,14 @@
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
     <style>body {
+  box-sizing: border-box;
   background-color: #a9a9a9;
   font-family: Courier New, Courier, monospace;
 }
 
 #out {
-  width: 800px;
-  height: 500px;
+  width: 580px;
+  height: 400px;
 }
 
 legend {
@@ -24,13 +25,41 @@ legend {
   background: #000;
 }
 
-main {
+#layout {
   flex-direction: row;
   display: flex;
 }
 
-li {
+ul {
+  padding: 4px;
   list-style: none;
+}
+
+aside {
+  min-width: 400px;
+}
+
+input {
+  margin: 2px;
+}
+
+details {
+  border: 2px dotted #000;
+}
+
+li {
+  list-style-type: none;
+}
+
+.hotspotCard {
+  background-color: #01010133;
+  margin: 2px;
+  padding: 2px;
+}
+
+p {
+  margin: 1px;
+  padding: 1px;
 }
 
 </style>
@@ -38,7 +67,6 @@ li {
 
 <body>
     <div id="root"></div>
-
 </body>
 
 <script src="/index.b4b6dfad.js" defer=""></script>

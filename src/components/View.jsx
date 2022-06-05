@@ -9,13 +9,12 @@ function View() {
 		window.panorama?.destroy();
 
 		window.panorama = window.pannellum.viewer('out', store)
-		console.log(store)
 	}
 
 
 	return (
 		<fieldset>
-			<legend>viewer</legend>
+			<legend>pannellum viewer</legend>
 			<button onClick={resetHandler}>Reset</button>
 			<hr />
 			<br />

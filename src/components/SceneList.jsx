@@ -12,7 +12,7 @@ function SceneList() {
 		list.push(scenes[scene])
 	}
 
-	const sceneList = list.map((s, k) => (<Scene key={k} title={s.title} />))
+	const sceneList = list.map((s, k) => (<Scene key={k} index={k} title={s.title} />))
 
 	if (list.length == 0) {
 		return (
