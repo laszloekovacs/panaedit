@@ -7,7 +7,6 @@ function HotspotList({ title }) {
     const hotspots = useSelector(s => s.scenes[title]?.hotSpots);
 
     if (hotspots) {
-        console.log(hotspots)
         const hotspotList = hotspots.map((v, k) => {
             return (<Hotspot key={k} index={k} parent={title}></Hotspot>)
         })

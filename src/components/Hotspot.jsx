@@ -11,12 +11,12 @@ function Hotspot({ index, parent }) {
         dispatch(removeHotspotAction(index, parent))
     }
 
+    const id = hotspot.type == 'info' ? hotspot?.text : hotspot?.sceneId
 
     return (
         <li className='hotspotCard'>
-            <p>index <b>{index}</b> sceneId: <b>{hotspot.sceneId}</b></p>
             <p>Yaw: <b>{hotspot.yaw}</b> Pitch: <b>{hotspot.pitch}</b></p>
-            <p>type: <b>{hotspot.type}</b></p>
+            <p>type: <b>{hotspot.type}</b> : <b>{id}</b></p>
 
             <button onClick={removeHandler}>remove</button>
         </li>

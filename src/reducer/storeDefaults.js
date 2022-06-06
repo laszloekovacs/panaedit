@@ -4,7 +4,7 @@ export default storeDefaults = {
         "firstScene": 0,
         "sceneFadeDuration": 1000,
         "type": "equirectangular",
-        "autoLoad": false,
+        "autoLoad": true,
         "compass": false,
         "hotSpotDebug": true,
         "hfov": 110,

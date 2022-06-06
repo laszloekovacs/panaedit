@@ -4,7 +4,7 @@
 	"description": "",
 	"source": "./src/index.html",
 	"scripts": {
-		"start": "parcel -p8876"
+		"start": "parcel -p8776"
 	},
 	"keywords": [],
 	"author": "",
