@@ -29014,6 +29014,7 @@ function Article({ index , title , text  }) {
         setEditing(false);
     }
     if (!editing) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "card",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: editHandler,
@@ -29045,11 +29046,6 @@ function Article({ index , title , text  }) {
                 lineNumber: 31,
                 columnNumber: 5
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 32,
-                columnNumber: 5
-            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imagesDefault.default), {
                 title: title
             }, void 0, false, {
@@ -29064,6 +29060,7 @@ function Article({ index , title , text  }) {
         columnNumber: 4
     }, this);
     else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "card",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleEditorDefault.default), {
                 title: title,
@@ -29071,11 +29068,6 @@ function Article({ index , title , text  }) {
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
                 lineNumber: 39,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 43,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imagesDefault.default), {
@@ -29490,6 +29482,7 @@ function Images({ title  }) {
     const imagepath = (0, _reactRedux.useSelector)((s)=>s.default.imagePath);
     const article = (0, _reactRedux.useSelector)((s)=>s.articles.find((a)=>a.title == title));
     const galery = article?.images?.map((p, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+            className: "imageCard",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: imagepath + p
@@ -29531,6 +29524,7 @@ function Images({ title  }) {
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                className: "horizontal",
                 children: galery
             }, void 0, false, {
                 fileName: "src/components/Images.jsx",
@@ -30205,26 +30199,35 @@ function HotspotList({ title  }) {
                 parent: title
             }, k, false, {
                 fileName: "src/components/HotspotList.jsx",
-                lineNumber: 11,
-                columnNumber: 21
+                lineNumber: 10,
+                columnNumber: 11
             }, this);
         });
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                children: hotspotList
-            }, void 0, false, {
-                fileName: "src/components/HotspotList.jsx",
-                lineNumber: 16,
-                columnNumber: 17
-            }, this)
-        }, void 0, false);
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    children: "hotspots"
+                }, void 0, false, {
+                    fileName: "src/components/HotspotList.jsx",
+                    lineNumber: 15,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    children: hotspotList
+                }, void 0, false, {
+                    fileName: "src/components/HotspotList.jsx",
+                    lineNumber: 16,
+                    columnNumber: 5
+                }, this)
+            ]
+        }, void 0, true);
     } else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
             children: "no hotspots"
         }, void 0, false, {
             fileName: "src/components/HotspotList.jsx",
-            lineNumber: 26,
-            columnNumber: 17
+            lineNumber: 22,
+            columnNumber: 5
         }, this)
     }, void 0, false);
 }
@@ -30267,7 +30270,7 @@ function Hotspot({ index , parent  }) {
     }
     const id = hotspot.type == "info" ? hotspot?.text : hotspot?.sceneId;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-        className: "hotspotCard",
+        className: "card",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: [
@@ -30277,7 +30280,7 @@ function Hotspot({ index , parent  }) {
                     }, void 0, false, {
                         fileName: "src/components/Hotspot.jsx",
                         lineNumber: 18,
-                        columnNumber: 21
+                        columnNumber: 10
                     }, this),
                     " Pitch: ",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
@@ -30285,13 +30288,13 @@ function Hotspot({ index , parent  }) {
                     }, void 0, false, {
                         fileName: "src/components/Hotspot.jsx",
                         lineNumber: 18,
-                        columnNumber: 49
+                        columnNumber: 38
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Hotspot.jsx",
-                lineNumber: 18,
-                columnNumber: 13
+                lineNumber: 17,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: [
@@ -30300,36 +30303,36 @@ function Hotspot({ index , parent  }) {
                         children: hotspot.type
                     }, void 0, false, {
                         fileName: "src/components/Hotspot.jsx",
-                        lineNumber: 19,
-                        columnNumber: 22
+                        lineNumber: 21,
+                        columnNumber: 11
                     }, this),
                     " : ",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
                         children: id
                     }, void 0, false, {
                         fileName: "src/components/Hotspot.jsx",
-                        lineNumber: 19,
-                        columnNumber: 46
+                        lineNumber: 21,
+                        columnNumber: 35
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Hotspot.jsx",
-                lineNumber: 19,
-                columnNumber: 13
+                lineNumber: 20,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: removeHandler,
                 children: "remove"
             }, void 0, false, {
                 fileName: "src/components/Hotspot.jsx",
-                lineNumber: 21,
-                columnNumber: 13
+                lineNumber: 24,
+                columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Hotspot.jsx",
-        lineNumber: 17,
-        columnNumber: 9
+        lineNumber: 16,
+        columnNumber: 3
     }, this);
 }
 _s(Hotspot, "bLZZNlXPlwp4D6s0eHCU2X+KFFg=", false, function() {

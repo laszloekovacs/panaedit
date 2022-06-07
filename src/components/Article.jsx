@@ -24,23 +24,23 @@ function Article({index, title, text}) {
 
 	if (!editing) {
 		return (
-			<div>
+			<div className="card">
 				<button onClick={editHandler}>edit</button>
 				<button onClick={removeHandler}>remove article</button>
 				<h2>{title}</h2>
 				<div>{text}</div>
-				<hr />
+
 				<Images title={title} />
 			</div>
 		);
 	} else {
 		return (
-			<div>
+			<div className="card">
 				<ArticleEditor
 					title={title}
 					onClose={saveHandler}
 				></ArticleEditor>
-				<hr />
+
 				<Images title={title} />
 			</div>
 		);

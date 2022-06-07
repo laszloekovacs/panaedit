@@ -17,7 +17,7 @@ function Images({title}) {
 	);
 
 	const galery = article?.images?.map((p, i) => (
-		<li key={i}>
+		<li key={i} className="imageCard">
 			<img src={imagepath + p}></img>
 			<button onClick={(e) => remove(i)}>❌</button>
 		</li>
@@ -38,7 +38,7 @@ function Images({title}) {
 	return (
 		<>
 			<button onClick={addImageHandler}>add image...</button>
-			<ul>{galery}</ul>
+			<ul className="horizontal">{galery}</ul>
 		</>
 	);
 }

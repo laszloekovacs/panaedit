@@ -52,7 +52,7 @@
             list-style-type: none;
         }
 
-        .hotspotCard {
+        .card {
             margin: 2px;
             padding: 2px;
             background-color: rgba(1, 1, 1, 0.2);
@@ -80,6 +80,23 @@
 
         img {
             max-width: 100px;
+        }
+
+        .horizontal {
+            display: flex;
+            flex-direction: row;
+            justify-items: end;
+        }
+
+        .imageCard {
+            position: relative;
+
+        }
+
+        .imageCard button {
+            position: absolute;
+            top: 2px;
+            left: 2px;
         }
     </style>
 </head>
