@@ -28,6 +28,7 @@ function ArticleEditor({title, onClose}) {
 	return (
 		<div>
 			<form onSubmit={saveHandler}>
+				<input type="submit" value="save" />
 				<label htmlFor="title">title</label>
 				<input
 					type="text"
@@ -35,7 +36,7 @@ function ArticleEditor({title, onClose}) {
 					id="title"
 					required
 					value={_title}
-					onChange={(e) => setNewTitle(e.target.value)}
+					onChange={(e) => setTitle(e.target.value)}
 				/>
 				<hr />
 				<label htmlFor="text">article text</label>
@@ -48,10 +49,6 @@ function ArticleEditor({title, onClose}) {
 					value={_text}
 					onChange={(e) => setText(e.target.value)}
 				></textarea>
-				<br />
-
-				<hr />
-				<input type="submit" value="save" />
 			</form>
 		</div>
 	);

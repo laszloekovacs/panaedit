@@ -25,11 +25,12 @@ function Article({index, title, text}) {
 	if (!editing) {
 		return (
 			<div>
-				<h2>{title}</h2>
-				<button onClick={removeHandler}>remove article</button>
-				<div>{text}</div>
-				<Images title={title} />
 				<button onClick={editHandler}>edit</button>
+				<button onClick={removeHandler}>remove article</button>
+				<h2>{title}</h2>
+				<div>{text}</div>
+				<hr />
+				<Images title={title} />
 			</div>
 		);
 	} else {
@@ -39,6 +40,8 @@ function Article({index, title, text}) {
 					title={title}
 					onClose={saveHandler}
 				></ArticleEditor>
+				<hr />
+				<Images title={title} />
 			</div>
 		);
 	}

@@ -22,7 +22,7 @@ function addHotspot(store, hotspot) {
 function removeHotspot(store, payload) {
 
     const { index, parent } = payload;
-    console.log(parent)
+
 
     if (store.scenes?.[parent]?.hotSpots[index]) {
         const hotspots = store.scenes?.[parent]?.hotSpots.filter((v, i) => i != index)
@@ -136,7 +136,6 @@ export default function reducer(store = storeDefaults, action) {
             return setImage(copy, action.payload);
 
         case "SET_INITIAL":
-            console.log("something?")
             return setInitial(copy, action.payload);
 
         default:

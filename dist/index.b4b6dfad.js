@@ -29015,8 +29015,9 @@ function Article({ index , title , text  }) {
     }
     if (!editing) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: title
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: editHandler,
+                children: "edit"
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
                 lineNumber: 28,
@@ -29030,26 +29031,30 @@ function Article({ index , title , text  }) {
                 lineNumber: 29,
                 columnNumber: 5
             }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: title
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 30,
+                columnNumber: 5
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: text
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
-                lineNumber: 30,
+                lineNumber: 31,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 32,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imagesDefault.default), {
                 title: title
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
-                lineNumber: 31,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: editHandler,
-                children: "edit"
-            }, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 32,
+                lineNumber: 33,
                 columnNumber: 5
             }, this)
         ]
@@ -29059,17 +29064,31 @@ function Article({ index , title , text  }) {
         columnNumber: 4
     }, this);
     else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleEditorDefault.default), {
-            title: title,
-            onClose: saveHandler
-        }, void 0, false, {
-            fileName: "src/components/Article.jsx",
-            lineNumber: 38,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleEditorDefault.default), {
+                title: title,
+                onClose: saveHandler
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 39,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 43,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imagesDefault.default), {
+                title: title
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 44,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "src/components/Article.jsx",
-        lineNumber: 37,
+        lineNumber: 38,
         columnNumber: 4
     }, this);
 }
@@ -29230,12 +29249,20 @@ function ArticleEditor({ title , onClose  }) {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
             onSubmit: saveHandler,
             children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "submit",
+                    value: "save"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 31,
+                    columnNumber: 5
+                }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                     htmlFor: "title",
                     children: "title"
                 }, void 0, false, {
                     fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 31,
+                    lineNumber: 32,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -29244,15 +29271,15 @@ function ArticleEditor({ title , onClose  }) {
                     id: "title",
                     required: true,
                     value: _title,
-                    onChange: (e)=>setNewTitle(e.target.value)
+                    onChange: (e)=>setTitle(e.target.value)
                 }, void 0, false, {
                     fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 32,
+                    lineNumber: 33,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                     fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 40,
+                    lineNumber: 41,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -29260,12 +29287,12 @@ function ArticleEditor({ title , onClose  }) {
                     children: "article text"
                 }, void 0, false, {
                     fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 41,
+                    lineNumber: 42,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                     fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 42,
+                    lineNumber: 43,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -29277,25 +29304,7 @@ function ArticleEditor({ title , onClose  }) {
                     onChange: (e)=>setText(e.target.value)
                 }, void 0, false, {
                     fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 43,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 51,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 53,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    type: "submit",
-                    value: "save"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 54,
+                    lineNumber: 44,
                     columnNumber: 5
                 }, this)
             ]
@@ -29810,8 +29819,7 @@ function Scene({ index , title  }) {
         const yaw = window?.panorama?.getYaw();
         const pitch = window?.panorama?.getPitch();
         if (!yaw || !pitch) return;
-        console.log("click");
-        (0, _actions.setInitialRotationAction)(title, yaw, pitch);
+        dispatch((0, _actions.setInitialRotationAction)(title, yaw, pitch));
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
@@ -29824,26 +29832,38 @@ function Scene({ index , title  }) {
                     lineNumber: 40,
                     columnNumber: 5
                 }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: [
+                        "initial yaw: ",
+                        scenes[title]?.yaw?.toFixed(2),
+                        " pitch:",
+                        scenes[title]?.pitch?.toFixed(2)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/Scene.jsx",
+                    lineNumber: 41,
+                    columnNumber: 5
+                }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                     onClick: setOrientationHandler,
                     children: "set as initial"
                 }, void 0, false, {
                     fileName: "src/components/Scene.jsx",
-                    lineNumber: 41,
+                    lineNumber: 45,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addHotspotDefault.default), {
                     title: title
                 }, void 0, false, {
                     fileName: "src/components/Scene.jsx",
-                    lineNumber: 42,
+                    lineNumber: 46,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotListDefault.default), {
                     title: title
                 }, void 0, false, {
                     fileName: "src/components/Scene.jsx",
-                    lineNumber: 43,
+                    lineNumber: 47,
                     columnNumber: 5
                 }, this)
             ]
@@ -31272,7 +31292,6 @@ function addHotspot(store, hotspot) {
 }
 function removeHotspot(store, payload) {
     const { index , parent  } = payload;
-    console.log(parent);
     if (store.scenes?.[parent]?.hotSpots[index]) {
         const hotspots = store.scenes?.[parent]?.hotSpots.filter((v, i)=>i != index);
         store.scenes[parent].hotSpots = hotspots;
@@ -31355,7 +31374,6 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
         case "PASTE_IMAGES":
             return setImage(copy, action.payload);
         case "SET_INITIAL":
-            console.log("something?");
             return setInitial(copy, action.payload);
         default:
             return store;

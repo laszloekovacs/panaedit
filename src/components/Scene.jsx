@@ -29,8 +29,8 @@ function Scene({index, title}) {
 		const pitch = window?.panorama?.getPitch();
 
 		if (!yaw || !pitch) return;
-		console.log('click');
-		setInitialRotationAction(title, yaw, pitch);
+
+		dispatch(setInitialRotationAction(title, yaw, pitch));
 	}
 
 	return (
@@ -38,6 +38,10 @@ function Scene({index, title}) {
 			<fieldset>
 				{pin}
 				<h3>{title}</h3>
+				<p>
+					initial yaw: {scenes[title]?.yaw?.toFixed(2)} pitch:
+					{scenes[title]?.pitch?.toFixed(2)}
+				</p>
 				<button onClick={setOrientationHandler}>set as initial</button>
 				<AddHotspot title={title}></AddHotspot>
 				<HotspotList title={title}></HotspotList>
