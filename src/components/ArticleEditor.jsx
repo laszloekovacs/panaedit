@@ -50,7 +50,7 @@ function ArticleEditor({title, onClose}) {
 				></textarea>
 				<br />
 
-				<p>images go here</p>
+				<hr />
 				<input type="submit" value="save" />
 			</form>
 		</div>

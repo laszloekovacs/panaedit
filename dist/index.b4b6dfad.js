@@ -28996,6 +28996,8 @@ var _reactRedux = require("react-redux");
 var _actions = require("../reducer/actions");
 var _articleEditor = require("./ArticleEditor");
 var _articleEditorDefault = parcelHelpers.interopDefault(_articleEditor);
+var _images = require("./Images");
+var _imagesDefault = parcelHelpers.interopDefault(_images);
 var _s = $RefreshSig$();
 function Article({ index , title , text  }) {
     _s();
@@ -29017,14 +29019,29 @@ function Article({ index , title , text  }) {
                 children: title
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
-                lineNumber: 27,
+                lineNumber: 28,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: removeHandler,
+                children: "remove article"
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 29,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: text
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
-                lineNumber: 28,
+                lineNumber: 30,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imagesDefault.default), {
+                title: title
+            }, void 0, false, {
+                fileName: "src/components/Article.jsx",
+                lineNumber: 31,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29032,29 +29049,27 @@ function Article({ index , title , text  }) {
                 children: "edit"
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
-                lineNumber: 29,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: removeHandler,
-                children: "remove"
-            }, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 30,
+                lineNumber: 32,
                 columnNumber: 5
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Article.jsx",
-        lineNumber: 26,
+        lineNumber: 27,
         columnNumber: 4
     }, this);
-    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleEditorDefault.default), {
-        title: title,
-        onClose: saveHandler
+    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleEditorDefault.default), {
+            title: title,
+            onClose: saveHandler
+        }, void 0, false, {
+            fileName: "src/components/Article.jsx",
+            lineNumber: 38,
+            columnNumber: 5
+        }, this)
     }, void 0, false, {
         fileName: "src/components/Article.jsx",
-        lineNumber: 35,
+        lineNumber: 37,
         columnNumber: 4
     }, this);
 }
@@ -29073,7 +29088,7 @@ $RefreshReg$(_c, "Article");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ArticleEditor":"kUpzF"}],"3HrII":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","./ArticleEditor":"kUpzF","./Images":"6yKYp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3HrII":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "loadFileAction", ()=>loadFileAction);
@@ -29085,6 +29100,7 @@ parcelHelpers.export(exports, "setFirstSceneAction", ()=>setFirstSceneAction);
 parcelHelpers.export(exports, "addHotspotAction", ()=>addHotspotAction);
 parcelHelpers.export(exports, "removeHotspotAction", ()=>removeHotspotAction);
 parcelHelpers.export(exports, "updateArticleAction", ()=>updateArticleAction);
+parcelHelpers.export(exports, "removeImageAction", ()=>removeImageAction);
 function loadFileAction(data) {
     return {
         type: "LOAD_FILE",
@@ -29146,8 +29162,149 @@ function updateArticleAction(oldTitle, newTitle, text) {
         }
     };
 }
+function removeImageAction(article, index) {
+    return {
+        type: "REMOVE_IMAGE",
+        payload: {
+            article,
+            index
+        }
+    };
+}
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kUpzF":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6c58 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$6c58.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _s = $RefreshSig$();
+function ArticleEditor({ title , onClose  }) {
+    _s();
+    const [_title, setTitle] = (0, _react.useState)("");
+    const [_text, setText] = (0, _react.useState)("");
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const articles = (0, _reactRedux.useSelector)((s)=>s.articles);
+    (0, _react.useEffect)(()=>{
+        const article = articles.find((v)=>v.title == title);
+        if (article == undefined) console.error("cant find article");
+        setTitle(article.title);
+        setText(article?.text);
+    }, []);
+    function saveHandler(e) {
+        e.preventDefault();
+        dispatch((0, _actions.updateArticleAction)(title, _title, _text));
+        onClose();
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+            onSubmit: saveHandler,
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "title",
+                    children: "title"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 31,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "title",
+                    id: "title",
+                    required: true,
+                    value: _title,
+                    onChange: (e)=>setNewTitle(e.target.value)
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 32,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 40,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "text",
+                    children: "article text"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 41,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 42,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                    name: "text",
+                    id: "text",
+                    cols: "40",
+                    rows: "4",
+                    value: _text,
+                    onChange: (e)=>setText(e.target.value)
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 43,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 51,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 53,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "submit",
+                    value: "save"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 54,
+                    columnNumber: 5
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/ArticleEditor.jsx",
+            lineNumber: 30,
+            columnNumber: 4
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/ArticleEditor.jsx",
+        lineNumber: 29,
+        columnNumber: 3
+    }, this);
+}
+_s(ArticleEditor, "2f4yP/WA88YWsuu/w/yF3QkQb6U=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch),
+        (0, _reactRedux.useSelector)
+    ];
+});
+_c = ArticleEditor;
+exports.default = ArticleEditor;
+var _c;
+$RefreshReg$(_c, "ArticleEditor");
+
+  $parcel$ReactRefreshHelpers$6c58.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("react-refresh/runtime");
 function debounce(func, delay) {
@@ -29267,11 +29424,11 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"kUpzF":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$6c58 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react-refresh/runtime":"786KC"}],"6yKYp":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0662 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$6c58.prelude(module);
+$parcel$ReactRefreshHelpers$0662.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -29282,126 +29439,74 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRedux = require("react-redux");
 var _actions = require("../reducer/actions");
 var _s = $RefreshSig$();
-function ArticleEditor({ title , onClose  }) {
+function Images({ title  }) {
     _s();
-    const [_title, setTitle] = (0, _react.useState)("");
-    const [_text, setText] = (0, _react.useState)("");
     const dispatch = (0, _reactRedux.useDispatch)();
-    const articles = (0, _reactRedux.useSelector)((s)=>s.articles);
-    (0, _react.useEffect)(()=>{
-        const article = articles.find((v)=>v.title == title);
-        if (article == undefined) console.error("cant find article");
-        setTitle(article.title);
-        setText(article?.text);
-    }, []);
-    function saveHandler(e) {
-        e.preventDefault();
-        dispatch((0, _actions.updateArticleAction)(title, _title, _text));
-        onClose();
+    const imagepath = (0, _reactRedux.useSelector)((s)=>s.default.imagePath);
+    const article = (0, _reactRedux.useSelector)((s)=>s.articles.find((a)=>a.title == title));
+    function remove(i) {
+        dispatch((0, _actions.removeImageAction)(title, i));
     }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-            onSubmit: saveHandler,
+    const galery = article.images.map((p, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "title",
-                    children: "title"
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: imagepath + p
+                }, i, false, {
+                    fileName: "src/components/Images.jsx",
+                    lineNumber: 20,
+                    columnNumber: 4
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: (e)=>remove(i),
+                    children: "\u274C"
                 }, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 31,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    type: "text",
-                    name: "title",
-                    id: "title",
-                    required: true,
-                    value: _title,
-                    onChange: (e)=>setNewTitle(e.target.value)
-                }, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 32,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 40,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "text",
-                    children: "article text"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 41,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 42,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                    name: "text",
-                    id: "text",
-                    cols: "40",
-                    rows: "4",
-                    value: _text,
-                    onChange: (e)=>setText(e.target.value)
-                }, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 43,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 51,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: "images go here"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 53,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    type: "submit",
-                    value: "save"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 54,
-                    columnNumber: 5
+                    fileName: "src/components/Images.jsx",
+                    lineNumber: 21,
+                    columnNumber: 4
                 }, this)
             ]
         }, void 0, true, {
-            fileName: "src/components/ArticleEditor.jsx",
-            lineNumber: 30,
-            columnNumber: 4
-        }, this)
-    }, void 0, false, {
-        fileName: "src/components/ArticleEditor.jsx",
-        lineNumber: 29,
-        columnNumber: 3
-    }, this);
+            fileName: "src/components/Images.jsx",
+            lineNumber: 19,
+            columnNumber: 3
+        }, this));
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                children: "add image..."
+            }, void 0, false, {
+                fileName: "src/components/Images.jsx",
+                lineNumber: 27,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                children: galery
+            }, void 0, false, {
+                fileName: "src/components/Images.jsx",
+                lineNumber: 28,
+                columnNumber: 4
+            }, this)
+        ]
+    }, void 0, true);
 }
-_s(ArticleEditor, "2f4yP/WA88YWsuu/w/yF3QkQb6U=", false, function() {
+_s(Images, "IAlULkTfXn73kyosuxWDqPiK+ig=", false, function() {
     return [
         (0, _reactRedux.useDispatch),
+        (0, _reactRedux.useSelector),
         (0, _reactRedux.useSelector)
     ];
 });
-_c = ArticleEditor;
-exports.default = ArticleEditor;
+_c = Images;
+exports.default = Images;
 var _c;
-$RefreshReg$(_c, "ArticleEditor");
+$RefreshReg$(_c, "Images");
 
-  $parcel$ReactRefreshHelpers$6c58.postlude(module);
+  $parcel$ReactRefreshHelpers$0662.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII"}],"1YNc4":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1YNc4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3b0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29712,7 +29817,7 @@ $RefreshReg$(_c, "Scene");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon"}],"8TnZr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8TnZr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c6b1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31096,6 +31201,7 @@ exports.devToolsEnhancer = typeof window !== "undefined" && window.__REDUX_DEVTO
 },{"redux":"cDNB3"}],"i0RNR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+var _actions = require("./actions");
 var _storeDefaults = require("./storeDefaults");
 var _storeDefaultsDefault = parcelHelpers.interopDefault(_storeDefaults);
 function clone(obj) {
@@ -31123,6 +31229,12 @@ function updateArticle(store, payload) {
     if (index == -1) console.error("cannot find article");
     store.articles[index].title = payload.newTitle;
     store.articles[index].text = payload.text;
+    return store;
+}
+function cutImg(store, payload) {
+    const predicate = (elem)=>elem.title == payload.article;
+    const index = store.articles.findIndex(predicate);
+    store.articles[index].images = store.articles[index].images.filter((p, i)=>i != payload.index);
     return store;
 }
 function reducer(store = (0, _storeDefaultsDefault.default), action) {
@@ -31162,13 +31274,15 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
         case "RESET_PINNED":
             copy.pinned = null;
             return copy;
+        case "REMOVE_IMAGE":
+            return (0, _actions.removeImage)(copy, action.payload);
         default:
             return store;
     }
 }
 exports.default = reducer;
 
-},{"./storeDefaults":"3QtA1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QtA1":[function(require,module,exports) {
+},{"./actions":"3HrII","./storeDefaults":"3QtA1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QtA1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = storeDefaults = {

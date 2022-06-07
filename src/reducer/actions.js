@@ -34,3 +34,7 @@ export function removeHotspotAction(index, parent) {
 export function updateArticleAction(oldTitle, newTitle, text) {
     return { type: "UPDATE_ARTICLE", payload: { oldTitle, newTitle, text } }
 }
+
+export function removeImageAction(article, index) {
+    return { type: "REMOVE_IMAGE", payload: { article, index } }
+}

@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import {removeArticleAction} from '../reducer/actions';
 
 import ArticleEditor from './ArticleEditor';
+import Images from './Images';
 
 function Article({index, title, text}) {
 	const dispatch = useDispatch();
@@ -25,14 +26,20 @@ function Article({index, title, text}) {
 		return (
 			<div>
 				<h2>{title}</h2>
+				<button onClick={removeHandler}>remove article</button>
 				<div>{text}</div>
+				<Images title={title} />
 				<button onClick={editHandler}>edit</button>
-				<button onClick={removeHandler}>remove</button>
 			</div>
 		);
 	} else {
 		return (
-			<ArticleEditor title={title} onClose={saveHandler}></ArticleEditor>
+			<div>
+				<ArticleEditor
+					title={title}
+					onClose={saveHandler}
+				></ArticleEditor>
+			</div>
 		);
 	}
 }
