@@ -5,7 +5,7 @@ import SceneList from './SceneList';
 import View from './View';
 import FirstScene from './FirstScene';
 import AddPanorama from './AddPanorama';
-import AddAtricle from './AddAtricle';
+import AddArticle from './AddArticle';
 
 function App() {
 	return (
@@ -19,8 +19,8 @@ function App() {
 					<SceneList></SceneList>
 					<hr />
 					<div>
-						<AddAtricle></AddAtricle>
-						<ArticleList></ArticleList>
+						<AddArticle />
+						<ArticleList />
 					</div>
 				</aside>
 

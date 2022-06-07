@@ -1,7 +1,12 @@
 import React from 'react';
 
 import {useDispatch, useSelector} from 'react-redux';
-import {removeImageAction} from '../reducer/actions';
+import {deleteImageAction, addImagesAction} from '../reducer/actions';
+
+const fileOptions = {
+	types: [{description: 'images', accept: {'image/jpeg': ['.jpeg', '.jpg']}}],
+	multiple: true,
+};
 
 function Images({title}) {
 	const dispatch = useDispatch();
@@ -11,20 +16,26 @@ function Images({title}) {
 		s.articles.find((a) => a.title == title)
 	);
 
-	function remove(i) {
-		dispatch(removeImageAction(title, i));
-	}
-
 	const galery = article.images.map((p, i) => (
-		<li>
-			<img key={i} src={imagepath + p}></img>
+		<li key={i}>
+			<img src={imagepath + p}></img>
 			<button onClick={(e) => remove(i)}>❌</button>
 		</li>
 	));
 
+	function remove(i) {
+		dispatch(deleteImageAction(title, i));
+	}
+
+	async function addImageHandler(e) {
+		const [filehandle] = await window.showOpenFilePicker(fileOptions);
+		console.log(filehandle);
+		dispatch(addImagesAction(filehandle));
+	}
+
 	return (
 		<>
-			<button>add image...</button>
+			<button onClick={addImageHandler}>add image...</button>
 			<ul>{galery}</ul>
 		</>
 	);

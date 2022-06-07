@@ -35,6 +35,10 @@ export function updateArticleAction(oldTitle, newTitle, text) {
     return { type: "UPDATE_ARTICLE", payload: { oldTitle, newTitle, text } }
 }
 
-export function removeImageAction(article, index) {
-    return { type: "REMOVE_IMAGE", payload: { article, index } }
+export function deleteImageAction(article, index) {
+    return { type: "DELETE_IMAGE", payload: { article, index } }
+}
+
+export function addImagesAction(article, images) {
+    return { type: "ADD_IMAGES", payload: { article, images } }
 }

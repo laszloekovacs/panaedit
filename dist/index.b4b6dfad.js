@@ -27006,8 +27006,8 @@ var _firstScene = require("./FirstScene");
 var _firstSceneDefault = parcelHelpers.interopDefault(_firstScene);
 var _addPanorama = require("./AddPanorama");
 var _addPanoramaDefault = parcelHelpers.interopDefault(_addPanorama);
-var _addAtricle = require("./AddAtricle");
-var _addAtricleDefault = parcelHelpers.interopDefault(_addAtricle);
+var _addArticle = require("./AddArticle");
+var _addArticleDefault = parcelHelpers.interopDefault(_addArticle);
 function App() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27047,7 +27047,7 @@ function App() {
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addAtricleDefault.default), {}, void 0, false, {
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addArticleDefault.default), {}, void 0, false, {
                                     fileName: "src/components/App.jsx",
                                     lineNumber: 22,
                                     columnNumber: 7
@@ -27098,7 +27098,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./FileMenu":"1YNc4","./SceneList":"3T666","./View":"h7o8t","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","./AddAtricle":"eDM8t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3Obs1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./FileMenu":"1YNc4","./SceneList":"3T666","./View":"h7o8t","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./AddArticle":"lTzad"}],"3Obs1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$aefa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29100,7 +29100,8 @@ parcelHelpers.export(exports, "setFirstSceneAction", ()=>setFirstSceneAction);
 parcelHelpers.export(exports, "addHotspotAction", ()=>addHotspotAction);
 parcelHelpers.export(exports, "removeHotspotAction", ()=>removeHotspotAction);
 parcelHelpers.export(exports, "updateArticleAction", ()=>updateArticleAction);
-parcelHelpers.export(exports, "removeImageAction", ()=>removeImageAction);
+parcelHelpers.export(exports, "deleteImageAction", ()=>deleteImageAction);
+parcelHelpers.export(exports, "addImagesAction", ()=>addImagesAction);
 function loadFileAction(data) {
     return {
         type: "LOAD_FILE",
@@ -29162,12 +29163,21 @@ function updateArticleAction(oldTitle, newTitle, text) {
         }
     };
 }
-function removeImageAction(article, index) {
+function deleteImageAction(article, index) {
     return {
-        type: "REMOVE_IMAGE",
+        type: "DELETE_IMAGE",
         payload: {
             article,
             index
+        }
+    };
+}
+function addImagesAction(article, images) {
+    return {
+        type: "ADD_IMAGES",
+        payload: {
+            article,
+            images
         }
     };
 }
@@ -29439,21 +29449,32 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRedux = require("react-redux");
 var _actions = require("../reducer/actions");
 var _s = $RefreshSig$();
+const fileOptions = {
+    types: [
+        {
+            description: "images",
+            accept: {
+                "image/jpeg": [
+                    ".jpeg",
+                    ".jpg"
+                ]
+            }
+        }
+    ],
+    multiple: true
+};
 function Images({ title  }) {
     _s();
     const dispatch = (0, _reactRedux.useDispatch)();
     const imagepath = (0, _reactRedux.useSelector)((s)=>s.default.imagePath);
     const article = (0, _reactRedux.useSelector)((s)=>s.articles.find((a)=>a.title == title));
-    function remove(i) {
-        dispatch((0, _actions.removeImageAction)(title, i));
-    }
     const galery = article.images.map((p, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: imagepath + p
-                }, i, false, {
+                }, void 0, false, {
                     fileName: "src/components/Images.jsx",
-                    lineNumber: 20,
+                    lineNumber: 21,
                     columnNumber: 4
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29461,29 +29482,38 @@ function Images({ title  }) {
                     children: "\u274C"
                 }, void 0, false, {
                     fileName: "src/components/Images.jsx",
-                    lineNumber: 21,
+                    lineNumber: 22,
                     columnNumber: 4
                 }, this)
             ]
-        }, void 0, true, {
+        }, i, true, {
             fileName: "src/components/Images.jsx",
-            lineNumber: 19,
+            lineNumber: 20,
             columnNumber: 3
         }, this));
+    function remove(i) {
+        dispatch((0, _actions.deleteImageAction)(title, i));
+    }
+    async function addImageHandler(e) {
+        const [filehandle] = await window.showOpenFilePicker(fileOptions);
+        console.log(filehandle);
+        dispatch((0, _actions.addImagesAction)(filehandle));
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: addImageHandler,
                 children: "add image..."
             }, void 0, false, {
                 fileName: "src/components/Images.jsx",
-                lineNumber: 27,
+                lineNumber: 38,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                 children: galery
             }, void 0, false, {
                 fileName: "src/components/Images.jsx",
-                lineNumber: 28,
+                lineNumber: 39,
                 columnNumber: 4
             }, this)
         ]
@@ -30534,11 +30564,11 @@ $RefreshReg$(_c, "AddPanorama");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eDM8t":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$f426 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lTzad":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$da8c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$f426.prelude(module);
+$parcel$ReactRefreshHelpers$da8c.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -30549,7 +30579,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRedux = require("react-redux");
 var _actions = require("../reducer/actions");
 var _s = $RefreshSig$();
-function AddAtricle() {
+function AddArticle() {
     _s();
     const [articleName, setArticleName] = (0, _react.useState)("");
     const dispatch = (0, _reactRedux.useDispatch)();
@@ -30567,7 +30597,7 @@ function AddAtricle() {
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
                 children: "add article"
             }, void 0, false, {
-                fileName: "src/components/AddAtricle.jsx",
+                fileName: "src/components/AddArticle.jsx",
                 lineNumber: 26,
                 columnNumber: 4
             }, this),
@@ -30582,7 +30612,7 @@ function AddAtricle() {
                         placeholder: "name of new article",
                         required: true
                     }, void 0, false, {
-                        fileName: "src/components/AddAtricle.jsx",
+                        fileName: "src/components/AddArticle.jsx",
                         lineNumber: 28,
                         columnNumber: 5
                     }, this),
@@ -30590,34 +30620,34 @@ function AddAtricle() {
                         type: "submit",
                         value: "add"
                     }, void 0, false, {
-                        fileName: "src/components/AddAtricle.jsx",
+                        fileName: "src/components/AddArticle.jsx",
                         lineNumber: 36,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "src/components/AddAtricle.jsx",
+                fileName: "src/components/AddArticle.jsx",
                 lineNumber: 27,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
-        fileName: "src/components/AddAtricle.jsx",
+        fileName: "src/components/AddArticle.jsx",
         lineNumber: 25,
         columnNumber: 3
     }, this);
 }
-_s(AddAtricle, "OrpcU4YB00KyOwpdzpHnBAxVZJg=", false, function() {
+_s(AddArticle, "OrpcU4YB00KyOwpdzpHnBAxVZJg=", false, function() {
     return [
         (0, _reactRedux.useDispatch)
     ];
 });
-_c = AddAtricle;
-exports.default = AddAtricle;
+_c = AddArticle;
+exports.default = AddArticle;
 var _c;
-$RefreshReg$(_c, "AddAtricle");
+$RefreshReg$(_c, "AddArticle");
 
-  $parcel$ReactRefreshHelpers$f426.postlude(module);
+  $parcel$ReactRefreshHelpers$da8c.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -31231,10 +31261,19 @@ function updateArticle(store, payload) {
     store.articles[index].text = payload.text;
     return store;
 }
-function cutImg(store, payload) {
+function deleteImage(store, payload) {
     const predicate = (elem)=>elem.title == payload.article;
     const index = store.articles.findIndex(predicate);
     store.articles[index].images = store.articles[index].images.filter((p, i)=>i != payload.index);
+    return store;
+}
+function addImages(store, payload) {
+    const predicate = (elem)=>elem.title == payload.article;
+    const index = store.articles.findIndex(predicate);
+    store.articles[index].images = [
+        ...store.articles[index].images,
+        payload.images
+    ];
     return store;
 }
 function reducer(store = (0, _storeDefaultsDefault.default), action) {
@@ -31274,8 +31313,10 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
         case "RESET_PINNED":
             copy.pinned = null;
             return copy;
-        case "REMOVE_IMAGE":
-            return (0, _actions.removeImage)(copy, action.payload);
+        case "DELETE_IMAGE":
+            return deleteImage(copy, action.payload);
+        case "ADD_IMAGES":
+            return addImages(copy, action.payload);
         default:
             return store;
     }

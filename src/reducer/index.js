@@ -1,4 +1,4 @@
-import { removeImage as cutImg } from './actions';
+import { deleteImageAction, removeImage as cutImg } from './actions';
 import storeDefaults from './storeDefaults'
 
 
@@ -47,13 +47,24 @@ function updateArticle(store, payload) {
     return store;
 }
 
-function cutImg(store, payload) {
 
+function deleteImage(store, payload) {
     const predicate = (elem) => elem.title == payload.article;
 
     const index = store.articles.findIndex(predicate)
 
     store.articles[index].images = store.articles[index].images.filter((p, i) => i != payload.index)
+
+    return store;
+
+}
+
+function addImages(store, payload) {
+    const predicate = (elem) => elem.title == payload.article;
+
+    const index = store.articles.findIndex(predicate)
+
+    store.articles[index].images = [...store.articles[index].images, payload.images]
 
     return store;
 }
@@ -106,8 +117,11 @@ export default function reducer(store = storeDefaults, action) {
             copy.pinned = null;
             return copy;
 
-        case "REMOVE_IMAGE":
-            return cutImg(copy, action.payload);
+        case "DELETE_IMAGE":
+            return deleteImage(copy, action.payload);
+
+        case "ADD_IMAGES":
+            return addImages(copy, action.payload);
 
         default:
             return store
