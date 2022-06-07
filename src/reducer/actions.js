@@ -30,3 +30,7 @@ export function addHotspotAction(hotspot) {
 export function removeHotspotAction(index, parent) {
     return { type: "REMOVE_HOTSPOT", payload: { index, parent } }
 }
+
+export function updateArticleAction(oldTitle, newTitle, text) {
+    return { type: "UPDATE_ARTICLE", payload: { oldTitle, newTitle, text } }
+}

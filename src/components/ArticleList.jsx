@@ -5,7 +5,9 @@ import Article from './Article';
 function ArticleList() {
 	const articles = useSelector((s) => s.articles);
 
-	const list = articles.map((a, k) => <Article key={k} title={a.title} />);
+	const list = articles.map((a, k) => (
+		<Article key={k} title={a.title} text={a.text} />
+	));
 
 	/* no articles */
 	if (articles.length == 0) {

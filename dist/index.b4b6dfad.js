@@ -27118,11 +27118,12 @@ function ArticleList() {
     _s();
     const articles = (0, _reactRedux.useSelector)((s)=>s.articles);
     const list = articles.map((a, k)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleDefault.default), {
-            title: a.title
+            title: a.title,
+            text: a.text
         }, k, false, {
             fileName: "src/components/ArticleList.jsx",
-            lineNumber: 8,
-            columnNumber: 38
+            lineNumber: 9,
+            columnNumber: 3
         }, this));
     /* no articles */ if (articles.length == 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
@@ -27131,25 +27132,25 @@ function ArticleList() {
                     children: "Articles"
                 }, void 0, false, {
                     fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 15,
+                    lineNumber: 17,
                     columnNumber: 6
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: "no articles loaded"
                 }, void 0, false, {
                     fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 16,
+                    lineNumber: 18,
                     columnNumber: 6
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/ArticleList.jsx",
-            lineNumber: 14,
+            lineNumber: 16,
             columnNumber: 5
         }, this)
     }, void 0, false, {
         fileName: "src/components/ArticleList.jsx",
-        lineNumber: 13,
+        lineNumber: 15,
         columnNumber: 4
     }, this);
     else /* we have atricles */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27159,25 +27160,25 @@ function ArticleList() {
                     children: "Articles"
                 }, void 0, false, {
                     fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 25,
+                    lineNumber: 27,
                     columnNumber: 6
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                     children: list
                 }, void 0, false, {
                     fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 26,
+                    lineNumber: 28,
                     columnNumber: 6
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/ArticleList.jsx",
-            lineNumber: 24,
+            lineNumber: 26,
             columnNumber: 5
         }, this)
     }, void 0, false, {
         fileName: "src/components/ArticleList.jsx",
-        lineNumber: 23,
+        lineNumber: 25,
         columnNumber: 4
     }, this);
 }
@@ -28993,8 +28994,10 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRedux = require("react-redux");
 var _actions = require("../reducer/actions");
+var _articleEditor = require("./ArticleEditor");
+var _articleEditorDefault = parcelHelpers.interopDefault(_articleEditor);
 var _s = $RefreshSig$();
-function Article({ index , title  }) {
+function Article({ index , title , text  }) {
     _s();
     const dispatch = (0, _reactRedux.useDispatch)();
     const [editing, setEditing] = (0, _react.useState)(false);
@@ -29014,15 +29017,14 @@ function Article({ index , title  }) {
                 children: title
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
-                lineNumber: 25,
+                lineNumber: 27,
                 columnNumber: 5
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: removeHandler,
-                children: "remove"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: text
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
-                lineNumber: 26,
+                lineNumber: 28,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29030,74 +29032,29 @@ function Article({ index , title  }) {
                 children: "edit"
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
-                lineNumber: 27,
-                columnNumber: 5
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/Article.jsx",
-        lineNumber: 24,
-        columnNumber: 4
-    }, this);
-    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                htmlFor: "title",
-                children: "title"
-            }, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 33,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "title",
-                id: "title"
-            }, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 34,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 35,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                htmlFor: "text",
-                children: "article text"
-            }, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 36,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                name: "text",
-                id: "text",
-                cols: "30",
-                rows: "4"
-            }, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 37,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                fileName: "src/components/Article.jsx",
-                lineNumber: 38,
+                lineNumber: 29,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: saveHandler,
-                children: "save"
+                onClick: removeHandler,
+                children: "remove"
             }, void 0, false, {
                 fileName: "src/components/Article.jsx",
-                lineNumber: 39,
+                lineNumber: 30,
                 columnNumber: 5
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Article.jsx",
-        lineNumber: 32,
+        lineNumber: 26,
+        columnNumber: 4
+    }, this);
+    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleEditorDefault.default), {
+        title: title,
+        onClose: saveHandler
+    }, void 0, false, {
+        fileName: "src/components/Article.jsx",
+        lineNumber: 35,
         columnNumber: 4
     }, this);
 }
@@ -29116,7 +29073,7 @@ $RefreshReg$(_c, "Article");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3HrII":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ArticleEditor":"kUpzF"}],"3HrII":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "loadFileAction", ()=>loadFileAction);
@@ -29127,6 +29084,7 @@ parcelHelpers.export(exports, "addSceneAciton", ()=>addSceneAciton);
 parcelHelpers.export(exports, "setFirstSceneAction", ()=>setFirstSceneAction);
 parcelHelpers.export(exports, "addHotspotAction", ()=>addHotspotAction);
 parcelHelpers.export(exports, "removeHotspotAction", ()=>removeHotspotAction);
+parcelHelpers.export(exports, "updateArticleAction", ()=>updateArticleAction);
 function loadFileAction(data) {
     return {
         type: "LOAD_FILE",
@@ -29175,6 +29133,16 @@ function removeHotspotAction(index, parent) {
         payload: {
             index,
             parent
+        }
+    };
+}
+function updateArticleAction(oldTitle, newTitle, text) {
+    return {
+        type: "UPDATE_ARTICLE",
+        payload: {
+            oldTitle,
+            newTitle,
+            text
         }
     };
 }
@@ -29299,7 +29267,141 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"1YNc4":[function(require,module,exports) {
+},{"react-refresh/runtime":"786KC"}],"kUpzF":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6c58 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$6c58.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _s = $RefreshSig$();
+function ArticleEditor({ title , onClose  }) {
+    _s();
+    const [_title, setTitle] = (0, _react.useState)("");
+    const [_text, setText] = (0, _react.useState)("");
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const articles = (0, _reactRedux.useSelector)((s)=>s.articles);
+    (0, _react.useEffect)(()=>{
+        const article = articles.find((v)=>v.title == title);
+        if (article == undefined) console.error("cant find article");
+        setTitle(article.title);
+        setText(article?.text);
+    }, []);
+    function saveHandler(e) {
+        e.preventDefault();
+        dispatch((0, _actions.updateArticleAction)(title, _title, _text));
+        onClose();
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+            onSubmit: saveHandler,
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "title",
+                    children: "title"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 31,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "title",
+                    id: "title",
+                    required: true,
+                    value: _title,
+                    onChange: (e)=>setNewTitle(e.target.value)
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 32,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 40,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "text",
+                    children: "article text"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 41,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 42,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                    name: "text",
+                    id: "text",
+                    cols: "40",
+                    rows: "4",
+                    value: _text,
+                    onChange: (e)=>setText(e.target.value)
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 43,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 51,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: "images go here"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 53,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "submit",
+                    value: "save"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleEditor.jsx",
+                    lineNumber: 54,
+                    columnNumber: 5
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/ArticleEditor.jsx",
+            lineNumber: 30,
+            columnNumber: 4
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/ArticleEditor.jsx",
+        lineNumber: 29,
+        columnNumber: 3
+    }, this);
+}
+_s(ArticleEditor, "2f4yP/WA88YWsuu/w/yF3QkQb6U=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch),
+        (0, _reactRedux.useSelector)
+    ];
+});
+_c = ArticleEditor;
+exports.default = ArticleEditor;
+var _c;
+$RefreshReg$(_c, "ArticleEditor");
+
+  $parcel$ReactRefreshHelpers$6c58.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII"}],"1YNc4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3b0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29503,7 +29605,7 @@ $RefreshReg$(_c, "SceneList");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","./Scene":"018hX"}],"018hX":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./Scene":"018hX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"018hX":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7640 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29566,176 +29668,7 @@ $RefreshReg$(_c, "Scene");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./HotspotList":"6yCK8","./AddHotspot":"8TnZr"}],"6yCK8":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$cde1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$cde1.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRedux = require("react-redux");
-var _hotspot = require("./Hotspot");
-var _hotspotDefault = parcelHelpers.interopDefault(_hotspot);
-var _s = $RefreshSig$();
-function HotspotList({ title  }) {
-    _s();
-    const hotspots = (0, _reactRedux.useSelector)((s)=>s.scenes[title]?.hotSpots);
-    if (hotspots) {
-        const hotspotList = hotspots.map((v, k)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotDefault.default), {
-                index: k,
-                parent: title
-            }, k, false, {
-                fileName: "src/components/HotspotList.jsx",
-                lineNumber: 11,
-                columnNumber: 21
-            }, this);
-        });
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                children: hotspotList
-            }, void 0, false, {
-                fileName: "src/components/HotspotList.jsx",
-                lineNumber: 16,
-                columnNumber: 17
-            }, this)
-        }, void 0, false);
-    } else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-            children: "no hotspots"
-        }, void 0, false, {
-            fileName: "src/components/HotspotList.jsx",
-            lineNumber: 26,
-            columnNumber: 17
-        }, this)
-    }, void 0, false);
-}
-_s(HotspotList, "CWPVaKh1iXDJLLMMvZ2N0OHLr8s=", false, function() {
-    return [
-        (0, _reactRedux.useSelector)
-    ];
-});
-_c = HotspotList;
-exports.default = HotspotList;
-var _c;
-$RefreshReg$(_c, "HotspotList");
-
-  $parcel$ReactRefreshHelpers$cde1.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","./Hotspot":"4vVNu"}],"4vVNu":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$a57b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$a57b.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRedux = require("react-redux");
-var _actions = require("../reducer/actions");
-var _s = $RefreshSig$();
-function Hotspot({ index , parent  }) {
-    _s();
-    const hotspot = (0, _reactRedux.useSelector)((s)=>s.scenes?.[parent]?.hotSpots[index]);
-    const dispatch = (0, _reactRedux.useDispatch)();
-    function removeHandler(e) {
-        dispatch((0, _actions.removeHotspotAction)(index, parent));
-    }
-    const id = hotspot.type == "info" ? hotspot?.text : hotspot?.sceneId;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-        className: "hotspotCard",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    "Yaw: ",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
-                        children: hotspot.yaw
-                    }, void 0, false, {
-                        fileName: "src/components/Hotspot.jsx",
-                        lineNumber: 18,
-                        columnNumber: 21
-                    }, this),
-                    " Pitch: ",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
-                        children: hotspot.pitch
-                    }, void 0, false, {
-                        fileName: "src/components/Hotspot.jsx",
-                        lineNumber: 18,
-                        columnNumber: 49
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/Hotspot.jsx",
-                lineNumber: 18,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    "type: ",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
-                        children: hotspot.type
-                    }, void 0, false, {
-                        fileName: "src/components/Hotspot.jsx",
-                        lineNumber: 19,
-                        columnNumber: 22
-                    }, this),
-                    " : ",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
-                        children: id
-                    }, void 0, false, {
-                        fileName: "src/components/Hotspot.jsx",
-                        lineNumber: 19,
-                        columnNumber: 46
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/Hotspot.jsx",
-                lineNumber: 19,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: removeHandler,
-                children: "remove"
-            }, void 0, false, {
-                fileName: "src/components/Hotspot.jsx",
-                lineNumber: 21,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/Hotspot.jsx",
-        lineNumber: 17,
-        columnNumber: 9
-    }, this);
-}
-_s(Hotspot, "bLZZNlXPlwp4D6s0eHCU2X+KFFg=", false, function() {
-    return [
-        (0, _reactRedux.useSelector),
-        (0, _reactRedux.useDispatch)
-    ];
-});
-_c = Hotspot;
-exports.default = Hotspot;
-var _c;
-$RefreshReg$(_c, "Hotspot");
-
-  $parcel$ReactRefreshHelpers$a57b.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII"}],"8TnZr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8TnZr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c6b1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29867,7 +29800,7 @@ $RefreshReg$(_c, "AddHotspot");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./AddHotspotInfo":"laFrk"}],"laFrk":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./AddHotspotInfo":"laFrk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"laFrk":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$27c7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30019,7 +29952,176 @@ $RefreshReg$(_c, "AddHotspotInfo");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon","../reducer/actions":"3HrII"}],"h7o8t":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6yCK8":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$cde1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$cde1.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _hotspot = require("./Hotspot");
+var _hotspotDefault = parcelHelpers.interopDefault(_hotspot);
+var _s = $RefreshSig$();
+function HotspotList({ title  }) {
+    _s();
+    const hotspots = (0, _reactRedux.useSelector)((s)=>s.scenes[title]?.hotSpots);
+    if (hotspots) {
+        const hotspotList = hotspots.map((v, k)=>{
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotDefault.default), {
+                index: k,
+                parent: title
+            }, k, false, {
+                fileName: "src/components/HotspotList.jsx",
+                lineNumber: 11,
+                columnNumber: 21
+            }, this);
+        });
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                children: hotspotList
+            }, void 0, false, {
+                fileName: "src/components/HotspotList.jsx",
+                lineNumber: 16,
+                columnNumber: 17
+            }, this)
+        }, void 0, false);
+    } else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            children: "no hotspots"
+        }, void 0, false, {
+            fileName: "src/components/HotspotList.jsx",
+            lineNumber: 26,
+            columnNumber: 17
+        }, this)
+    }, void 0, false);
+}
+_s(HotspotList, "CWPVaKh1iXDJLLMMvZ2N0OHLr8s=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
+_c = HotspotList;
+exports.default = HotspotList;
+var _c;
+$RefreshReg$(_c, "HotspotList");
+
+  $parcel$ReactRefreshHelpers$cde1.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./Hotspot":"4vVNu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4vVNu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a57b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a57b.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _actions = require("../reducer/actions");
+var _s = $RefreshSig$();
+function Hotspot({ index , parent  }) {
+    _s();
+    const hotspot = (0, _reactRedux.useSelector)((s)=>s.scenes?.[parent]?.hotSpots[index]);
+    const dispatch = (0, _reactRedux.useDispatch)();
+    function removeHandler(e) {
+        dispatch((0, _actions.removeHotspotAction)(index, parent));
+    }
+    const id = hotspot.type == "info" ? hotspot?.text : hotspot?.sceneId;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+        className: "hotspotCard",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "Yaw: ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                        children: hotspot.yaw
+                    }, void 0, false, {
+                        fileName: "src/components/Hotspot.jsx",
+                        lineNumber: 18,
+                        columnNumber: 21
+                    }, this),
+                    " Pitch: ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                        children: hotspot.pitch
+                    }, void 0, false, {
+                        fileName: "src/components/Hotspot.jsx",
+                        lineNumber: 18,
+                        columnNumber: 49
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Hotspot.jsx",
+                lineNumber: 18,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "type: ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                        children: hotspot.type
+                    }, void 0, false, {
+                        fileName: "src/components/Hotspot.jsx",
+                        lineNumber: 19,
+                        columnNumber: 22
+                    }, this),
+                    " : ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                        children: id
+                    }, void 0, false, {
+                        fileName: "src/components/Hotspot.jsx",
+                        lineNumber: 19,
+                        columnNumber: 46
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Hotspot.jsx",
+                lineNumber: 19,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: removeHandler,
+                children: "remove"
+            }, void 0, false, {
+                fileName: "src/components/Hotspot.jsx",
+                lineNumber: 21,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Hotspot.jsx",
+        lineNumber: 17,
+        columnNumber: 9
+    }, this);
+}
+_s(Hotspot, "bLZZNlXPlwp4D6s0eHCU2X+KFFg=", false, function() {
+    return [
+        (0, _reactRedux.useSelector),
+        (0, _reactRedux.useDispatch)
+    ];
+});
+_c = Hotspot;
+exports.default = Hotspot;
+var _c;
+$RefreshReg$(_c, "Hotspot");
+
+  $parcel$ReactRefreshHelpers$a57b.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h7o8t":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d4b4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30320,23 +30422,33 @@ function AddAtricle() {
                 lineNumber: 26,
                 columnNumber: 4
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "title",
-                value: articleName,
-                onChange: changeHandler,
-                placeholder: "name of new article"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                onSubmit: addArticleHandler,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        name: "title",
+                        value: articleName,
+                        onChange: changeHandler,
+                        placeholder: "name of new article",
+                        required: true
+                    }, void 0, false, {
+                        fileName: "src/components/AddAtricle.jsx",
+                        lineNumber: 28,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "submit",
+                        value: "add"
+                    }, void 0, false, {
+                        fileName: "src/components/AddAtricle.jsx",
+                        lineNumber: 36,
+                        columnNumber: 5
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/AddAtricle.jsx",
                 lineNumber: 27,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: addArticleHandler,
-                children: "add article"
-            }, void 0, false, {
-                fileName: "src/components/AddAtricle.jsx",
-                lineNumber: 34,
                 columnNumber: 4
             }, this)
         ]
@@ -30945,9 +31057,7 @@ var _storeDefaultsDefault = parcelHelpers.interopDefault(_storeDefaults);
 function clone(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
-/*
- * 
- */ function addHotspot(store, hotspot) {
+function addHotspot(store, hotspot) {
     const { title , ...newSpot } = hotspot;
     if (store.scenes[title]?.hotSpots == undefined) store.scenes[title].hotSpots = [];
     store.scenes[title].hotSpots.push(newSpot);
@@ -30960,6 +31070,15 @@ function removeHotspot(store, payload) {
         const hotspots = store.scenes?.[parent]?.hotSpots.filter((v, i)=>i != index);
         store.scenes[parent].hotSpots = hotspots;
     }
+    return store;
+}
+function updateArticle(store, payload) {
+    // find the index of the article we are currently editing and replace it
+    const predicate = (elem)=>elem.title == payload.oldTitle;
+    const index = store.articles.findIndex(predicate);
+    if (index == -1) console.error("cannot find article");
+    store.articles[index].title = payload.newTitle;
+    store.articles[index].text = payload.text;
     return store;
 }
 function reducer(store = (0, _storeDefaultsDefault.default), action) {
@@ -30991,6 +31110,8 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
             return addHotspot(copy, action.payload);
         case "REMOVE_HOTSPOT":
             return removeHotspot(copy, action.payload);
+        case "UPDATE_ARTICLE":
+            return updateArticle(copy, action.payload);
         default:
             return store;
     }

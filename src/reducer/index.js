@@ -6,10 +6,6 @@ function clone(obj) {
 }
 
 
-
-/*
- * 
- */
 function addHotspot(store, hotspot) {
     const { title, ...newSpot } = hotspot;
 
@@ -36,7 +32,19 @@ function removeHotspot(store, payload) {
     return store;
 }
 
+function updateArticle(store, payload) {
+    // find the index of the article we are currently editing and replace it
+    const predicate = (elem) => elem.title == payload.oldTitle;
 
+    const index = store.articles.findIndex(predicate)
+    if (index == -1)
+        console.error("cannot find article")
+
+    store.articles[index].title = payload.newTitle;
+    store.articles[index].text = payload.text;
+
+    return store;
+}
 
 /*
 * ===============================================
@@ -74,6 +82,9 @@ export default function reducer(store = storeDefaults, action) {
 
         case "REMOVE_HOTSPOT":
             return removeHotspot(copy, action.payload)
+
+        case "UPDATE_ARTICLE":
+            return updateArticle(copy, action.payload)
 
         default:
             return store

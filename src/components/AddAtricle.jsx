@@ -24,14 +24,17 @@ function AddAtricle() {
 	return (
 		<fieldset>
 			<legend>add article</legend>
-			<input
-				type="text"
-				name="title"
-				value={articleName}
-				onChange={changeHandler}
-				placeholder="name of new article"
-			/>
-			<button onClick={addArticleHandler}>add article</button>
+			<form onSubmit={addArticleHandler}>
+				<input
+					type="text"
+					name="title"
+					value={articleName}
+					onChange={changeHandler}
+					placeholder="name of new article"
+					required
+				/>
+				<input type="submit" value="add" />
+			</form>
 		</fieldset>
 	);
 }

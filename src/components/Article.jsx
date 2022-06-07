@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {removeArticleAction} from '../reducer/actions';
 
-function Article({index, title}) {
+import ArticleEditor from './ArticleEditor';
+
+function Article({index, title, text}) {
 	const dispatch = useDispatch();
 	const [editing, setEditing] = useState(false);
 
@@ -23,21 +25,14 @@ function Article({index, title}) {
 		return (
 			<div>
 				<h2>{title}</h2>
-				<button onClick={removeHandler}>remove</button>
+				<div>{text}</div>
 				<button onClick={editHandler}>edit</button>
+				<button onClick={removeHandler}>remove</button>
 			</div>
 		);
 	} else {
 		return (
-			<div>
-				<label htmlFor="title">title</label>
-				<input type="text" name="title" id="title" />
-				<hr />
-				<label htmlFor="text">article text</label>
-				<textarea name="text" id="text" cols="30" rows="4"></textarea>
-				<br />
-				<button onClick={saveHandler}>save</button>
-			</div>
+			<ArticleEditor title={title} onClose={saveHandler}></ArticleEditor>
 		);
 	}
 }
