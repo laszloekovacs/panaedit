@@ -16,7 +16,7 @@ function Images({title}) {
 		s.articles.find((a) => a.title == title)
 	);
 
-	const galery = article.images.map((p, i) => (
+	const galery = article?.images?.map((p, i) => (
 		<li key={i}>
 			<img src={imagepath + p}></img>
 			<button onClick={(e) => remove(i)}>❌</button>
@@ -28,9 +28,11 @@ function Images({title}) {
 	}
 
 	async function addImageHandler(e) {
-		const [filehandle] = await window.showOpenFilePicker(fileOptions);
-		console.log(filehandle);
-		dispatch(addImagesAction(filehandle));
+		const filehandle = await window.showOpenFilePicker(fileOptions);
+
+		const files = filehandle.map((f) => f.name);
+
+		dispatch(addImagesAction(title, files));
 	}
 
 	return (

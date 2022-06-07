@@ -40,5 +40,5 @@ export function deleteImageAction(article, index) {
 }
 
 export function addImagesAction(article, images) {
-    return { type: "ADD_IMAGES", payload: { article, images } }
+    return { type: "PASTE_IMAGES", payload: { article, images } }
 }

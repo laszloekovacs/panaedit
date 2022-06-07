@@ -29174,7 +29174,7 @@ function deleteImageAction(article, index) {
 }
 function addImagesAction(article, images) {
     return {
-        type: "ADD_IMAGES",
+        type: "PASTE_IMAGES",
         payload: {
             article,
             images
@@ -29468,7 +29468,7 @@ function Images({ title  }) {
     const dispatch = (0, _reactRedux.useDispatch)();
     const imagepath = (0, _reactRedux.useSelector)((s)=>s.default.imagePath);
     const article = (0, _reactRedux.useSelector)((s)=>s.articles.find((a)=>a.title == title));
-    const galery = article.images.map((p, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+    const galery = article?.images?.map((p, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: imagepath + p
@@ -29495,9 +29495,9 @@ function Images({ title  }) {
         dispatch((0, _actions.deleteImageAction)(title, i));
     }
     async function addImageHandler(e) {
-        const [filehandle] = await window.showOpenFilePicker(fileOptions);
-        console.log(filehandle);
-        dispatch((0, _actions.addImagesAction)(filehandle));
+        const filehandle = await window.showOpenFilePicker(fileOptions);
+        const files = filehandle.map((f)=>f.name);
+        dispatch((0, _actions.addImagesAction)(title, files));
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
@@ -29506,14 +29506,14 @@ function Images({ title  }) {
                 children: "add image..."
             }, void 0, false, {
                 fileName: "src/components/Images.jsx",
-                lineNumber: 38,
+                lineNumber: 40,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                 children: galery
             }, void 0, false, {
                 fileName: "src/components/Images.jsx",
-                lineNumber: 39,
+                lineNumber: 41,
                 columnNumber: 4
             }, this)
         ]
@@ -31267,13 +31267,14 @@ function deleteImage(store, payload) {
     store.articles[index].images = store.articles[index].images.filter((p, i)=>i != payload.index);
     return store;
 }
-function addImages(store, payload) {
+function setImage(store, payload) {
     const predicate = (elem)=>elem.title == payload.article;
     const index = store.articles.findIndex(predicate);
-    store.articles[index].images = [
+    /* clean out duplicates */ const set = new Set([
         ...store.articles[index].images,
-        payload.images
-    ];
+        ...payload.images
+    ]);
+    store.articles[index].images = Array.from(set);
     return store;
 }
 function reducer(store = (0, _storeDefaultsDefault.default), action) {
@@ -31282,9 +31283,13 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
         case "LOAD_FILE":
             return action.payload;
         case "ADD_ARTICLE":
-            copy.articles.push({
-                title: action.payload
-            });
+            copy.articles = [
+                ...copy.articles,
+                {
+                    title: action.payload,
+                    images: []
+                }
+            ];
             return copy;
         case "REMOVE_ARTICLE":
             copy.articles = copy.articles.filter((a)=>a.title != action.payload);
@@ -31315,8 +31320,8 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
             return copy;
         case "DELETE_IMAGE":
             return deleteImage(copy, action.payload);
-        case "ADD_IMAGES":
-            return addImages(copy, action.payload);
+        case "PASTE_IMAGES":
+            return setImage(copy, action.payload);
         default:
             return store;
     }

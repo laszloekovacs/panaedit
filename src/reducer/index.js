@@ -59,12 +59,15 @@ function deleteImage(store, payload) {
 
 }
 
-function addImages(store, payload) {
+function setImage(store, payload) {
     const predicate = (elem) => elem.title == payload.article;
 
     const index = store.articles.findIndex(predicate)
 
-    store.articles[index].images = [...store.articles[index].images, payload.images]
+    /* clean out duplicates */
+    const set = new Set([...store.articles[index].images, ...payload.images])
+
+    store.articles[index].images = Array.from(set);
 
     return store;
 }
@@ -80,7 +83,7 @@ export default function reducer(store = storeDefaults, action) {
             return action.payload
 
         case "ADD_ARTICLE":
-            copy.articles.push({ title: action.payload })
+            copy.articles = [...copy.articles, { title: action.payload, images: [] }]
             return copy;
 
         case "REMOVE_ARTICLE":
@@ -120,8 +123,8 @@ export default function reducer(store = storeDefaults, action) {
         case "DELETE_IMAGE":
             return deleteImage(copy, action.payload);
 
-        case "ADD_IMAGES":
-            return addImages(copy, action.payload);
+        case "PASTE_IMAGES":
+            return setImage(copy, action.payload);
 
         default:
             return store
