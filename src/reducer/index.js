@@ -86,6 +86,14 @@ export default function reducer(store = storeDefaults, action) {
         case "UPDATE_ARTICLE":
             return updateArticle(copy, action.payload)
 
+        case "SET_PINNED":
+            copy.pinned = action.payload
+            return copy;
+
+        case "RESET_PINNED":
+            copy.pinned = null;
+            return copy;
+
         default:
             return store
     }

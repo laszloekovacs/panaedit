@@ -29534,40 +29534,21 @@ var _sceneDefault = parcelHelpers.interopDefault(_scene);
 var _s = $RefreshSig$();
 function SceneList() {
     _s();
+    const setttings = (0, _reactRedux.useSelector)((s)=>s);
     const scenes = (0, _reactRedux.useSelector)((s)=>s.scenes);
     let list = [];
-    for(const scene in scenes)list.push(scenes[scene]);
+    for(const scene in scenes)//if the scene is pinned, push it in front
+    if (scene == setttings.pinned) list.unshift(scenes[scene]);
+    else list.push(scenes[scene]);
     const sceneList = list.map((s, k)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneDefault.default), {
             index: k,
             title: s.title
         }, k, false, {
             fileName: "src/components/SceneList.jsx",
-            lineNumber: 15,
-            columnNumber: 40
+            lineNumber: 21,
+            columnNumber: 3
         }, this));
     if (list.length == 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                children: "scenes"
-            }, void 0, false, {
-                fileName: "src/components/SceneList.jsx",
-                lineNumber: 20,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "no scenes loaded"
-            }, void 0, false, {
-                fileName: "src/components/SceneList.jsx",
-                lineNumber: 21,
-                columnNumber: 5
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/SceneList.jsx",
-        lineNumber: 19,
-        columnNumber: 4
-    }, this);
-    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
                 children: "scenes"
@@ -29576,8 +29557,8 @@ function SceneList() {
                 lineNumber: 27,
                 columnNumber: 5
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                children: sceneList
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "no scenes loaded"
             }, void 0, false, {
                 fileName: "src/components/SceneList.jsx",
                 lineNumber: 28,
@@ -29589,9 +29570,32 @@ function SceneList() {
         lineNumber: 26,
         columnNumber: 4
     }, this);
+    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                children: "scenes"
+            }, void 0, false, {
+                fileName: "src/components/SceneList.jsx",
+                lineNumber: 34,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                children: sceneList
+            }, void 0, false, {
+                fileName: "src/components/SceneList.jsx",
+                lineNumber: 35,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/SceneList.jsx",
+        lineNumber: 33,
+        columnNumber: 4
+    }, this);
 }
-_s(SceneList, "1c0CYd0LErwMJ2xa0GJiSsLb2uo=", false, function() {
+_s(SceneList, "jcs8AIGiGBk368QQFX0OYYjyDoY=", false, function() {
     return [
+        (0, _reactRedux.useSelector),
         (0, _reactRedux.useSelector)
     ];
 });
@@ -29617,47 +29621,87 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
 var _addHotspot = require("./AddHotspot");
 var _addHotspotDefault = parcelHelpers.interopDefault(_addHotspot);
 var _hotspotList = require("./HotspotList");
 var _hotspotListDefault = parcelHelpers.interopDefault(_hotspotList);
+var _s = $RefreshSig$();
 function Scene({ index , title  }) {
+    _s();
+    const settings = (0, _reactRedux.useSelector)((s)=>s);
+    const scenes = (0, _reactRedux.useSelector)((s)=>s.scenes);
+    const dispatch = (0, _reactRedux.useDispatch)();
+    function pinHandler(e) {
+        dispatch({
+            type: "SET_PINNED",
+            payload: title
+        });
+    }
+    function unpinHandler(e) {
+        dispatch({
+            type: "RESET_PINNED"
+        });
+    }
+    const pin = settings.pinned != title ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+        onClick: pinHandler,
+        children: "\uD83D\uDCCC"
+    }, void 0, false, {
+        fileName: "src/components/Scene.jsx",
+        lineNumber: 21,
+        columnNumber: 4
+    }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+        onClick: unpinHandler,
+        children: "\u274C"
+    }, void 0, false, {
+        fileName: "src/components/Scene.jsx",
+        lineNumber: 23,
+        columnNumber: 4
+    }, this);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
             children: [
+                pin,
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                     children: title
                 }, void 0, false, {
                     fileName: "src/components/Scene.jsx",
-                    lineNumber: 10,
-                    columnNumber: 17
+                    lineNumber: 30,
+                    columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addHotspotDefault.default), {
                     title: title
                 }, void 0, false, {
                     fileName: "src/components/Scene.jsx",
-                    lineNumber: 11,
-                    columnNumber: 17
+                    lineNumber: 31,
+                    columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotListDefault.default), {
                     title: title
                 }, void 0, false, {
                     fileName: "src/components/Scene.jsx",
-                    lineNumber: 12,
-                    columnNumber: 17
+                    lineNumber: 32,
+                    columnNumber: 5
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/Scene.jsx",
-            lineNumber: 9,
-            columnNumber: 13
+            lineNumber: 28,
+            columnNumber: 4
         }, this)
     }, index, false, {
         fileName: "src/components/Scene.jsx",
-        lineNumber: 8,
-        columnNumber: 9
+        lineNumber: 27,
+        columnNumber: 3
     }, this);
 }
+_s(Scene, "7m5hDxilE+kH/odSkLMdotXI1lk=", false, function() {
+    return [
+        (0, _reactRedux.useSelector),
+        (0, _reactRedux.useSelector),
+        (0, _reactRedux.useDispatch)
+    ];
+});
 _c = Scene;
 exports.default = Scene;
 var _c;
@@ -29668,7 +29712,7 @@ $RefreshReg$(_c, "Scene");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8TnZr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon"}],"8TnZr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c6b1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31112,6 +31156,12 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
             return removeHotspot(copy, action.payload);
         case "UPDATE_ARTICLE":
             return updateArticle(copy, action.payload);
+        case "SET_PINNED":
+            copy.pinned = action.payload;
+            return copy;
+        case "RESET_PINNED":
+            copy.pinned = null;
+            return copy;
         default:
             return store;
     }
