@@ -29102,6 +29102,7 @@ parcelHelpers.export(exports, "removeHotspotAction", ()=>removeHotspotAction);
 parcelHelpers.export(exports, "updateArticleAction", ()=>updateArticleAction);
 parcelHelpers.export(exports, "deleteImageAction", ()=>deleteImageAction);
 parcelHelpers.export(exports, "addImagesAction", ()=>addImagesAction);
+parcelHelpers.export(exports, "setInitialRotationAction", ()=>setInitialRotationAction);
 function loadFileAction(data) {
     return {
         type: "LOAD_FILE",
@@ -29178,6 +29179,17 @@ function addImagesAction(article, images) {
         payload: {
             article,
             images
+        }
+    };
+}
+function setInitialRotationAction(scene, yaw, pitch) {
+    console.log("action");
+    return {
+        type: "SET_INITIAL",
+        payload: {
+            scene,
+            yaw,
+            pitch
         }
     };
 }
@@ -29761,6 +29773,7 @@ var _addHotspot = require("./AddHotspot");
 var _addHotspotDefault = parcelHelpers.interopDefault(_addHotspot);
 var _hotspotList = require("./HotspotList");
 var _hotspotListDefault = parcelHelpers.interopDefault(_hotspotList);
+var _actions = require("../reducer/actions");
 var _s = $RefreshSig$();
 function Scene({ index , title  }) {
     _s();
@@ -29783,16 +29796,23 @@ function Scene({ index , title  }) {
         children: "\uD83D\uDCCC"
     }, void 0, false, {
         fileName: "src/components/Scene.jsx",
-        lineNumber: 21,
+        lineNumber: 22,
         columnNumber: 4
     }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
         onClick: unpinHandler,
         children: "\u274C"
     }, void 0, false, {
         fileName: "src/components/Scene.jsx",
-        lineNumber: 23,
+        lineNumber: 24,
         columnNumber: 4
     }, this);
+    function setOrientationHandler(e) {
+        const yaw = window?.panorama?.getYaw();
+        const pitch = window?.panorama?.getPitch();
+        if (!yaw || !pitch) return;
+        console.log("click");
+        (0, _actions.setInitialRotationAction)(title, yaw, pitch);
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
             children: [
@@ -29801,32 +29821,40 @@ function Scene({ index , title  }) {
                     children: title
                 }, void 0, false, {
                     fileName: "src/components/Scene.jsx",
-                    lineNumber: 30,
+                    lineNumber: 40,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: setOrientationHandler,
+                    children: "set as initial"
+                }, void 0, false, {
+                    fileName: "src/components/Scene.jsx",
+                    lineNumber: 41,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addHotspotDefault.default), {
                     title: title
                 }, void 0, false, {
                     fileName: "src/components/Scene.jsx",
-                    lineNumber: 31,
+                    lineNumber: 42,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotListDefault.default), {
                     title: title
                 }, void 0, false, {
                     fileName: "src/components/Scene.jsx",
-                    lineNumber: 32,
+                    lineNumber: 43,
                     columnNumber: 5
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/Scene.jsx",
-            lineNumber: 28,
+            lineNumber: 38,
             columnNumber: 4
         }, this)
     }, index, false, {
         fileName: "src/components/Scene.jsx",
-        lineNumber: 27,
+        lineNumber: 37,
         columnNumber: 3
     }, this);
 }
@@ -29847,7 +29875,7 @@ $RefreshReg$(_c, "Scene");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8TnZr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../reducer/actions":"3HrII"}],"8TnZr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c6b1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31231,7 +31259,6 @@ exports.devToolsEnhancer = typeof window !== "undefined" && window.__REDUX_DEVTO
 },{"redux":"cDNB3"}],"i0RNR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _actions = require("./actions");
 var _storeDefaults = require("./storeDefaults");
 var _storeDefaultsDefault = parcelHelpers.interopDefault(_storeDefaults);
 function clone(obj) {
@@ -31275,6 +31302,11 @@ function setImage(store, payload) {
         ...payload.images
     ]);
     store.articles[index].images = Array.from(set);
+    return store;
+}
+function setInitial(store, { scene , yaw , pitch  }) {
+    store.scenes[scene].yaw = yaw;
+    store.scenes[scene].pitch = pitch;
     return store;
 }
 function reducer(store = (0, _storeDefaultsDefault.default), action) {
@@ -31322,13 +31354,16 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
             return deleteImage(copy, action.payload);
         case "PASTE_IMAGES":
             return setImage(copy, action.payload);
+        case "SET_INITIAL":
+            console.log("something?");
+            return setInitial(copy, action.payload);
         default:
             return store;
     }
 }
 exports.default = reducer;
 
-},{"./actions":"3HrII","./storeDefaults":"3QtA1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QtA1":[function(require,module,exports) {
+},{"./storeDefaults":"3QtA1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QtA1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = storeDefaults = {

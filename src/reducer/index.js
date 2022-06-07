@@ -1,4 +1,4 @@
-import { deleteImageAction, removeImage as cutImg } from './actions';
+
 import storeDefaults from './storeDefaults'
 
 
@@ -72,6 +72,15 @@ function setImage(store, payload) {
     return store;
 }
 
+
+function setInitial(store, { scene, yaw, pitch }) {
+
+    store.scenes[scene].yaw = yaw;
+    store.scenes[scene].pitch = pitch;
+
+    return store;
+}
+
 /*
 * ===============================================
 */
@@ -125,6 +134,10 @@ export default function reducer(store = storeDefaults, action) {
 
         case "PASTE_IMAGES":
             return setImage(copy, action.payload);
+
+        case "SET_INITIAL":
+            console.log("something?")
+            return setInitial(copy, action.payload);
 
         default:
             return store

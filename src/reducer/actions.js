@@ -42,3 +42,8 @@ export function deleteImageAction(article, index) {
 export function addImagesAction(article, images) {
     return { type: "PASTE_IMAGES", payload: { article, images } }
 }
+
+export function setInitialRotationAction(scene, yaw, pitch) {
+    console.log("action")
+    return { type: "SET_INITIAL", payload: { scene, yaw, pitch } }
+}
