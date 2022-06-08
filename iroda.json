@@ -1,0 +1,89 @@
+{
+	"default": {
+		"firstScene": "9",
+		"sceneFadeDuration": 1000,
+		"type": "equirectangular",
+		"autoLoad": true,
+		"compass": false,
+		"hotSpotDebug": true,
+		"hfov": 110,
+		"vfow": 100,
+		"minPitch": -88,
+		"maxPitch": 88,
+		"basePath": "assets/panorama/",
+		"imagePath": "assets/images/"
+	},
+	"scenes": {
+		"9": {"title": "9", "panorama": "9.jpg"},
+		"10": {"title": "10", "panorama": "10.jpg"},
+		"11": {"title": "11", "panorama": "11.jpg"},
+		"01AA": {
+			"title": "01AA",
+			"panorama": "01AA.JPG",
+			"yaw": -94.77890585416776,
+			"pitch": -4.384931780013403,
+			"hotSpots": [
+				{
+					"pitch": -20.8,
+					"yaw": -79.43,
+					"type": "scene",
+					"sceneId": "01AB",
+					"div": {}
+				}
+			]
+		},
+		"01AB": {
+			"title": "01AB",
+			"panorama": "01AB.JPG",
+			"yaw": -53.29558353894049,
+			"pitch": -4.552698886144151,
+			"hotSpots": [
+				{
+					"pitch": -17.99,
+					"yaw": -49.28,
+					"type": "scene",
+					"sceneId": "01AA"
+				}
+			]
+		},
+		"01B": {"title": "01B", "panorama": "01B.jpg"},
+		"01CA": {"title": "01CA", "panorama": "01CA.JPG"},
+		"01CB": {"title": "01CB", "panorama": "01CB.JPG"},
+		"01CC": {"title": "01CC", "panorama": "01CC.JPG"},
+		"02A": {"title": "02A", "panorama": "02A.jpg"},
+		"02B": {"title": "02B", "panorama": "02B.jpg"},
+		"03A": {"title": "03A", "panorama": "03A.JPG"},
+		"03B": {"title": "03B", "panorama": "03B.JPG"},
+		"03C": {"title": "03C", "panorama": "03C.JPG"},
+		"04AA": {"title": "04AA", "panorama": "04AA.JPG"},
+		"04AB": {"title": "04AB", "panorama": "04AB.JPG"},
+		"05A": {"title": "05A", "panorama": "05A.jpg"},
+		"06A": {"title": "06A", "panorama": "06A.jpg"},
+		"06B": {"title": "06B", "panorama": "06B.jpg"},
+		"06C": {"title": "06C", "panorama": "06C.JPG"},
+		"08AA": {"title": "08AA", "panorama": "08AA.JPG"},
+		"08AB": {"title": "08AB", "panorama": "08AB.JPG"},
+		"09A": {"title": "09A", "panorama": "09A.jpg"},
+		"09B": {"title": "09B", "panorama": "09B.jpg"},
+		"10AA": {"title": "10AA", "panorama": "10AA.jpg"},
+		"10AB": {"title": "10AB", "panorama": "10AB.jpg"},
+		"10B": {"title": "10B", "panorama": "10B.jpg"},
+		"10C": {"title": "10C", "panorama": "10C.JPG"},
+		"10D": {"title": "10D", "panorama": "10D.JPG"},
+		"10E": {"title": "10E", "panorama": "10E.JPG"},
+		"10F": {"title": "10F", "panorama": "10F.JPG"},
+		"10G": {"title": "10G", "panorama": "10G.JPG"},
+		"11AA": {"title": "11AA", "panorama": "11AA.jpg"},
+		"11AB": {"title": "11AB", "panorama": "11AB.jpg"},
+		"12A": {"title": "12A", "panorama": "12A.jpg"},
+		"12BA": {"title": "12BA", "panorama": "12BA.JPG"},
+		"12BB": {"title": "12BB", "panorama": "12BB.JPG"},
+		"13A": {"title": "13A", "panorama": "13A.JPG"},
+		"14A": {"title": "14A", "panorama": "14A.JPG"},
+		"14B": {"title": "14B", "panorama": "14B.JPG"},
+		"FOLYOSÓ 2": {"title": "FOLYOSÓ 2", "panorama": "FOLYOSÓ 2.JPG"},
+		"FOLYOSÓ": {"title": "FOLYOSÓ", "panorama": "FOLYOSÓ.JPG"}
+	},
+	"articles": [],
+	"pinned": null
+}
