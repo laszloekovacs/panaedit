@@ -2,7 +2,7 @@
 
 Virtual tour editor meant to create pannellum json config files
 
-!(Screenshot.png)
+![screenshot](Screenshot.png)
 
 ##how to run
 
