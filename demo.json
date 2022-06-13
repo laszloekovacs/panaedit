@@ -1,1 +1,44 @@
-{"default":{"firstScene":"img1","sceneFadeDuration":1000,"type":"equirectangular","autoLoad":true,"compass":false,"hotSpotDebug":true,"hfov":110,"vfow":100,"minPitch":-88,"maxPitch":88,"basePath":"assets/panorama/","imagePath":"assets/images/"},"scenes":{"img1":{"title":"img1","panorama":"img1.jpg","hotSpots":[{"pitch":6.1,"yaw":16.35,"type":"info","text":"hello","div":{}}],"yaw":49.15946746174939,"pitch":1.175438564301145},"img2":{"title":"img2","panorama":"img2.jpg"},"img7":{"title":"img7","panorama":"img7.jpg"}},"articles":[{"title":"typical","images":["dsc.JPG","meme.jpg"],"text":"hello world"}]}
+{
+	"default": {
+		"firstScene": "01AA",
+		"sceneFadeDuration": 1000,
+		"type": "equirectangular",
+		"autoLoad": true,
+		"compass": false,
+		"hotSpotDebug": true,
+		"hfov": 110,
+		"vfow": 100,
+		"minPitch": -88,
+		"maxPitch": 88,
+		"basePath": "assets/panorama/",
+		"imagePath": "assets/images/"
+	},
+	"scenes": {
+		"01AA": {
+			"title": "01AA",
+			"panorama": "01AA.JPG",
+			"yaw": -75.88426184398134,
+			"pitch": -11.44858234661022,
+			"hotSpots": [
+				{
+					"pitch": -30.31,
+					"yaw": -109.92,
+					"type": "info",
+					"text": "the books"
+				},
+				{
+					"pitch": 0,
+					"yaw": 0,
+					"type": "scene",
+					"sceneId": "01AB",
+					"text": "01AB"
+				}
+			]
+		},
+		"01AB": {"title": "01AB", "panorama": "01AB.JPG"},
+		"01B": {"title": "01B", "panorama": "01B.jpg"},
+		"01CA": {"title": "01CA", "panorama": "01CA.JPG"},
+		"01CB": {"title": "01CB", "panorama": "01CB.JPG"}
+	},
+	"articles": []
+}

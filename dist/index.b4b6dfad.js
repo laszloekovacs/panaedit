@@ -30060,7 +30060,8 @@ function AddHotspotInfo({ title , type  }) {
         };
         else form = {
             ...form,
-            sceneId: info
+            sceneId: info,
+            text: info
         };
         dispatch((0, _actions.addHotspotAction)(form));
         setInfo("");
@@ -30074,22 +30075,22 @@ function AddHotspotInfo({ title , type  }) {
                         children: type
                     }, void 0, false, {
                         fileName: "src/components/AddHotspotInfo.jsx",
-                        lineNumber: 42,
-                        columnNumber: 24
+                        lineNumber: 40,
+                        columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/AddHotspotInfo.jsx",
-                lineNumber: 42,
-                columnNumber: 13
+                lineNumber: 39,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: getOrientationHandler,
                 children: "get orientation"
             }, void 0, false, {
                 fileName: "src/components/AddHotspotInfo.jsx",
-                lineNumber: 43,
-                columnNumber: 13
+                lineNumber: 42,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: [
@@ -30099,7 +30100,7 @@ function AddHotspotInfo({ title , type  }) {
                     }, void 0, false, {
                         fileName: "src/components/AddHotspotInfo.jsx",
                         lineNumber: 44,
-                        columnNumber: 19
+                        columnNumber: 8
                     }, this),
                     " p: ",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
@@ -30107,13 +30108,13 @@ function AddHotspotInfo({ title , type  }) {
                     }, void 0, false, {
                         fileName: "src/components/AddHotspotInfo.jsx",
                         lineNumber: 44,
-                        columnNumber: 35
+                        columnNumber: 24
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/AddHotspotInfo.jsx",
-                lineNumber: 44,
-                columnNumber: 13
+                lineNumber: 43,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                 onSubmit: submitHandler,
@@ -30123,8 +30124,8 @@ function AddHotspotInfo({ title , type  }) {
                         children: "text"
                     }, void 0, false, {
                         fileName: "src/components/AddHotspotInfo.jsx",
-                        lineNumber: 47,
-                        columnNumber: 17
+                        lineNumber: 48,
+                        columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "text",
@@ -30134,28 +30135,28 @@ function AddHotspotInfo({ title , type  }) {
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/AddHotspotInfo.jsx",
-                        lineNumber: 48,
-                        columnNumber: 17
+                        lineNumber: 49,
+                        columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "submit",
                         value: "add"
                     }, void 0, false, {
                         fileName: "src/components/AddHotspotInfo.jsx",
-                        lineNumber: 49,
-                        columnNumber: 17
+                        lineNumber: 56,
+                        columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/AddHotspotInfo.jsx",
-                lineNumber: 46,
-                columnNumber: 13
+                lineNumber: 47,
+                columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/AddHotspotInfo.jsx",
-        lineNumber: 41,
-        columnNumber: 9
+        lineNumber: 38,
+        columnNumber: 3
     }, this);
 }
 _s(AddHotspotInfo, "HDQJ2MsZZggI54tmKbzkMMfOSA4=", false, function() {
