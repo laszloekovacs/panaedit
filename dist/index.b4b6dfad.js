@@ -27154,6 +27154,7 @@ function ArticleList() {
         columnNumber: 4
     }, this);
     else /* we have atricles */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "scrollContainer",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
@@ -29720,24 +29721,31 @@ function SceneList() {
         lineNumber: 26,
         columnNumber: 4
     }, this);
-    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                children: "scenes"
-            }, void 0, false, {
-                fileName: "src/components/SceneList.jsx",
-                lineNumber: 34,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                children: sceneList
-            }, void 0, false, {
-                fileName: "src/components/SceneList.jsx",
-                lineNumber: 35,
-                columnNumber: 5
-            }, this)
-        ]
-    }, void 0, true, {
+    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "scrollContainer",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                    children: "scenes"
+                }, void 0, false, {
+                    fileName: "src/components/SceneList.jsx",
+                    lineNumber: 35,
+                    columnNumber: 6
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    children: sceneList
+                }, void 0, false, {
+                    fileName: "src/components/SceneList.jsx",
+                    lineNumber: 36,
+                    columnNumber: 6
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/SceneList.jsx",
+            lineNumber: 34,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
         fileName: "src/components/SceneList.jsx",
         lineNumber: 33,
         columnNumber: 4

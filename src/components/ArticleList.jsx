@@ -22,7 +22,7 @@ function ArticleList() {
 	} else {
 		/* we have atricles */
 		return (
-			<div>
+			<div className="scrollContainer">
 				<fieldset>
 					<legend>Articles</legend>
 					<ul>{list}</ul>

@@ -30,10 +30,12 @@ function SceneList() {
 		);
 	} else {
 		return (
-			<fieldset>
-				<legend>scenes</legend>
-				<ul>{sceneList}</ul>
-			</fieldset>
+			<div className="scrollContainer">
+				<fieldset>
+					<legend>scenes</legend>
+					<ul>{sceneList}</ul>
+				</fieldset>
+			</div>
 		);
 	}
 }
