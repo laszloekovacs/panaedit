@@ -13,6 +13,7 @@ function App() {
 			<div id="layout">
 				<aside>
 					<FileMenu></FileMenu>
+					<hr />
 					<FirstScene></FirstScene>
 					<hr />
 					<AddPanorama></AddPanorama>

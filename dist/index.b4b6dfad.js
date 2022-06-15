@@ -27020,47 +27020,52 @@ function App() {
                             lineNumber: 15,
                             columnNumber: 6
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                             fileName: "src/components/App.jsx",
                             lineNumber: 16,
                             columnNumber: 6
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
                             fileName: "src/components/App.jsx",
                             lineNumber: 17,
                             columnNumber: 6
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                             fileName: "src/components/App.jsx",
                             lineNumber: 18,
                             columnNumber: 6
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneListDefault.default), {}, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
                             fileName: "src/components/App.jsx",
                             lineNumber: 19,
                             columnNumber: 6
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneListDefault.default), {}, void 0, false, {
                             fileName: "src/components/App.jsx",
                             lineNumber: 20,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                            fileName: "src/components/App.jsx",
+                            lineNumber: 21,
                             columnNumber: 6
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addArticleDefault.default), {}, void 0, false, {
                                     fileName: "src/components/App.jsx",
-                                    lineNumber: 22,
+                                    lineNumber: 23,
                                     columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
                                     fileName: "src/components/App.jsx",
-                                    lineNumber: 23,
+                                    lineNumber: 24,
                                     columnNumber: 7
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/App.jsx",
-                            lineNumber: 21,
+                            lineNumber: 22,
                             columnNumber: 6
                         }, this)
                     ]
@@ -27072,12 +27077,12 @@ function App() {
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _viewDefault.default), {}, void 0, false, {
                         fileName: "src/components/App.jsx",
-                        lineNumber: 28,
+                        lineNumber: 29,
                         columnNumber: 6
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/App.jsx",
-                    lineNumber: 27,
+                    lineNumber: 28,
                     columnNumber: 5
                 }, this)
             ]
@@ -29611,21 +29616,15 @@ function FileMenu() {
     function resetHandler(e) {
         dispatch((0, _actions.resetAction)());
     }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "fileMenu",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                children: "file"
-            }, void 0, false, {
-                fileName: "src/components/FileMenu.jsx",
-                lineNumber: 54,
-                columnNumber: 4
-            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: resetHandler,
                 children: "Reset"
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
-                lineNumber: 55,
+                lineNumber: 54,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29633,7 +29632,7 @@ function FileMenu() {
                 children: "Load.."
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
-                lineNumber: 56,
+                lineNumber: 55,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29641,7 +29640,7 @@ function FileMenu() {
                 children: "Save As.."
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
-                lineNumber: 57,
+                lineNumber: 56,
                 columnNumber: 4
             }, this)
         ]

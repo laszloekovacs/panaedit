@@ -50,12 +50,11 @@ function FileMenu() {
 	}
 
 	return (
-		<fieldset>
-			<legend>file</legend>
+		<div className="fileMenu">
 			<button onClick={resetHandler}>Reset</button>
 			<button onClick={loadHandler}>Load..</button>
 			<button onClick={saveAsHandler}>Save As..</button>
-		</fieldset>
+		</div>
 	);
 }
 
