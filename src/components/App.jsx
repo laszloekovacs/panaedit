@@ -7,31 +7,10 @@ import AddPanorama from './AddPanorama';
 import AddArticle from './AddArticle';
 import SceneEdit from './SceneEdit';
 import NSceneList from './NSceneList';
-import {setSceneAction} from '../reducer/actions';
-import {useDispatch, useSelector} from 'react-redux';
 
 function App() {
-	const dispatch = useDispatch();
-	const scenes = useSelector((s) => s.scenes);
-
-	/* store current scene in store */
-	useEffect(() => {
-		function sceneChange() {
-			let scene = '';
-
-			if (window?.panorama == undefined) return;
-
-			scene = window?.panorama?.getScene();
-			console.log(scene);
-
-			dispatch(setSceneAction(scene));
-		}
-
-		window?.panorama?.on('load', sceneChange);
-	});
-
 	return (
-		<div id="layout">
+		<div id="sidebar">
 			<FileMenu></FileMenu>
 			<hr />
 			<FirstScene></FirstScene>

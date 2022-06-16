@@ -3,10 +3,14 @@ import {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 
-function SceneEdit({scene}) {
+function SceneEdit() {
 	const scenes = useSelector((s) => s.scenes);
 	const editor = useSelector((s) => s.editor);
 	const dispatch = useDispatch();
+
+	if (window?.panorama?.getScene()) console.log('scene');
+
+	//const _currentScene = scenes[scene];
 
 	const [_title, setTitle] = useState('');
 	const [_yaw, setYaw] = useState(0);

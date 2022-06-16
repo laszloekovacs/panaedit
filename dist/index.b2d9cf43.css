@@ -5,8 +5,8 @@ body {
 }
 
 #out {
-  width: 800px;
-  height: 600px;
+  width: 60%;
+  height: 500px;
 }
 
 legend {
@@ -89,6 +89,10 @@ img {
 .horizontal {
   flex-flow: row;
   display: flex;
+}
+
+.sidebar {
+  width: 30%;
 }
 
 /*# sourceMappingURL=index.b2d9cf43.css.map */
