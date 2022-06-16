@@ -29,17 +29,17 @@ function FirstScene() {
 
 	if (list.length == 0) {
 		return (
-			<fieldset>
-				<legend>first scene</legend>
+			<div>
+				<h3>First Scene</h3>
 				<p>{isSet}</p>
-			</fieldset>
+			</div>
 		);
 	} else {
 		return (
 			<div>
-				<h3>First scene</h3>
+				<h3>First Scene</h3>
 				<p>{isSet}</p>
-				<select name="startScene" id="startScene">
+				<select id="startScene">
 					{list}
 				</select>
 				<button onClick={setHandler}>set</button>

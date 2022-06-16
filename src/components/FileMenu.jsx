@@ -1,10 +1,10 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {loadFileAction, resetAction} from '../reducer/actions';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadFileAction, resetAction } from '../reducer/actions';
 
 const fileOptions = {
 	types: [
-		{description: 'json document', accept: {'application/json': ['.json']}},
+		{ description: 'json document', accept: { 'application/json': ['.json'] } },
 	],
 };
 
@@ -49,7 +49,9 @@ function FileMenu() {
 	}
 
 	function resetHandler(e) {
+
 		dispatch(resetAction());
+		window.resetPanorama();
 	}
 
 	return (

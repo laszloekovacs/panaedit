@@ -1,7 +1,7 @@
 
 export default storeDefaults = {
     default: {
-        "firstScene": 0,
+        "firstScene": "",
         "sceneFadeDuration": 1000,
         "type": "equirectangular",
         "autoLoad": true,
@@ -9,11 +9,14 @@ export default storeDefaults = {
         "hotSpotDebug": true,
         "hfov": 110,
         "vfow": 100,
-        "minPitch": -88,
-        "maxPitch": 88,
+        "minPitch": -98,
+        "maxPitch": 98,
         "basePath": "assets/panorama/",
         "imagePath": "assets/images/"
     },
     scenes: {},
-    articles: []
+    articles: [],
+    editor: {
+        currentScene: ""
+    }
 }

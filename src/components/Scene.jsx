@@ -1,20 +1,20 @@
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddHotspot from './AddHotspot';
 import HotspotList from './HotspotList';
-import {setInitialRotationAction} from '../reducer/actions';
+import { setInitialRotationAction } from '../reducer/actions';
 
-function Scene({index, title}) {
+function Scene({ index, title }) {
 	const settings = useSelector((s) => s);
 	const scenes = useSelector((s) => s.scenes);
 	const dispatch = useDispatch();
 
 	function pinHandler(e) {
-		dispatch({type: 'SET_PINNED', payload: title});
+		dispatch({ type: 'SET_PINNED', payload: title });
 	}
 
 	function unpinHandler(e) {
-		dispatch({type: 'RESET_PINNED'});
+		dispatch({ type: 'RESET_PINNED' });
 	}
 
 	const pin =
@@ -39,8 +39,8 @@ function Scene({index, title}) {
 				{pin}
 				<h3>{title}</h3>
 				<p>
-					initial yaw: {scenes[title]?.yaw?.toFixed(2)} pitch:
-					{scenes[title]?.pitch?.toFixed(2)}
+					initial yaw: {scenes[title]?.yaw} pitch:
+					{scenes[title]?.pitch}
 				</p>
 				<button onClick={setOrientationHandler}>set as initial</button>
 				<AddHotspot title={title}></AddHotspot>

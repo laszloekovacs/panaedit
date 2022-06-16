@@ -1,59 +1,55 @@
-import React, {useState} from 'react';
-import {useEffect} from 'react';
-import {useSelector} from 'react-redux';
-import {useDispatch} from 'react-redux';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setInitialRotationAction } from '../reducer/actions'
 
 function SceneEdit() {
-	const scenes = useSelector((s) => s.scenes);
-	const editor = useSelector((s) => s.editor);
-	const dispatch = useDispatch();
 
-	if (window?.panorama?.getScene()) console.log('scene');
+    const dispatch = useDispatch();
+    const scenes = useSelector((s) => s.scenes);
+    const editor = useSelector((s) => s.editor);
 
-	//const _currentScene = scenes[scene];
+    const scene = scenes[editor.currentScene];
+    console.log(scene)
 
-	const [_title, setTitle] = useState('');
-	const [_yaw, setYaw] = useState(0);
-	const [_hotspot, setHotspot] = useState('');
 
-	return (
-		<div>
-			<hr />
-			<h3>Edit Scene</h3>
-			<hr />
-			<h3>name of scene - title</h3>
-			<div>
-				<input
-					type="text"
-					placeholder="title"
-					value={_title}
-					onChange={(e) => setTitle(e.target.value)}
-				/>
-				<button>set</button>
-			</div>
-			<div>
-				<input
-					type="text"
-					placeholder="yaw"
-					value={_yaw}
-					onChange={(e) => setYaw(e.target.value)}
-				/>
-				<button>set initial yaw</button>
-			</div>
-			<div>
-				<input
-					type="text"
-					name="addnew"
-					placeholder="new hotspot"
-					value={_hotspot}
-					onChange={(e) => setHotspot(e.target.value)}
-				/>
-				<button>add scene</button>
-				<button>add info</button>
-			</div>
-			<h4>hotspots</h4>
-		</div>
-	);
+    function setDirectionHandler(e) {
+        const yaw = window?.panorama?.getYaw();
+        const pitch = window?.panorama?.getPitch();
+        if (!yaw || !pitch) return;
+        dispatch(setInitialRotationAction(editor.currentScene, yaw.toFixed(2), pitch.toFixed(2)))
+    }
+
+    return (
+        <div>
+            <hr />
+            <h3>Edit Scene</h3>
+            <hr />
+            <h3>{editor?.currentScene} - {scene?.title}</h3>
+            <div>
+                <p>yaw: {scene?.yaw}</p>
+                <button onClick={setDirectionHandler}>set initial yaw</button>
+            </div>
+            <div>
+                <input
+                    type="text"
+                    placeholder="title"
+                />
+                <button>set</button>
+            </div>
+            <div>
+                <input
+                    type="text"
+                    name="addnew"
+                    placeholder="new hotspot"
+                />
+                <button>add scene</button>
+                <button>add info</button>
+            </div>
+            <h4>hotspots</h4>
+        </div>
+    );
 }
 
 export default SceneEdit;

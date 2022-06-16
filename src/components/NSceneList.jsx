@@ -9,7 +9,6 @@ function NSceneList() {
         window?.panorama?.loadScene(scene);
     }
 
-
     for (scene in scenes) {
         list.push(scene)
     }
@@ -17,6 +16,10 @@ function NSceneList() {
     const sceneList = list.map((scene, k) => (<li key={k}>
         <button onClick={() => loadScene(scene)}>{scene} - {scenes[scene].title}</button>
     </li>));
+
+    if (list.length == 0) {
+        return <h3>Scene List</h3>
+    }
 
     return (
         <>

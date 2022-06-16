@@ -1,4 +1,6 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import ArticleList from './ArticleList';
 import FileMenu from './FileMenu';
 import SceneList from './SceneList';
@@ -9,13 +11,14 @@ import SceneEdit from './SceneEdit';
 import NSceneList from './NSceneList';
 
 function App() {
+
 	return (
 		<div id="sidebar">
 			<FileMenu></FileMenu>
 			<hr />
-			<FirstScene></FirstScene>
-			<hr />
 			<AddPanorama></AddPanorama>
+			<hr />
+			<FirstScene></FirstScene>
 			<hr />
 			<NSceneList></NSceneList>
 			<SceneEdit></SceneEdit>

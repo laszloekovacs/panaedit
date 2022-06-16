@@ -46,3 +46,7 @@ export function addImagesAction(article, images) {
 export function setInitialRotationAction(scene, yaw, pitch) {
     return { type: "SET_INITIAL", payload: { scene, yaw, pitch } }
 }
+
+export function sceneChangeAction(scene) {
+    return { type: "SET_EDITOR_SCENE", payload: { editor: { currentScene: scene } } }
+}
