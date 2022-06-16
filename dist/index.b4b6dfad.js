@@ -2871,6 +2871,7 @@ $parcel$ReactRefreshHelpers$98a3.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
@@ -2884,23 +2885,28 @@ var _reactRedux = require("react-redux");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 let store = (0, _redux.legacy_createStore)((0, _reducerDefault.default), (0, _reduxDevtoolsExtension.devToolsEnhancer)());
+exports.default = store;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
+/* create panorama, wont be controlled by react */ window.resetPanorama = function resetPanorama() {
+    window?.panorama?.destroy();
+    window.panorama = window.pannellum.viewer("out", store.getState());
+};
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).StrictMode, {
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
         store: store,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 15,
+            lineNumber: 24,
             columnNumber: 4
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.jsx",
-        lineNumber: 14,
+        lineNumber: 23,
         columnNumber: 3
     }, undefined)
 }, void 0, false, {
     fileName: "src/index.jsx",
-    lineNumber: 13,
+    lineNumber: 22,
     columnNumber: 2
 }, undefined));
 
@@ -27000,8 +27006,6 @@ var _fileMenu = require("./FileMenu");
 var _fileMenuDefault = parcelHelpers.interopDefault(_fileMenu);
 var _sceneList = require("./SceneList");
 var _sceneListDefault = parcelHelpers.interopDefault(_sceneList);
-var _view = require("./View");
-var _viewDefault = parcelHelpers.interopDefault(_view);
 var _firstScene = require("./FirstScene");
 var _firstSceneDefault = parcelHelpers.interopDefault(_firstScene);
 var _addPanorama = require("./AddPanorama");
@@ -27012,119 +27016,122 @@ var _sceneEdit = require("./SceneEdit");
 var _sceneEditDefault = parcelHelpers.interopDefault(_sceneEdit);
 var _nsceneList = require("./NSceneList");
 var _nsceneListDefault = parcelHelpers.interopDefault(_nsceneList);
+var _actions = require("../reducer/actions");
+var _reactRedux = require("react-redux");
+var _s = $RefreshSig$();
 function App() {
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const scenes = (0, _reactRedux.useSelector)((s)=>s.scenes);
+    /* store current scene in store */ (0, _react.useEffect)(()=>{
+        function sceneChange() {
+            let scene = "";
+            if (window?.panorama == undefined) return;
+            scene = window?.panorama?.getScene();
+            console.log(scene);
+            dispatch((0, _actions.setSceneAction)(scene));
+        }
+        window?.panorama?.on("load", sceneChange);
+    });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         id: "layout",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("aside", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileMenuDefault.default), {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 35,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 36,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 37,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 38,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 39,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 40,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _nsceneListDefault.default), {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 41,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneEditDefault.default), {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 42,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 43,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneListDefault.default), {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 44,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 45,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileMenuDefault.default), {}, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addArticleDefault.default), {}, void 0, false, {
                         fileName: "src/components/App.jsx",
-                        lineNumber: 17,
+                        lineNumber: 47,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/components/App.jsx",
-                        lineNumber: 18,
+                        lineNumber: 48,
                         columnNumber: 5
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
                         fileName: "src/components/App.jsx",
-                        lineNumber: 19,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 20,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 21,
+                        lineNumber: 49,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/components/App.jsx",
-                        lineNumber: 22,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _nsceneListDefault.default), {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 23,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneEditDefault.default), {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 24,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 25,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneListDefault.default), {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 26,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 27,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addArticleDefault.default), {}, void 0, false, {
-                                fileName: "src/components/App.jsx",
-                                lineNumber: 29,
-                                columnNumber: 6
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                                fileName: "src/components/App.jsx",
-                                lineNumber: 30,
-                                columnNumber: 6
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
-                                fileName: "src/components/App.jsx",
-                                lineNumber: 31,
-                                columnNumber: 6
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                                fileName: "src/components/App.jsx",
-                                lineNumber: 32,
-                                columnNumber: 6
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/App.jsx",
-                        lineNumber: 28,
+                        lineNumber: 50,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/App.jsx",
-                lineNumber: 16,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _viewDefault.default), {}, void 0, false, {
-                    fileName: "src/components/App.jsx",
-                    lineNumber: 37,
-                    columnNumber: 5
-                }, this)
-            }, void 0, false, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 36,
+                lineNumber: 46,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/App.jsx",
-        lineNumber: 15,
+        lineNumber: 34,
         columnNumber: 3
     }, this);
 }
+_s(App, "a8SSyxf14bSLuO70lOc1L2yWByk=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch),
+        (0, _reactRedux.useSelector)
+    ];
+});
 _c = App;
 exports.default = App;
 var _c;
@@ -27135,7 +27142,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./FileMenu":"1YNc4","./SceneList":"3T666","./View":"h7o8t","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","./AddArticle":"lTzad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SceneEdit":"2lHct","./NSceneList":"f09ms"}],"3Obs1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./FileMenu":"1YNc4","./SceneList":"3T666","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./AddArticle":"lTzad","./SceneEdit":"2lHct","./NSceneList":"f09ms","../reducer/actions":"3HrII","react-redux":"bdVon"}],"3Obs1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$aefa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29152,6 +29159,7 @@ parcelHelpers.export(exports, "updateArticleAction", ()=>updateArticleAction);
 parcelHelpers.export(exports, "deleteImageAction", ()=>deleteImageAction);
 parcelHelpers.export(exports, "addImagesAction", ()=>addImagesAction);
 parcelHelpers.export(exports, "setInitialRotationAction", ()=>setInitialRotationAction);
+parcelHelpers.export(exports, "setSceneAction", ()=>setSceneAction);
 function loadFileAction(data) {
     return {
         type: "LOAD_FILE",
@@ -29232,13 +29240,22 @@ function addImagesAction(article, images) {
     };
 }
 function setInitialRotationAction(scene, yaw, pitch) {
-    console.log("action");
     return {
         type: "SET_INITIAL",
         payload: {
             scene,
             yaw,
             pitch
+        }
+    };
+}
+function setSceneAction(scene) {
+    return {
+        type: "SET_SCENE",
+        payload: {
+            editor: {
+                currentScene: scene
+            }
         }
     };
 }
@@ -29641,6 +29658,7 @@ function FileMenu() {
             console.log(JSON.parse(data));
             /* replace state in storage */ dispatch((0, _actions.loadFileAction)(JSON.parse(data)));
             console.log("file loaded");
+            /* reset the panorama */ window.resetPanorama();
         } catch (err) {
             console.error(err);
         }
@@ -29656,7 +29674,7 @@ function FileMenu() {
                 children: "Reset"
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
-                lineNumber: 54,
+                lineNumber: 57,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29664,7 +29682,7 @@ function FileMenu() {
                 children: "Load.."
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
-                lineNumber: 55,
+                lineNumber: 58,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29672,13 +29690,13 @@ function FileMenu() {
                 children: "Save As.."
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
-                lineNumber: 56,
+                lineNumber: 59,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/FileMenu.jsx",
-        lineNumber: 53,
+        lineNumber: 56,
         columnNumber: 3
     }, this);
 }
@@ -29928,7 +29946,7 @@ $RefreshReg$(_c, "Scene");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8TnZr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../reducer/actions":"3HrII"}],"8TnZr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c6b1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30391,84 +30409,7 @@ $RefreshReg$(_c, "Hotspot");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h7o8t":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$d4b4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$d4b4.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRedux = require("react-redux");
-var _s = $RefreshSig$();
-function View() {
-    _s();
-    const store = (0, _reactRedux.useSelector)((s)=>s);
-    function resetHandler(e) {
-        window.panorama?.destroy();
-        window.panorama = window.pannellum.viewer("out", store);
-    }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                children: "pannellum viewer"
-            }, void 0, false, {
-                fileName: "src/components/View.jsx",
-                lineNumber: 17,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: resetHandler,
-                children: "Reset"
-            }, void 0, false, {
-                fileName: "src/components/View.jsx",
-                lineNumber: 18,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                fileName: "src/components/View.jsx",
-                lineNumber: 19,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                fileName: "src/components/View.jsx",
-                lineNumber: 20,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                id: "out"
-            }, void 0, false, {
-                fileName: "src/components/View.jsx",
-                lineNumber: 21,
-                columnNumber: 4
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/View.jsx",
-        lineNumber: 16,
-        columnNumber: 3
-    }, this);
-}
-_s(View, "5ilW2KbvJgah+YZGWDN+yWKc71U=", false, function() {
-    return [
-        (0, _reactRedux.useSelector)
-    ];
-});
-_c = View;
-exports.default = View;
-var _c;
-$RefreshReg$(_c, "View");
-
-  $parcel$ReactRefreshHelpers$d4b4.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aXRCO":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aXRCO":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5c62 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30755,124 +30696,146 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function SceneEdit() {
+var _reactRedux = require("react-redux");
+var _s = $RefreshSig$();
+function SceneEdit({ scene  }) {
+    _s();
+    const scenes = (0, _reactRedux.useSelector)((s)=>s.scenes);
+    const editor = (0, _reactRedux.useSelector)((s)=>s.editor);
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const [_title, setTitle] = (0, _react.useState)("");
+    const [_yaw, setYaw] = (0, _react.useState)(0);
+    const [_hotspot, setHotspot] = (0, _react.useState)("");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 6,
-                columnNumber: 13
+                lineNumber: 17,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: "Edit Scene"
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 7,
-                columnNumber: 13
+                lineNumber: 18,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 8,
-                columnNumber: 13
+                lineNumber: 19,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: "name of scene - title"
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 9,
-                columnNumber: 13
+                lineNumber: 20,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "text",
-                        placeholder: "title"
+                        placeholder: "title",
+                        value: _title,
+                        onChange: (e)=>setTitle(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 11,
-                        columnNumber: 17
+                        lineNumber: 22,
+                        columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "set"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 12,
-                        columnNumber: 17
+                        lineNumber: 28,
+                        columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 10,
-                columnNumber: 13
+                lineNumber: 21,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "text",
-                        placeholder: "yaw"
+                        placeholder: "yaw",
+                        value: _yaw,
+                        onChange: (e)=>setYaw(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 15,
-                        columnNumber: 17
+                        lineNumber: 31,
+                        columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "set initial yaw"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 16,
-                        columnNumber: 17
+                        lineNumber: 37,
+                        columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 14,
-                columnNumber: 13
+                lineNumber: 30,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "text",
                         name: "addnew",
-                        placeholder: "new hotspot"
+                        placeholder: "new hotspot",
+                        value: _hotspot,
+                        onChange: (e)=>setHotspot(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 19,
-                        columnNumber: 17
+                        lineNumber: 40,
+                        columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "add scene"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 20,
-                        columnNumber: 17
+                        lineNumber: 47,
+                        columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "add info"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 21,
-                        columnNumber: 17
+                        lineNumber: 48,
+                        columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 18,
-                columnNumber: 13
+                lineNumber: 39,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: "hotspots"
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 23,
-                columnNumber: 13
+                lineNumber: 50,
+                columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/SceneEdit.jsx",
-        lineNumber: 5,
-        columnNumber: 9
+        lineNumber: 16,
+        columnNumber: 3
     }, this);
 }
+_s(SceneEdit, "G8C9hpAfP5r50Zg3h1pNYY/CcJU=", false, function() {
+    return [
+        (0, _reactRedux.useSelector),
+        (0, _reactRedux.useSelector),
+        (0, _reactRedux.useDispatch)
+    ];
+});
 _c = SceneEdit;
 exports.default = SceneEdit;
 var _c;
@@ -30883,7 +30846,7 @@ $RefreshReg$(_c, "SceneEdit");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"f09ms":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"f09ms":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ba19 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30964,7 +30927,7 @@ $RefreshReg$(_c, "NSceneList");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon"}],"cDNB3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cDNB3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "__DO_NOT_USE__ActionTypes", ()=>ActionTypes);
@@ -31639,6 +31602,11 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
             return setImage(copy, action.payload);
         case "SET_INITIAL":
             return setInitial(copy, action.payload);
+        case "SET_SCENE":
+            return {
+                ...copy,
+                ...action.payload
+            };
         default:
             return store;
     }

@@ -138,6 +138,9 @@ export default function reducer(store = storeDefaults, action) {
         case "SET_INITIAL":
             return setInitial(copy, action.payload);
 
+        case "SET_SCENE":
+            return { ...copy, ...action.payload };
+
         default:
             return store
     }

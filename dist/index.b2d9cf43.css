@@ -14,11 +14,6 @@ legend {
   background: #000;
 }
 
-#layout {
-  flex-direction: row;
-  display: flex;
-}
-
 ul {
   padding: 4px;
   list-style: none;
@@ -89,6 +84,11 @@ img {
 .scrollContainer {
   height: 200px;
   overflow-y: scroll;
+}
+
+.horizontal {
+  flex-flow: row;
+  display: flex;
 }
 
 /*# sourceMappingURL=index.b2d9cf43.css.map */
