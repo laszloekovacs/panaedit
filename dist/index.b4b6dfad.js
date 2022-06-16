@@ -27008,90 +27008,122 @@ var _addPanorama = require("./AddPanorama");
 var _addPanoramaDefault = parcelHelpers.interopDefault(_addPanorama);
 var _addArticle = require("./AddArticle");
 var _addArticleDefault = parcelHelpers.interopDefault(_addArticle);
+var _sceneEdit = require("./SceneEdit");
+var _sceneEditDefault = parcelHelpers.interopDefault(_sceneEdit);
+var _nsceneList = require("./NSceneList");
+var _nsceneListDefault = parcelHelpers.interopDefault(_nsceneList);
 function App() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            id: "layout",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("aside", {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileMenuDefault.default), {}, void 0, false, {
-                            fileName: "src/components/App.jsx",
-                            lineNumber: 15,
-                            columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                            fileName: "src/components/App.jsx",
-                            lineNumber: 16,
-                            columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
-                            fileName: "src/components/App.jsx",
-                            lineNumber: 17,
-                            columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                            fileName: "src/components/App.jsx",
-                            lineNumber: 18,
-                            columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
-                            fileName: "src/components/App.jsx",
-                            lineNumber: 19,
-                            columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneListDefault.default), {}, void 0, false, {
-                            fileName: "src/components/App.jsx",
-                            lineNumber: 20,
-                            columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                            fileName: "src/components/App.jsx",
-                            lineNumber: 21,
-                            columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addArticleDefault.default), {}, void 0, false, {
-                                    fileName: "src/components/App.jsx",
-                                    lineNumber: 23,
-                                    columnNumber: 7
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
-                                    fileName: "src/components/App.jsx",
-                                    lineNumber: 24,
-                                    columnNumber: 7
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/App.jsx",
-                            lineNumber: 22,
-                            columnNumber: 6
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/App.jsx",
-                    lineNumber: 14,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _viewDefault.default), {}, void 0, false, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        id: "layout",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("aside", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileMenuDefault.default), {}, void 0, false, {
                         fileName: "src/components/App.jsx",
-                        lineNumber: 29,
-                        columnNumber: 6
+                        lineNumber: 17,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 18,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 19,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 20,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 21,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 22,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _nsceneListDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 23,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneEditDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 24,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 25,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneListDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 26,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 27,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addArticleDefault.default), {}, void 0, false, {
+                                fileName: "src/components/App.jsx",
+                                lineNumber: 29,
+                                columnNumber: 6
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                                fileName: "src/components/App.jsx",
+                                lineNumber: 30,
+                                columnNumber: 6
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
+                                fileName: "src/components/App.jsx",
+                                lineNumber: 31,
+                                columnNumber: 6
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                                fileName: "src/components/App.jsx",
+                                lineNumber: 32,
+                                columnNumber: 6
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 28,
+                        columnNumber: 5
                     }, this)
-                }, void 0, false, {
+                ]
+            }, void 0, true, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 16,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _viewDefault.default), {}, void 0, false, {
                     fileName: "src/components/App.jsx",
-                    lineNumber: 28,
+                    lineNumber: 37,
                     columnNumber: 5
                 }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/App.jsx",
-            lineNumber: 13,
-            columnNumber: 4
-        }, this)
-    }, void 0, false);
+            }, void 0, false, {
+                fileName: "src/components/App.jsx",
+                lineNumber: 36,
+                columnNumber: 4
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/App.jsx",
+        lineNumber: 15,
+        columnNumber: 3
+    }, this);
 }
 _c = App;
 exports.default = App;
@@ -27103,7 +27135,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./FileMenu":"1YNc4","./SceneList":"3T666","./View":"h7o8t","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./AddArticle":"lTzad"}],"3Obs1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./FileMenu":"1YNc4","./SceneList":"3T666","./View":"h7o8t","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","./AddArticle":"lTzad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SceneEdit":"2lHct","./NSceneList":"f09ms"}],"3Obs1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$aefa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27131,9 +27163,9 @@ function ArticleList() {
             columnNumber: 3
         }, this));
     /* no articles */ if (articles.length == 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                     children: "Articles"
                 }, void 0, false, {
                     fileName: "src/components/ArticleList.jsx",
@@ -27160,9 +27192,9 @@ function ArticleList() {
     }, this);
     else /* we have atricles */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "scrollContainer",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                     children: "Articles"
                 }, void 0, false, {
                     fileName: "src/components/ArticleList.jsx",
@@ -29896,7 +29928,7 @@ $RefreshReg$(_c, "Scene");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../reducer/actions":"3HrII"}],"8TnZr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./AddHotspot":"8TnZr","./HotspotList":"6yCK8","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8TnZr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c6b1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30491,10 +30523,10 @@ function FirstScene() {
         lineNumber: 32,
         columnNumber: 4
     }, this);
-    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                children: "first scene"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "First scene"
             }, void 0, false, {
                 fileName: "src/components/FirstScene.jsx",
                 lineNumber: 40,
@@ -30574,10 +30606,10 @@ function AddPanorama() {
             dispatch((0, _actions.addSceneAciton)(file.name));
         }
     }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                children: "add panorama"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Add panorama"
             }, void 0, false, {
                 fileName: "src/components/AddPanorama.jsx",
                 lineNumber: 23,
@@ -30651,10 +30683,10 @@ function AddArticle() {
     function changeHandler(e) {
         setArticleName(e.target.value);
     }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                children: "add article"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Add article"
             }, void 0, false, {
                 fileName: "src/components/AddArticle.jsx",
                 lineNumber: 26,
@@ -30711,7 +30743,125 @@ $RefreshReg$(_c, "AddArticle");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cDNB3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2lHct":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b92d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b92d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function SceneEdit() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+            children: "Edit Scene"
+        }, void 0, false, {
+            fileName: "src/components/SceneEdit.jsx",
+            lineNumber: 6,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/SceneEdit.jsx",
+        lineNumber: 5,
+        columnNumber: 9
+    }, this);
+}
+_c = SceneEdit;
+exports.default = SceneEdit;
+var _c;
+$RefreshReg$(_c, "SceneEdit");
+
+  $parcel$ReactRefreshHelpers$b92d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"f09ms":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$ba19 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$ba19.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _s = $RefreshSig$();
+function NSceneList() {
+    _s();
+    const scenes = (0, _reactRedux.useSelector)((s)=>s.scenes);
+    let list = [];
+    function loadScene(scene) {
+        window?.panorama?.loadScene(scene);
+    }
+    for(scene in scenes)list.push(scene);
+    const sceneList = list.map((scene, k)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>loadScene(scene),
+                children: [
+                    scene,
+                    " - ",
+                    scenes[scene].title
+                ]
+            }, void 0, true, {
+                fileName: "src/components/NSceneList.jsx",
+                lineNumber: 18,
+                columnNumber: 9
+            }, this)
+        }, k, false, {
+            fileName: "src/components/NSceneList.jsx",
+            lineNumber: 17,
+            columnNumber: 47
+        }, this));
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Scene List"
+            }, void 0, false, {
+                fileName: "src/components/NSceneList.jsx",
+                lineNumber: 23,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "scrollContainer",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    children: sceneList
+                }, void 0, false, {
+                    fileName: "src/components/NSceneList.jsx",
+                    lineNumber: 25,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "src/components/NSceneList.jsx",
+                lineNumber: 24,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true);
+}
+_s(NSceneList, "1c0CYd0LErwMJ2xa0GJiSsLb2uo=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
+_c = NSceneList;
+exports.default = NSceneList;
+var _c;
+$RefreshReg$(_c, "NSceneList");
+
+  $parcel$ReactRefreshHelpers$ba19.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon"}],"cDNB3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "__DO_NOT_USE__ActionTypes", ()=>ActionTypes);

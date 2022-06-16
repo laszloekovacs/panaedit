@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {setFirstSceneAction} from '../reducer/actions';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFirstSceneAction } from '../reducer/actions';
 
 function FirstScene() {
 	const dispatch = useDispatch();
@@ -36,14 +36,14 @@ function FirstScene() {
 		);
 	} else {
 		return (
-			<fieldset>
-				<legend>first scene</legend>
+			<div>
+				<h3>First scene</h3>
 				<p>{isSet}</p>
 				<select name="startScene" id="startScene">
 					{list}
 				</select>
 				<button onClick={setHandler}>set</button>
-			</fieldset>
+			</div>
 		);
 	}
 }

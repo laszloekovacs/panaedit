@@ -6,30 +6,37 @@ import View from './View';
 import FirstScene from './FirstScene';
 import AddPanorama from './AddPanorama';
 import AddArticle from './AddArticle';
+import SceneEdit from './SceneEdit';
+import NSceneList from './NSceneList';
+
 
 function App() {
 	return (
-		<>
-			<div id="layout">
-				<aside>
-					<FileMenu></FileMenu>
+		<div id="layout">
+			<aside>
+				<FileMenu></FileMenu>
+				<hr />
+				<FirstScene></FirstScene>
+				<hr />
+				<AddPanorama></AddPanorama>
+				<hr />
+				<NSceneList></NSceneList>
+				<SceneEdit></SceneEdit>
+				<hr />
+				<SceneList></SceneList>
+				<hr />
+				<div>
+					<AddArticle />
 					<hr />
-					<FirstScene></FirstScene>
+					<ArticleList />
 					<hr />
-					<AddPanorama></AddPanorama>
-					<SceneList></SceneList>
-					<hr />
-					<div>
-						<AddArticle />
-						<ArticleList />
-					</div>
-				</aside>
+				</div>
+			</aside>
 
-				<main>
-					<View></View>
-				</main>
-			</div>
-		</>
+			<main>
+				<View></View>
+			</main>
+		</div>
 	);
 }
 

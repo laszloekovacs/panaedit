@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {addArticleAction} from '../reducer/actions';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addArticleAction } from '../reducer/actions';
 
 function AddArticle() {
 	const [articleName, setArticleName] = useState('');
@@ -22,8 +22,8 @@ function AddArticle() {
 	}
 
 	return (
-		<fieldset>
-			<legend>add article</legend>
+		<div>
+			<h3>Add article</h3>
 			<form onSubmit={addArticleHandler}>
 				<input
 					type="text"
@@ -35,7 +35,7 @@ function AddArticle() {
 				/>
 				<input type="submit" value="add" />
 			</form>
-		</fieldset>
+		</div>
 	);
 }
 

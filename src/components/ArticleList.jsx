@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import Article from './Article';
 
 function ArticleList() {
@@ -13,20 +13,20 @@ function ArticleList() {
 	if (articles.length == 0) {
 		return (
 			<div>
-				<fieldset>
-					<legend>Articles</legend>
+				<div>
+					<h3>Articles</h3>
 					<p>no articles loaded</p>
-				</fieldset>
+				</div>
 			</div>
 		);
 	} else {
 		/* we have atricles */
 		return (
 			<div className="scrollContainer">
-				<fieldset>
-					<legend>Articles</legend>
+				<div>
+					<h3>Articles</h3>
 					<ul>{list}</ul>
-				</fieldset>
+				</div>
 			</div>
 		);
 	}

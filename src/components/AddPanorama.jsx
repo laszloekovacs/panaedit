@@ -1,6 +1,6 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
-import {addSceneAciton} from '../reducer/actions';
+import { useDispatch } from 'react-redux';
+import { addSceneAciton } from '../reducer/actions';
 
 function AddPanorama() {
 	const dispatch = useDispatch();
@@ -19,11 +19,11 @@ function AddPanorama() {
 	}
 
 	return (
-		<fieldset>
-			<legend>add panorama</legend>
+		<div>
+			<h3>Add panorama</h3>
 			<input type="file" name="" id="files" multiple />
 			<button onClick={addSceneHandler}>add</button>
-		</fieldset>
+		</div>
 	);
 }
 
