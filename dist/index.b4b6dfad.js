@@ -30757,14 +30757,117 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 function SceneEdit() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-            children: "Edit Scene"
-        }, void 0, false, {
-            fileName: "src/components/SceneEdit.jsx",
-            lineNumber: 6,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/SceneEdit.jsx",
+                lineNumber: 6,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Edit Scene"
+            }, void 0, false, {
+                fileName: "src/components/SceneEdit.jsx",
+                lineNumber: 7,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/SceneEdit.jsx",
+                lineNumber: 8,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "name of scene - title"
+            }, void 0, false, {
+                fileName: "src/components/SceneEdit.jsx",
+                lineNumber: 9,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        placeholder: "title"
+                    }, void 0, false, {
+                        fileName: "src/components/SceneEdit.jsx",
+                        lineNumber: 11,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "set"
+                    }, void 0, false, {
+                        fileName: "src/components/SceneEdit.jsx",
+                        lineNumber: 12,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/SceneEdit.jsx",
+                lineNumber: 10,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        placeholder: "yaw"
+                    }, void 0, false, {
+                        fileName: "src/components/SceneEdit.jsx",
+                        lineNumber: 15,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "set initial yaw"
+                    }, void 0, false, {
+                        fileName: "src/components/SceneEdit.jsx",
+                        lineNumber: 16,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/SceneEdit.jsx",
+                lineNumber: 14,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        name: "addnew",
+                        placeholder: "new hotspot"
+                    }, void 0, false, {
+                        fileName: "src/components/SceneEdit.jsx",
+                        lineNumber: 19,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "add scene"
+                    }, void 0, false, {
+                        fileName: "src/components/SceneEdit.jsx",
+                        lineNumber: 20,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "add info"
+                    }, void 0, false, {
+                        fileName: "src/components/SceneEdit.jsx",
+                        lineNumber: 21,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/SceneEdit.jsx",
+                lineNumber: 18,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                children: "hotspots"
+            }, void 0, false, {
+                fileName: "src/components/SceneEdit.jsx",
+                lineNumber: 23,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "src/components/SceneEdit.jsx",
         lineNumber: 5,
         columnNumber: 9
