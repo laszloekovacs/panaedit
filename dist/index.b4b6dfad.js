@@ -30150,13 +30150,6 @@ function SceneEdit() {
                 lineNumber: 106,
                 columnNumber: 4
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                children: "hotspots"
-            }, void 0, false, {
-                fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 116,
-                columnNumber: 4
-            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotListDefault.default), {
                 title: editor?.currentScene
             }, void 0, false, {

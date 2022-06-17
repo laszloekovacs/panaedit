@@ -113,7 +113,7 @@ function SceneEdit() {
 				<button onClick={addSceneHandler}>add scene</button>
 				<button onClick={addInfoHandler}>add info</button>
 			</div>
-			<h4>hotspots</h4>
+
 			<HotspotList title={editor?.currentScene}></HotspotList>
 		</div>
 	);
