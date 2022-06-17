@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-
+import React from 'react';
 import ArticleList from './ArticleList';
 import FileMenu from './FileMenu';
-import SceneList from './SceneList';
+
 import FirstScene from './FirstScene';
 import AddPanorama from './AddPanorama';
 import AddArticle from './AddArticle';
@@ -11,7 +9,6 @@ import SceneEdit from './SceneEdit';
 import NSceneList from './NSceneList';
 
 function App() {
-
 	return (
 		<div id="sidebar">
 			<FileMenu></FileMenu>
@@ -22,9 +19,7 @@ function App() {
 			<hr />
 			<NSceneList></NSceneList>
 			<SceneEdit></SceneEdit>
-			<hr />
-			<SceneList></SceneList>
-			<hr />
+
 			<div>
 				<AddArticle />
 				<hr />
