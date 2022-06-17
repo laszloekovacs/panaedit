@@ -2894,22 +2894,23 @@ const root = (0, _clientDefault.default).createRoot(document.getElementById("roo
     window.panorama = window.pannellum.viewer("out", store.getState());
     window.panorama.on("load", sceneChange);
 };
+/* subscribe to the store, if it changes, restart the viewer */ //store.subscribe(() => { window.resetPanorama() })
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).StrictMode, {
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
         store: store,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 31,
+            lineNumber: 34,
             columnNumber: 4
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.jsx",
-        lineNumber: 30,
+        lineNumber: 33,
         columnNumber: 3
     }, undefined)
 }, void 0, false, {
     fileName: "src/index.jsx",
-    lineNumber: 29,
+    lineNumber: 32,
     columnNumber: 2
 }, undefined));
 
@@ -2918,7 +2919,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/App":"bCxdS","redux":"cDNB3","redux-devtools-extension":"fOPxo","./reducer":"i0RNR","react-redux":"bdVon","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./reducer/actions":"3HrII"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/App":"bCxdS","redux":"cDNB3","redux-devtools-extension":"fOPxo","./reducer":"i0RNR","react-redux":"bdVon","react":"21dqq","./reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -27124,107 +27125,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ArticleList":"3Obs1","./FileMenu":"1YNc4","./SceneList":"3T666","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","./AddArticle":"lTzad","./SceneEdit":"2lHct","./NSceneList":"f09ms","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon"}],"3Obs1":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$aefa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$aefa.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRedux = require("react-redux");
-var _article = require("./Article");
-var _articleDefault = parcelHelpers.interopDefault(_article);
-var _s = $RefreshSig$();
-function ArticleList() {
-    _s();
-    const articles = (0, _reactRedux.useSelector)((s)=>s.articles);
-    const list = articles.map((a, k)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleDefault.default), {
-            title: a.title,
-            text: a.text
-        }, k, false, {
-            fileName: "src/components/ArticleList.jsx",
-            lineNumber: 9,
-            columnNumber: 3
-        }, this));
-    /* no articles */ if (articles.length == 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: "Articles"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 17,
-                    columnNumber: 6
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: "no articles loaded"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 18,
-                    columnNumber: 6
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/ArticleList.jsx",
-            lineNumber: 16,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "src/components/ArticleList.jsx",
-        lineNumber: 15,
-        columnNumber: 4
-    }, this);
-    else /* we have atricles */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "scrollContainer",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: "Articles"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 27,
-                    columnNumber: 6
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                    children: list
-                }, void 0, false, {
-                    fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 28,
-                    columnNumber: 6
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/ArticleList.jsx",
-            lineNumber: 26,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "src/components/ArticleList.jsx",
-        lineNumber: 25,
-        columnNumber: 4
-    }, this);
-}
-_s(ArticleList, "9qg9NrrI6UYevg7zcP+FosJe59k=", false, function() {
-    return [
-        (0, _reactRedux.useSelector)
-    ];
-});
-_c = ArticleList;
-exports.default = ArticleList;
-var _c;
-$RefreshReg$(_c, "ArticleList");
-
-  $parcel$ReactRefreshHelpers$aefa.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./Article":"rEDCB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bdVon":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./ArticleList":"3Obs1","./FileMenu":"1YNc4","./SceneList":"3T666","./FirstScene":"aXRCO","./AddPanorama":"kZDYU","./AddArticle":"lTzad","./SceneEdit":"2lHct","./NSceneList":"f09ms","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bdVon":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "batch", ()=>(0, _reactBatchedUpdates.unstable_batchedUpdates));
@@ -29007,7 +28908,107 @@ const useStore = /*#__PURE__*/ createStoreHook();
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"rEDCB":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3Obs1":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$aefa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$aefa.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _article = require("./Article");
+var _articleDefault = parcelHelpers.interopDefault(_article);
+var _s = $RefreshSig$();
+function ArticleList() {
+    _s();
+    const articles = (0, _reactRedux.useSelector)((s)=>s.articles);
+    const list = articles.map((a, k)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleDefault.default), {
+            title: a.title,
+            text: a.text
+        }, k, false, {
+            fileName: "src/components/ArticleList.jsx",
+            lineNumber: 9,
+            columnNumber: 3
+        }, this));
+    /* no articles */ if (articles.length == 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    children: "Articles"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleList.jsx",
+                    lineNumber: 17,
+                    columnNumber: 6
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: "no articles loaded"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleList.jsx",
+                    lineNumber: 18,
+                    columnNumber: 6
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/ArticleList.jsx",
+            lineNumber: 16,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/ArticleList.jsx",
+        lineNumber: 15,
+        columnNumber: 4
+    }, this);
+    else /* we have atricles */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "scrollContainer",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    children: "Articles"
+                }, void 0, false, {
+                    fileName: "src/components/ArticleList.jsx",
+                    lineNumber: 27,
+                    columnNumber: 6
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    children: list
+                }, void 0, false, {
+                    fileName: "src/components/ArticleList.jsx",
+                    lineNumber: 28,
+                    columnNumber: 6
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/ArticleList.jsx",
+            lineNumber: 26,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/ArticleList.jsx",
+        lineNumber: 25,
+        columnNumber: 4
+    }, this);
+}
+_s(ArticleList, "9qg9NrrI6UYevg7zcP+FosJe59k=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
+_c = ArticleList;
+exports.default = ArticleList;
+var _c;
+$RefreshReg$(_c, "ArticleList");
+
+  $parcel$ReactRefreshHelpers$aefa.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","./Article":"rEDCB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"rEDCB":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$01ea = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29142,6 +29143,7 @@ parcelHelpers.export(exports, "deleteImageAction", ()=>deleteImageAction);
 parcelHelpers.export(exports, "addImagesAction", ()=>addImagesAction);
 parcelHelpers.export(exports, "setInitialRotationAction", ()=>setInitialRotationAction);
 parcelHelpers.export(exports, "sceneChangeAction", ()=>sceneChangeAction);
+parcelHelpers.export(exports, "setTitleAction", ()=>setTitleAction);
 function loadFileAction(data) {
     return {
         type: "LOAD_FILE",
@@ -29238,6 +29240,15 @@ function sceneChangeAction(scene) {
             editor: {
                 currentScene: scene
             }
+        }
+    };
+}
+function setTitleAction(scene, title) {
+    return {
+        type: "SET_SCENE_TITLE",
+        payload: {
+            scene,
+            title
         }
     };
 }
@@ -29649,6 +29660,9 @@ function FileMenu() {
         dispatch((0, _actions.resetAction)());
         window.resetPanorama();
     }
+    function resetPanorama(e) {
+        window.resetPanorama();
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "fileMenu",
         children: [
@@ -29657,7 +29671,7 @@ function FileMenu() {
                 children: "Reset"
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
-                lineNumber: 59,
+                lineNumber: 63,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29665,7 +29679,7 @@ function FileMenu() {
                 children: "Load.."
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
-                lineNumber: 60,
+                lineNumber: 64,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29673,13 +29687,21 @@ function FileMenu() {
                 children: "Save As.."
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
-                lineNumber: 61,
+                lineNumber: 65,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: resetPanorama,
+                children: "Reset view"
+            }, void 0, false, {
+                fileName: "src/components/FileMenu.jsx",
+                lineNumber: 66,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/FileMenu.jsx",
-        lineNumber: 58,
+        lineNumber: 62,
         columnNumber: 3
     }, this);
 }
@@ -30686,7 +30708,7 @@ function SceneEdit() {
     const dispatch = (0, _reactRedux.useDispatch)();
     const scenes = (0, _reactRedux.useSelector)((s)=>s.scenes);
     const editor = (0, _reactRedux.useSelector)((s)=>s.editor);
-    const scene = scenes[editor.currentScene];
+    const scene = scenes[editor?.currentScene];
     console.log(scene);
     function setDirectionHandler(e) {
         const yaw = window?.panorama?.getYaw();
@@ -30694,23 +30716,30 @@ function SceneEdit() {
         if (!yaw || !pitch) return;
         dispatch((0, _actions.setInitialRotationAction)(editor.currentScene, yaw.toFixed(2), pitch.toFixed(2)));
     }
+    function setTitleHandler(e) {
+        if (e.key != "Enter") return;
+        const titleInput = document.getElementById("title");
+        if (titleInput.value == "") return;
+        dispatch((0, _actions.setTitleAction)(editor.currentScene, titleInput.value));
+        titleInput.value = "";
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 26,
+                lineNumber: 38,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: "Edit Scene"
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 27,
+                lineNumber: 39,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 28,
+                lineNumber: 40,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -30721,7 +30750,7 @@ function SceneEdit() {
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 29,
+                lineNumber: 41,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30733,44 +30762,37 @@ function SceneEdit() {
                         ]
                     }, void 0, true, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 31,
+                        lineNumber: 43,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: setDirectionHandler,
-                        children: "set initial yaw"
+                        children: "set initial view"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 32,
+                        lineNumber: 44,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 30,
+                lineNumber: 42,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text",
-                        placeholder: "title"
-                    }, void 0, false, {
-                        fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 35,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        children: "set"
-                    }, void 0, false, {
-                        fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 39,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "title",
+                    type: "text",
+                    placeholder: "rename title -> press enter",
+                    onKeyUp: setTitleHandler
+                }, void 0, false, {
+                    fileName: "src/components/SceneEdit.jsx",
+                    lineNumber: 47,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 34,
+                lineNumber: 46,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30781,40 +30803,40 @@ function SceneEdit() {
                         placeholder: "new hotspot"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 42,
+                        lineNumber: 54,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "add scene"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 47,
+                        lineNumber: 59,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "add info"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 48,
+                        lineNumber: 60,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 41,
+                lineNumber: 53,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: "hotspots"
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 50,
+                lineNumber: 62,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/SceneEdit.jsx",
-        lineNumber: 25,
+        lineNumber: 37,
         columnNumber: 9
     }, this);
 }
@@ -30835,7 +30857,7 @@ $RefreshReg$(_c, "SceneEdit");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../reducer/actions":"3HrII"}],"f09ms":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"f09ms":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ba19 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31603,6 +31625,9 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
                 ...copy,
                 ...action.payload
             };
+        case "SET_SCENE_TITLE":
+            copy.scenes[action.payload.scene].title = action.payload.title;
+            return copy;
         default:
             return store;
     }

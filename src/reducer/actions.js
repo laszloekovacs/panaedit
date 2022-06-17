@@ -50,3 +50,7 @@ export function setInitialRotationAction(scene, yaw, pitch) {
 export function sceneChangeAction(scene) {
     return { type: "SET_EDITOR_SCENE", payload: { editor: { currentScene: scene } } }
 }
+
+export function setTitleAction(scene, title) {
+    return { type: "SET_SCENE_TITLE", payload: { scene, title } }
+}

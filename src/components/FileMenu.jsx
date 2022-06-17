@@ -54,11 +54,16 @@ function FileMenu() {
 		window.resetPanorama();
 	}
 
+	function resetPanorama(e) {
+		window.resetPanorama();
+	}
+
 	return (
 		<div className="fileMenu">
 			<button onClick={resetHandler}>Reset</button>
 			<button onClick={loadHandler}>Load..</button>
 			<button onClick={saveAsHandler}>Save As..</button>
+			<button onClick={resetPanorama}>Reset view</button>
 		</div>
 	);
 }

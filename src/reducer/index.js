@@ -141,6 +141,10 @@ export default function reducer(store = storeDefaults, action) {
         case "SET_EDITOR_SCENE":
             return { ...copy, ...action.payload };
 
+        case "SET_SCENE_TITLE":
+            copy.scenes[action.payload.scene].title = action.payload.title
+            return copy;
+
         default:
             return store
     }

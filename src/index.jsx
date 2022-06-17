@@ -25,6 +25,9 @@ window.resetPanorama = function resetPanorama() {
 	window.panorama.on('load', sceneChange);
 };
 
+/* subscribe to the store, if it changes, restart the viewer */
+//store.subscribe(() => { window.resetPanorama() })
+
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>

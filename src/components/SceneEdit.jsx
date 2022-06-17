@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setInitialRotationAction } from '../reducer/actions'
+import { setInitialRotationAction, setTitleAction } from '../reducer/actions'
 
 function SceneEdit() {
 
@@ -10,7 +10,7 @@ function SceneEdit() {
     const scenes = useSelector((s) => s.scenes);
     const editor = useSelector((s) => s.editor);
 
-    const scene = scenes[editor.currentScene];
+    const scene = scenes[editor?.currentScene];
     console.log(scene)
 
 
@@ -21,6 +21,18 @@ function SceneEdit() {
         dispatch(setInitialRotationAction(editor.currentScene, yaw.toFixed(2), pitch.toFixed(2)))
     }
 
+    function setTitleHandler(e) {
+        if (e.key != "Enter") return;
+
+        const titleInput = document.getElementById('title')
+
+        if (titleInput.value == "") return;
+
+        dispatch(setTitleAction(editor.currentScene, titleInput.value))
+
+        titleInput.value = ''
+    }
+
     return (
         <div>
             <hr />
@@ -29,14 +41,14 @@ function SceneEdit() {
             <h3>{editor?.currentScene} - {scene?.title}</h3>
             <div>
                 <p>yaw: {scene?.yaw}</p>
-                <button onClick={setDirectionHandler}>set initial yaw</button>
+                <button onClick={setDirectionHandler}>set initial view</button>
             </div>
             <div>
-                <input
+                <input id="title"
                     type="text"
-                    placeholder="title"
+                    placeholder="rename title -> press enter"
+                    onKeyUp={setTitleHandler}
                 />
-                <button>set</button>
             </div>
             <div>
                 <input
