@@ -75,8 +75,8 @@ function setImage(store, payload) {
 
 function setInitial(store, { scene, yaw, pitch }) {
 
-    store.scenes[scene].yaw = yaw;
-    store.scenes[scene].pitch = pitch;
+    store.scenes[scene].yaw = parseFloat(yaw);
+    store.scenes[scene].pitch = parseFloat(pitch);
 
     return store;
 }
