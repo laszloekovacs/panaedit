@@ -22,7 +22,10 @@ function SceneEdit() {
 		if (!yaw) return;
 
 		dispatch(
-			setNorthAction(editor?.currentScene, parseFloat(yaw.toFixed(2)))
+			setNorthAction(
+				editor?.currentScene,
+				parseFloat(-1 * yaw.toFixed(2))
+			)
 		);
 	}
 
@@ -57,7 +60,7 @@ function SceneEdit() {
 				yaw: parseFloat(window?.panorama.getYaw().toFixed(2)),
 				type: spottype,
 				text: text,
-				targetYaw: 'same',
+				targetYaw: 'sameAzimuth',
 			};
 
 			if (spottype == 'scene') {
