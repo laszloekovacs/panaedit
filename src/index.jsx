@@ -1,18 +1,18 @@
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
-import { legacy_createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import {legacy_createStore} from 'redux';
+import {devToolsEnhancer} from 'redux-devtools-extension';
 import reducer from './reducer';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import React from 'react';
-import { sceneChangeAction } from './reducer/actions'
+import {sceneChangeAction} from './reducer/actions';
 
 let store = legacy_createStore(reducer, devToolsEnhancer());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-/* send the current scene trough the store */
-function sceneChange() {
+/* save the current scene to the store */
+function loadHandler(e) {
 	store.dispatch(sceneChangeAction(window.panorama.getScene()));
 }
 
@@ -22,11 +22,8 @@ window.resetPanorama = function resetPanorama() {
 
 	window.panorama = window.pannellum.viewer('out', store.getState());
 
-	window.panorama.on('load', sceneChange);
+	window.panorama.on('load', loadHandler);
 };
-
-/* subscribe to the store, if it changes, restart the viewer */
-//store.subscribe(() => { window.resetPanorama() })
 
 root.render(
 	<React.StrictMode>

@@ -72,14 +72,11 @@ function setImage(store, payload) {
     return store;
 }
 
+function setNorth(store, payload) {
 
-function setInitial(store, { scene, yaw, pitch }) {
-
-    store.scenes[scene].yaw = parseFloat(yaw);
-    store.scenes[scene].pitch = parseFloat(pitch);
-
-    return store;
+    store.scenes[payload.scene] = { ...store.scenes[payload.scene], northOffset: payload.yaw };
 }
+
 
 /*
 * ===============================================
@@ -135,11 +132,12 @@ export default function reducer(store = storeDefaults, action) {
         case "PASTE_IMAGES":
             return setImage(copy, action.payload);
 
-        case "SET_INITIAL":
-            return setInitial(copy, action.payload);
+        case "SET_NORTH":
+            return setNorth(copy, action.payload);
 
         case "SET_EDITOR_SCENE":
-            return { ...copy, ...action.payload };
+            copy.editor.currentScene = action.payload;
+            return copy;
 
         case "SET_SCENE_TITLE":
             copy.scenes[action.payload.scene].title = action.payload.title

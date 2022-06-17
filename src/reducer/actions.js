@@ -43,12 +43,12 @@ export function addImagesAction(article, images) {
     return { type: "PASTE_IMAGES", payload: { article, images } }
 }
 
-export function setInitialRotationAction(scene, yaw, pitch) {
-    return { type: "SET_INITIAL", payload: { scene, yaw, pitch } }
+export function setNorthAction(scene, yaw) {
+    return { type: "SET_NORTH", payload: { scene, yaw } }
 }
 
 export function sceneChangeAction(scene) {
-    return { type: "SET_EDITOR_SCENE", payload: { editor: { currentScene: scene } } }
+    return { type: "SET_EDITOR_SCENE", payload: scene }
 }
 
 export function setTitleAction(scene, title) {

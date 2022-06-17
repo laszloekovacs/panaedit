@@ -2886,31 +2886,30 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _actions = require("./reducer/actions");
 let store = (0, _redux.legacy_createStore)((0, _reducerDefault.default), (0, _reduxDevtoolsExtension.devToolsEnhancer)());
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
-/* send the current scene trough the store */ function sceneChange() {
+/* save the current scene to the store */ function loadHandler(e) {
     store.dispatch((0, _actions.sceneChangeAction)(window.panorama.getScene()));
 }
 /* create panorama, wont be controlled by react */ window.resetPanorama = function resetPanorama() {
     window?.panorama?.destroy();
     window.panorama = window.pannellum.viewer("out", store.getState());
-    window.panorama.on("load", sceneChange);
+    window.panorama.on("load", loadHandler);
 };
-/* subscribe to the store, if it changes, restart the viewer */ //store.subscribe(() => { window.resetPanorama() })
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).StrictMode, {
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
         store: store,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 34,
+            lineNumber: 31,
             columnNumber: 4
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.jsx",
-        lineNumber: 33,
+        lineNumber: 30,
         columnNumber: 3
     }, undefined)
 }, void 0, false, {
     fileName: "src/index.jsx",
-    lineNumber: 32,
+    lineNumber: 29,
     columnNumber: 2
 }, undefined));
 
@@ -29123,7 +29122,7 @@ parcelHelpers.export(exports, "removeHotspotAction", ()=>removeHotspotAction);
 parcelHelpers.export(exports, "updateArticleAction", ()=>updateArticleAction);
 parcelHelpers.export(exports, "deleteImageAction", ()=>deleteImageAction);
 parcelHelpers.export(exports, "addImagesAction", ()=>addImagesAction);
-parcelHelpers.export(exports, "setInitialRotationAction", ()=>setInitialRotationAction);
+parcelHelpers.export(exports, "setNorthAction", ()=>setNorthAction);
 parcelHelpers.export(exports, "sceneChangeAction", ()=>sceneChangeAction);
 parcelHelpers.export(exports, "setTitleAction", ()=>setTitleAction);
 function loadFileAction(data) {
@@ -29205,24 +29204,19 @@ function addImagesAction(article, images) {
         }
     };
 }
-function setInitialRotationAction(scene, yaw, pitch) {
+function setNorthAction(scene, yaw) {
     return {
-        type: "SET_INITIAL",
+        type: "SET_NORTH",
         payload: {
             scene,
-            yaw,
-            pitch
+            yaw
         }
     };
 }
 function sceneChangeAction(scene) {
     return {
         type: "SET_EDITOR_SCENE",
-        payload: {
-            editor: {
-                currentScene: scene
-            }
-        }
+        payload: scene
     };
 }
 function setTitleAction(scene, title) {
@@ -30000,18 +29994,16 @@ function SceneEdit() {
     const scenes = (0, _reactRedux.useSelector)((s)=>s.scenes);
     const editor = (0, _reactRedux.useSelector)((s)=>s.editor);
     const scene = scenes[editor?.currentScene];
-    console.log(scene);
-    function setDirectionHandler(e) {
+    function setNorthHandler(e) {
         const yaw = window?.panorama?.getYaw();
-        const pitch = window?.panorama?.getPitch();
-        if (!yaw || !pitch) return;
-        dispatch((0, _actions.setInitialRotationAction)(editor.currentScene, yaw.toFixed(2), pitch.toFixed(2)));
+        if (!yaw) return;
+        dispatch((0, _actions.setNorthAction)(scene, parseFloat(yaw.toFixed(2))));
     }
     function setTitleHandler(e) {
         if (e.key != "Enter") return;
         const titleInput = document.getElementById("title");
         if (titleInput.value == "") return;
-        dispatch((0, _actions.setTitleAction)(editor.currentScene, titleInput.value));
+        dispatch((0, _actions.setTitleAction)(scene, titleInput.value));
         titleInput.value = "";
     }
     function createSpot(spottype) {
@@ -30025,7 +30017,8 @@ function SceneEdit() {
                 pitch: parseFloat(window?.panorama.getPitch().toFixed(2)),
                 yaw: parseFloat(window?.panorama.getYaw().toFixed(2)),
                 type: spottype,
-                text: text
+                text: text,
+                targetYaw: "sameAzimuth"
             };
             if (spottype == "scene") hotspot = {
                 ...hotspot,
@@ -30046,19 +30039,19 @@ function SceneEdit() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 89,
+                lineNumber: 84,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: "Edit Scene"
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 90,
+                lineNumber: 85,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 91,
+                lineNumber: 86,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -30069,35 +30062,33 @@ function SceneEdit() {
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 92,
+                lineNumber: 87,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: [
-                            "yaw: ",
-                            scene?.yaw,
-                            " pitch: ",
-                            scene?.pitch
+                            "northOffset: ",
+                            scene?.northOffset || "not set"
                         ]
                     }, void 0, true, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 96,
+                        lineNumber: 91,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        onClick: setDirectionHandler,
-                        children: "set initial view"
+                        onClick: setNorthHandler,
+                        children: "set north"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 99,
+                        lineNumber: 92,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 95,
+                lineNumber: 90,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30108,12 +30099,12 @@ function SceneEdit() {
                     onKeyUp: setTitleHandler
                 }, void 0, false, {
                     fileName: "src/components/SceneEdit.jsx",
-                    lineNumber: 102,
+                    lineNumber: 95,
                     columnNumber: 5
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 101,
+                lineNumber: 94,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30125,7 +30116,7 @@ function SceneEdit() {
                         placeholder: "new hotspot"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 110,
+                        lineNumber: 103,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30133,7 +30124,7 @@ function SceneEdit() {
                         children: "add scene"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 116,
+                        lineNumber: 109,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30141,26 +30132,26 @@ function SceneEdit() {
                         children: "add info"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 117,
+                        lineNumber: 110,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 109,
+                lineNumber: 102,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotListDefault.default), {
                 title: editor?.currentScene
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 120,
+                lineNumber: 113,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/SceneEdit.jsx",
-        lineNumber: 88,
+        lineNumber: 83,
         columnNumber: 3
     }, this);
 }
@@ -30181,7 +30172,7 @@ $RefreshReg$(_c, "SceneEdit");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./HotspotList":"6yCK8"}],"6yCK8":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","./HotspotList":"6yCK8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6yCK8":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$cde1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31070,10 +31061,11 @@ function setImage(store, payload) {
     store.articles[index].images = Array.from(set);
     return store;
 }
-function setInitial(store, { scene , yaw , pitch  }) {
-    store.scenes[scene].yaw = parseFloat(yaw);
-    store.scenes[scene].pitch = parseFloat(pitch);
-    return store;
+function setNorth(store, payload) {
+    store.scenes[payload.scene] = {
+        ...store.scenes[payload.scene],
+        northOffset: payload.yaw
+    };
 }
 function reducer(store = (0, _storeDefaultsDefault.default), action) {
     const copy = clone(store);
@@ -31120,13 +31112,11 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
             return deleteImage(copy, action.payload);
         case "PASTE_IMAGES":
             return setImage(copy, action.payload);
-        case "SET_INITIAL":
-            return setInitial(copy, action.payload);
+        case "SET_NORTH":
+            return setNorth(copy, action.payload);
         case "SET_EDITOR_SCENE":
-            return {
-                ...copy,
-                ...action.payload
-            };
+            copy.editor.currentScene = action.payload;
+            return copy;
         case "SET_SCENE_TITLE":
             copy.scenes[action.payload.scene].title = action.payload.title;
             return copy;

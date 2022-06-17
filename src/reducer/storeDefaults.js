@@ -17,6 +17,6 @@ export default storeDefaults = {
     scenes: {},
     articles: [],
     editor: {
-        currentScene: ""
+        currentScene: "",
     }
 }

@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import {
-	setInitialRotationAction,
+	setNorthAction,
 	setTitleAction,
 	addHotspotAction,
 } from '../reducer/actions';
@@ -15,19 +15,13 @@ function SceneEdit() {
 	const editor = useSelector((s) => s.editor);
 
 	const scene = scenes[editor?.currentScene];
-	console.log(scene);
 
-	function setDirectionHandler(e) {
+	function setNorthHandler(e) {
 		const yaw = window?.panorama?.getYaw();
-		const pitch = window?.panorama?.getPitch();
-		if (!yaw || !pitch) return;
-		dispatch(
-			setInitialRotationAction(
-				editor.currentScene,
-				yaw.toFixed(2),
-				pitch.toFixed(2)
-			)
-		);
+
+		if (!yaw) return;
+
+		dispatch(setNorthAction(scene, parseFloat(yaw.toFixed(2))));
 	}
 
 	function setTitleHandler(e) {
@@ -36,7 +30,7 @@ function SceneEdit() {
 		const titleInput = document.getElementById('title');
 		if (titleInput.value == '') return;
 
-		dispatch(setTitleAction(editor.currentScene, titleInput.value));
+		dispatch(setTitleAction(scene, titleInput.value));
 		titleInput.value = '';
 	}
 
@@ -61,6 +55,7 @@ function SceneEdit() {
 				yaw: parseFloat(window?.panorama.getYaw().toFixed(2)),
 				type: spottype,
 				text: text,
+				targetYaw: 'sameAzimuth',
 			};
 
 			if (spottype == 'scene') {
@@ -93,10 +88,8 @@ function SceneEdit() {
 				{editor?.currentScene} - {scene?.title}
 			</h3>
 			<div>
-				<p>
-					yaw: {scene?.yaw} pitch: {scene?.pitch}
-				</p>
-				<button onClick={setDirectionHandler}>set initial view</button>
+				<p>northOffset: {scene?.northOffset || 'not set'}</p>
+				<button onClick={setNorthHandler}>set north</button>
 			</div>
 			<div>
 				<input
