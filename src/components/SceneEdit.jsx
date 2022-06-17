@@ -48,7 +48,10 @@ function SceneEdit() {
 			if (!hotspotInput.value) return;
 
 			/* find the title of the linked scene */
-			const text = scenes[hotspotInput.value]?.title;
+			const text =
+				spottype == 'scene'
+					? scenes[hotspotInput.value]?.title
+					: hotspotInput.value.toString();
 
 			if (!text) return;
 

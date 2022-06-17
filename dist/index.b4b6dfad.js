@@ -30018,7 +30018,7 @@ function SceneEdit() {
         if (spottype == "scene" || spottype == "info") {
             /* fetch the textbox */ const hotspotInput = document.getElementById("addspot");
             if (!hotspotInput.value) return;
-            /* find the title of the linked scene */ const text = scenes[hotspotInput.value]?.title;
+            /* find the title of the linked scene */ const text = spottype == "scene" ? scenes[hotspotInput.value]?.title : hotspotInput.value.toString();
             if (!text) return;
             let hotspot = {
                 title: editor?.currentScene,
@@ -30046,19 +30046,19 @@ function SceneEdit() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 86,
+                lineNumber: 89,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: "Edit Scene"
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 87,
+                lineNumber: 90,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 88,
+                lineNumber: 91,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -30069,7 +30069,7 @@ function SceneEdit() {
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 89,
+                lineNumber: 92,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30083,7 +30083,7 @@ function SceneEdit() {
                         ]
                     }, void 0, true, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 93,
+                        lineNumber: 96,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30091,13 +30091,13 @@ function SceneEdit() {
                         children: "set initial view"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 96,
+                        lineNumber: 99,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 92,
+                lineNumber: 95,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30108,12 +30108,12 @@ function SceneEdit() {
                     onKeyUp: setTitleHandler
                 }, void 0, false, {
                     fileName: "src/components/SceneEdit.jsx",
-                    lineNumber: 99,
+                    lineNumber: 102,
                     columnNumber: 5
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 98,
+                lineNumber: 101,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30125,7 +30125,7 @@ function SceneEdit() {
                         placeholder: "new hotspot"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 107,
+                        lineNumber: 110,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30133,7 +30133,7 @@ function SceneEdit() {
                         children: "add scene"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 113,
+                        lineNumber: 116,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30141,26 +30141,26 @@ function SceneEdit() {
                         children: "add info"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 114,
+                        lineNumber: 117,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 106,
+                lineNumber: 109,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotListDefault.default), {
                 title: editor?.currentScene
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 117,
+                lineNumber: 120,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/SceneEdit.jsx",
-        lineNumber: 85,
+        lineNumber: 88,
         columnNumber: 3
     }, this);
 }
