@@ -29997,13 +29997,13 @@ function SceneEdit() {
     function setNorthHandler(e) {
         const yaw = window?.panorama?.getYaw();
         if (!yaw) return;
-        dispatch((0, _actions.setNorthAction)(scene, parseFloat(yaw.toFixed(2))));
+        dispatch((0, _actions.setNorthAction)(editor?.currentScene, parseFloat(yaw.toFixed(2))));
     }
     function setTitleHandler(e) {
         if (e.key != "Enter") return;
         const titleInput = document.getElementById("title");
         if (titleInput.value == "") return;
-        dispatch((0, _actions.setTitleAction)(scene, titleInput.value));
+        dispatch((0, _actions.setTitleAction)(editor?.currentScene, titleInput.value));
         titleInput.value = "";
     }
     function createSpot(spottype) {
@@ -30018,7 +30018,7 @@ function SceneEdit() {
                 yaw: parseFloat(window?.panorama.getYaw().toFixed(2)),
                 type: spottype,
                 text: text,
-                targetYaw: "sameAzimuth"
+                targetYaw: "same"
             };
             if (spottype == "scene") hotspot = {
                 ...hotspot,
@@ -30039,19 +30039,19 @@ function SceneEdit() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 84,
+                lineNumber: 86,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: "Edit Scene"
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 85,
+                lineNumber: 87,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 86,
+                lineNumber: 88,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -30062,7 +30062,7 @@ function SceneEdit() {
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 87,
+                lineNumber: 89,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30074,7 +30074,7 @@ function SceneEdit() {
                         ]
                     }, void 0, true, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 91,
+                        lineNumber: 93,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30082,13 +30082,13 @@ function SceneEdit() {
                         children: "set north"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 92,
+                        lineNumber: 94,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 90,
+                lineNumber: 92,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30099,12 +30099,12 @@ function SceneEdit() {
                     onKeyUp: setTitleHandler
                 }, void 0, false, {
                     fileName: "src/components/SceneEdit.jsx",
-                    lineNumber: 95,
+                    lineNumber: 97,
                     columnNumber: 5
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 94,
+                lineNumber: 96,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30116,7 +30116,7 @@ function SceneEdit() {
                         placeholder: "new hotspot"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 103,
+                        lineNumber: 105,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30124,7 +30124,7 @@ function SceneEdit() {
                         children: "add scene"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 109,
+                        lineNumber: 111,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30132,26 +30132,26 @@ function SceneEdit() {
                         children: "add info"
                     }, void 0, false, {
                         fileName: "src/components/SceneEdit.jsx",
-                        lineNumber: 110,
+                        lineNumber: 112,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 102,
+                lineNumber: 104,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hotspotListDefault.default), {
                 title: editor?.currentScene
             }, void 0, false, {
                 fileName: "src/components/SceneEdit.jsx",
-                lineNumber: 113,
+                lineNumber: 115,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/SceneEdit.jsx",
-        lineNumber: 83,
+        lineNumber: 85,
         columnNumber: 3
     }, this);
 }
@@ -31062,10 +31062,12 @@ function setImage(store, payload) {
     return store;
 }
 function setNorth(store, payload) {
-    store.scenes[payload.scene] = {
-        ...store.scenes[payload.scene],
+    console.log(payload);
+    store.scenes[payload.scene] = Object.assign(store.scenes[payload.scene], {
         northOffset: payload.yaw
-    };
+    });
+    console.log(store.scenes[payload.scene]);
+    return store;
 }
 function reducer(store = (0, _storeDefaultsDefault.default), action) {
     const copy = clone(store);
@@ -31088,7 +31090,8 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
             const basename = action.payload.split(".")[0];
             copy.scenes[basename] = {
                 title: basename,
-                panorama: action.payload
+                panorama: action.payload,
+                northOffset: 0
             };
             return copy;
         case "RESET":
@@ -31135,7 +31138,7 @@ exports.default = storeDefaults = {
         "sceneFadeDuration": 1000,
         "type": "equirectangular",
         "autoLoad": true,
-        "compass": false,
+        "compass": true,
         "hotSpotDebug": true,
         "hfov": 110,
         "vfow": 100,

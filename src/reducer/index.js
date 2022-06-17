@@ -73,8 +73,11 @@ function setImage(store, payload) {
 }
 
 function setNorth(store, payload) {
+    console.log(payload)
+    store.scenes[payload.scene] = Object.assign(store.scenes[payload.scene], { northOffset: payload.yaw });
 
-    store.scenes[payload.scene] = { ...store.scenes[payload.scene], northOffset: payload.yaw };
+    console.log(store.scenes[payload.scene])
+    return store;
 }
 
 
@@ -99,7 +102,7 @@ export default function reducer(store = storeDefaults, action) {
         case "ADD_SCENE":
             const basename = action.payload.split(".")[0]
 
-            copy.scenes[basename] = { title: basename, panorama: action.payload }
+            copy.scenes[basename] = { title: basename, panorama: action.payload, northOffset: 0 }
             return copy;
 
         case "RESET":
