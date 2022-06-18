@@ -89,6 +89,10 @@ img {
 .horizontal {
 	display: flex;
 	flex-flow: row nowrap;
+
+	#root {
+		width: 50%;
+	}
 }
 
 .sidebar {

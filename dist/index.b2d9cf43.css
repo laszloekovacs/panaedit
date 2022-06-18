@@ -91,6 +91,10 @@ img {
   display: flex;
 }
 
+.horizontal #root {
+  width: 50%;
+}
+
 .sidebar {
   width: 30%;
 }
