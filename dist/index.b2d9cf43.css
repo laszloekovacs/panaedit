@@ -91,11 +91,7 @@ img {
   display: flex;
 }
 
-.horizontal #root {
-  width: 50%;
-}
-
-.sidebar {
+.horizontal #root, .sidebar {
   width: 30%;
 }
 
