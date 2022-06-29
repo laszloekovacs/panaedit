@@ -31,10 +31,11 @@ export function removeHotspotAction(index, parent) {
     return { type: "REMOVE_HOTSPOT", payload: { index, parent } }
 }
 
-export function updateArticleAction(oldTitle, newTitle, text) {
-    return { type: "UPDATE_ARTICLE", payload: { oldTitle, newTitle, text } }
+export function updateArticleAction(oldTitle, newTitle) {
+    return { type: "UPDATE_ARTICLE", payload: { oldTitle, newTitle } }
 }
 
+/** */
 export function deleteImageAction(article, index) {
     return { type: "DELETE_IMAGE", payload: { article, index } }
 }
@@ -43,6 +44,11 @@ export function addImagesAction(article, images) {
     return { type: "PASTE_IMAGES", payload: { article, images } }
 }
 
+
+export function addImageLabelAction(article, src, label) {
+    return { type: "ADD_IMAGE_LABEL", payload: { article, src, label } }
+}
+/**/
 export function setNorthAction(scene, yaw) {
     return { type: "SET_NORTH", payload: { scene, yaw } }
 }

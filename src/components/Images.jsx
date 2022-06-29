@@ -1,7 +1,12 @@
 import React from 'react';
 
+import Image from './Image';
 import {useDispatch, useSelector} from 'react-redux';
-import {deleteImageAction, addImagesAction} from '../reducer/actions';
+import {
+	deleteImageAction,
+	addImagesAction,
+	addImageLabelAction,
+} from '../reducer/actions';
 
 const fileOptions = {
 	types: [{description: 'images', accept: {'image/jpeg': ['.jpeg', '.jpg']}}],
@@ -10,16 +15,24 @@ const fileOptions = {
 
 function Images({title}) {
 	const dispatch = useDispatch();
-	const imagepath = useSelector((s) => s.default.imagePath);
 
 	const article = useSelector((s) =>
 		s.articles.find((a) => a.title == title)
 	);
 
+	function addImageLabelHandler(e, imageName, label) {
+		e.preventDefault();
+		dispatch(addImageLabelAction(title, imageName, label));
+	}
+
 	const galery = article?.images?.map((p, i) => (
 		<li key={i} className="imageCard">
-			<img src={imagepath + p}></img>
-			<button onClick={(e) => remove(i)}>❌</button>
+			<Image
+				onAddLabel={addImageLabelHandler}
+				onRemove={remove}
+				src={p.src}
+				index={i}
+			></Image>
 		</li>
 	));
 
@@ -38,7 +51,7 @@ function Images({title}) {
 	return (
 		<>
 			<button onClick={addImageHandler}>add image...</button>
-			<ul className="horizontal">{galery}</ul>
+			<ul>{galery}</ul>
 		</>
 	);
 }

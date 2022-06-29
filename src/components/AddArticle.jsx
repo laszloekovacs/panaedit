@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addArticleAction } from '../reducer/actions';
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {addArticleAction} from '../reducer/actions';
 
 function AddArticle() {
 	const [articleName, setArticleName] = useState('');

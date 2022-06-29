@@ -1,4 +1,5 @@
 
+import { addImageLabelAction } from './actions';
 import storeDefaults from './storeDefaults'
 
 
@@ -42,7 +43,6 @@ function updateArticle(store, payload) {
         console.error("cannot find article")
 
     store.articles[index].title = payload.newTitle;
-    store.articles[index].text = payload.text;
 
     return store;
 }
@@ -59,18 +59,34 @@ function deleteImage(store, payload) {
 
 }
 
-function setImage(store, payload) {
+function addImages(store, payload) {
     const predicate = (elem) => elem.title == payload.article;
 
     const index = store.articles.findIndex(predicate)
 
     /* clean out duplicates */
-    const set = new Set([...store.articles[index].images, ...payload.images])
+    const newImages = Array.from(new Set([...payload.images]))
 
-    store.articles[index].images = Array.from(set);
+    /* create a list of objects */
+    const items = newImages.map(p => { return { src: p, label: '' } })
+
+    store.articles[index].images = [...store.articles[index].images, ...items]
 
     return store;
 }
+
+function addImageLabel(store, payload) {
+    const predicate = elem => elem.title == payload.article;
+    const index = store.articles.findIndex(predicate)
+
+    const image = store.articles[index].images.find(p => p.src == payload.src)
+
+    image.label = payload.label;
+    console.log(image)
+
+    return store;
+}
+
 
 function setNorth(store, payload) {
     console.log(payload)
@@ -133,7 +149,7 @@ export default function reducer(store = storeDefaults, action) {
             return deleteImage(copy, action.payload);
 
         case "PASTE_IMAGES":
-            return setImage(copy, action.payload);
+            return addImages(copy, action.payload);
 
         case "SET_NORTH":
             return setNorth(copy, action.payload);
@@ -145,6 +161,10 @@ export default function reducer(store = storeDefaults, action) {
         case "SET_SCENE_TITLE":
             copy.scenes[action.payload.scene].title = action.payload.title
             return copy;
+
+        case "ADD_IMAGE_LABEL":
+            return addImageLabel(copy, action.payload)
+
 
         default:
             return store

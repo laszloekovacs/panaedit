@@ -4,7 +4,6 @@ import {updateArticleAction} from '../reducer/actions';
 
 function ArticleEditor({title, onClose}) {
 	const [_title, setTitle] = useState('');
-	const [_text, setText] = useState('');
 
 	const dispatch = useDispatch();
 	const articles = useSelector((s) => s.articles);
@@ -14,13 +13,12 @@ function ArticleEditor({title, onClose}) {
 		if (article == undefined) console.error('cant find article');
 
 		setTitle(article.title);
-		setText(article?.text);
 	}, []);
 
 	function saveHandler(e) {
 		e.preventDefault();
 
-		dispatch(updateArticleAction(title, _title, _text));
+		dispatch(updateArticleAction(title, _title));
 
 		onClose();
 	}
@@ -38,17 +36,6 @@ function ArticleEditor({title, onClose}) {
 					value={_title}
 					onChange={(e) => setTitle(e.target.value)}
 				/>
-				<hr />
-				<label htmlFor="text">article text</label>
-				<br />
-				<textarea
-					name="text"
-					id="text"
-					cols="40"
-					rows="4"
-					value={_text}
-					onChange={(e) => setText(e.target.value)}
-				></textarea>
 			</form>
 		</div>
 	);

@@ -73,9 +73,10 @@ img {
 
 .imageCard {
 	position: relative;
+	border: 1px solid orangered;
 }
 
-.imageCard button {
+.imageCard .close {
 	position: absolute;
 	top: 2px;
 	left: 2px;

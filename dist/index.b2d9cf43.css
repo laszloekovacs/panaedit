@@ -72,10 +72,11 @@ img {
 }
 
 .imageCard {
+  border: 1px solid #ff4500;
   position: relative;
 }
 
-.imageCard button {
+.imageCard .close {
   position: absolute;
   top: 2px;
   left: 2px;

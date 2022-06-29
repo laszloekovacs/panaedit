@@ -29120,9 +29120,10 @@ parcelHelpers.export(exports, "setFirstSceneAction", ()=>setFirstSceneAction);
 parcelHelpers.export(exports, "addHotspotAction", ()=>addHotspotAction);
 parcelHelpers.export(exports, "removeHotspotAction", ()=>removeHotspotAction);
 parcelHelpers.export(exports, "updateArticleAction", ()=>updateArticleAction);
-parcelHelpers.export(exports, "deleteImageAction", ()=>deleteImageAction);
+/** */ parcelHelpers.export(exports, "deleteImageAction", ()=>deleteImageAction);
 parcelHelpers.export(exports, "addImagesAction", ()=>addImagesAction);
-parcelHelpers.export(exports, "setNorthAction", ()=>setNorthAction);
+parcelHelpers.export(exports, "addImageLabelAction", ()=>addImageLabelAction);
+/**/ parcelHelpers.export(exports, "setNorthAction", ()=>setNorthAction);
 parcelHelpers.export(exports, "sceneChangeAction", ()=>sceneChangeAction);
 parcelHelpers.export(exports, "setTitleAction", ()=>setTitleAction);
 function loadFileAction(data) {
@@ -29176,13 +29177,12 @@ function removeHotspotAction(index, parent) {
         }
     };
 }
-function updateArticleAction(oldTitle, newTitle, text) {
+function updateArticleAction(oldTitle, newTitle) {
     return {
         type: "UPDATE_ARTICLE",
         payload: {
             oldTitle,
-            newTitle,
-            text
+            newTitle
         }
     };
 }
@@ -29201,6 +29201,16 @@ function addImagesAction(article, images) {
         payload: {
             article,
             images
+        }
+    };
+}
+function addImageLabelAction(article, src, label) {
+    return {
+        type: "ADD_IMAGE_LABEL",
+        payload: {
+            article,
+            src,
+            label
         }
     };
 }
@@ -29247,18 +29257,16 @@ var _s = $RefreshSig$();
 function ArticleEditor({ title , onClose  }) {
     _s();
     const [_title, setTitle] = (0, _react.useState)("");
-    const [_text, setText] = (0, _react.useState)("");
     const dispatch = (0, _reactRedux.useDispatch)();
     const articles = (0, _reactRedux.useSelector)((s)=>s.articles);
     (0, _react.useEffect)(()=>{
         const article = articles.find((v)=>v.title == title);
         if (article == undefined) console.error("cant find article");
         setTitle(article.title);
-        setText(article?.text);
     }, []);
     function saveHandler(e) {
         e.preventDefault();
-        dispatch((0, _actions.updateArticleAction)(title, _title, _text));
+        dispatch((0, _actions.updateArticleAction)(title, _title));
         onClose();
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29270,7 +29278,7 @@ function ArticleEditor({ title , onClose  }) {
                     value: "save"
                 }, void 0, false, {
                     fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 31,
+                    lineNumber: 29,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -29278,7 +29286,7 @@ function ArticleEditor({ title , onClose  }) {
                     children: "title"
                 }, void 0, false, {
                     fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 32,
+                    lineNumber: 30,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -29290,52 +29298,22 @@ function ArticleEditor({ title , onClose  }) {
                     onChange: (e)=>setTitle(e.target.value)
                 }, void 0, false, {
                     fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 33,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 41,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "text",
-                    children: "article text"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 42,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 43,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                    name: "text",
-                    id: "text",
-                    cols: "40",
-                    rows: "4",
-                    value: _text,
-                    onChange: (e)=>setText(e.target.value)
-                }, void 0, false, {
-                    fileName: "src/components/ArticleEditor.jsx",
-                    lineNumber: 44,
+                    lineNumber: 31,
                     columnNumber: 5
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/ArticleEditor.jsx",
-            lineNumber: 30,
+            lineNumber: 28,
             columnNumber: 4
         }, this)
     }, void 0, false, {
         fileName: "src/components/ArticleEditor.jsx",
-        lineNumber: 29,
+        lineNumber: 27,
         columnNumber: 3
     }, this);
 }
-_s(ArticleEditor, "2f4yP/WA88YWsuu/w/yF3QkQb6U=", false, function() {
+_s(ArticleEditor, "Qqc7fdPzUTsKQrvP7qjUHm/Q/0M=", false, function() {
     return [
         (0, _reactRedux.useDispatch),
         (0, _reactRedux.useSelector)
@@ -29483,6 +29461,8 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _image = require("./Image");
+var _imageDefault = parcelHelpers.interopDefault(_image);
 var _reactRedux = require("react-redux");
 var _actions = require("../reducer/actions");
 var _s = $RefreshSig$();
@@ -29503,30 +29483,26 @@ const fileOptions = {
 function Images({ title  }) {
     _s();
     const dispatch = (0, _reactRedux.useDispatch)();
-    const imagepath = (0, _reactRedux.useSelector)((s)=>s.default.imagePath);
     const article = (0, _reactRedux.useSelector)((s)=>s.articles.find((a)=>a.title == title));
+    function addImageLabelHandler(e, imageName, label) {
+        e.preventDefault();
+        dispatch((0, _actions.addImageLabelAction)(title, imageName, label));
+    }
     const galery = article?.images?.map((p, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
             className: "imageCard",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: imagepath + p
-                }, void 0, false, {
-                    fileName: "src/components/Images.jsx",
-                    lineNumber: 21,
-                    columnNumber: 4
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: (e)=>remove(i),
-                    children: "\u274C"
-                }, void 0, false, {
-                    fileName: "src/components/Images.jsx",
-                    lineNumber: 22,
-                    columnNumber: 4
-                }, this)
-            ]
-        }, i, true, {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imageDefault.default), {
+                onAddLabel: addImageLabelHandler,
+                onRemove: remove,
+                src: p.src,
+                index: i
+            }, void 0, false, {
+                fileName: "src/components/Images.jsx",
+                lineNumber: 30,
+                columnNumber: 4
+            }, this)
+        }, i, false, {
             fileName: "src/components/Images.jsx",
-            lineNumber: 20,
+            lineNumber: 29,
             columnNumber: 3
         }, this));
     function remove(i) {
@@ -29544,24 +29520,22 @@ function Images({ title  }) {
                 children: "add image..."
             }, void 0, false, {
                 fileName: "src/components/Images.jsx",
-                lineNumber: 40,
+                lineNumber: 53,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                className: "horizontal",
                 children: galery
             }, void 0, false, {
                 fileName: "src/components/Images.jsx",
-                lineNumber: 41,
+                lineNumber: 54,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true);
 }
-_s(Images, "IAlULkTfXn73kyosuxWDqPiK+ig=", false, function() {
+_s(Images, "w/0IlyUbVAtgPWP9qsWQzOjOr/Q=", false, function() {
     return [
         (0, _reactRedux.useDispatch),
-        (0, _reactRedux.useSelector),
         (0, _reactRedux.useSelector)
     ];
 });
@@ -29575,7 +29549,82 @@ $RefreshReg$(_c, "Images");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1YNc4":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Image":"kREsr"}],"kREsr":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2f23 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2f23.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _s = $RefreshSig$();
+function Image({ onAddLabel , onRemove , src , index  }) {
+    _s();
+    const [label, setLabel] = (0, _react.useState)("");
+    const imagepath = (0, _reactRedux.useSelector)((s)=>s.default.imagePath);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: imagepath + src
+            }, void 0, false, {
+                fileName: "src/components/Image.jsx",
+                lineNumber: 11,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: "text",
+                placeholder: "label",
+                value: label,
+                onChange: (e)=>setLabel(e.target.value)
+            }, void 0, false, {
+                fileName: "src/components/Image.jsx",
+                lineNumber: 13,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: (e)=>{
+                    if (label.length == 0) return;
+                    onAddLabel(e, src, label);
+                    setLabel("");
+                },
+                children: "set label"
+            }, void 0, false, {
+                fileName: "src/components/Image.jsx",
+                lineNumber: 19,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: (e)=>onRemove(index),
+                children: "delete img"
+            }, void 0, false, {
+                fileName: "src/components/Image.jsx",
+                lineNumber: 29,
+                columnNumber: 4
+            }, this)
+        ]
+    }, void 0, true);
+}
+_s(Image, "/+tXgKLG/sBn65L3zGxe3Xq7BK0=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
+_c = Image;
+exports.default = Image;
+var _c;
+$RefreshReg$(_c, "Image");
+
+  $parcel$ReactRefreshHelpers$2f23.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon"}],"1YNc4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3b0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31017,6 +31066,7 @@ exports.devToolsEnhancer = typeof window !== "undefined" && window.__REDUX_DEVTO
 },{"redux":"cDNB3"}],"i0RNR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+var _actions = require("./actions");
 var _storeDefaults = require("./storeDefaults");
 var _storeDefaultsDefault = parcelHelpers.interopDefault(_storeDefaults);
 function clone(obj) {
@@ -31042,7 +31092,6 @@ function updateArticle(store, payload) {
     const index = store.articles.findIndex(predicate);
     if (index == -1) console.error("cannot find article");
     store.articles[index].title = payload.newTitle;
-    store.articles[index].text = payload.text;
     return store;
 }
 function deleteImage(store, payload) {
@@ -31051,14 +31100,30 @@ function deleteImage(store, payload) {
     store.articles[index].images = store.articles[index].images.filter((p, i)=>i != payload.index);
     return store;
 }
-function setImage(store, payload) {
+function addImages(store, payload) {
     const predicate = (elem)=>elem.title == payload.article;
     const index = store.articles.findIndex(predicate);
-    /* clean out duplicates */ const set = new Set([
-        ...store.articles[index].images,
+    /* clean out duplicates */ const newImages = Array.from(new Set([
         ...payload.images
-    ]);
-    store.articles[index].images = Array.from(set);
+    ]));
+    /* create a list of objects */ const items = newImages.map((p)=>{
+        return {
+            src: p,
+            label: ""
+        };
+    });
+    store.articles[index].images = [
+        ...store.articles[index].images,
+        ...items
+    ];
+    return store;
+}
+function addImageLabel(store, payload) {
+    const predicate = (elem)=>elem.title == payload.article;
+    const index = store.articles.findIndex(predicate);
+    const image = store.articles[index].images.find((p)=>p.src == payload.src);
+    image.label = payload.label;
+    console.log(image);
     return store;
 }
 function setNorth(store, payload) {
@@ -31114,7 +31179,7 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
         case "DELETE_IMAGE":
             return deleteImage(copy, action.payload);
         case "PASTE_IMAGES":
-            return setImage(copy, action.payload);
+            return addImages(copy, action.payload);
         case "SET_NORTH":
             return setNorth(copy, action.payload);
         case "SET_EDITOR_SCENE":
@@ -31123,13 +31188,15 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
         case "SET_SCENE_TITLE":
             copy.scenes[action.payload.scene].title = action.payload.title;
             return copy;
+        case "ADD_IMAGE_LABEL":
+            return addImageLabel(copy, action.payload);
         default:
             return store;
     }
 }
 exports.default = reducer;
 
-},{"./storeDefaults":"3QtA1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QtA1":[function(require,module,exports) {
+},{"./storeDefaults":"3QtA1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./actions":"3HrII"}],"3QtA1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = storeDefaults = {
