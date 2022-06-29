@@ -33,6 +33,8 @@ function Images({title}) {
 				src={p.src}
 				index={i}
 			></Image>
+			<p className="minilabel">{p.src}</p>
+			<p className="minilabel">{p.label}</p>
 		</li>
 	));
 

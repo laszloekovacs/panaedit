@@ -29490,17 +29490,35 @@ function Images({ title  }) {
     }
     const galery = article?.images?.map((p, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
             className: "imageCard",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imageDefault.default), {
-                onAddLabel: addImageLabelHandler,
-                onRemove: remove,
-                src: p.src,
-                index: i
-            }, void 0, false, {
-                fileName: "src/components/Images.jsx",
-                lineNumber: 30,
-                columnNumber: 4
-            }, this)
-        }, i, false, {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imageDefault.default), {
+                    onAddLabel: addImageLabelHandler,
+                    onRemove: remove,
+                    src: p.src,
+                    index: i
+                }, void 0, false, {
+                    fileName: "src/components/Images.jsx",
+                    lineNumber: 30,
+                    columnNumber: 4
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    className: "minilabel",
+                    children: p.src
+                }, void 0, false, {
+                    fileName: "src/components/Images.jsx",
+                    lineNumber: 36,
+                    columnNumber: 4
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    className: "minilabel",
+                    children: p.label
+                }, void 0, false, {
+                    fileName: "src/components/Images.jsx",
+                    lineNumber: 37,
+                    columnNumber: 4
+                }, this)
+            ]
+        }, i, true, {
             fileName: "src/components/Images.jsx",
             lineNumber: 29,
             columnNumber: 3
@@ -29520,14 +29538,14 @@ function Images({ title  }) {
                 children: "add image..."
             }, void 0, false, {
                 fileName: "src/components/Images.jsx",
-                lineNumber: 53,
+                lineNumber: 55,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                 children: galery
             }, void 0, false, {
                 fileName: "src/components/Images.jsx",
-                lineNumber: 54,
+                lineNumber: 56,
                 columnNumber: 4
             }, this)
         ]
@@ -29549,7 +29567,7 @@ $RefreshReg$(_c, "Images");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Image":"kREsr"}],"kREsr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Image":"kREsr","react-redux":"bdVon","../reducer/actions":"3HrII","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kREsr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2f23 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29624,7 +29642,7 @@ $RefreshReg$(_c, "Image");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"bdVon"}],"1YNc4":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1YNc4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3b0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31196,7 +31214,7 @@ function reducer(store = (0, _storeDefaultsDefault.default), action) {
 }
 exports.default = reducer;
 
-},{"./storeDefaults":"3QtA1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./actions":"3HrII"}],"3QtA1":[function(require,module,exports) {
+},{"./actions":"3HrII","./storeDefaults":"3QtA1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QtA1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = storeDefaults = {

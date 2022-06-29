@@ -20,7 +20,7 @@ ul {
 }
 
 aside {
-  min-width: 400px;
+  min-width: 700px;
 }
 
 input {
@@ -94,6 +94,10 @@ img {
 
 .horizontal #root, .sidebar {
   width: 30%;
+}
+
+.minilabel {
+  font-size: smaller;
 }
 
 /*# sourceMappingURL=index.b2d9cf43.css.map */
