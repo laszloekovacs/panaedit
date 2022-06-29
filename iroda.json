@@ -50,6 +50,13 @@
 					"text": "Vezérigazgató tárgyaló",
 					"targetYaw": "sameAzimuth",
 					"sceneId": "01cc"
+				},
+				{
+					"pitch": -28.91,
+					"yaw": -97.83,
+					"type": "info",
+					"text": "Vezérigazgató titkárság",
+					"targetYaw": "sameAzimuth"
 				}
 			]
 		},
@@ -96,6 +103,13 @@
 					"text": "Vezérigazgató titkárság",
 					"targetYaw": "sameAzimuth",
 					"sceneId": "01ab"
+				},
+				{
+					"pitch": -10.3,
+					"yaw": 133.74,
+					"type": "info",
+					"text": "Bata-kor",
+					"targetYaw": "sameAzimuth"
 				}
 			]
 		},
@@ -135,6 +149,13 @@
 					"text": "Vezérigazgató tárgyaló",
 					"targetYaw": "sameAzimuth",
 					"sceneId": "01cc"
+				},
+				{
+					"pitch": -8.56,
+					"yaw": -164.97,
+					"type": "info",
+					"text": "Országos ismertség",
+					"targetYaw": "sameAzimuth"
 				}
 			]
 		},
@@ -174,6 +195,13 @@
 					"text": "Folyosó",
 					"targetYaw": "sameAzimuth",
 					"sceneId": "r1"
+				},
+				{
+					"pitch": -2.64,
+					"yaw": -55.56,
+					"type": "info",
+					"text": "Országos ismertség",
+					"targetYaw": "sameAzimuth"
 				}
 			]
 		},
@@ -213,6 +241,13 @@
 					"text": "Folyosó",
 					"targetYaw": "sameAzimuth",
 					"sceneId": "r1"
+				},
+				{
+					"pitch": -2.27,
+					"yaw": -15.01,
+					"type": "info",
+					"text": "Országos ismertség",
+					"targetYaw": "sameAzimuth"
 				}
 			]
 		},
@@ -250,7 +285,7 @@
 					"type": "scene",
 					"text": "Folyosó",
 					"targetYaw": "sameAzimuth",
-					"sceneId": "r2"
+					"sceneId": "r3"
 				},
 				{
 					"pitch": -9.94,
@@ -259,6 +294,13 @@
 					"text": "Gazdasági igazgató titkárság",
 					"targetYaw": "sameAzimuth",
 					"sceneId": "02a"
+				},
+				{
+					"pitch": -31.7,
+					"yaw": -66.7,
+					"type": "info",
+					"text": "A Tisza Cipőgyár működése az 1950-60-as években",
+					"targetYaw": "sameAzimuth"
 				}
 			]
 		},
@@ -313,6 +355,13 @@
 					"text": "Jogi iroda",
 					"targetYaw": "sameAzimuth",
 					"sceneId": "03a"
+				},
+				{
+					"pitch": -3.44,
+					"yaw": -163.35,
+					"type": "info",
+					"text": "Tisza Cipőgyár, mint az ország legnagyobb cipőgyára. 1970-80-as évek",
+					"targetYaw": "sameAzimuth"
 				}
 			]
 		},
@@ -1049,7 +1098,8 @@
 					"type": "scene",
 					"text": "Vezérigazgató titkárság",
 					"targetYaw": "sameAzimuth",
-					"sceneId": "01aa"
+					"sceneId": "01aa",
+					"div": {}
 				},
 				{
 					"pitch": -5.14,
@@ -1057,7 +1107,8 @@
 					"type": "scene",
 					"text": "Vezérigazgató tárgyaló",
 					"targetYaw": "sameAzimuth",
-					"sceneId": "01cc"
+					"sceneId": "01cc",
+					"div": {}
 				},
 				{
 					"pitch": -10.95,
@@ -1065,7 +1116,8 @@
 					"type": "scene",
 					"text": "Folyosó 2",
 					"targetYaw": "sameAzimuth",
-					"sceneId": "r2"
+					"sceneId": "r2",
+					"div": {}
 				},
 				{
 					"pitch": -14.73,
@@ -1073,7 +1125,8 @@
 					"type": "scene",
 					"text": "Személyzeti osztály",
 					"targetYaw": "sameAzimuth",
-					"sceneId": "14a"
+					"sceneId": "14a",
+					"div": {}
 				},
 				{
 					"pitch": -10.34,
@@ -1081,7 +1134,8 @@
 					"type": "scene",
 					"text": "Személyzeti osztály",
 					"targetYaw": "sameAzimuth",
-					"sceneId": "14b"
+					"sceneId": "14b",
+					"div": {}
 				}
 			]
 		},
@@ -1430,6 +1484,126 @@
 			]
 		}
 	},
-	"articles": [],
-	"editor": {"currentScene": "08AB"}
+	"articles": [
+		{
+			"title": "Vezérigazgató titkárság",
+			"images": [
+				{
+					"src": "_dsc0911.jpg",
+					"label": "Festmény Svit gyáráról (Bata-város Szlovákiában)"
+				},
+				{
+					"src": "_dsc0913.jpg",
+					"label": "Légifelvétel a Tisza cipőgyár ipartelepéről"
+				},
+				{
+					"src": "_dsc0721.jpg",
+					"label": "Mozaik a lépcsőház első emeletén, benne az átadás évszámával "
+				},
+				{"src": "ebédlő.jpg", "label": "Üzemi ebédlő"},
+				{
+					"src": "irodaház közeli.jpg",
+					"label": "Irodaház archív felvételeken"
+				},
+				{
+					"src": "irodaház1.jpg",
+					"label": "Irodaház archív felvételeken"
+				},
+				{
+					"src": "irodaház2.jpg",
+					"label": "Irodaház archív felvételeken"
+				},
+				{
+					"src": "irodaház3.jpg",
+					"label": "Irodaház archív felvételeken"
+				}
+			]
+		},
+		{
+			"title": "Bata-kor",
+			"images": [
+				{"src": "4_kep.jpg", "label": "Építkezés: gyár és lakóházak"},
+				{"src": "6_kep.jpg", "label": "Építkezés: gyár és lakóházak"},
+				{"src": "45.jpg", "label": "Építkezés: gyár és lakóházak"},
+				{
+					"src": "bata-térkép.jpg",
+					"label": "A város tervezett alaprajza"
+				},
+				{
+					"src": "iad_16_20140001.jpg",
+					"label": "Cikta cipőgyár katalógusa 1949-ből"
+				}
+			]
+		},
+		{
+			"title": "Országos ismertség",
+			"images": [
+				{
+					"src": "_dsc0916.jpg",
+					"label": "Vezérigazgatói emlékek, köztük két díj a BNV-ről (Budapesti Nemzetközi Vásár)"
+				},
+				{
+					"src": "_dsc0945.jpg",
+					"label": "Megsárgult fényképek a falon – cipőkiállítás, a Tisza Cipőgyár standjai Tisza Misivel. A díszletről, installációról a Budapesten működő marketing osztály gondoskodott."
+				},
+				{
+					"src": "_dsc0949.jpg",
+					"label": "Megsárgult fényképek a falon – cipőkiállítás, a Tisza Cipőgyár standjai Tisza Misivel. A díszletről, installációról a Budapesten működő marketing osztály gondoskodott."
+				}
+			]
+		},
+		{
+			"title": "A Tisza Cipőgyár működése az 1950-60-as években",
+			"images": [
+				{"src": "_dsc0954.jpg", "label": "Export számokban"},
+				{
+					"src": "_dsc0955.jpg",
+					"label": "A keleti export országai, exportadatok."
+				},
+				{
+					"src": "_dsc0956.jpg",
+					"label": "A keleti export országai, exportadatok."
+				},
+				{
+					"src": "_dsc0962.jpg",
+					"label": "A keleti export országai, exportadatok."
+				},
+				{"src": "_dsc0974.jpg", "label": "Export katalógus"},
+				{
+					"src": "_dsc0976.jpg",
+					"label": "Létszámadatok részletezve 1959-60."
+				}
+			]
+		},
+		{
+			"title": "Tisza Cipőgyár, mint az ország legnagyobb cipőgyára. 1970-80-as évek",
+			"images": [
+				{
+					"src": "_dsc0867.jpg",
+					"label": "Új logó, új típusú edzőcipők. A fényképek cipőkiállításon készültek."
+				},
+				{
+					"src": "_dsc0873.jpg",
+					"label": "Fotóalbum cipőkiállításokról, Kimutatás a termelés megoszlásáról 1968."
+				},
+				{
+					"src": "_dsc0874.jpg",
+					"label": "Dokumentumok Martfű fejlődéséről, köztük a Tisza Cipő lap 1972. január 14-i számának cikke az 1971. évi eredményekről: cipőmintabolt megnyitása, tanácsi lakás építése, szövetkezeti házak, autóbusz állomás várótermének alapozása, általános iskola bővítése, közművesítés stb."
+				},
+				{
+					"src": "_dsc0876.jpg",
+					"label": "Dokumentumok Martfű fejlődéséről, köztük a Tisza Cipő lap 1972. január 14-i számának cikke az 1971. évi eredményekről: cipőmintabolt megnyitása, tanácsi lakás építése, szövetkezeti házak, autóbusz állomás várótermének alapozása, általános iskola bővítése, közművesítés stb."
+				},
+				{
+					"src": "cipobolt.jpg",
+					"label": "Az első Tisza Cipő mintabolt."
+				},
+				{
+					"src": "cipobolt2.jpg",
+					"label": "Az első Tisza Cipő mintabolt."
+				}
+			]
+		}
+	],
+	"editor": {"currentScene": "03b"}
 }
