@@ -2894,15 +2894,9 @@ const root = (0, _clientDefault.default).createRoot(document.getElementById("roo
     window.panorama = window.pannellum.viewer("out", store.getState());
     window.panorama.on("load", loadHandler);
 };
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).StrictMode, {
-    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
-        store: store,
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
-            fileName: "src/index.jsx",
-            lineNumber: 31,
-            columnNumber: 4
-        }, undefined)
-    }, void 0, false, {
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
+    store: store,
+    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
         fileName: "src/index.jsx",
         lineNumber: 30,
         columnNumber: 3
@@ -27018,83 +27012,87 @@ var _sceneEditDefault = parcelHelpers.interopDefault(_sceneEdit);
 var _nsceneList = require("./NSceneList");
 var _nsceneListDefault = parcelHelpers.interopDefault(_nsceneList);
 function App() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        id: "sidebar",
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileMenuDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                id: "sidebar",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileMenuDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 15,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 16,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 17,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 18,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 19,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 20,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _nsceneListDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 21,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneEditDefault.default), {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 22,
+                        columnNumber: 5
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/App.jsx",
                 lineNumber: 14,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 15,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addPanoramaDefault.default), {}, void 0, false, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 16,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 17,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _firstSceneDefault.default), {}, void 0, false, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 18,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 19,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _nsceneListDefault.default), {}, void 0, false, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 20,
-                columnNumber: 4
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sceneEditDefault.default), {}, void 0, false, {
-                fileName: "src/components/App.jsx",
-                lineNumber: 21,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addArticleDefault.default), {}, void 0, false, {
                         fileName: "src/components/App.jsx",
-                        lineNumber: 24,
-                        columnNumber: 5
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                        fileName: "src/components/App.jsx",
                         lineNumber: 25,
                         columnNumber: 5
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/components/App.jsx",
                         lineNumber: 26,
                         columnNumber: 5
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _articleListDefault.default), {}, void 0, false, {
                         fileName: "src/components/App.jsx",
                         lineNumber: 27,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/App.jsx",
+                        lineNumber: 28,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/App.jsx",
-                lineNumber: 23,
+                lineNumber: 24,
                 columnNumber: 4
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "src/components/App.jsx",
-        lineNumber: 13,
-        columnNumber: 3
-    }, this);
+    }, void 0, true);
 }
 _c = App;
 exports.default = App;

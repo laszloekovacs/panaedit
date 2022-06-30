@@ -10,23 +10,24 @@ import NSceneList from './NSceneList';
 
 function App() {
 	return (
-		<div id="sidebar">
-			<FileMenu></FileMenu>
-			<hr />
-			<AddPanorama></AddPanorama>
-			<hr />
-			<FirstScene></FirstScene>
-			<hr />
-			<NSceneList></NSceneList>
-			<SceneEdit></SceneEdit>
-
+		<>
+			<div id="sidebar">
+				<FileMenu></FileMenu>
+				<hr />
+				<AddPanorama></AddPanorama>
+				<hr />
+				<FirstScene></FirstScene>
+				<hr />
+				<NSceneList></NSceneList>
+				<SceneEdit></SceneEdit>
+			</div>
 			<div>
 				<AddArticle />
 				<hr />
 				<ArticleList />
 				<hr />
 			</div>
-		</div>
+		</>
 	);
 }
 
