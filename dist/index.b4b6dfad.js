@@ -27131,62 +27131,28 @@ function ArticleList() {
             lineNumber: 9,
             columnNumber: 3
         }, this));
-    /* no articles */ if (articles.length == 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: "Articles"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 17,
-                    columnNumber: 6
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: "no articles loaded"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 18,
-                    columnNumber: 6
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/ArticleList.jsx",
-            lineNumber: 16,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: articles.length && "scrollContainer",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Articles"
+            }, void 0, false, {
+                fileName: "src/components/ArticleList.jsx",
+                lineNumber: 14,
+                columnNumber: 4
+            }, this),
+            articles.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "no articles loaded"
+            }, void 0, false, {
+                fileName: "src/components/ArticleList.jsx",
+                lineNumber: 15,
+                columnNumber: 29
+            }, this) : list
+        ]
+    }, void 0, true, {
         fileName: "src/components/ArticleList.jsx",
-        lineNumber: 15,
-        columnNumber: 4
-    }, this);
-    else /* we have atricles */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "scrollContainer",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: "Articles"
-                }, void 0, false, {
-                    fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 27,
-                    columnNumber: 6
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                    children: list
-                }, void 0, false, {
-                    fileName: "src/components/ArticleList.jsx",
-                    lineNumber: 28,
-                    columnNumber: 6
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/ArticleList.jsx",
-            lineNumber: 26,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "src/components/ArticleList.jsx",
-        lineNumber: 25,
-        columnNumber: 4
+        lineNumber: 13,
+        columnNumber: 3
     }, this);
 }
 _s(ArticleList, "9qg9NrrI6UYevg7zcP+FosJe59k=", false, function() {
@@ -29697,19 +29663,19 @@ function FileMenu() {
             console.error(err);
         }
     }
-    function resetHandler(e) {
+    const resetScene = (0, _react.useCallback)(()=>{
         dispatch((0, _actions.resetAction)());
         window.resetPanorama();
-    }
-    function resetPanorama(e) {
+    }, []);
+    const resetPanorama = (0, _react.useCallback)(()=>{
         window.resetPanorama();
-    }
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "fileMenu",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: resetHandler,
-                children: "Reset"
+                onClick: resetScene,
+                children: "Reset scene"
             }, void 0, false, {
                 fileName: "src/components/FileMenu.jsx",
                 lineNumber: 63,
@@ -29746,7 +29712,7 @@ function FileMenu() {
         columnNumber: 3
     }, this);
 }
-_s(FileMenu, "TJyi8xTV/cllwIsFm0O4nJ8aGD4=", false, function() {
+_s(FileMenu, "71wtDLZPOiMnahKSE/JI1wmwc94=", false, function() {
     return [
         (0, _reactRedux.useSelector),
         (0, _reactRedux.useDispatch)

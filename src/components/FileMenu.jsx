@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadFileAction, resetAction } from '../reducer/actions';
 
@@ -48,19 +48,19 @@ function FileMenu() {
 		}
 	}
 
-	function resetHandler(e) {
-
+	const resetScene = useCallback(() => {
 		dispatch(resetAction());
 		window.resetPanorama();
-	}
+	}, [])
 
-	function resetPanorama(e) {
-		window.resetPanorama();
-	}
+	const resetPanorama = useCallback(() => {
+		window.resetPanorama()
+	}, [])
+
 
 	return (
 		<div className="fileMenu">
-			<button onClick={resetHandler}>Reset</button>
+			<button onClick={resetScene}>Reset scene</button>
 			<button onClick={loadHandler}>Load..</button>
 			<button onClick={saveAsHandler}>Save As..</button>
 			<button onClick={resetPanorama}>Reset view</button>
