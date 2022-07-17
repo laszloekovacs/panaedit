@@ -9,27 +9,12 @@ function ArticleList() {
 		<Article key={k} title={a.title} text={a.text} />
 	));
 
-	/* no articles */
-	if (articles.length == 0) {
-		return (
-			<div>
-				<div>
-					<h3>Articles</h3>
-					<p>no articles loaded</p>
-				</div>
-			</div>
-		);
-	} else {
-		/* we have atricles */
-		return (
-			<div className="scrollContainer">
-				<div>
-					<h3>Articles</h3>
-					<ul>{list}</ul>
-				</div>
-			</div>
-		);
-	}
+	return (
+		<div className={articles.length && "scrollContainer"}>
+			<h3>Articles</h3>
+			{articles.length === 0 ? <p>no articles loaded</p> : list}
+		</div>
+	)
 }
 
 export default ArticleList;
