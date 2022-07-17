@@ -13,3 +13,5 @@ then
 `npm run start`
 
 will create a developer server
+
+a demo scene (iroda.json) is included 
