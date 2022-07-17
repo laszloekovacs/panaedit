@@ -19,18 +19,18 @@ function NSceneList() {
 
     if (list.length == 0) {
         return <h3>Scene List</h3>
+    } else {
+        return (
+            <>
+                <h3>Scene List</h3>
+                <div className='scrollContainer'>
+                    <ul>
+                        {sceneList}
+                    </ul>
+                </div>
+            </>
+        )
     }
-
-    return (
-        <>
-            <h3>Scene List</h3>
-            <div className='scrollContainer'>
-                <ul>
-                    {sceneList}
-                </ul>
-            </div>
-        </>
-    )
 }
 
 export default NSceneList
