@@ -1,32 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Store, Scene } from "../reducer/store";
-import { workingDirectoryContext } from "./WorkingDirectoryProvider";
+import { projectContext, Project } from "./ProjectProvider";
 
 /* note to myself - we need to find all pictures and resources and preload them */
 function Preview() {
-  const store = useSelector((s: Store) => s);
-  const workingDirectory = useContext(workingDirectoryContext);
-  const [preview, setPreview] = useState<Store | null>(null);
+  const store = useSelector<Store, Store>((s) => s);
+  const project: Project | null = useContext(projectContext);
+
+  const [previewScene, setPreviewScene] = useState<Store | null>(null);
+  const [isPending, setIsPending] = useState<boolean>(true);
 
   useEffect(() => {
+    setIsPending(true);
     (async () => {
       try {
-        if (workingDirectory != null) {
+        if (project != null && project.projectFile != null) {
           const preview: Store = JSON.parse(JSON.stringify(store));
 
           for (let sc in preview.scenes) {
-            const bp = "/" + preview.default.basePath + preview.scenes[sc].panorama;
-            console.log(bp);
-
-            const fh = await workingDirectory.getFileHandle(bp);
+            const fh = await project.panoramaDirectory.getFileHandle(preview.scenes[sc].panorama);
             const f = await fh.getFile();
             const url = URL.createObjectURL(f);
-            //preview.scenes[sc].panorama = url;
-            console.log(bp + "=>" + url);
+            preview.scenes[sc].panorama = url;
+            console.log(url);
           }
 
-          setPreview(preview);
+          setPreviewScene(preview);
+          setIsPending(false);
         }
       } catch (err) {
         console.log(err);
@@ -46,14 +47,18 @@ function Preview() {
 
     return () => {
       try {
-        window?.view?.destroy();
+        //window?.view?.destroy();
       } catch (err) {
         console.log(err);
       }
     };
-  }, [preview]);
+  }, [previewScene]);
 
-  return <div id="preview"></div>;
+  return (
+    <div>
+      <>{!isPending && <div id="preview"></div>}</>
+    </div>
+  );
 }
 
 export default Preview;

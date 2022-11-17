@@ -1,6 +1,7 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { loadFileAction, resetAction } from "../reducer/actions";
+import { projectContext, Project } from "./ProjectProvider";
 
 const fileOptions = {
   types: [{ description: "json document", accept: { "application/json": [".json"] } }],
@@ -9,6 +10,7 @@ const fileOptions = {
 function FileMenu() {
   const store = useSelector((s) => s);
   const dispatch = useDispatch();
+  const project = useContext(projectContext);
 
   async function saveAsHandler(e) {
     e.preventDefault();
@@ -36,6 +38,8 @@ function FileMenu() {
       /* replace state in storage */
       dispatch(loadFileAction(JSON.parse(data)));
       console.log("file loaded");
+      /* context need the project file */
+      project?.setProjectFile(filehandle);
     } catch (err) {
       console.error(err);
     }
