@@ -1,6 +1,7 @@
 import { addImageLabelAction } from "./actions";
-import storeDefaults from "./storeDefaults";
+import storeDefaults, { ReduxActionType, SceneType } from "./storeDefaults";
 import produce from "immer";
+import set_workingdirectory from "./set_workingdirectory";
 
 /** object cloning helper */
 function clone(obj) {
@@ -32,9 +33,7 @@ function removeHotspot(store, payload) {
   const { index, parent } = payload;
 
   if (store.scenes?.[parent]?.hotSpots[index]) {
-    const hotspots = store.scenes?.[parent]?.hotSpots.filter(
-      (v, i) => i != index
-    );
+    const hotspots = store.scenes?.[parent]?.hotSpots.filter((v, i) => i != index);
 
     store.scenes[parent].hotSpots = hotspots;
   }
@@ -59,9 +58,7 @@ function deleteImage(store, payload) {
 
   const index = store.articles.findIndex(predicate);
 
-  store.articles[index].images = store.articles[index].images.filter(
-    (p, i) => i != payload.index
-  );
+  store.articles[index].images = store.articles[index].images.filter((p, i) => i != payload.index);
 
   return store;
 }
@@ -109,7 +106,7 @@ function setNorth(store, payload) {
 /*
  * ===============================================
  */
-export default function reducer(store = storeDefaults, action) {
+export default function reducer(store: SceneType = storeDefaults, action) {
   const copy = clone(store);
 
   switch (action.type) {
@@ -177,6 +174,9 @@ export default function reducer(store = storeDefaults, action) {
 
     case "ADD_IMAGE_LABEL":
       return addImageLabel(copy, action.payload);
+
+    case "SET_WORKINGDIRECTORY":
+      return set_workingdirectory(store, action);
 
     default:
       return store;

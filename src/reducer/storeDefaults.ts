@@ -2,7 +2,7 @@ export type SceneType = {
   default: {
     firstScene: string;
     sceneFadeDuration: number;
-    type: 'equirectangular';
+    type: "equirectangular";
     autoLoad: boolean;
     compass: boolean;
     hotSpotDebug: boolean;
@@ -21,11 +21,16 @@ export type SceneType = {
   };
 };
 
+export type ReduxActionType = {
+  type: string;
+  payload: unknown;
+};
+
 const storeDefaults: SceneType = {
   default: {
-    firstScene: '',
+    firstScene: "",
     sceneFadeDuration: 1000,
-    type: 'equirectangular',
+    type: "equirectangular",
     autoLoad: true,
     compass: true,
     hotSpotDebug: true,
@@ -33,13 +38,13 @@ const storeDefaults: SceneType = {
     vfow: 100,
     minPitch: -98,
     maxPitch: 98,
-    basePath: 'assets/panorama/',
-    imagePath: 'assets/images/',
+    basePath: "assets/panorama/",
+    imagePath: "assets/images/",
   },
   scenes: {},
   articles: [],
   editor: {
-    currentScene: '',
+    currentScene: "",
     workingDirectory: null,
   },
 };

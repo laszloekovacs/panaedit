@@ -1,12 +1,23 @@
-import React, { Children } from 'react';
-import { useSelector } from 'react-redux';
-import { SceneType } from '../reducer/storeDefaults';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { SceneType } from "../reducer/storeDefaults";
 
 function WorkingDirectorySelector({ children }) {
   const workingDirectory = useSelector((state: SceneType) => state.editor?.workingDirectory);
+  const dispatch = useDispatch();
 
-  const handlePopup = (e) => {
-    console.log('select directory');
+  const handlePopup = async (e) => {
+    try {
+      const directoryHandle = await window.showDirectoryPicker({
+        mode: "readwrite",
+        startIn: "desktop",
+      });
+      console.log(directoryHandle);
+
+      dispatch({ type: "SET_WORKINGDIRECTORY", payload: directoryHandle });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const selectorUI = (
@@ -16,6 +27,7 @@ function WorkingDirectorySelector({ children }) {
     </div>
   );
 
+  /** */
   return (
     <>
       {workingDirectory && children}
