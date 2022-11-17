@@ -1,20 +1,13 @@
 import { addImageLabelAction } from "./actions";
 import produce from "immer";
-import storeDefaults from './store'
+import storeDefaults, { TStore } from './store'
 
 /** object cloning helper */
 function clone(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
-/* functionality test with immer */
-function setHello(state, payload) {
-  console.log("working");
 
-  return produce(state, (draft) => {
-    draft.hello = "this is produced so to speak";
-  });
-}
 
 function addHotspot(store, hotspot) {
   const { title, ...newSpot } = hotspot;
