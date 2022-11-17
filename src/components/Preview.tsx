@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Store, Scene } from "../reducer/store";
 import { workingDirectoryContext } from "./WorkingDirectoryProvider";
+
+/* note to myself - we need to find all pictures and resources and preload them */
 function Preview() {
   const store = useSelector((s: Store) => s);
   const workingDirectory = useContext(workingDirectoryContext);
