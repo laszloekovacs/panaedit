@@ -8,7 +8,7 @@ function WorkingDirectoryProvider({ children }) {
   const handlePopup = async (e) => {
     try {
       const directoryHandle = await window.showDirectoryPicker({
-        mode: "readwrite",
+        mode: "read",
         startIn: "desktop",
       });
 

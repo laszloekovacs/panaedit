@@ -41,8 +41,6 @@ function FileMenu() {
 			dispatch(loadFileAction(JSON.parse(data)));
 			console.log('file loaded');
 
-			/* reset the panorama */
-			window.resetPanorama();
 		} catch (err) {
 			console.error(err);
 		}

@@ -1,4 +1,12 @@
-export type TStore = {
+export type Scene = {
+  title: string;
+  panorama: string;
+  northOffset: number;
+  hotspots: any[];
+}
+
+
+export type Store = {
   default: {
     firstScene: string;
     sceneFadeDuration: number;
@@ -13,7 +21,9 @@ export type TStore = {
     basePath: string;
     imagePath: string;
   };
-  scenes: { [key: string]: {} };
+  scenes: {
+    [key: string]: Scene;
+  };
   articles: object[];
   editor: {
     currentScene: string;
@@ -21,12 +31,12 @@ export type TStore = {
   };
 };
 
-export type TAction = {
+export type Action = {
   type: string;
   payload: unknown;
 };
 
-const storeDefaults: TStore = {
+const storeDefaults: Store = {
   default: {
     firstScene: "demo",
     sceneFadeDuration: 1000,

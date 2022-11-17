@@ -5,7 +5,6 @@ import { devToolsEnhancer } from 'redux-devtools-extension';
 import reducer from './reducer';
 import { Provider } from 'react-redux';
 import React from 'react';
-import { sceneChangeAction } from './reducer/actions';
 import WorkingDirectoryProvider from './components/WorkingDirectoryProvider';
 
 let store = legacy_createStore(reducer, devToolsEnhancer());
