@@ -8,7 +8,7 @@ function SceneList() {
 
 	let list = [];
 
-	for (const scene in scenes) {
+	for (let scene in scenes) {
 		//if the scene is pinned, push it in front
 		if (scene == setttings.pinned) {
 			list.unshift(scenes[scene]);

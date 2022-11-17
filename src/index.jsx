@@ -6,7 +6,7 @@ import reducer from './reducer';
 import { Provider } from 'react-redux';
 import React from 'react';
 import { sceneChangeAction } from './reducer/actions';
-import WorkingDirectorySelector from './components/WorkingDirectorySelector';
+import WorkingDirectoryProvider from './components/WorkingDirectoryProvider';
 
 let store = legacy_createStore(reducer, devToolsEnhancer());
 
@@ -28,8 +28,8 @@ window.resetPanorama = function resetPanorama() {
 
 root.render(
   <Provider store={store}>
-    <WorkingDirectorySelector>
+    <WorkingDirectoryProvider>
       <App></App>
-    </WorkingDirectorySelector>
+    </WorkingDirectoryProvider>
   </Provider>
 );

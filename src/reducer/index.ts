@@ -1,7 +1,6 @@
 import { addImageLabelAction } from "./actions";
-import storeDefaults, { ReduxActionType, SceneType } from "./storeDefaults";
 import produce from "immer";
-import set_workingdirectory from "./set_workingdirectory";
+import storeDefaults from './store'
 
 /** object cloning helper */
 function clone(obj) {
@@ -106,7 +105,7 @@ function setNorth(store, payload) {
 /*
  * ===============================================
  */
-export default function reducer(store: SceneType = storeDefaults, action) {
+export default function reducer(store: TStore = storeDefaults, action) {
   const copy = clone(store);
 
   switch (action.type) {
@@ -174,9 +173,6 @@ export default function reducer(store: SceneType = storeDefaults, action) {
 
     case "ADD_IMAGE_LABEL":
       return addImageLabel(copy, action.payload);
-
-    case "SET_WORKINGDIRECTORY":
-      return set_workingdirectory(store, action);
 
     default:
       return store;
