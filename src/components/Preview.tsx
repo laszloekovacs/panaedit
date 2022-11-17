@@ -1,41 +1,55 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Store, Scene } from "../reducer/store";
-import produce from "immer";
 import { workingDirectoryContext } from "./WorkingDirectoryProvider";
-
-function generatePreviewScene(scene: Store, workingDirectory: FileSystemDirectoryHandle): Store | null {
-  const preview = produce(scene, (draft: Store) => {
-    /** */
-    for (let sc in draft.scenes) {
-      const fh = workingDirectory.getFileHandle(`${draft.default.basePath}${draft.scenes[sc].panorama}`);
-      fh.then((file) => file.getFile()).then((file) => {
-        draft.scenes[sc].panorama = URL.createObjectURL(file);
-        console.log(draft.scenes[sc].panorama);
-      });
-    }
-    /** */
-  });
-
-  return preview;
-}
-
-/**
- * ignore that typesctipt shows error that pannellum doesn't exists.
- */
 function Preview() {
   const store = useSelector((s: Store) => s);
   const workingDirectory = useContext(workingDirectoryContext);
+  const [preview, setPreview] = useState<Store | null>(null);
 
   useEffect(() => {
-    const generated = generatePreviewScene(store, workingDirectory);
+    (async () => {
+      try {
+        if (workingDirectory != null) {
+          const preview: Store = JSON.parse(JSON.stringify(store));
 
-    window.pannellum.preview = window.pannellum.viewer("preview", store);
+          for (let sc in preview.scenes) {
+            const bp = "/" + preview.default.basePath + preview.scenes[sc].panorama;
+            console.log(bp);
+
+            const fh = await workingDirectory.getFileHandle(bp);
+            const f = await fh.getFile();
+            const url = URL.createObjectURL(f);
+            //preview.scenes[sc].panorama = url;
+            console.log(bp + "=>" + url);
+          }
+
+          setPreview(preview);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, [store]);
+
+  /**
+   * ignore that typesctipt shows error that pannellum doesn't exists.
+   */
+  useEffect(() => {
+    try {
+      //window.view = window?.pannellum?.viewer("preview", preview);
+    } catch (err) {
+      console.log(err);
+    }
 
     return () => {
-      window.pannellum.preview.destroy();
+      try {
+        window?.view?.destroy();
+      } catch (err) {
+        console.log(err);
+      }
     };
-  }, [store]);
+  }, [preview]);
 
   return <div id="preview"></div>;
 }

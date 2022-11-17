@@ -1,13 +1,11 @@
 import { addImageLabelAction } from "./actions";
 import produce from "immer";
-import storeDefaults, { Store } from './store'
+import storeDefaults, { Store } from "./store";
 
 /** object cloning helper */
 function clone(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
-
-
 
 function addHotspot(store, hotspot) {
   const { title, ...newSpot } = hotspot;
@@ -95,6 +93,24 @@ function setNorth(store, payload) {
   return store;
 }
 
+export type ActionType =
+  | "LOAD_FILE"
+  | "ADD_ARTICLE"
+  | "REMOVE_ARTICLE"
+  | "ADD_SCENE"
+  | "RESET"
+  | "SET_FIRST_SCENE"
+  | "ADD_HOTSPOT"
+  | "REMOVE_HOTSPOT"
+  | "UPDATE_ARTICLE"
+  | "SET_PINNED"
+  | "RESET_PINNED"
+  | "DELETE_IMAGE"
+  | "PASTE_IMAGES"
+  | "SET_NORTH"
+  | "SET_EDITOR_SCENE"
+  | "SET_SCENE_TITLE"
+  | "ADD_IMAGE_LABEL";
 /*
  * ===============================================
  */

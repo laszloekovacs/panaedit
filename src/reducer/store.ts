@@ -1,10 +1,9 @@
 export type Scene = {
   title: string;
   panorama: string;
-  northOffset: number;
-  hotspots: any[];
-}
-
+  northOffset?: number;
+  hotspots?: any[] | null;
+};
 
 export type Store = {
   default: {
@@ -21,9 +20,7 @@ export type Store = {
     basePath: string;
     imagePath: string;
   };
-  scenes: {
-    [key: string]: Scene;
-  };
+  scenes: { [key: string]: Scene };
   articles: object[];
   editor: {
     currentScene: string;
@@ -52,7 +49,7 @@ const storeDefaults: Store = {
     imagePath: "assets/images/",
   },
   scenes: {
-    "demo": {}
+    demo: {},
   },
   articles: [],
   editor: {
