@@ -1,5 +1,6 @@
 
-export default storeDefaults = {
+
+const storeDefaults = {
     default: {
         "firstScene": "",
         "sceneFadeDuration": 1000,
@@ -20,3 +21,5 @@ export default storeDefaults = {
         currentScene: "",
     }
 }
+
+export default storeDefaults

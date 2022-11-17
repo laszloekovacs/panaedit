@@ -1,17 +1,9 @@
 #Panorama editor
 
-Virtual tour editor meant to create pannellum json config files
+Web based tool to create pannellum.js scene files with some extended functionality
 
-![screenshot](Screenshot2.jpg)
+![screenshot](./screenshots/Screenshot2.jpg)
 
 ##how to run
 
-`npm install`
-
-then
-
-`npm run start`
-
-will create a developer server
-
-a demo scene (iroda.json) is included 
+The project uses vite. run `npm run dev` to create a developement server
