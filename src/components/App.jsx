@@ -7,7 +7,7 @@ import AddPanorama from './AddPanorama';
 import AddArticle from './AddArticle';
 import SceneEdit from './SceneEdit';
 import NSceneList from './NSceneList';
-
+import Preview from './Preview'
 function App() {
 	return (
 		<>
@@ -27,6 +27,7 @@ function App() {
 				<ArticleList />
 				<hr />
 			</div>
+				<Preview></Preview>
 		</>
 	);
 }

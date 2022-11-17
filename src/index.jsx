@@ -12,19 +12,6 @@ let store = legacy_createStore(reducer, devToolsEnhancer());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-/* save the current scene to the store */
-function loadHandler(e) {
-  store.dispatch(sceneChangeAction(window.panorama.getScene()));
-}
-
-/* create panorama, wont be controlled by react */
-window.resetPanorama = function resetPanorama() {
-  window?.panorama?.destroy();
-
-  window.panorama = window.pannellum.viewer('out', store.getState());
-
-  window.panorama.on('load', loadHandler);
-};
 
 root.render(
   <Provider store={store}>

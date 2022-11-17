@@ -1,11 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { TStore } from "../reducer/store";
 
 function Preview() {
-  useEffect(() => {
-    console.log("hello");
-  }, []);
+  const store = useSelector((s: TStore) => s);
 
-  return <div>Preview</div>;
+  useEffect(() => {
+    (async () => {
+      window.pannellum.preview = window.pannellum.viewer("preview", store);
+
+      return () => {
+        window.pannellum.preview.destroy();
+      };
+    })();
+  }, [store]);
+
+  return <div id="preview"></div>;
 }
 
 export default Preview;
