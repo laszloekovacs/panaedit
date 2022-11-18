@@ -1,6 +1,6 @@
-import { addImageLabelAction } from "./actions";
 import produce from "immer";
-import storeDefaults, { Store } from "./store";
+import { addImageLabelAction } from "./actions";
+import {storeDefaults, Store } from "./store";
 
 /** object cloning helper */
 function clone(obj) {
@@ -114,7 +114,7 @@ export type ActionType =
 /*
  * ===============================================
  */
-export default function reducer(store: Store = storeDefaults, action) {
+export function reducer(store: Store = storeDefaults, action) {
   const copy = clone(store);
 
   switch (action.type) {
