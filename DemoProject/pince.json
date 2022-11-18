@@ -1,0 +1,337 @@
+{
+    "default": {
+        "firstScene": "pince_img1",
+        "sceneFadeDuration": 1000,
+        "type": "equirectangular",
+        "autoLoad": true,
+        "compass": true,
+        "hotSpotDebug": true,
+        "hfov": 110,
+        "vfow": 100,
+        "minPitch": -98,
+        "maxPitch": 98,
+        "basePath": "assets/panorama/",
+        "imagePath": "assets/images/"
+    },
+    "scenes": {
+        "pince_img1": {
+            "title": "pince_img1",
+            "panorama": "pince_img1.jpg",
+            "northOffset": -109.42,
+            "hotSpots": [
+                {
+                    "pitch": 5.25,
+                    "yaw": 130.84,
+                    "type": "scene",
+                    "text": "pince_img2",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img2",
+                    "div": {}
+                }
+            ]
+        },
+        "pince_img2": {
+            "title": "pince_img2",
+            "panorama": "pince_img2.jpg",
+            "northOffset": 49.22,
+            "hotSpots": [
+                {
+                    "pitch": -1.36,
+                    "yaw": -108.99,
+                    "type": "scene",
+                    "text": "pince_img1",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img1"
+                },
+                {
+                    "pitch": -15.74,
+                    "yaw": 24.13,
+                    "type": "scene",
+                    "text": "pince_img3",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img3"
+                }
+            ]
+        },
+        "pince_img3": {
+            "title": "pince_img3",
+            "panorama": "pince_img3.jpg",
+            "northOffset": -5.45,
+            "hotSpots": [
+                {
+                    "pitch": -5.88,
+                    "yaw": 6.28,
+                    "type": "scene",
+                    "text": "pince_img4",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img4"
+                },
+                {
+                    "pitch": 5.39,
+                    "yaw": -89.07,
+                    "type": "scene",
+                    "text": "pince_img2",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img2"
+                }
+            ]
+        },
+        "pince_img4": {
+            "title": "pince_img4",
+            "panorama": "pince_img4.jpg",
+            "northOffset": -119.34,
+            "hotSpots": [
+                {
+                    "pitch": -9.5,
+                    "yaw": -55.51,
+                    "type": "scene",
+                    "text": "pince_img3",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img3"
+                },
+                {
+                    "pitch": -13.73,
+                    "yaw": 117.91,
+                    "type": "scene",
+                    "text": "pince_img7",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img7"
+                }
+            ]
+        },
+        "pince_img5": {
+            "title": "pince_img5",
+            "panorama": "pince_img5.jpg",
+            "northOffset": 137.71,
+            "hotSpots": [
+                {
+                    "pitch": -12.93,
+                    "yaw": 44.05,
+                    "type": "scene",
+                    "text": "pince_img7",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img7"
+                },
+                {
+                    "pitch": -12.24,
+                    "yaw": -137.59,
+                    "type": "scene",
+                    "text": "pince_img6",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img6"
+                },
+                {
+                    "pitch": -7.59,
+                    "yaw": -85.34,
+                    "type": "scene",
+                    "text": "pince_img13",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img13"
+                }
+            ]
+        },
+        "pince_img6": {
+            "title": "pince_img6",
+            "panorama": "pince_img6.jpg",
+            "northOffset": 168.51,
+            "hotSpots": [
+                {
+                    "pitch": -6.79,
+                    "yaw": 9.56,
+                    "type": "scene",
+                    "text": "pince_img5",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img5"
+                },
+                {
+                    "pitch": -14.6,
+                    "yaw": -169.09,
+                    "type": "scene",
+                    "text": "pince_img11",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img11"
+                },
+                {
+                    "pitch": -5.2,
+                    "yaw": -142.89,
+                    "type": "scene",
+                    "text": "pince_img12",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img12"
+                },
+                {
+                    "pitch": -8.89,
+                    "yaw": 138.35,
+                    "type": "scene",
+                    "text": "pince_img8",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img8"
+                }
+            ]
+        },
+        "pince_img7": {
+            "title": "pince_img7",
+            "panorama": "pince_img7.jpg",
+            "northOffset": 17.96,
+            "hotSpots": [
+                {
+                    "pitch": -17.46,
+                    "yaw": 163.19,
+                    "type": "scene",
+                    "text": "pince_img4",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img4"
+                },
+                {
+                    "pitch": -11.67,
+                    "yaw": -16.95,
+                    "type": "scene",
+                    "text": "pince_img5",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img5"
+                },
+                {
+                    "pitch": 0.12,
+                    "yaw": -106.3,
+                    "type": "scene",
+                    "text": "pince_img14",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img14"
+                }
+            ]
+        },
+        "pince_img8": {
+            "title": "pince_img8",
+            "panorama": "pince_img8.jpg",
+            "northOffset": 120.15,
+            "hotSpots": [
+                {
+                    "pitch": -8.95,
+                    "yaw": 92.43,
+                    "type": "scene",
+                    "text": "pince_img9",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img9"
+                },
+                {
+                    "pitch": -14.38,
+                    "yaw": 14.52,
+                    "type": "scene",
+                    "text": "pince_img6",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img6"
+                }
+            ]
+        },
+        "pince_img9": {
+            "title": "pince_img9",
+            "panorama": "pince_img9.jpg",
+            "northOffset": -161.37,
+            "hotSpots": [
+                {
+                    "pitch": -9.78,
+                    "yaw": 169.38,
+                    "type": "scene",
+                    "text": "pince_img8",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img8"
+                },
+                {
+                    "pitch": -18.97,
+                    "yaw": -12.24,
+                    "type": "scene",
+                    "text": "pince_img10",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img10"
+                }
+            ]
+        },
+        "pince_img10": {
+            "title": "pince_img10",
+            "panorama": "pince_img10.jpg",
+            "northOffset": -160.6,
+            "hotSpots": [
+                {
+                    "pitch": -22.7,
+                    "yaw": 162.28,
+                    "type": "scene",
+                    "text": "pince_img9",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img9"
+                },
+                {
+                    "pitch": -4,
+                    "yaw": 166.22,
+                    "type": "scene",
+                    "text": "pince_img8",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img8"
+                }
+            ]
+        },
+        "pince_img11": {
+            "title": "pince_img11",
+            "panorama": "pince_img11.jpg",
+            "northOffset": 127.58,
+            "hotSpots": [
+                {
+                    "pitch": -13.68,
+                    "yaw": 53.17,
+                    "type": "scene",
+                    "text": "pince_img6",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img6"
+                }
+            ]
+        },
+        "pince_img12": {
+            "title": "pince_img12",
+            "panorama": "pince_img12.jpg",
+            "northOffset": -30.64,
+            "hotSpots": [
+                {
+                    "pitch": -12.1,
+                    "yaw": -63.77,
+                    "type": "scene",
+                    "text": "pince_img6",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img6"
+                }
+            ]
+        },
+        "pince_img13": {
+            "title": "pince_img13",
+            "panorama": "pince_img13.jpg",
+            "northOffset": -42.63,
+            "hotSpots": [
+                {
+                    "pitch": -3.84,
+                    "yaw": -47.67,
+                    "type": "scene",
+                    "text": "pince_img5",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img5"
+                }
+            ]
+        },
+        "pince_img14": {
+            "title": "pince_img14",
+            "panorama": "pince_img14.jpg",
+            "northOffset": 2.18,
+            "hotSpots": [
+                {
+                    "pitch": -7.33,
+                    "yaw": 75.19,
+                    "type": "scene",
+                    "text": "pince_img7",
+                    "targetYaw": "sameAzimuth",
+                    "sceneId": "pince_img7"
+                }
+            ]
+        }
+    },
+    "articles": [],
+    "editor": {
+        "currentScene": "pince_img6"
+    }
+}

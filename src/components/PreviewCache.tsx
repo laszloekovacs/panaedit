@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Store } from "../reducer/store";
-import { workspaceContext } from "./WorkspaceProvider";
+import { workspaceContext } from "./WorkspaceSelector";
 
 const catcheContext = createContext<Store | null>(null);
 

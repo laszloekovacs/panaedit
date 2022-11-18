@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { workspaceContext } from "./WorkspaceProvider";
+import { workspaceContext } from "./WorkspaceSelector";
 
 const workfileContext = createContext<FileSystemFileHandle | null>(null);
 
@@ -16,19 +16,20 @@ const pickerOpts = {
   multiple: false,
 };
 
-function WorkfileProvider({ children }) {
+function WorkfileSelector({ children }) {
   const [workFile, setWorkFile] = useState<FileSystemFileHandle | null>(null);
   const wd = useContext(workspaceContext);
 
-  const handleClick = (e) => {
-    window
-      .showOpenFilePicker(pickerOpts)
-      .then((file) => {
-        setWorkFile(file[0]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const handleClick = async (e) => {
+    try {
+
+      const [wf] = await window.showOpenFilePicker(pickerOpts)   
+      console.log(wf)
+      setWorkFile(wf)
+    } catch (err) {
+      console.log(err)
+    }
+    
   };
 
   const WorkfilePicker = () => {
@@ -48,4 +49,4 @@ function WorkfileProvider({ children }) {
   );
 }
 
-export default WorkfileProvider;
+export default WorkfileSelector;

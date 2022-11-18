@@ -5,16 +5,19 @@ export const workspaceContext = createContext<FileSystemDirectoryHandle | null>(
 /*
  *
  */
-function WorkspacePorvider({ children }) {
+function WorkspaceSelector({ children }) {
   const [workDirectory, setWorkDirectory] = useState<FileSystemDirectoryHandle | null>(null);
 
-  const handleClick = (e) => {
-    window
-      .showDirectoryPicker({ mode: "read", startIn: "desktop" })
-      .then((wd) => {
-        setWorkDirectory(wd);
-      })
-      .catch((err) => console.log(err));
+  const handleClick = async (e) => {
+    try {
+      const wd = await window.showDirectoryPicker({ mode: "read", startIn: "desktop" });
+      console.log(wd)
+      setWorkDirectory(wd);
+    } catch (err) {
+      if (err) {
+        console.log(err);
+      }
+    }
   };
 
   const DirectoryPicker = () => {
@@ -33,4 +36,4 @@ function WorkspacePorvider({ children }) {
   );
 }
 
-export default WorkspacePorvider;
+export default WorkspaceSelector;
