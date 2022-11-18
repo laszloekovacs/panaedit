@@ -6,7 +6,7 @@ import { projectContext, Project } from "./ProjectProvider";
 /* note to myself - we need to find all pictures and resources and preload them */
 function Preview() {
   const store = useSelector<Store, Store>((s) => s);
-  const project: Project | null = useContext(projectContext);
+  const paths = useContext(projectContext);
 
   const [previewScene, setPreviewScene] = useState<Store | null>(null);
   const [isPending, setIsPending] = useState<boolean>(true);
@@ -15,11 +15,11 @@ function Preview() {
     setIsPending(true);
     (async () => {
       try {
-        if (project != null && project.projectFile != null) {
+        if (paths.project?.projectFile != null) {
           const preview: Store = JSON.parse(JSON.stringify(store));
 
           for (let sc in preview.scenes) {
-            const fh = await project.panoramaDirectory.getFileHandle(preview.scenes[sc].panorama);
+            const fh = await paths.project.panoramaDirectory.getFileHandle(preview.scenes[sc].panorama);
             const f = await fh.getFile();
             const url = URL.createObjectURL(f);
             preview.scenes[sc].panorama = url;

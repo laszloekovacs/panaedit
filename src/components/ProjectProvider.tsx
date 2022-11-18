@@ -7,11 +7,15 @@ export type Project = {
   assetsDirectory: FileSystemDirectoryHandle;
   panoramaDirectory: FileSystemDirectoryHandle;
   imagesDirectory: FileSystemDirectoryHandle;
-  setProjectFile: (file: FileSystemFileHandle) => void;
+};
+
+export type ProjectContext = {
+  project: Project | null;
+  setProject: ((p: Project) => void) | null;
 };
 
 /** */
-export const projectContext = createContext<Project | null>(null);
+export const projectContext = createContext<ProjectContext>({ project: null, setProject: null });
 
 /** */
 function ProjectProvider({ children }) {
@@ -36,7 +40,6 @@ function ProjectProvider({ children }) {
         assetsDirectory: ad,
         panoramaDirectory: pd,
         imagesDirectory: id,
-        setProjectFile: (file) => {},
       };
 
       setProject(project);
@@ -54,7 +57,7 @@ function ProjectProvider({ children }) {
 
   /** */
   return (
-    <projectContext.Provider value={project}>
+    <projectContext.Provider value={{ project: project, setProject: setProject }}>
       {project && children}
       {!project && selectorUI}
     </projectContext.Provider>
