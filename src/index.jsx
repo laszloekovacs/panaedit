@@ -5,7 +5,8 @@ import reducer from "./reducer";
 import { legacy_createStore } from "redux";
 import { devToolsEnhancer } from "redux-devtools-extension";
 import { Provider } from "react-redux";
-import ProjectProvider from "./components/ProjectProvider";
+import WorkspaceProvider from "./components/WorkspaceProvider";
+import WorkfileProvider from "./components/WorkfileProvider";
 
 let store = legacy_createStore(reducer, devToolsEnhancer());
 
@@ -13,8 +14,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
-    <ProjectProvider>
-      <App></App>
-    </ProjectProvider>
+    <WorkspaceProvider>
+      <WorkfileProvider>
+        <App></App>
+      </WorkfileProvider>
+    </WorkspaceProvider>
   </Provider>
 );

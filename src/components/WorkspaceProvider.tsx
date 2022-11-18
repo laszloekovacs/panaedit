@@ -1,29 +1,36 @@
 import React, { createContext, useEffect, useState } from "react";
 
-const workspaceContext = createContext({ workingDirectory: null });
+export const workspaceContext = createContext<FileSystemDirectoryHandle | null>(null);
 
-function ResourceCache({ children }) {
+/*
+ *
+ */
+function WorkspacePorvider({ children }) {
   const [workDirectory, setWorkDirectory] = useState<FileSystemDirectoryHandle | null>(null);
-  const [isPending, setIsPending] = useState(true);
 
-  useEffect(() => {
-    setIsPending(true);
-
+  const handleClick = (e) => {
     window
-      .showDirectoryPicker({ mode: "readwrite", startIn: "desktop" })
+      .showDirectoryPicker({ mode: "read", startIn: "desktop" })
       .then((wd) => {
         setWorkDirectory(wd);
-        setIsPending(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  };
+
+  const DirectoryPicker = () => {
+    return (
+      <>
+        <button onClick={handleClick}>select working directory</button>
+      </>
+    );
+  };
 
   return (
-    <>
-      {isPending && <p>pending...</p>}
-      {!isPending && children}
-    </>
+    <workspaceContext.Provider value={workDirectory}>
+      {!workDirectory && <DirectoryPicker></DirectoryPicker>}
+      {workDirectory && children}
+    </workspaceContext.Provider>
   );
 }
 
-export default ResourceCache;
+export default WorkspacePorvider;
