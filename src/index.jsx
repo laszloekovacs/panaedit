@@ -7,6 +7,7 @@ import { devToolsEnhancer } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import WorkspaceProvider from "./components/WorkspaceProvider";
 import WorkfileProvider from "./components/WorkfileProvider";
+import PreviewCache from "./components/PreviewCache";
 
 let store = legacy_createStore(reducer, devToolsEnhancer());
 
@@ -16,7 +17,9 @@ root.render(
   <Provider store={store}>
     <WorkspaceProvider>
       <WorkfileProvider>
-        <App></App>
+        <PreviewCache>
+          <App></App>
+        </PreviewCache>
       </WorkfileProvider>
     </WorkspaceProvider>
   </Provider>

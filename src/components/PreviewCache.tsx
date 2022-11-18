@@ -22,8 +22,8 @@ function PreviewCacheProvider({ children }) {
   useEffect(() => {
     (async () => {
       try {
-        const assets = await workdir?.getDirectoryHandle("assets", { create: true });
-        const panoramas = await assets?.getDirectoryHandle("panoramas", { create: true });
+        const assets = await workdir?.getDirectoryHandle("assets", { create: false });
+        const panoramas = await assets?.getDirectoryHandle("panoramas", { create: false });
 
         /* react won't update until a rerender, thus we need a copy */
         const cache: CacheEntry[] = blobCache;
