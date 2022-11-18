@@ -1,6 +1,6 @@
 import { legacy_createStore } from 'redux'
 import { devToolsEnhancer } from "redux-devtools-extension"
-import { reducer } from './index'
+import {reducer} from './reducer'
 
 
 export type HotSpotType = {
@@ -36,11 +36,6 @@ export type Store = {
         currentScene: string;
         workingDirectory: null | any;
     };
-};
-
-export type Action = {
-    type: string;
-    payload: unknown;
 };
 
 export const storeDefaults: Store = {

@@ -2,23 +2,36 @@ import React, { useContext, useEffect, useState } from 'react'
 import WorkFileListItem from './WorkFileListItem';
 import { workspaceContext } from './WorkspaceSelector';
 
+export type Entry = {
+    key: string;
+    value: FileSystemFileHandle | FileSystemDirectoryHandle;
+}
 
-function WorkfileList() {
-    /* find all workfiles in the folder, render it in a list */
+/* find all workfiles in the work folder, render it in a list */
+function WorkfileList({onClick}) {
     const workspace = useContext(workspaceContext);
-    const [fileList, setFileList] = useState<{ key: string; value: any }[]>([]);
+    const [fileList, setFileList] = useState<Entry[]>([]);
 
     useEffect(() => {
         (async () => {
             try {
-                let list: { key: string; value: any }[] = [];
-                
-                for await (const [key, value] of workspace!.entries()) {
-                    console.log({ key, value })
-                    list.push({ key, value })
+                if (workspace == null) {
+                    console.log("no workfile found")
+                    return;
+                }
+
+                let list: Entry[] = [];
+
+
+                for await (const [key, value] of workspace.entries()) {
+                    if (value instanceof FileSystemDirectoryHandle) {
+                        continue
+                    }
+                    list = [...list, { key, value }]
                 }
 
                 setFileList(list)
+
             } catch (err) {
                 console.log(err)
             }
@@ -27,9 +40,14 @@ function WorkfileList() {
     }, [workspace])
 
 
+    async function handleClick(item: string) {
+        const handle = await workspace?.getFileHandle(item)
+        onClick(handle)
+    }
+
     return (
         <ul>
-            {fileList.map((e) => <WorkFileListItem key={e.key} item={e.key}></WorkFileListItem>)}
+            {fileList.map((e) => <WorkFileListItem key={e.key} item={e.key} onClick={handleClick}></WorkFileListItem>)}
         </ul>
     )
 }

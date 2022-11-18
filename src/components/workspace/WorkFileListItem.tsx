@@ -1,8 +1,9 @@
 import React from 'react'
 
-function WorkFileListItem({ item }) {
+function WorkFileListItem({ item, onClick }) {
+    
     return (
-        <li>
+        <li onClick={()=> onClick(item)}>
             <p>{item}</p>
         </li>
     )
