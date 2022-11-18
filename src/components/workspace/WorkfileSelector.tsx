@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import WorkfileList from './WorkfileList'
 import { workspaceContext } from './WorkspaceSelector'
 
@@ -10,7 +10,7 @@ const fileOptions = {
 
 /* should handle loading scenes & pass it down to children */
 function WorkfileSelector({ children }) {
-    const [isLoaded, setLoaded] = useState(false)
+    const store = useSelector(s => s)
     const dispatch = useDispatch()
 
 
@@ -20,6 +20,7 @@ function WorkfileSelector({ children }) {
             const fcontent = await file.text();
             console.log(fcontent)
             /* dispatch fcontent to redux store */
+            dispatch({type: "LOAD_FILE", payload: JSON.parse(fcontent)})
         } catch (err) {
             console.log(err)
         }
@@ -40,7 +41,7 @@ function WorkfileSelector({ children }) {
         dispatch({type: "RESET"})
     }
 
-    if (isLoaded) {
+    if (store != null) {
         return <>{children}</>
     } else {
 

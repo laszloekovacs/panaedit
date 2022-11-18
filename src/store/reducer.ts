@@ -96,6 +96,7 @@ function setNorth(store, payload) {
 
 
 export type ActionType =
+    | "UNLOAD"
     | "LOAD_FILE"
     | "ADD_ARTICLE"
     | "REMOVE_ARTICLE"
@@ -119,13 +120,24 @@ export type Action = {
     payload?: unknown;
 }
 
-export const reducer: Reducer = (store: Store, action: Action) => {
+export const reducer: Reducer = (store: Store = null, action: Action) => {
 
     switch (action.type) {
         case "RESET": {
             return storeDefaults;
-        } default:
+        }
+
+        case "LOAD_FILE": {
+            return action.payload
+        }
+
+        case "UNLOAD": {
+            return null
+        }
+
+        default: {
             return store;
+        }
     }
 }
 

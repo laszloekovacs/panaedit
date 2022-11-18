@@ -15,7 +15,7 @@ export type SceneType = {
     hotspots: HotSpotType[] | null;
 };
 
-export type Store = {
+export type Store = null | {
     default: {
         firstScene: string;
         sceneFadeDuration: number;
