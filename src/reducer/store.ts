@@ -49,7 +49,7 @@ const storeDefaults: Store = {
     imagePath: "assets/images/",
   },
   scenes: {
-    demo: {},
+    demo: { title: "", panorama: "" },
   },
   articles: [],
   editor: {
