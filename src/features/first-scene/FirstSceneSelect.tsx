@@ -20,7 +20,7 @@ function FirstSceneSelect() {
     return (
         <div className={styles.container}>
             <p>First scene is {firstScene ? `is set to ${firstScene}` : "not set"}</p>
-            <button onClick={clickHandler}>set</button>
+            {firstScene && !showPicker && <button onClick={clickHandler}>set</button>}
             {showPicker && <ScenePicker onClose={closeHandler} />}
         </div>
     );

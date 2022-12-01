@@ -1,10 +1,11 @@
 import React from "react";
+// @ts-ignore
+import styles from "./addpanorama.module.css";
 
 function AddPanorama() {
     return (
-        <div>
+        <div className={styles.container}>
             <p>select panorama images to add</p>
-            <input type="file" name="panoramas" id="panoramas" />
             <button>add</button>
         </div>
     );
