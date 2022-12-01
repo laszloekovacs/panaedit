@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 22rem auto;
     grid-template-areas: "h h" "s v" "s a";
 }
 

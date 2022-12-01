@@ -18,7 +18,7 @@ function SidebarLayout() {
             <CollapsibleContainer title={"Scene list"}>
                 <SceneList />
             </CollapsibleContainer>
-            <CollapsibleContainer title={"Edit +selected scene+"}>
+            <CollapsibleContainer title={"Edit scene"}>
                 <SceneEdit />
             </CollapsibleContainer>
             <CollapsibleContainer title={"Hotspots"}>
