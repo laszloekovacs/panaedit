@@ -8,7 +8,7 @@ import SceneEdit from "../scene-edit/SceneEdit";
 
 function SidebarLayout() {
     return (
-        <div>
+        <>
             <CollapsibleContainer title={"FIRST SCENE"}>
                 <FirstSceneSelect />
             </CollapsibleContainer>
@@ -24,7 +24,7 @@ function SidebarLayout() {
             <CollapsibleContainer title={"HOTSPOTS"}>
                 <HotspotList />
             </CollapsibleContainer>
-        </div>
+        </>
     );
 }
 

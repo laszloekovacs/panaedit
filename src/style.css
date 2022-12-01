@@ -10,7 +10,7 @@
 body {
     box-sizing: border-box;
     margin: 0;
-    padding: 1rem;
+    padding: 1.5rem;
     height: 100vh;
 }
 
@@ -26,6 +26,7 @@ button:hover {
 
 ul {
     list-style-type: none;
+    padding: 0;
 }
 
 /* older definitions please clean up */
