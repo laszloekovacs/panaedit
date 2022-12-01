@@ -1,25 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 // @ts-ignore
-import styles from "./sceneselect.module.css";
-const dummyData = ["scene1", "scene2", "scene3", "otherScene", "the next scene"];
+import styles from "./firstscene.module.css";
+import type { Store } from "../../store/store";
 
 function FirstSceneSelect() {
-    // use the redux store for controlled component
-
-    const options = dummyData.map((item: string) => {
-        return (
-            <option value={item} key={item}>
-                {item}
-            </option>
-        );
-    });
+    const firstScene = useSelector((store: Store) => store?.default.firstScene);
 
     return (
         <div className={styles.container}>
-            <p>Fisrst scene is set to R1</p>
-            <select name="firstscene" id="firstscene">
-                {options}
-            </select>
+            <p>First scene is {firstScene ? `is set to ${firstScene}` : "not set"}</p>
             <button>set</button>
         </div>
     );

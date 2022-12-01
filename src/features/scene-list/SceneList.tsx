@@ -5,8 +5,8 @@ const dummyScenes = ["ab - vezérigazgató", "ba - előszoba", "fg - folyosó", 
 function SceneList() {
     const list = dummyScenes.map((item) => {
         return (
-            <li>
-                <button key={item}>{item}</button>
+            <li key={item}>
+                <button>{item}</button>
             </li>
         );
     });
