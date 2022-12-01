@@ -6,7 +6,7 @@ import type { Store } from "../../store/store";
 import ScenePicker from "../scene-picker/ScenePicker";
 
 function FirstSceneSelect() {
-    const firstScene = useSelector((store: Store) => store?.default.firstScene);
+    const firstScene = useSelector((store: Store) => store?.default?.firstScene);
     const [showPicker, setShowPicker] = useState(false);
 
     const clickHandler = () => {

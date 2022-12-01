@@ -94,7 +94,6 @@ function setNorth(store, payload) {
     return store;
 }
 
-
 export type ActionType =
     | "UNLOAD"
     | "LOAD_FILE"
@@ -118,28 +117,32 @@ export type ActionType =
 export type Action = {
     type: ActionType;
     payload?: unknown;
-}
+};
 
-export const reducer: Reducer = (store: Store = null, action: Action) => {
-
+export const reducer: Reducer = (store: Store, action: Action) => {
     switch (action.type) {
         case "RESET": {
             return storeDefaults;
         }
 
         case "LOAD_FILE": {
-            return action.payload
+            return action.payload;
         }
 
         case "UNLOAD": {
-            return null
+            return {};
         }
 
+        case "SET_FIRST_SCENE": {
+            return produce(store, (draft) => {
+                draft.default.firstScene = action.payload as string;
+            });
+        }
         default: {
             return store;
         }
     }
-}
+};
 
 /*
  

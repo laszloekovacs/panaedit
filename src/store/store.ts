@@ -1,12 +1,11 @@
-import { legacy_createStore } from 'redux'
-import { devToolsEnhancer } from "redux-devtools-extension"
-import {reducer} from './reducer'
-
+import { legacy_createStore } from "redux";
+import { devToolsEnhancer } from "redux-devtools-extension";
+import { reducer } from "./reducer";
 
 export type HotSpotType = {
     y: number;
     x: number;
-}
+};
 
 export type SceneType = {
     title: string;
@@ -15,7 +14,7 @@ export type SceneType = {
     hotspots: HotSpotType[] | null;
 };
 
-export type Store = null | {
+export type Store = {
     default: {
         firstScene: string;
         sceneFadeDuration: number;
@@ -61,5 +60,4 @@ export const storeDefaults: Store = {
     },
 };
 
-
-export const store = legacy_createStore(reducer, devToolsEnhancer({}))
+export const store = legacy_createStore(reducer, devToolsEnhancer({}));
