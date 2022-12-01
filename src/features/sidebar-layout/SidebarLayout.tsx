@@ -9,19 +9,19 @@ import SceneEdit from "../scene-edit/SceneEdit";
 function SidebarLayout() {
     return (
         <div>
-            <CollapsibleContainer title={"First scene"}>
+            <CollapsibleContainer title={"FIRST SCENE"}>
                 <FirstSceneSelect />
             </CollapsibleContainer>
-            <CollapsibleContainer title={"Add panorama images"}>
+            <CollapsibleContainer title={"ADD PANORAMA IMAGES"}>
                 <AddPanorama />
             </CollapsibleContainer>
-            <CollapsibleContainer title={"Scene list"}>
+            <CollapsibleContainer title={"SCENE LIST"}>
                 <SceneList />
             </CollapsibleContainer>
-            <CollapsibleContainer title={"Edit scene"}>
+            <CollapsibleContainer title={"EDIT SCENE"}>
                 <SceneEdit />
             </CollapsibleContainer>
-            <CollapsibleContainer title={"Hotspots"}>
+            <CollapsibleContainer title={"HOTSPOTS"}>
                 <HotspotList />
             </CollapsibleContainer>
         </div>
