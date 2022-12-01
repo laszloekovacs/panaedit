@@ -7,3 +7,7 @@
 header {
     grid-area: h;
 }
+
+aside {
+    grid-area: s;
+}
