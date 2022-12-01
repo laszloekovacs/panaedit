@@ -13,7 +13,7 @@ function CollapsibleContainer({ children, title }) {
     return (
         <div className={styles.container}>
             <header>
-                {title && <h1>{title}</h1>}
+                {title && <h3>{title}</h3>}
                 <button onClick={() => setCollapsed(!isCollapsed)}>{isCollapsed ? "show" : "hide"}</button>
             </header>
             <main>{!isCollapsed && children}</main>
