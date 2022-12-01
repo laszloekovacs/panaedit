@@ -1,0 +1,20 @@
+.container {
+    margin-top: 1rem;
+}
+
+.container h1 {
+    font-size: 1rem;
+    font-weight: bold;
+    text-overflow: ellipsis;
+}
+
+.container header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.container header button {
+    background: none;
+}
