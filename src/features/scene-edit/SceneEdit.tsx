@@ -1,17 +1,20 @@
 import React from "react";
-
+// @ts-ignore
+import styles from "./sceneedit.module.css";
 function SceneEdit() {
     return (
         <div>
             <h3>01CA - Vezérigazgató tárgyaló</h3>
-            <div>
+            <div className={styles.row}>
                 <p>north offset: 98.4</p>
-                <button>set north</button>
+                <button>set from view</button>
             </div>
             <br />
-            <input type="text" name="newhotspot" placeholder="type in new hotspot name" />
-            <button>add link to scene</button>
-            <button>add info bubble</button>
+            <div>
+                <button>add link to scene</button>
+                <br />
+                <button>add info bubble</button>
+            </div>
         </div>
     );
 }
