@@ -1,41 +1,41 @@
-import { legacy_createStore } from "redux";
-import { devToolsEnhancer } from "redux-devtools-extension";
-import { reducer } from "./reducer";
+import { legacy_createStore } from "redux"
+import { devToolsEnhancer } from "redux-devtools-extension"
+import { reducer } from "./reducer"
 
 export type HotSpotType = {
-    y: number;
-    x: number;
-};
+    y: number
+    x: number
+}
 
 export type SceneType = {
-    title: string;
-    panorama: string;
-    northOffset?: number;
-    hotspots: HotSpotType[] | null;
-};
+    title: string
+    panorama: string
+    northOffset: number
+    hotspots: HotSpotType[]
+}
 
 export type Store = {
     default: {
-        firstScene: string;
-        sceneFadeDuration: number;
-        type: "equirectangular";
-        autoLoad: boolean;
-        compass: boolean;
-        hotSpotDebug: boolean;
-        hfov: number;
-        vfow: number;
-        minPitch: number;
-        maxPitch: number;
-        basePath: string;
-        imagePath: string;
-    };
-    scenes: { [key: string]: SceneType } | null;
-    articles: object[] | null;
+        firstScene: string
+        sceneFadeDuration: number
+        type: "equirectangular"
+        autoLoad: boolean
+        compass: boolean
+        hotSpotDebug: boolean
+        hfov: number
+        vfow: number
+        minPitch: number
+        maxPitch: number
+        basePath: string
+        imagePath: string
+    }
+    scenes: { [key: string]: SceneType }
+    articles: object[]
     editor: {
-        currentScene: string;
-        workingDirectory: null | any;
-    };
-};
+        currentScene: string
+        workingDirectory: any
+    }
+}
 
 export const storeDefaults: Store = {
     default: {
@@ -52,12 +52,12 @@ export const storeDefaults: Store = {
         basePath: "assets/panorama/",
         imagePath: "assets/images/",
     },
-    scenes: null,
-    articles: null,
+    scenes: {},
+    articles: [],
     editor: {
         currentScene: "",
         workingDirectory: null,
     },
-};
+}
 
-export const store = legacy_createStore(reducer, devToolsEnhancer({}));
+export const store = legacy_createStore(reducer, storeDefaults, devToolsEnhancer({}))

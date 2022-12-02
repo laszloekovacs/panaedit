@@ -1,97 +1,97 @@
-import produce from "immer";
-import { AnyAction, Reducer } from "redux";
-import { addImageLabelAction } from "./actions";
-import { storeDefaults, Store } from "./store";
+import produce from "immer"
+import { AnyAction, Reducer } from "redux"
+import { addImageLabelAction } from "./actions"
+import { storeDefaults, Store } from "./store"
 
 /** object cloning helper */
 function clone(obj) {
-    return JSON.parse(JSON.stringify(obj));
+    return JSON.parse(JSON.stringify(obj))
 }
 
 function addHotspot(store, hotspot) {
-    const { title, ...newSpot } = hotspot;
+    const { title, ...newSpot } = hotspot
 
     if (store.scenes[title]?.hotSpots == undefined) {
-        store.scenes[title].hotSpots = [];
+        store.scenes[title].hotSpots = []
     }
 
-    store.scenes[title].hotSpots.push(newSpot);
+    store.scenes[title].hotSpots.push(newSpot)
 
-    return store;
+    return store
 }
 
 function removeHotspot(store, payload) {
-    const { index, parent } = payload;
+    const { index, parent } = payload
 
     if (store.scenes?.[parent]?.hotSpots[index]) {
-        const hotspots = store.scenes?.[parent]?.hotSpots.filter((v, i) => i != index);
+        const hotspots = store.scenes?.[parent]?.hotSpots.filter((v, i) => i != index)
 
-        store.scenes[parent].hotSpots = hotspots;
+        store.scenes[parent].hotSpots = hotspots
     }
 
-    return store;
+    return store
 }
 
 function updateArticle(store, payload) {
     // find the index of the article we are currently editing and replace it
-    const predicate = (elem) => elem.title == payload.oldTitle;
+    const predicate = (elem) => elem.title == payload.oldTitle
 
-    const index = store.articles.findIndex(predicate);
-    if (index == -1) console.error("cannot find article");
+    const index = store.articles.findIndex(predicate)
+    if (index == -1) console.error("cannot find article")
 
-    store.articles[index].title = payload.newTitle;
+    store.articles[index].title = payload.newTitle
 
-    return store;
+    return store
 }
 
 function deleteImage(store, payload) {
-    const predicate = (elem) => elem.title == payload.article;
+    const predicate = (elem) => elem.title == payload.article
 
-    const index = store.articles.findIndex(predicate);
+    const index = store.articles.findIndex(predicate)
 
-    store.articles[index].images = store.articles[index].images.filter((p, i) => i != payload.index);
+    store.articles[index].images = store.articles[index].images.filter((p, i) => i != payload.index)
 
-    return store;
+    return store
 }
 
 function addImages(store, payload) {
-    const predicate = (elem) => elem.title == payload.article;
+    const predicate = (elem) => elem.title == payload.article
 
-    const index = store.articles.findIndex(predicate);
+    const index = store.articles.findIndex(predicate)
 
     /* clean out duplicates */
-    const newImages = Array.from(new Set([...payload.images]));
+    const newImages = Array.from(new Set([...payload.images]))
 
     /* create a list of objects */
     const items = newImages.map((p) => {
-        return { src: p, label: "" };
-    });
+        return { src: p, label: "" }
+    })
 
-    store.articles[index].images = [...store.articles[index].images, ...items];
+    store.articles[index].images = [...store.articles[index].images, ...items]
 
-    return store;
+    return store
 }
 
 function addImageLabel(store, payload) {
-    const predicate = (elem) => elem.title == payload.article;
-    const index = store.articles.findIndex(predicate);
+    const predicate = (elem) => elem.title == payload.article
+    const index = store.articles.findIndex(predicate)
 
-    const image = store.articles[index].images.find((p) => p.src == payload.src);
+    const image = store.articles[index].images.find((p) => p.src == payload.src)
 
-    image.label = payload.label;
-    console.log(image);
+    image.label = payload.label
+    console.log(image)
 
-    return store;
+    return store
 }
 
 function setNorth(store, payload) {
-    console.log(payload);
+    console.log(payload)
     store.scenes[payload.scene] = Object.assign(store.scenes[payload.scene], {
         northOffset: payload.yaw,
-    });
+    })
 
-    console.log(store.scenes[payload.scene]);
-    return store;
+    console.log(store.scenes[payload.scene])
+    return store
 }
 
 export type ActionType =
@@ -112,37 +112,37 @@ export type ActionType =
     | "SET_NORTH"
     | "SET_EDITOR_SCENE"
     | "SET_SCENE_TITLE"
-    | "ADD_IMAGE_LABEL";
+    | "ADD_IMAGE_LABEL"
 
 export type Action = {
-    type: ActionType;
-    payload?: unknown;
-};
+    type: ActionType
+    payload?: unknown
+}
 
-export const reducer: Reducer = (store: Store, action: Action) => {
+export const reducer: Reducer = (store: Store, action: Action): Store => {
     switch (action.type) {
         case "RESET": {
-            return storeDefaults;
+            return storeDefaults
         }
 
         case "LOAD_FILE": {
-            return action.payload;
+            return { ...storeDefaults, ...(action.payload as object) }
         }
 
         case "UNLOAD": {
-            return {};
+            return storeDefaults
         }
 
         case "SET_FIRST_SCENE": {
             return produce(store, (draft) => {
-                draft.default.firstScene = action.payload as string;
-            });
+                draft.default.firstScene = action.payload as string
+            })
         }
         default: {
-            return store;
+            return store
         }
     }
-};
+}
 
 /*
  

@@ -1,12 +1,12 @@
 // @ts-ignore
-import styles from "./layout.module.css";
-import React from "react";
+import styles from "./layout.module.css"
+import React from "react"
 
 interface propType {
-    header?: null | JSX.Element;
-    sidebar?: null | JSX.Element;
-    preview?: null | JSX.Element;
-    statusbar?: null | JSX.Element;
+    header?: null | JSX.Element
+    sidebar?: null | JSX.Element
+    preview?: null | JSX.Element
+    statusbar?: null | JSX.Element
 }
 
 function Layout({ header, sidebar, preview, statusbar }: propType) {
@@ -17,7 +17,7 @@ function Layout({ header, sidebar, preview, statusbar }: propType) {
             <main>{preview && preview}</main>
             <article>{statusbar && statusbar}</article>
         </div>
-    );
+    )
 }
 
-export default Layout;
+export default Layout
