@@ -29,6 +29,11 @@ ul {
     padding: 0;
 }
 
+#preview {
+    width: 400px;
+    height: 300px;
+}
+
 /* older definitions please clean up */
 #old-out {
     width: 60%;

@@ -4,6 +4,7 @@ import { workspaceContext } from "../workspace/Workspace"
 import { Store } from "../../store/store"
 import produce from "immer"
 import { idText } from "typescript"
+import Pannellum from "../pannellum/Pannellum"
 
 function PreviewCache({ children }) {
     const store = useSelector((s: Store) => s)
@@ -77,7 +78,11 @@ function PreviewCache({ children }) {
         }
     }, [store])
 
-    return <div>{children}</div>
+    return (
+        <div>
+            <Pannellum scene={previewStore} />
+        </div>
+    )
 }
 
 export default PreviewCache
