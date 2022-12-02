@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    padding: 0.2rem 0 0.7rem 0;
+    align-items: center;
+    border-bottom: 0.3rem solid gray;
+}
+
+.container div {
+    display: inline-flex;
+    gap: 0.4rem;
+    margin-right: auto;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+a:hover {
+    color: orangered;
+}

@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container button {
+    font-size: 1rem;
+    padding: 3rem;
+}

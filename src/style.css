@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+*,
+*::after,
+*::after {
+    font-size: 14px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1.5rem;
+    height: 100vh;
+}
+
+button {
+    border: 0;
+    padding: 0.2rem 0.5rem;
+    background-color: whitesmoke;
+}
+
+button:hover {
+    background-color: orangered;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#preview {
+    width: 400px;
+    height: 300px;
+}
+
+/* older definitions please clean up */
+#old-out {
+    width: 60%;
+    height: 500px;
+}
+
+.legend {
+    color: white;
+    background: black;
+}
+
+.ul {
+    list-style: none;
+    padding: 4px;
+}
+
+.aside {
+    min-width: 700px;
+}
+
+.input {
+    margin: 2px;
+}
+
+.details {
+    border: 2px dotted black;
+}
+
+.li {
+    list-style-type: none;
+}
+
+.card {
+    margin: 2px;
+    padding: 2px;
+    background-color: rgba(1, 1, 1, 0.2);
+}
+
+.p {
+    padding: 1px;
+    margin: 1px;
+}
+
+.btn-button {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 0px;
+    margin: 2px;
+}
+
+.button:hover {
+    background-color: orangered;
+}
+
+.h3 {
+    margin-block: 4px 4px;
+}
+
+.img {
+    max-width: 50px;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-items: end;
+}
+
+.imageCard {
+    position: relative;
+    border: 1px solid orangered;
+}
+
+.imageCard .close {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.scrollContainer {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.horizontal {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.sidebar {
+    width: 30%;
+}
+
+.minilabel {
+    font-size: smaller;
+}
+
+#oldpreview {
+    width: 400px;
+    height: 400px;
+}
