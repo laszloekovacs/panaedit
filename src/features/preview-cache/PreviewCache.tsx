@@ -8,26 +8,54 @@ function PreviewCache() {
     const store = useSelector((s: Store) => s)
     const [previewStore, setPreviewStore] = useState({})
     const workDirectory = useContext(workspaceContext)
+    //   const
     const [cache, setCache] = useState(new Map())
 
-    const resolveProject: (blobCache: Map<string, string>, store: Store) => Promise<{}> = async (blobCache, scenes) => {
+    /* open directories only once */
+    /* check if we already loaded the image, otherwise cache it */
+    async function resolvePanorama(workDirectory: FileSystemDirectoryHandle, cache: Map<string, string>, panorama: string) {
+        console.log("resolving")
         try {
-            if (store.scenes != null && typeof store.scenes == "object" && Object.keys.length != 0) {
-                const resolvedStore = produce(store, (draft) => {
-                    for (let item of Object.values(store.scenes)) {
-                    }
-                })
+            if (cache.has(panorama)) {
+                return cache.get(panorama)
             }
+            console.log(workDirectory)
+            const assets = await workDirectory.getDirectoryHandle("assets")
 
-            return {}
+            return ""
+        } catch (error) {
+            return ""
+            console.log("failed?")
+            console.log(error)
+        }
+    }
+
+    async function resolveProject(workDirectory: FileSystemDirectoryHandle, blobCache: Map<string, string>, store: Store) {
+        try {
+            const updatedStore = produce(store, async (draft) => {
+                /* go trough each scene, find panoramas */
+                for (let scene of Object.values(draft.scenes)) {
+                    scene.panorama = (await resolvePanorama(workDirectory, blobCache, scene.panorama)) || ""
+                }
+            })
+
+            return updatedStore
         } catch (error) {
             console.log(error)
-            return {}
+            return store
         }
     }
 
     /* make a copy of the fresh store, and change paths to blobs */
-    useEffect(() => {}, [store])
+    useEffect(() => {
+        console.log("updating preview cache")
+        if (workDirectory == null) {
+        } else {
+            resolveProject(workDirectory, cache, store).then((preview) => {
+                setPreviewStore(preview)
+            })
+        }
+    }, [store])
 
     return <div>PreviewCache</div>
 }
