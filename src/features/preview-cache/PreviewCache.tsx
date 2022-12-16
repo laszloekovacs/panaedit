@@ -79,7 +79,7 @@ function PreviewCache({ children }) {
 
     return (
         <div>
-            <Pannellum scene={previewStore} />
+            <Pannellum store={previewStore as Store} />
         </div>
     )
 }

@@ -156,6 +156,12 @@ export const reducer: Reducer = (store: Store, action: Action): Store => {
             })
         }
 
+        case "SET_EDITOR_SCENE": {
+            return produce(store, (draft) => {
+                draft.editor.currentScene = action.payload as string
+            })
+        }
+
         default: {
             return store
         }

@@ -33,7 +33,6 @@ export type Store = {
     articles: object[]
     editor: {
         currentScene: string
-        workingDirectory: any
     }
 }
 
@@ -56,7 +55,6 @@ export const storeDefaults: Store = {
     articles: [],
     editor: {
         currentScene: "",
-        workingDirectory: null,
     },
 }
 
