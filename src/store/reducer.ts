@@ -113,6 +113,7 @@ export type ActionType =
     | "SET_EDITOR_SCENE"
     | "SET_SCENE_TITLE"
     | "ADD_IMAGE_LABEL"
+    | "ADD_PANORAMA"
 
 export type Action = {
     type: ActionType
@@ -138,6 +139,23 @@ export const reducer: Reducer = (store: Store, action: Action): Store => {
                 draft.default.firstScene = action.payload as string
             })
         }
+
+        case "ADD_PANORAMA": {
+            const filename = action.payload as string
+            const scenename = filename.substring(0, filename.lastIndexOf("."))
+
+            /* check if we already have a panorama matching the name */
+
+            return produce(store, (draft) => {
+                draft.scenes[scenename] = {
+                    title: scenename,
+                    panorama: filename,
+                    northOffset: 0,
+                    hotspots: [],
+                }
+            })
+        }
+
         default: {
             return store
         }

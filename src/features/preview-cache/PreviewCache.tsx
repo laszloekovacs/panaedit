@@ -3,7 +3,6 @@ import { useSelector } from "react-redux"
 import { workspaceContext } from "../workspace/Workspace"
 import { Store } from "../../store/store"
 import produce from "immer"
-import { idText } from "typescript"
 import Pannellum from "../pannellum/Pannellum"
 
 function PreviewCache({ children }) {

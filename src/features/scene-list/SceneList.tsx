@@ -6,8 +6,6 @@ import SceneListItem from "./SceneListItem"
 // @ts-ignore
 import styles from "./scenelist.module.css"
 
-const dummyScenes = ["ab - vezérigazgató", "ba - előszoba", "fg - folyosó", "er- öltöző", "dfs - konyha", "er - iroda"]
-
 function SceneList() {
     const scenes = useSelector((store: Store) => store?.scenes) || {}
 

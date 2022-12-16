@@ -17,7 +17,6 @@ function Pannellum({ scene }) {
     return (
         <>
             <div id="preview" ref={viewref}></div>
-            <p>hello</p>
         </>
     )
 }
