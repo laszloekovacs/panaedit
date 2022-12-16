@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 // @ts-ignore
 import styles from "./sceneedit.module.css"
 import type { Store } from "../../store/store"
+import SceneTitle from "./SceneTitle"
 
 function SceneEdit() {
     const store = useSelector((s: Store) => s)
@@ -19,7 +20,8 @@ function SceneEdit() {
 
         return (
             <div>
-                <h3>{scene.title}</h3>
+                <h3>{currentscene}</h3>
+                <SceneTitle currentscene={currentscene}></SceneTitle>
                 <div className={styles.row}>
                     <p>north offset: {scene.northOffset}</p>
                     <button>set from view</button>
