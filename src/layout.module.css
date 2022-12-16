@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 22rem auto;
     grid-template-areas: "h h" "s v" "s a";
+    gap: 0.3rem;
 }
 
 header {

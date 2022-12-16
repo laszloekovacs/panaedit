@@ -151,7 +151,7 @@ export const reducer: Reducer = (store: Store, action: Action): Store => {
                     title: scenename,
                     panorama: filename,
                     northOffset: 0,
-                    hotspots: [],
+                    hotSpots: [],
                 }
             })
         }

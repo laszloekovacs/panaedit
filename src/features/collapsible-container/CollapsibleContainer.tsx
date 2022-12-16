@@ -1,14 +1,14 @@
 // @ts-ignore
-import styles from "./collapsible.module.css";
-import React, { useState } from "react";
+import styles from "./collapsible.module.css"
+import React, { useState } from "react"
 
 interface propType {
-    children: JSX.Element;
-    title?: string;
+    children: JSX.Element
+    title?: string
 }
 
 function CollapsibleContainer({ children, title }) {
-    const [isCollapsed, setCollapsed] = useState(false);
+    const [isCollapsed, setCollapsed] = useState(false)
 
     return (
         <div className={styles.container}>
@@ -18,7 +18,7 @@ function CollapsibleContainer({ children, title }) {
             </header>
             <main>{!isCollapsed && children}</main>
         </div>
-    );
+    )
 }
 
-export default CollapsibleContainer;
+export default CollapsibleContainer

@@ -11,7 +11,7 @@ export type SceneType = {
     title: string
     panorama: string
     northOffset: number
-    hotspots: HotSpotType[]
+    hotSpots: HotSpotType[]
 }
 
 export type Store = {
