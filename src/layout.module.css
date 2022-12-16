@@ -11,3 +11,7 @@ header {
 aside {
     grid-area: s;
 }
+
+main {
+    grid-area: v;
+}
