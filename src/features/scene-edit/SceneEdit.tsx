@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import styles from "./sceneedit.module.css"
 import type { Store } from "../../store/store"
 import SceneTitle from "./SceneTitle"
+import SceneNorthOffset from "./SceneNorthOffset"
 
 function SceneEdit() {
     const store = useSelector((s: Store) => s)
@@ -22,10 +23,7 @@ function SceneEdit() {
             <div>
                 <h3>{currentscene}</h3>
                 <SceneTitle currentscene={currentscene}></SceneTitle>
-                <div className={styles.row}>
-                    <p>north offset: {scene.northOffset}</p>
-                    <button>set from view</button>
-                </div>
+                <SceneNorthOffset sceneId={currentscene}></SceneNorthOffset>
                 <br />
                 <div>
                     <button>add link to scene</button>

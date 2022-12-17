@@ -13,6 +13,9 @@ function Pannellum({ store }: { store: Store }) {
         /* set current scene */
         if (store.editor?.currentScene != "") {
             window.panorama.loadScene(store.editor?.currentScene)
+
+            /* fix orientation with north offset */
+            // window.panorama.setYaw(store.scenes[store.editor?.currentScene].northOffset)
         }
 
         return () => {

@@ -169,6 +169,13 @@ export const reducer: Reducer = (store: Store, action: Action): Store => {
             })
         }
 
+        case "SET_NORTH": {
+            return produce(store, (draft) => {
+                const id = action.payload.scene as string
+                draft.scenes[id].northOffset = action.payload?.yaw
+            })
+        }
+
         default: {
             return store
         }

@@ -41,7 +41,7 @@
 		"01cb": {
 			"title": "01cb",
 			"panorama": "01cb.jpg",
-			"northOffset": 0,
+			"northOffset": "-166.01",
 			"hotSpots": []
 		},
 		"01cc": {
@@ -65,6 +65,6 @@
 	},
 	"articles": [],
 	"editor": {
-		"currentScene": "01aa"
+		"currentScene": "01cb"
 	}
 }
