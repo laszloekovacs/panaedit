@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
+import React, { KeyboardEventHandler, useRef, useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import type { Store } from "../../store/store"
 
+/// change to null and check
 function SceneTitle({ currentscene }) {
     const scene = useSelector((s: Store) => s.scenes[currentscene])
-    const [text, setText] = useState("")
+    const [content, setContent] = useState("")
+    const inputRef = useRef<HTMLParagraphElement>(null)
+    const dispatch = useDispatch()
+
+    const handleInput: KeyboardEventHandler = (event) => {
+        if (event.key == "Enter") {
+            inputRef.current?.blur()
+
+            dispatch({ type: "SET_SCENE_TITLE", payload: { scene: currentscene, title: inputRef.current?.innerText } })
+        }
+    }
 
     useEffect(() => {
-        setText(scene.title)
-    }, [scene])
+        setContent(scene.title)
+    }, [currentscene])
 
     return (
         <>
-            <input
-                type="text"
-                name="title"
-                placeholder={currentscene}
-                value={text}
-                onChange={(e) => {
-                    setText(e.target.value)
-                }}
-            />
+            <p ref={inputRef} contentEditable onKeyDown={handleInput}>
+                {content}
+            </p>
         </>
     )
 }

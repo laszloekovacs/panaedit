@@ -162,6 +162,13 @@ export const reducer: Reducer = (store: Store, action: Action): Store => {
             })
         }
 
+        case "SET_SCENE_TITLE": {
+            return produce(store, (draft) => {
+                const id = action.payload.scene as string
+                draft.scenes[id].title = action.payload.title
+            })
+        }
+
         default: {
             return store
         }
