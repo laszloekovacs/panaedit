@@ -5,7 +5,7 @@ import { Store } from "../../store/store"
 import produce from "immer"
 import Pannellum from "../pannellum/Pannellum"
 
-function PreviewCache({ children }) {
+function PreviewCache() {
     const store = useSelector((s: Store) => s)
     const [previewStore, setPreviewStore] = useState({})
     const workDirectory = useContext(workspaceContext)

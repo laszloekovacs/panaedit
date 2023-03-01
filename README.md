@@ -2,7 +2,11 @@
 
 Web based tool to create pannellum.js scene files with some extended functionality
 
-![screenshot](./screenshots/Screenshot2.jpg)
+screenshots from old version
+![newscreenshot](./screenshots/Screenshot.png)
+
+experimental version
+![screenshot](./screenshots/Screenshot3.jpg)
 
 ## how to run
 
