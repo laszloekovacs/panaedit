@@ -6,7 +6,7 @@ screenshots from old version
 ![newscreenshot](./screenshots/Screenshot.png)
 
 experimental version
-![screenshot](./screenshots/Screenshot3.jpg)
+![screenshot](./screenshots/Screenshot3.png)
 
 ## how to run
 
