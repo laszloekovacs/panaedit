@@ -1,6 +1,18 @@
 import React, { useEffect, useRef, useState } from "react"
 import type { Store } from "../../store/store"
 
+declare global {
+    interface Window {
+        panorama: {
+            destroy: () => null,
+            loadScene: (arg0: string) => void
+        }
+        pannellum: {
+            viewer: (arg0: string, arg1: any) => any
+        }
+    }
+}
+
 function Pannellum({ store }: { store: Store }) {
     const viewref = useRef(null)
     const [view, setView] = useState(null)
