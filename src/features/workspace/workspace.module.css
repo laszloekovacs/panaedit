@@ -4,7 +4,7 @@
 
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
@@ -14,4 +14,8 @@
 .container button {
     font-size: 1rem;
     padding: 3rem;
+}
+
+.container a {
+    margin: 5rem;
 }

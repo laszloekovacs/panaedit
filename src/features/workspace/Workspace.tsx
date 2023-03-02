@@ -25,6 +25,8 @@ function Workspace({ children }: { children?: any }) {
         return (
             <div className={styles.container}>
                 <button onClick={handleClick}>Select working directory</button>
+                
+                <a href="DemoProject.zip">download example project file</a>
             </div>
         );
     };

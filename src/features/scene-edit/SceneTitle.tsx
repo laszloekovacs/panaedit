@@ -5,27 +5,21 @@ import type { Store } from "../../store/store"
 /// change to null and check
 function SceneTitle({ currentscene }) {
     const scene = useSelector((s: Store) => s.scenes[currentscene])
-    const [content, setContent] = useState("")
-    const inputRef = useRef<HTMLParagraphElement>(null)
+    const [text, setText] = useState(scene.title)
     const dispatch = useDispatch()
 
-    const handleInput: KeyboardEventHandler = (event) => {
-        if (event.key == "Enter") {
-            inputRef.current?.blur()
+    const handleInput = (event) => {
+        dispatch({ type: "SET_SCENE_TITLE", payload: {scene: scene.title, title: text} })
+    } 
 
-            dispatch({ type: "SET_SCENE_TITLE", payload: { scene: currentscene, title: inputRef.current?.innerText } })
-        }
-    }
-
-    useEffect(() => {
-        setContent(scene.title)
+    useEffect(()=> {
+        setText(scene.title)
     }, [currentscene])
 
     return (
         <>
-            <p ref={inputRef} contentEditable onKeyDown={handleInput}>
-                {content}
-            </p>
+        <input value={text} type="text" onChange={e => setText(e.target.value)}/>
+        <button onClick={handleInput}>set</button>
         </>
     )
 }

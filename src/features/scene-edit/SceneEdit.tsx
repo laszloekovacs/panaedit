@@ -22,6 +22,7 @@ function SceneEdit() {
         return (
             <div>
                 <h3>{currentscene}</h3>
+                <br />
                 <SceneTitle currentscene={currentscene}></SceneTitle>
                 <SceneNorthOffset sceneId={currentscene}></SceneNorthOffset>
                 <br />
