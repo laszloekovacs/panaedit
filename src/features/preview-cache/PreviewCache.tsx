@@ -16,7 +16,7 @@ function PreviewCache() {
     /* open directories only once */
     /* check if we already loaded the image, otherwise cache it */
     async function resolvePanorama(dir: FileSystemDirectoryHandle, cache: Map<string, string>, panorama: string) {
-        console.log("resolving")
+        console.log("resolving " + panorama)
         try {
             if (cache.has(panorama)) {
                 return cache.get(panorama)
@@ -29,7 +29,7 @@ function PreviewCache() {
                 return url
             }
         } catch (error) {
-            return "error"
+            return "ERROR: resolvePanorama: " + panorama
         }
     }
 
@@ -39,7 +39,7 @@ function PreviewCache() {
                 /* go trough each scene, find panoramas */
                 for (let scene of Object.values(draft.scenes)) {
                     if (panoramaDirectory != null)
-                        scene.panorama = (await resolvePanorama(panoramaDirectory, blobCache, scene.panorama)) || ""
+                        scene.panorama = (await resolvePanorama(panoramaDirectory, blobCache, scene.panorama))
                 }
             })
 

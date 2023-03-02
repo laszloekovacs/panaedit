@@ -12,7 +12,7 @@ function SceneNorthOffset({ sceneId }: proptype) {
 
     const clickHandler: MouseEventHandler = (event) => {
         if (window.panorama != undefined && window.panorama.getYaw != undefined) {
-            const yaw = window.panorama.getYaw().toFixed(2)
+            const yaw = parseFloat(window.panorama.getYaw().toFixed(2))
 
             dispatch({ type: "SET_NORTH", payload: { yaw: yaw, scene: sceneId } })
         }

@@ -10,7 +10,7 @@ type propType = {
 
 function PickerItem(props: propType) {
     return (
-        <li>
+        <li key={props.item}>
             <button onClick={() => props.onClick()}>
                 <p>
                     {props.item}

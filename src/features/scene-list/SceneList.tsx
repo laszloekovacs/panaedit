@@ -7,7 +7,7 @@ import SceneListItem from "./SceneListItem"
 import styles from "./scenelist.module.css"
 
 function SceneList() {
-    const scenes = useSelector((store: Store) => store?.scenes) || {}
+    const scenes = useSelector((store: Store) => store.scenes)
     const dispatch = useDispatch()
 
     const handleClick = (item) => {
