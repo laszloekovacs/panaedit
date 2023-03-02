@@ -1,32 +1,42 @@
-import React, { MouseEventHandler, SyntheticEvent } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { Store } from "../../store/store";
+import PickerItem from "./PickerItem";
 
-function ScenePicker({ onClose }) {
-    const scenes = useSelector((store: Store) => store?.scenes);
+
+type propType = {
+    onClose: () => void
+}
+
+function ScenePicker({ onClose }: propType) {
+
+    const scenes = useSelector((store: Store) => store.scenes);
     const dispatch = useDispatch();
 
-    const list = (scenes && Object.keys(scenes)) || null;
+    const list = Object.keys(scenes);
 
-    const clickHandler = (e) => {};
+    const handleClickItem = (item) => {
+        dispatch({ type: "SET_FIRST_SCENE", payload: item });
+        onClose();
+    }
 
     return (
         <div>
-            <h1>pick scene</h1>
-            <ul>
-                {list?.map((item) => (
-                    <li key={item}>
-                        <button
-                            onClick={() => {
-                                dispatch({ type: "SET_FIRST_SCENE", payload: item });
-                                onClose();
-                            }}
-                        >
-                            {item} - {scenes?.[item].title}
-                        </button>
-                    </li>
-                ))}
-            </ul>
+            <h1>Pick Scene</h1>
+            <button onClick={() => onClose()}>cancel</button>
+
+            {list.length == 0 ?
+                (<>
+                    <p>No panorama images in the project, can't set staring panorama</p>
+                </>) :
+
+                (<ul>
+                    {list.map(item => <PickerItem 
+                        onClick={() => handleClickItem(item)} 
+                        item={item} 
+                        title={scenes[item].title}>
+                        </PickerItem>)}
+                </ul>)}
         </div>
     );
 }
