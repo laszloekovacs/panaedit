@@ -1,6 +1,7 @@
 import produce from "immer"
 import { AnyAction, Reducer } from "redux"
-import { storeDefaults, Store } from "./store"
+import { storeDefaults, store } from "./store"
+import { Store } from "./types"
 
 export type ActionType =
    | "UNLOAD"
