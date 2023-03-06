@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { workspaceContext } from "../workspace/Workspace"
-import { Store } from "../../store/store"
+import { Store } from "../../store/types"
 import produce from "immer"
 import Pannellum from "../pannellum/Pannellum"
 

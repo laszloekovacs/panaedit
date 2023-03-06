@@ -1,6 +1,6 @@
 import React, { KeyboardEventHandler, useRef, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import type { Store } from "../../store/store"
+import type { Store } from "../../store/types"
 
 /// change to null and check
 function SceneTitle({ currentscene }) {

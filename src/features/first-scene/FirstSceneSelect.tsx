@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useSelector } from "react-redux"
 // @ts-ignore
 import styles from "./firstscene.module.css"
-import type { Store } from "../../store/store"
+import type { Store } from "../../store/types"
 import ScenePicker from "../scene-picker/ScenePicker"
 
 function FirstSceneSelect() {

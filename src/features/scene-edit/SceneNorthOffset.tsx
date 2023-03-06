@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import type { Store } from "../../store/store"
+import type { Store } from "../../store/types"
 
 interface proptype {
     sceneId: string

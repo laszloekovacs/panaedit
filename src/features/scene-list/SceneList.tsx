@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import type { Store } from "../../store/store"
+import type { Store } from "../../store/types"
 import SceneListItem from "./SceneListItem"
 
 // @ts-ignore

@@ -2,7 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 // @ts-ignore
 import styles from "./sceneedit.module.css"
-import type { Store } from "../../store/store"
+import type { Store } from "../../store/types"
 import SceneTitle from "./SceneTitle"
 import SceneNorthOffset from "./SceneNorthOffset"
 

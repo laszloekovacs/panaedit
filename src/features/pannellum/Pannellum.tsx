@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-import type { Store } from "../../store/store"
+import type { Store } from "../../store/types"
 
 declare global {
     interface Window {
