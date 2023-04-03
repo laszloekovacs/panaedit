@@ -1,4 +1,4 @@
-import projectReducer from './projectSlice'
+import projectReducer from './reducer'
 
 export default configureStore({
 	reducer: {
