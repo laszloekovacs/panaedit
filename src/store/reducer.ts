@@ -9,8 +9,8 @@ export const projectSlice = createSlice({
 	name: 'project',
 	initialState: storeDefaultState,
 	reducers: {
-		reset: resetReducer(state),
-		addScene: addSceneReducer(state, action)
+		reset: resetReducer,
+		addScene: addSceneReducer
 	}
 })
 
