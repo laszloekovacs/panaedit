@@ -1,6 +1,4 @@
-import { AnyAction, Action } from 'redux'
 import stateDefaultState from '../storeDefaultState'
-import _ from 'lodash'
 
 /* restore the project to defaults */
 export function _reset(state: State) {

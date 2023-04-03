@@ -4,7 +4,9 @@ import storeDefaultState from './storeDefaultState'
 /* individual reducers */
 import { _addScene, _removeScene, _reset, _loadProject } from './reducers'
 
-/* create slice */
+/* 
+	build the reducer 
+*/
 export const projectSlice = createSlice({
 	name: 'project',
 	initialState: storeDefaultState,
@@ -18,4 +20,5 @@ export const projectSlice = createSlice({
 
 export default projectSlice.reducer
 
-export const { reset, addScene } = projectSlice.actions
+export const { addScene, removeScene, reset, loadProject } =
+	projectSlice.actions

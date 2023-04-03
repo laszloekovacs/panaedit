@@ -28,7 +28,16 @@ declare interface Scene {
 	name: string
 	type: string
 	panorama: string
-	hotSpots: {}[]
+	hotSpots: Hotspot[]
+}
+
+declare interface Hotspot {
+	id: string
+	type: string
+	pitch: number
+	yaw: number
+	text: string
+	sceneId: string
 }
 
 declare
@@ -47,5 +56,19 @@ declare interface RemoveSceneAction extends Action {
 declare interface LoadProjectAction extends Action {
 	payload: {
 		project: State
+	}
+}
+
+declare interface AddHotspotAction extends Action {
+	payload: {
+		sceneKey: string
+		hotspot: Hotspot
+	}
+}
+
+declare interface RemoveHotspotAction extends Action {
+	payload: {
+		sceneKey: string
+		hotspotIndex: number
 	}
 }

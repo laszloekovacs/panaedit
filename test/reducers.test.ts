@@ -1,11 +1,27 @@
-import { _reset } from '../src/store/reducers/scene'
+import { _reset, _addScene } from '../src/store/reducers'
 import { describe, it } from 'vitest'
+import storeDefaultState from '../src/store/storeDefaultState'
 
-it('should return the default values', async ({ expect }) => {
-	expect(_reset).toBeDefined()
+describe('test reducer functions', () => {
+	it('_reset should return the default project', async ({ expect }) => {
+		const output = _reset({} as any)
 
-	const output = _reset({} as any)
+		expect(output).toMatchSnapshot()
+	})
 
-	// output should contain the default key
-	expect(output).toHaveProperty('default')
+	it('add scene should add new key to scenes obj', async ({ expect }) => {
+		const scene: Scene = {
+			hotSpots: [],
+			panorama: 'test.jpg',
+			id: 'test',
+			name: 'test',
+			type: 'link'
+		}
+
+		const project = storeDefaultState
+
+		const output = _addScene(project, { payload: { scene } })
+
+		expect(output).toMatchSnapshot()
+	})
 })

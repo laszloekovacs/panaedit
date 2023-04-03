@@ -1,26 +1,29 @@
-import { AnyAction, Action } from 'redux'
-import stateDefaultState from '../storeDefaultState'
 import _ from 'lodash'
 
 /* add scene. we use the filename as the key in the scene array */
 export function _addScene(state: State, action: AddSceneAction) {
-	const filepath = action.payload.scene.panorama
+	const { panorama } = action.payload.scene
 
-	// extract filename, remove extension
-	const filename = filepath.split('/').pop()
-	const name = filename?.split('.').shift() || ''
+	if (!panorama) {
+		throw new Error('scene has no path')
+	}
 
-	if (!name) {
+	// find the file name from the path, remove file extension
+	const regex = /[^/\\]*$/
+	const key = panorama.split(regex)[0]
+	//const key = f?.split('.')[0]
+	err
+	if (!key) {
 		throw new Error('scene has no path or file name')
 	}
 
 	// check if scene already exists
-	if (state.scenes[name]) {
+	if (state.scenes[key]) {
 		throw new Error('scene already exists')
 	}
 
 	// add scene to state,
-	state.scenes[name] = action.payload.scene
+	_.set(state.scenes, key, action.payload.scene)
 
 	return state
 }
