@@ -1,14 +1,11 @@
 import { resetReducer } from '../src/store/reducers/scene'
 import { describe, it, expect } from 'vitest'
 
-it('should return the default', () => {
+it('should return the default values', () => {
 	expect(resetReducer).toBeDefined()
 
-	const input = {
-		hello: 'there'
-	}
+	const output = resetReducer({} as any, { type: 'reset' })
 
-	const output = resetReducer(input as any, { type: 'reset' })
-
-	expect(output).toEqual(input)
+	// output should contain the default key
+	expect(output).toHaveProperty('default')
 })
