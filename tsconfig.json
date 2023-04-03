@@ -110,5 +110,8 @@
     "node_modules",
     "docs",
     "dist"
-  ]
+  ],
+  "typeAcquisition": {
+    "enable": true
+  }
 }

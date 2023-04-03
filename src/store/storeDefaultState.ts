@@ -1,4 +1,4 @@
-const storeDefaultState = {
+const storeDefaultState: ProjectStore = {
 	default: {
 		firstScene: '',
 		sceneFadeDuration: 1000,
@@ -7,7 +7,7 @@ const storeDefaultState = {
 		compass: true,
 		hotSpotDebug: true,
 		hfov: 110,
-		vfow: 100,
+		vfov: 100,
 		minPitch: -98,
 		maxPitch: 98,
 		basePath: 'assets/panorama/',
@@ -20,4 +20,4 @@ const storeDefaultState = {
 	}
 }
 
-export default storeDefaults
+export default storeDefaultState

@@ -1,5 +1,6 @@
 /* type of the store defaults */
-export interface StoreDefaults {
+
+declare interface ProjectStore {
 	default: {
 		firstScene: string
 		sceneFadeDuration: number
