@@ -43,3 +43,9 @@ declare interface RemoveSceneAction extends Action {
 		sceneKey: string
 	}
 }
+
+declare interface LoadProjectAction extends Action {
+	payload: {
+		project: State
+	}
+}

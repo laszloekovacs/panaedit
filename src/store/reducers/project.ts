@@ -8,6 +8,6 @@ export function _reset(state: State) {
 }
 
 /* load project json from disc. Should validate first tho */
-export function _loadProject(state: State, action: AnyAction) {
+export function _loadProject(state: State, action: LoadProjectAction) {
 	return action.payload.project
 }
