@@ -1,4 +1,4 @@
-const storeDefaultState: ProjectState = {
+const storeDefaultState: State = {
 	default: {
 		firstScene: '',
 		sceneFadeDuration: 1000,

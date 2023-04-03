@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it } from 'vitest'
 import createStore from '../src/store/store'
 
 it('should be able to create a store', async ({ expect }) => {

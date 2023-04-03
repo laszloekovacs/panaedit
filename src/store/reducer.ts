@@ -2,15 +2,15 @@ import { createSlice } from '@reduxjs/toolkit'
 import storeDefaultState from './storeDefaultState'
 
 /* individual reducers */
-import { addSceneReducer, resetReducer } from './reducers/scene'
+import { _addScene, _reset } from './reducers/scene'
 
 /* create slice */
 export const projectSlice = createSlice({
 	name: 'project',
 	initialState: storeDefaultState,
 	reducers: {
-		reset: resetReducer,
-		addScene: addSceneReducer
+		reset: _reset,
+		addScene: _addScene
 	}
 })
 
