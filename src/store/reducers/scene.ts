@@ -2,16 +2,12 @@ import { AnyAction, Action } from 'redux'
 import stateDefaultState from '../storeDefaultState'
 import _ from 'lodash'
 
-/* 
-	add scene. we use the filename as the key in the scene array 
-*/
-export const _addScene = (state: State, action: AddSceneAction) => {
+/* add scene. we use the filename as the key in the scene array */
+export function _addScene(state: State, action: AddSceneAction) {
 	const filepath = action.payload.scene.panorama
 
-	// extract filename
+	// extract filename, remove extension
 	const filename = filepath.split('/').pop()
-
-	// remove extension
 	const name = filename?.split('.').shift() || ''
 
 	if (!name) {
@@ -29,10 +25,8 @@ export const _addScene = (state: State, action: AddSceneAction) => {
 	return state
 }
 
-/* 
-	remove scene 
-*/
-export const _removeScene = (state: State, action: RemoveSceneAction) => {
+/* remove scene */
+export function _removeScene(state: State, action: RemoveSceneAction) {
 	const key = action.payload.sceneKey
 
 	// check if scene exists
