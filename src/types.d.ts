@@ -1,6 +1,6 @@
 /* type of the store defaults */
 
-declare interface ProjectStore {
+declare interface ProjectState {
 	default: {
 		firstScene: string
 		sceneFadeDuration: number
@@ -21,3 +21,5 @@ declare interface ProjectStore {
 		currentScene: string
 	}
 }
+
+declare const resetReducer: (state: ProjectState) => ProjectState
