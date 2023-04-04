@@ -10,7 +10,7 @@ export function _addHotspot(state: State, action: AddHotspotAction) {
 	return scene
 }
 
-/* remove hotspot */
+/* remove hotspot with index */
 export function _removeHotspot(state: State, action: RemoveHotspotAction) {
 	const { sceneKey, hotspotIndex } = action.payload
 	const scene = state.scenes[sceneKey]
