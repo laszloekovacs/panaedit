@@ -1,29 +1,37 @@
 {
-	"name": "panaedit",
-	"version": "0.3.0",
-	"description": "",
-	"scripts": {
-		"ii": "npm install",
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"test": "vitest"
-	},
-	"keywords": [],
-	"author": "Laszlo E Kovacs",
-	"license": "ISC",
-	"devDependencies": {
-		"@reduxjs/toolkit": "^1.9.3",
-		"@types/filesystem": "^0.0.32",
-		"lodash": "^4.17.21",
-		"react": "^18.1.0",
-		"react-dom": "^18.1.0",
-		"react-redux": "^8.0.2",
-		"redux": "^4.2.0",
-		"redux-devtools-extension": "^2.13.9",
-		"sass": "^1.56.1",
-		"typescript": "^5.0.3",
-		"vite": "^4.2.1",
-		"vitest": "^0.29.8"
-	}
+  "name": "panaedit",
+  "version": "0.4.0",
+  "type": "module",
+  "description": "",
+  "keywords": [],
+  "author": "Laszlo E Kovacs",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.32.2",
+    "@playwright/test": "^1.32.2",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@types/filesystem": "^0.0.32",
+    "lodash": "^4.17.21",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "sass": "^1.56.1",
+    "typescript": "^5.0.3",
+    "vite": "^4.2.1",
+    "vitest": "^0.29.8"
+  },
+  "scripts": {
+    "ii": "npm install",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "vitest": "vitest",
+    "playwright": "playwright test",
+    "playwright:debug": "playwright test --headed --browser=chromium --browser=firefox --browser=webkit --verbose",
+    "playwright:ui": "playwright test --ui",
+    "playwright:codegen": "playwright codegen",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
+  }
 }
