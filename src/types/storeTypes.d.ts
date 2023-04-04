@@ -14,7 +14,6 @@ declare interface State {
 		minPitch: number
 		maxPitch: number
 		basePath: string
-		imagePath: string
 	}
 	scenes: Scene[string]
 	articles: Article[]

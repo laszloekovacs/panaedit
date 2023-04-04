@@ -28,4 +28,13 @@ scene selection
 
 ### caching 
 - there's no point converting the whole scene when sending to the view
-- 
+  
+
+### folder structure
+- ./project -> root directory
+- ./project/data.json  -> the project file
+- ./project/panorama -> the panorama images
+- ./project/photo 
+- ./project/article
+
+all singular
