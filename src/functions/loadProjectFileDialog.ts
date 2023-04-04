@@ -2,7 +2,7 @@ const fileOptions = {
 	types: [{ description: 'json document', accept: { 'application/json': ['.json'] } }]
 }
 
-export async function loadProjectFileDialog(): Promise<Object | null> {
+export async function loadProjectFileDialog() {
 	const [filehandle] = await window.showOpenFilePicker(fileOptions)
 
 	const file = await filehandle.getFile()
@@ -11,8 +11,5 @@ export async function loadProjectFileDialog(): Promise<Object | null> {
 	if (!file || !text) {
 		return null
 	}
-
-	console.log('Project loaded')
-
-	return JSON.parse(text)
+	return text
 }
