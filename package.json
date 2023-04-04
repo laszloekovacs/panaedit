@@ -20,7 +20,9 @@
     "tailwindcss": "^3.3.1",
     "typescript": "^5.0.3",
     "vite": "^4.2.1",
-    "vitest": "^0.29.8"
+    "vitest": "^0.29.8",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21"
   },
   "scripts": {
     "dev": "vite",
@@ -33,9 +35,5 @@
     "playwright:ui": "playwright test --ui",
     "playwright:codegen": "playwright codegen",
     "test-ct": "playwright test -c playwright-ct.config.ts"
-  },
-  "dependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.21"
   }
 }
