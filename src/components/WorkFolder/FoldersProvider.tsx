@@ -6,7 +6,7 @@ export const FolderContext = React.createContext<Folders | null>(null)
 
 /* 
 	Wrapper for providing directory handles. 
-	It should block the user and the rest of the app to have to deal with 
+	It should block the user and the rest of the app to not have to deal with 
 	null pointers and unopened directories. We need to open ALL directories
 	at this point otherwise security will block opening them
 */

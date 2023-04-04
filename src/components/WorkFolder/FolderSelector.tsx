@@ -1,7 +1,7 @@
 import React from 'react'
 
 /*
- draws a button, which opens a file dialog
+ draws a button that opens a file dialog
 */
 
 const FolderSelector = ({ onClick }) => {
