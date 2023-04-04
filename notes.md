@@ -12,13 +12,15 @@ current redux actions
 - set title of scene /
 - set north offset on scene /
 
-- add image label
-- add image
-- delete image
 
-  this should add markdown files to the project
+markdown articles 
 - add article /
 - remove aricle /
+images are contained on the articles
+- change photo label /
+- add photo /
+- delete photo /
+
 
 scene selection
 - setActiveScene /

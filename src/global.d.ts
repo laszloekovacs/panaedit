@@ -42,12 +42,39 @@ declare interface Hotspot {
 }
 
 declare interface Article {
-	id: string
+	id: number
 	title: string
 	url: string
+	photos: Photo[]
 }
 
-/* Actions */
+declare interface Photo {
+	url: string
+	label: string
+}
+
+declare interface AddPhotoAction extends Action {
+	payload: {
+		articleId: number
+		photoUrl: string
+	}
+}
+
+declare interface RemovePhotoAction extends Action {
+	payload: {
+		articleId: number
+		url: string
+	}
+}
+
+declare interface SetPhotoLabelAction extends Action {
+	payload: {
+		articleId: number
+		url: string
+		label: string
+	}
+}
+
 declare
 interface AddSceneAction extends Action {
 	payload: {
