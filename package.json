@@ -5,7 +5,7 @@
   "description": "",
   "keywords": [],
   "author": "Laszlo E Kovacs",
-  "license": "ISC",
+  "license": "BSD",
   "devDependencies": {
     "@playwright/experimental-ct-react": "^1.32.2",
     "@playwright/test": "^1.32.2",

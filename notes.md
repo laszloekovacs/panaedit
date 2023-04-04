@@ -33,8 +33,8 @@ scene selection
 ### folder structure
 - ./project -> root directory
 - ./project/data.json  -> the project file
-- ./project/panorama -> the panorama images
-- ./project/photo 
-- ./project/article
+- ./project/panoramas -> the panorama images
+- ./project/photos
+- ./project/articles
 
-all singular
+all plural

@@ -16,6 +16,7 @@ import { devToolsEnhancer } from 'redux-devtools-extension'
 import reducer from '../reducer'
 import { Provider } from 'react-redux'
 import { sceneChangeAction } from '../reducer/actions'
+import FoldersProvider from './WorkFolder/FoldersProvider'
 
 let store = legacy_createStore(reducer, devToolsEnhancer())
 
@@ -37,22 +38,24 @@ function App() {
 	return (
 		<ErrorBoundary>
 			<Provider store={store}>
-				<div id="sidebar">
-					<FileMenu></FileMenu>
-					<hr />
-					<AddPanorama></AddPanorama>
-					<hr />
-					<FirstScene></FirstScene>
-					<hr />
-					<NSceneList></NSceneList>
-					<SceneEdit></SceneEdit>
-				</div>
-				<div>
-					<AddArticle />
-					<hr />
-					<ArticleList />
-					<hr />
-				</div>
+				<FoldersProvider>
+					<div id="sidebar">
+						<FileMenu></FileMenu>
+						<hr />
+						<AddPanorama></AddPanorama>
+						<hr />
+						<FirstScene></FirstScene>
+						<hr />
+						<NSceneList></NSceneList>
+						<SceneEdit></SceneEdit>
+					</div>
+					<div>
+						<AddArticle />
+						<hr />
+						<ArticleList />
+						<hr />
+					</div>
+				</FoldersProvider>
 			</Provider>
 		</ErrorBoundary>
 	)

@@ -10,7 +10,7 @@ const storeDefaultState: State = {
 		vfov: 100,
 		minPitch: -98,
 		maxPitch: 98,
-		basePath: '/panorama'
+		basePath: '/panoramas'
 	},
 	scenes: {},
 	articles: [],
