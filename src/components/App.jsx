@@ -1,4 +1,7 @@
 import React from 'react'
+
+import ErrorBoundary from './ErrorBoundary'
+
 import ArticleList from './ArticleList'
 import FileMenu from './FileMenu'
 
@@ -30,28 +33,28 @@ window.resetPanorama = function resetPanorama() {
 	window.panorama.on('load', loadHandler)
 }
 
-///// + provider
-
 function App() {
 	return (
-		<Provider store={store}>
-			<div id="sidebar">
-				<FileMenu></FileMenu>
-				<hr />
-				<AddPanorama></AddPanorama>
-				<hr />
-				<FirstScene></FirstScene>
-				<hr />
-				<NSceneList></NSceneList>
-				<SceneEdit></SceneEdit>
-			</div>
-			<div>
-				<AddArticle />
-				<hr />
-				<ArticleList />
-				<hr />
-			</div>
-		</Provider>
+		<ErrorBoundary>
+			<Provider store={store}>
+				<div id="sidebar">
+					<FileMenu></FileMenu>
+					<hr />
+					<AddPanorama></AddPanorama>
+					<hr />
+					<FirstScene></FirstScene>
+					<hr />
+					<NSceneList></NSceneList>
+					<SceneEdit></SceneEdit>
+				</div>
+				<div>
+					<AddArticle />
+					<hr />
+					<ArticleList />
+					<hr />
+				</div>
+			</Provider>
+		</ErrorBoundary>
 	)
 }
 

@@ -56,7 +56,7 @@ function FileMenu() {
 	}, [])
 
 	return (
-		<div className="fileMenu bg-slate-800">
+		<div className="fileMenu bg-slate-200">
 			<button onClick={resetScene}>Reset scene</button>
 			<button onClick={loadHandler}>Load..</button>
 			<button onClick={saveAsHandler}>Save As..</button>
