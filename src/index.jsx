@@ -1,5 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './index.css'
+
+/////
 
 import App from './components/App'
 
@@ -8,7 +11,6 @@ import { devToolsEnhancer } from 'redux-devtools-extension'
 import reducer from './reducer'
 import { Provider } from 'react-redux'
 import { sceneChangeAction } from './reducer/actions'
-import './index.css'
 
 let store = legacy_createStore(reducer, devToolsEnhancer())
 
@@ -25,6 +27,8 @@ window.resetPanorama = function resetPanorama() {
 
 	window.panorama.on('load', loadHandler)
 }
+
+///// + provider
 
 /* react enrty point */
 const root = ReactDOM.createRoot(document.getElementById('root'))
