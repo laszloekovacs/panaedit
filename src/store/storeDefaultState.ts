@@ -16,7 +16,7 @@ const storeDefaultState: State = {
 	scenes: {},
 	articles: [],
 	editor: {
-		currentScene: ''
+		activeScene: ''
 	}
 }
 
