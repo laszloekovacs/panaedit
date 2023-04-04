@@ -19,5 +19,5 @@ export async function selectWorkFolder(): Promise<Folders | null> {
 		panoramas,
 		photos,
 		articles
-	}
+	} as Folders
 }

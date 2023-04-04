@@ -14,13 +14,17 @@ const FoldersProvider = ({ children }) => {
 	const [folders, setFolders] = React.useState<Folders | null>(null)
 
 	const handleClick = async (e) => {
-		selectWorkFolder()
-			.then((folders) => {
-				if (folders) setFolders(folders)
-			})
-			.catch((err) => {
-				console.log('select a directory first')
-			})
+		try {
+			const folders = await selectWorkFolder()
+
+			if (!folders) {
+				return
+			} else {
+				setFolders(folders)
+			}
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	// return directory selector if not set

@@ -12,5 +12,5 @@ export async function loadProjectFileDialog() {
 
 	console.log(JSON.parse(text))
 
-	// dispatch action to load project
+	return JSON.parse(text)
 }
