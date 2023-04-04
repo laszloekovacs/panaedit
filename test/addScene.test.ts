@@ -11,6 +11,7 @@ describe('test reducer functions', () => {
 
 	it('add scene should add new key to scenes obj', async ({ expect }) => {
 		const scene: Scene = {
+			northOffset: 0,
 			hotSpots: [],
 			panorama: './assets/testimage.jpg',
 			id: 'testid',

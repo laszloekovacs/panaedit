@@ -4,6 +4,9 @@ class ErrorBoundary extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = { hasError: false }
+
+		this.state.error = null
+		this.state.info = null
 	}
 
 	static getDerivedStateFromError(error) {
@@ -17,11 +20,14 @@ class ErrorBoundary extends React.Component {
 		//   in ErrorBoundary (created by App)
 		//   in div (created by App)
 		//   in App
+		this.state.error = error
+		this.state.info = info
+
 		console.log(error, info.componentStack)
 	}
 
 	render() {
-		if (this.state.hasError) {
+		if (this.state.hasError && this.props.fallback) {
 			// You can render any custom fallback UI
 			return this.props.fallback
 		}
