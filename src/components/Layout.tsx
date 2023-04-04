@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Header from './header/Header'
-import Views from './views/Views'
+import Tabs from './tabs/Tabs'
 import Sidebar from './sidebar/Sidebar'
 
 /* should render the header, sidebar, status bar and the tabs view */
@@ -10,7 +10,7 @@ const Layout = () => {
 		<div className="bg-slate-50">
 			<Header />
 			<Sidebar />
-			<Views />
+			<Tabs />
 		</div>
 	)
 }

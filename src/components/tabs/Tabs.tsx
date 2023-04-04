@@ -1,8 +1,8 @@
 import React from 'react'
 
 /* switches between preview, scenes, articles, etc */
-const Views = () => {
-	return <div>Views</div>
+const Tabs = () => {
+	return <div></div>
 }
 
-export default Views
+export default Tabs
