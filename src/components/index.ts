@@ -2,4 +2,4 @@
  *   index.ts
  */
 
-export * from './WorkFolder/FoldersProvider'
+export * from './workfolder/FoldersProvider'

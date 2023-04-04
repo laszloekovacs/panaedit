@@ -16,7 +16,7 @@ import { devToolsEnhancer } from 'redux-devtools-extension'
 import reducer from '../reducer'
 import { Provider } from 'react-redux'
 import { sceneChangeAction } from '../reducer/actions'
-import FoldersProvider from './WorkFolder/FoldersProvider'
+import FoldersProvider from './workfolder/FoldersProvider'
 
 let store = legacy_createStore(reducer, devToolsEnhancer())
 
