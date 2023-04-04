@@ -1,4 +1,4 @@
-import { _reset, _addScene } from '../src/store/reducers'
+import { _reset, _addScene } from '../src/store/actions'
 import { describe, it } from 'vitest'
 import storeDefaultState from '../src/store/storeDefaultState'
 

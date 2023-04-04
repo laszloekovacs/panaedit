@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { configureStore, createSlice } from '@reduxjs/toolkit'
 import storeDefaultState from './storeDefaultState'
 
-/* individual reducers */
+/* individual actions */
 import {
 	_addArticle,
 	_removeArticle,
@@ -18,12 +18,12 @@ import {
 	_removeScene,
 	_setSceneTitle,
 	_setSceneNorthOffset
-} from './reducers'
+} from './actions'
 
 /* 
 	build the reducer 
 */
-export const projectSlice = createSlice({
+const projectSlice = createSlice({
 	name: 'project',
 	initialState: storeDefaultState,
 	reducers: {
@@ -45,8 +45,7 @@ export const projectSlice = createSlice({
 	}
 })
 
-export default projectSlice.reducer
-
+/* export actions */
 export const {
 	addArticle,
 	removeArticle,
@@ -64,3 +63,9 @@ export const {
 	setSceneTitle,
 	setSceneNorthOffset
 } = projectSlice.actions
+
+/* export the store */
+export const store = configureStore({
+	reducer: projectSlice.reducer,
+	preloadedState: storeDefaultState
+})
