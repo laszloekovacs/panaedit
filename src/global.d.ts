@@ -72,3 +72,16 @@ declare interface RemoveHotspotAction extends Action {
 		hotspotIndex: number
 	}
 }
+
+declare interface SetFirstSceneAction extends Action {
+	payload: {
+		sceneKey: string
+	}
+}
+
+declare interface SetSceneTitleAction extends Action {
+	payload: {
+		sceneKey: string
+		title: string
+	}
+}

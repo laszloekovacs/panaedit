@@ -40,3 +40,17 @@ export function _removeScene(state: State, action: RemoveSceneAction) {
 
 	return state
 }
+
+/* set the title of the scene */
+export function _setSceneTitle(state: State, action: SetSceneTitleAction) {
+	const { sceneKey, title } = action.payload
+
+	if (!state.scenes[sceneKey]) {
+		throw new Error('scene does not exist')
+	}
+
+	// set the title of the scene
+	;(state.scenes[sceneKey] as Scene).name = title
+
+	return state
+}
