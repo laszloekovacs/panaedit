@@ -1,5 +1,5 @@
 
-current redux actions
+### current redux actions
 
 - load file /
 - reset /
@@ -25,3 +25,6 @@ images are contained on the articles
 scene selection
 - setActiveScene /
 
+### caching 
+- there's no point converting the whole scene when sending to the view
+- 
