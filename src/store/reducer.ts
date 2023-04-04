@@ -2,7 +2,23 @@ import { createSlice } from '@reduxjs/toolkit'
 import storeDefaultState from './storeDefaultState'
 
 /* individual reducers */
-import { _addScene, _removeScene, _reset, _loadProject } from './reducers'
+import {
+	_addArticle,
+	_removeArticle,
+	_setActiveScene,
+	_addHotspot,
+	_removeHotspot,
+	_addPhoto,
+	_removePhoto,
+	_setPhotoLabel,
+	_reset,
+	_loadProject,
+	_setFirstScene,
+	_addScene,
+	_removeScene,
+	_setSceneTitle,
+	_setSceneNorthOffset
+} from './reducers'
 
 /* 
 	build the reducer 
@@ -11,14 +27,40 @@ export const projectSlice = createSlice({
 	name: 'project',
 	initialState: storeDefaultState,
 	reducers: {
+		addArticle: _addArticle,
+		removeArticle: _removeArticle,
+		setActiveScene: _setActiveScene,
+		addHotspot: _addHotspot,
+		removeHotspot: _removeHotspot,
+		addPhoto: _addPhoto,
+		removePhoto: _removePhoto,
+		setPhotoLabel: _setPhotoLabel,
+		reset: _reset,
+		loadProject: _loadProject,
+		setFirstScene: _setFirstScene,
 		addScene: _addScene,
 		removeScene: _removeScene,
-		reset: _reset,
-		loadProject: _loadProject
+		setSceneTitle: _setSceneTitle,
+		setSceneNorthOffset: _setSceneNorthOffset
 	}
 })
 
 export default projectSlice.reducer
 
-export const { addScene, removeScene, reset, loadProject } =
-	projectSlice.actions
+export const {
+	addArticle,
+	removeArticle,
+	setActiveScene,
+	addHotspot,
+	removeHotspot,
+	addPhoto,
+	removePhoto,
+	setPhotoLabel,
+	reset,
+	loadProject,
+	setFirstScene,
+	addScene,
+	removeScene,
+	setSceneTitle,
+	setSceneNorthOffset
+} = projectSlice.actions
