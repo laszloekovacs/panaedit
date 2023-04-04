@@ -7,7 +7,7 @@ export function _addHotspot(state: State, action: AddHotspotAction) {
 
 	scene.hotSpots.push(hotspot)
 
-	return scene
+	return state
 }
 
 /* remove hotspot with index */
@@ -17,5 +17,5 @@ export function _removeHotspot(state: State, action: RemoveHotspotAction) {
 
 	_.pullAt(scene.hotSpots, hotspotIndex)
 
-	return scene
+	return state
 }
