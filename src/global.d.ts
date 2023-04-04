@@ -16,7 +16,7 @@ declare interface State {
 		basePath: string
 		imagePath: string
 	}
-	scenes: Scene[string] | {}
+	scenes: Scene[string]
 	articles: []
 	editor: {
 		currentScene: string

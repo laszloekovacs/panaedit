@@ -12,15 +12,15 @@ describe('test reducer functions', () => {
 	it('add scene should add new key to scenes obj', async ({ expect }) => {
 		const scene: Scene = {
 			hotSpots: [],
-			panorama: 'test.jpg',
-			id: 'test',
-			name: 'test',
+			panorama: './assets/testimage.jpg',
+			id: 'testid',
+			name: 'test object',
 			type: 'link'
 		}
 
 		const project = storeDefaultState
 
-		const output = _addScene(project, { payload: { scene } })
+		const output = _addScene(project, { payload: { scene: scene } })
 
 		expect(output).toMatchSnapshot()
 	})

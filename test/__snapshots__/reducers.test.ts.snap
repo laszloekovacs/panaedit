@@ -23,3 +23,35 @@ exports[`test reducer functions > _reset should return the default project 1`] =
   "scenes": {},
 }
 `;
+
+exports[`test reducer functions > add scene should add new key to scenes obj 1`] = `
+{
+  "articles": [],
+  "default": {
+    "autoLoad": true,
+    "basePath": "assets/panorama/",
+    "compass": true,
+    "firstScene": "",
+    "hfov": 110,
+    "hotSpotDebug": true,
+    "imagePath": "assets/images/",
+    "maxPitch": 98,
+    "minPitch": -98,
+    "sceneFadeDuration": 1000,
+    "type": "equirectangular",
+    "vfov": 100,
+  },
+  "editor": {
+    "currentScene": "",
+  },
+  "scenes": {
+    "testimage": {
+      "hotSpots": [],
+      "id": "testid",
+      "name": "test object",
+      "panorama": "./assets/testimage.jpg",
+      "type": "link",
+    },
+  },
+}
+`;
