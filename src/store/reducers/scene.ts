@@ -46,11 +46,25 @@ export function _setSceneTitle(state: State, action: SetSceneTitleAction) {
 	const { sceneKey, title } = action.payload
 
 	if (!state.scenes[sceneKey]) {
-		throw new Error('scene does not exist')
+		throw new Error('scene does not exist, cannot set title')
 	}
 
 	// set the title of the scene
 	;(state.scenes[sceneKey] as Scene).name = title
+
+	return state
+}
+
+/* set the north offset of the scene */
+export function _setSceneNorthOffset(state: State, action: SetSceneNorthOffsetAction) {
+	const { sceneKey, northOffset } = action.payload
+
+	if (!state.scenes[sceneKey]) {
+		throw new Error('scene does not exist cannot set northOffset')
+	}
+
+	// set the north offset of the scene
+	;(state.scenes[sceneKey] as Scene).northOffset = northOffset
 
 	return state
 }

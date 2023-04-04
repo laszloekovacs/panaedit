@@ -17,13 +17,14 @@ declare interface State {
 		imagePath: string
 	}
 	scenes: Scene[string]
-	articles: []
+	articles: Article[]
 	editor: {
-		currentScene: string
+		activeScene: string
 	}
 }
 
 declare interface Scene {
+	northOffset: number
 	id: string
 	name: string
 	type: string
@@ -40,6 +41,13 @@ declare interface Hotspot {
 	sceneId: string
 }
 
+declare interface Article {
+	id: string
+	title: string
+	url: string
+}
+
+/* Actions */
 declare
 interface AddSceneAction extends Action {
 	payload: {
@@ -83,5 +91,36 @@ declare interface SetSceneTitleAction extends Action {
 	payload: {
 		sceneKey: string
 		title: string
+	}
+}
+
+declare interface SetSceneNorthOffsetAction extends Action {
+	payload: {
+		sceneKey: string
+		northOffset: number
+	}
+}
+
+declare interface SetActiveSceneAction extends Action {
+	payload: {
+		sceneKey: string
+	}
+}
+
+declare interface AddArticleAction extends Action {
+	payload: {
+		article: Article
+	}
+}
+
+declare interface RemoveArticleAction extends Action {
+	payload: {
+		articleId: number
+	}
+}
+
+declare interface SetEditorActiveSceneAction extends Action {
+	payload: {
+		sceneKey: string
 	}
 }
