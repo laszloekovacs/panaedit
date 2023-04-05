@@ -1,15 +1,19 @@
+import { loadProject } from '../store'
+
 const fileOptions = {
 	types: [{ description: 'json document', accept: { 'application/json': ['.json'] } }]
 }
 
-export async function loadProjectFileDialog() {
+export async function loadProjectFile(window, dispatch) {
 	const [filehandle] = await window.showOpenFilePicker(fileOptions)
 
 	const file = await filehandle.getFile()
 	const text = await file.text()
 
 	if (!file || !text) {
-		return null
+		throw new Error('cannot load file')
 	}
-	return text
+
+	const data = JSON.parse(text)
+	dispatch(loadProject(data))
 }

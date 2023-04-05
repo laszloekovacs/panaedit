@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Header from './header/Header'
-import Tabs from './tabs/Tabs'
-import Sidebar from './sidebar/Sidebar'
+import Header from './Header/Header'
+import Tabs from './Tabs/Tabs'
+import Sidebar from './Sidebar/Sidebar'
 
 /* should render the header, sidebar, status bar and the tabs view */
 const Layout = () => {

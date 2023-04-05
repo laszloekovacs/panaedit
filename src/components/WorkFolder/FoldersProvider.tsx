@@ -13,18 +13,8 @@ export const FolderContext = React.createContext<Folders | null>(null)
 const FoldersProvider = ({ children }) => {
 	const [folders, setFolders] = React.useState<Folders | null>(null)
 
-	const handleClick = async (e) => {
-		try {
-			const folders = await selectWorkFolder()
-
-			if (!folders) {
-				return
-			} else {
-				setFolders(folders)
-			}
-		} catch (e) {
-			console.log(e)
-		}
+	const handleClick = () => {
+		selectWorkFolder(window, setFolders)
 	}
 
 	// return directory selector if not set

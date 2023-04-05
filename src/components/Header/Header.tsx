@@ -3,36 +3,26 @@ import React from 'react'
 import Files from './Files'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { loadProject, reset } from '../../store'
-import { loadProjectFileDialog, saveProjectFileDialog } from '../../functions'
+import { loadProjectFile, saveProjectFile, resetProject } from '../../functions'
 
 /* header container */
 const Header = () => {
 	const state = useSelector((s) => s)
 	const dispatch = useDispatch()
 
-	const onNew = () => {
+	const onNew = async () => {
 		console.log('new')
-		dispatch(reset())
+		resetProject(dispatch)
 	}
 
 	const onOpen = async () => {
 		console.log('open')
-		const text = await loadProjectFileDialog()
-
-		if (!text) {
-			throw new Error('cannot open project')
-		} else {
-			const project = JSON.parse(text)
-			dispatch(loadProject({ project }))
-		}
+		loadProjectFile(window, dispatch)
 	}
 
-	const onSave = () => {
+	const onSave = async () => {
 		console.log('save')
-
-		const text = JSON.stringify(state, null, 2)
-		saveProjectFileDialog(text)
+		saveProjectFile(state, window)
 	}
 
 	return (

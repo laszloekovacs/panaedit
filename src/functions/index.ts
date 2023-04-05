@@ -3,5 +3,6 @@
 */
 
 export * from './selectWorkFolder'
-export * from './loadProjectFileDialog'
-export * from './saveProjectFileDialog'
+export * from './loadProjectFile'
+export * from './saveProjectFile'
+export * from './resetProject'
