@@ -1,12 +1,16 @@
 import React, { useContext, useEffect } from 'react'
-import { FoldersContext } from '../FoldersProvider/FoldersProvider'
-import { useState } from 'react'
-import { findAllImages } from '../../functions/findAllImages'
 import ScenesList from './ScenesList'
+import { FoldersContext } from '../FoldersProvider/FoldersProvider'
+import { findPanoramaFiles } from './findPanoramaFiles'
 
 const ScenesView = () => {
-	const folders = useContext(FoldersContext)
-	const [files, setFiles] = useState<string[]>([])
+	const filesMap = useContext<Map<string, string>>(FoldersContext)
+	const [files, setFiles] = React.useState<string[]>([])
+
+	useEffect(() => {
+		const images = findPanoramaFiles(filesMap)
+		setFiles(images)
+	}, [filesMap])
 
 	return (
 		<div>
