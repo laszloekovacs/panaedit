@@ -10,4 +10,8 @@
 	img {
 		@apply max-w-xs;
 	}
+
+	body {
+		@apply bg-gray-200;
+	}
 }
