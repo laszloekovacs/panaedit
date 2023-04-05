@@ -22,6 +22,6 @@ export async function selectWorkFolder(window, setFolders) {
 			articles
 		})
 	} catch (err) {
-		throw err
+		console.log('no folder selected')
 	}
 }

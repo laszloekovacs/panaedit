@@ -5,15 +5,19 @@ const fileOptions = {
 }
 
 export async function loadProjectFile(window, dispatch) {
-	const [filehandle] = await window.showOpenFilePicker(fileOptions)
+	try {
+		const [filehandle] = await window.showOpenFilePicker(fileOptions)
 
-	const file = await filehandle.getFile()
-	const text = await file.text()
+		const file = await filehandle.getFile()
+		const text = await file.text()
 
-	if (!file || !text) {
-		throw new Error('cannot load file')
+		if (!file || !text) {
+			throw new Error('cannot load file')
+		} else {
+			const data = JSON.parse(text)
+			dispatch(loadProject(data))
+		}
+	} catch (error) {
+		console.log(error)
 	}
-
-	const data = JSON.parse(text)
-	dispatch(loadProject(data))
 }

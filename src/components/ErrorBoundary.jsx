@@ -1,38 +1,31 @@
 import React from 'react'
+import ErrorPage from './ErrorPage'
 
 class ErrorBoundary extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { hasError: false }
 
-		this.state.error = null
-		this.state.info = null
+		this.state = {
+			hasError: false,
+			error: { message: '', stack: '' },
+			info: { componentStack: '' }
+		}
 	}
 
-	static getDerivedStateFromError(error) {
-		// Update state so the next render will show the fallback UI.
+	static getDerivedStateFromError = (error) => {
 		return { hasError: true }
 	}
 
 	componentDidCatch(error, info) {
-		// Example "componentStack":
-		//   in ComponentThatThrows (created by App)
-		//   in ErrorBoundary (created by App)
-		//   in div (created by App)
-		//   in App
-		this.state.error = error
-		this.state.info = info
-
-		console.log(error, info.componentStack)
+		this.setState({ error, info })
+		console.log(error.stack, info.componentStack)
 	}
 
 	render() {
-		if (this.state.hasError && this.props.fallback) {
-			// You can render any custom fallback UI
-			return this.props.fallback
-		}
+		const { hasError, error, info } = this.state
+		const { children } = this.props
 
-		return this.props.children
+		return hasError ? <ErrorPage message={error.message} /> : children
 	}
 }
 
