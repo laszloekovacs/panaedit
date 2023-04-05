@@ -1,7 +1,11 @@
 import React from 'react'
 
-const ScenesListItem = () => {
-	return <div>ScenesListItem</div>
+const ScenesListItem = ({ item }) => {
+	return (
+		<li>
+			<img src={item} alt={item} />
+		</li>
+	)
 }
 
 export default ScenesListItem
