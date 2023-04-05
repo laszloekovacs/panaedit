@@ -1,28 +1,27 @@
 import React from 'react'
 import FolderSelector from './FolderSelector'
-import { selectWorkFolder } from '../../functions'
+import { openWorkFiles } from './openWorkFiles'
 
-export const FoldersContext = React.createContext<Folders | null>(null)
+export const FoldersContext = React.createContext(new Map())
 
 /* 
-	Wrapper for providing directory handles. 
-	It should block the user and the rest of the app to not have to deal with 
-	null pointers and unopened directories. We need to open ALL directories
-	at this point otherwise security will block opening them
+	After opening the work folder, store all files including subfolders in a js Map
+	with the original path in the key, and an object url as the value.
+	later on, we just need to fiter out the files we need 
 */
-const FoldersProvider = ({ children }) => {
-	const [folders, setFolders] = React.useState<Folders | null>(null)
+const FoldersProvider = ({ children, directories }) => {
+	const [filesMap, setFilesMap] = React.useState(new Map())
 
-	const handleClick = () => {
-		selectWorkFolder(window, setFolders)
+	const handleClick = async () => {
+		await openWorkFiles(window, setFilesMap, directories)
 	}
 
 	// return directory selector if not set
-	if (!folders) {
+	if (filesMap.size == 0) {
 		return <FolderSelector onClick={handleClick} />
 	} else {
 		return (
-			<FoldersContext.Provider value={folders}>
+			<FoldersContext.Provider value={filesMap}>
 				{children}
 			</FoldersContext.Provider>
 		)

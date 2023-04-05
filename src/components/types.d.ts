@@ -1,6 +1,9 @@
-declare interface Folders {
-	project: FileSystemDirectoryHandle | null
-	photos: FileSystemDirectoryHandle | null
-	panoramas: FileSystemDirectoryHandle | null
-	articles: FileSystemDirectoryHandle | null
+declare global {
+	interface Window {
+		showDirectoryPicker: (
+			options?: DirectoryPickerOptions
+		) => Promise<FileSystemDirectoryHandle>
+	}
 }
+
+export {}

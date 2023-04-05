@@ -8,10 +8,12 @@ import Layout from './Layout'
 import { store } from '../store'
 
 function App() {
+	const directories = ['panoramas', 'articles', 'photos']
+
 	return (
 		<ErrorBoundary>
 			<Provider store={store}>
-				<FoldersProvider>
+				<FoldersProvider directories={directories}>
 					<Layout />
 				</FoldersProvider>
 			</Provider>
