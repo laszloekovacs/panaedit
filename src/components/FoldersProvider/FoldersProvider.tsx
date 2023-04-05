@@ -2,7 +2,7 @@ import React from 'react'
 import FolderSelector from './FolderSelector'
 import { selectWorkFolder } from '../../functions'
 
-export const FolderContext = React.createContext<Folders | null>(null)
+export const FoldersContext = React.createContext<Folders | null>(null)
 
 /* 
 	Wrapper for providing directory handles. 
@@ -21,7 +21,11 @@ const FoldersProvider = ({ children }) => {
 	if (!folders) {
 		return <FolderSelector onClick={handleClick} />
 	} else {
-		return <FolderContext.Provider value={folders}>{children}</FolderContext.Provider>
+		return (
+			<FoldersContext.Provider value={folders}>
+				{children}
+			</FoldersContext.Provider>
+		)
 	}
 }
 
