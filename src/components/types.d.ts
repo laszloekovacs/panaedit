@@ -3,6 +3,14 @@ declare global {
 		showDirectoryPicker: (
 			options?: DirectoryPickerOptions
 		) => Promise<FileSystemDirectoryHandle>
+
+		showOpenFilePicker: (
+			options?: FilePickerOptions
+		) => Promise<FileSystemFileHandle[]>
+
+		showSaveFilePicker: (
+			options?: FilePickerOptions
+		) => Promise<FileSystemFileHandle>
 	}
 }
 

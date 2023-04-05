@@ -22,11 +22,12 @@ export const openWorkFiles = async (
 			throw new Error(`Directory ${dir} not found`)
 		}
 
+		/* create url for files. append the path */
 		for await (const entry of handle.values()) {
 			if (entry.kind === 'file') {
 				const f = await entry.getFile()
 				const url = URL.createObjectURL(f)
-				files.set(entry.name, url)
+				files.set(`${dir}/${entry.name}`, url)
 			}
 		}
 		console.log(files)
