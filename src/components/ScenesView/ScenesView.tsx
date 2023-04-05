@@ -1,19 +1,27 @@
-import React, { useContext } from 'react'
-import { listAllFiles } from '../../functions'
+import React, { useContext, useEffect } from 'react'
 import { FoldersContext } from '../FoldersProvider/FoldersProvider'
+import { useState } from 'react'
+import { findAllImages } from '../../functions/findAllImages'
+import ScenesList from './ScenesList'
 
 const ScenesView = () => {
 	const folders = useContext(FoldersContext)
+	const [files, setFiles] = useState<string[]>([])
 
-	if (folders?.panoramas) {
-		const files = listAllFiles(folders.panoramas)
-		console.log(files)
-		return <p>{files[0]}</p>
-	}
+	useEffect(() => {
+		;(async () => {
+			if (!folders || !folders.panoramas) {
+				return
+			} else {
+				const images = await findAllImages(folders.panoramas)
+				setFiles(images)
+			}
+		})()
+	}, [folders])
 
 	return (
 		<div>
-			<h2>Scenes</h2>
+			<ScenesList />
 		</div>
 	)
 }
