@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 
 import ErrorBoundary from './ErrorBoundary'
-import FoldersProvider from './workfolder/FoldersProvider'
+import FoldersProvider from './WorkFolder/FoldersProvider'
 import Layout from './Layout'
 
 import { store } from '../store'
