@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ViewSelector = ({ options, value, onChange }) => {
+const TabSelector = ({ options, value, onChange }) => {
 	return (
 		<div>
 			{options.map((tab) => (
@@ -13,4 +13,4 @@ const ViewSelector = ({ options, value, onChange }) => {
 	)
 }
 
-export default ViewSelector
+export default TabSelector

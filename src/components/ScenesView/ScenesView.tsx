@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ScenesView = () => {
-	return <div>ScenesTab</div>
+	return <div>ScenesView</div>
 }
 
 export default ScenesView
