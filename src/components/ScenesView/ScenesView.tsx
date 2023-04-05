@@ -8,8 +8,7 @@ const ScenesView = () => {
 	const [files, setFiles] = React.useState<string[]>([])
 
 	useEffect(() => {
-		const images = findPanoramaFiles(filesMap)
-		setFiles(images)
+		findPanoramaFiles(filesMap, setFiles)
 	}, [filesMap])
 
 	return (
