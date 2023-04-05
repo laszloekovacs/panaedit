@@ -2,16 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-	button {
-		@apply border-2 border-black;
-	}
+button {
+	@apply underline bg-slate-400 px-4 py-1 m-1 drop-shadow-md;
+}
 
-	img {
-		@apply max-w-xs;
-	}
+img {
+	@apply max-w-xs;
+}
 
-	body {
-		@apply bg-gray-200;
-	}
+body {
+	@apply bg-neutral-300;
 }

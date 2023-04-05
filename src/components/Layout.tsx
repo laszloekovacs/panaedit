@@ -13,7 +13,7 @@ const Layout = () => {
 	const components = [ScenesView, Preview]
 
 	return (
-		<div className="bg-slate-50">
+		<div>
 			<Header />
 			<Sidebar />
 			<TabbedPanel options={tabs} components={components} />
