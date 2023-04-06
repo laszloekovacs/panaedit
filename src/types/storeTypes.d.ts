@@ -19,24 +19,20 @@ declare interface State {
 	articles: Article[]
 	editor: {
 		activeScene: string
-		activeTab: 'Panoramas' | 'Preview'
 	}
 }
 
 declare interface Scene {
+	title: string
 	northOffset: number
-	id: string
-	name: string
-	type: string
 	panorama: string
 	hotSpots: Hotspot[]
 }
 
 declare interface Hotspot {
-	id: string
-	type: string
 	pitch: number
 	yaw: number
+	type: 'scene' | 'info'
 	text: string
 	sceneId: string
 }
