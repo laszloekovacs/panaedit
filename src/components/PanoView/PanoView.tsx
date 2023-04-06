@@ -13,11 +13,11 @@ const PanoView = () => {
 		console.log(item)
 	}
 
-	const filteredmap = filteredMapToObjArray(filemap, /^panorama/)
+	const items = filteredMapToObjArray(filemap, /^panorama/)
 
 	return (
 		<div>
-			<PanoList items={filteredmap} onClick={handleSelect} />
+			<PanoList items={items} onClick={handleSelect} />
 		</div>
 	)
 }
