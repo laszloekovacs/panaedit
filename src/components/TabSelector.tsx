@@ -7,7 +7,7 @@ const TabSelector = ({ options, selected, onChange }) => {
 			{options.map((option) => (
 				<div
 					key={option.label}
-					className="border-b-2 border-b-violet-500"
+					className="mx-2 border-b-2 border-b-violet-500"
 				>
 					<label key={option.label} htmlFor={option.label}>
 						<span>{option.label}</span>

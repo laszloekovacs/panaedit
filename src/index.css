@@ -31,10 +31,9 @@
 }
 
 /* debug visualizer */
-/*
+
 @layer components {
 	* {
 		@apply border-1 border-dashed border-fuchsia-600 border-opacity-20;
 	}
 }
-*/
