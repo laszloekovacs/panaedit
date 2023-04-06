@@ -1,14 +1,14 @@
 import React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
-import PannellumView from '../PannellumView/PannellumView'
+import Pannellum from '../Pannellum/Pannellum'
 
-const Preview = () => {
+const Editor = () => {
 	return (
 		<div className="flex min-h-max flex-row">
 			<Sidebar />
-			<PannellumView />
+			<Pannellum />
 		</div>
 	)
 }
 
-export default Preview
+export default Editor

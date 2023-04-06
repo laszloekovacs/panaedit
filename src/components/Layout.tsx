@@ -3,11 +3,11 @@ import React from 'react'
 import Header from './Header/Header'
 import TabSelector from './TabSelector'
 import PanoView from './PanoView/PanoView'
-import Preview from './Preview/Preview'
+import Editor from './Editor/Editor'
 
 const options = [
 	{ label: 'Panoramas', value: <PanoView /> },
-	{ label: 'Preview', value: <Preview /> }
+	{ label: 'Editor', value: <Editor /> }
 ]
 
 /* should render the header, sidebar, status bar and the tabs selector 
@@ -29,7 +29,7 @@ const Layout = () => {
 				onChange={handleChange}
 			/>
 			{selected.label == 'Panoramas' && <PanoView />}
-			{selected.label == 'Preview' && <Preview />}
+			{selected.label == 'Editor' && <Editor />}
 		</div>
 	)
 }

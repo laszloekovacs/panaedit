@@ -1,7 +1,7 @@
 import React from 'react'
 
-const PannellumView = () => {
+const Pannellum = () => {
 	return <div>PannellumView</div>
 }
 
-export default PannellumView
+export default Pannellum
