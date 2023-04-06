@@ -1,12 +1,12 @@
 import React from 'react'
 import PanoListItem from './PanoListItem'
 
-const PanoList = ({ items }) => {
+const PanoList = ({ items, onClick }) => {
 	return (
 		<ul>
-			{items.map((item, index) => {
-				return <PanoListItem key={index} item={item} />
-			})}
+			{items.map((item, index) => (
+				<PanoListItem key={index} item={item} onClick={onClick} />
+			))}
 		</ul>
 	)
 }

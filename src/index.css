@@ -4,7 +4,7 @@
 
 @layer components {
 	body {
-		@apply min-h-screen bg-neutral-200 text-neutral-900;
+		@apply min-h-screen select-none bg-neutral-200 text-neutral-900;
 	}
 
 	#root {

@@ -1,19 +1,25 @@
 import React, { useContext, useEffect } from 'react'
 import PanoList from './PanoList'
 import { FoldersContext } from '../FoldersProvider/FoldersProvider'
-import { findPanoramaFiles } from './findPanoramaFiles'
+import { filterMapByKeyRegex } from './FilterMapByKeyRegex'
+
+/* show all panoramas in the panorama folder, click to add
+ */
 
 const PanoView = () => {
-	const filesMap = useContext<Map<string, string>>(FoldersContext)
-	const [files, setFiles] = React.useState<string[]>([])
+	const filemap = useContext<Map<string, string>>(FoldersContext)
+	const filteredmap = filterMapByKeyRegex(`/^panorama/`, filemap)
 
-	useEffect(() => {
-		findPanoramaFiles(filesMap, setFiles)
-	}, [filesMap])
+	const handleSelect = (item) => {
+		console.log(item)
+	}
+
+	/* remove non panoramas, and turn it into an obj array */
+	const items = filteredMapToArray(filteredmap)
 
 	return (
 		<div>
-			<PanoList items={files} />
+			<PanoList items={filteredmap} onClick={handleSelect} />
 		</div>
 	)
 }

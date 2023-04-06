@@ -1,8 +1,8 @@
 import React from 'react'
 
-const PanoListItem = ({ item }) => {
+const PanoListItem = ({ item, onClick }) => {
 	return (
-		<li>
+		<li onClick={() => onClick(item)}>
 			<img src={item} alt={item} />
 		</li>
 	)
