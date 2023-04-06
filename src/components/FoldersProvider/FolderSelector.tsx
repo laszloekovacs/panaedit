@@ -6,9 +6,7 @@ import React from 'react'
 const FolderSelector = ({ onClick }) => {
 	return (
 		<div>
-			<button type="button" onClick={onClick}>
-				Select directory
-			</button>
+			<button onClick={onClick}>Select directory</button>
 		</div>
 	)
 }
