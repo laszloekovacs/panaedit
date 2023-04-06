@@ -19,6 +19,7 @@ declare interface State {
 	articles: Article[]
 	editor: {
 		activeScene: string
+		activeTab: 'Panoramas' | 'Preview'
 	}
 }
 

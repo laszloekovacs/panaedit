@@ -15,7 +15,8 @@ const storeDefaultState: State = {
 	scenes: {},
 	articles: [],
 	editor: {
-		activeScene: ''
+		activeScene: '',
+		activeTab: 'panoramas'
 	}
 }
 

@@ -5,8 +5,15 @@ import React from 'react'
 */
 const FolderSelector = ({ onClick }) => {
 	return (
-		<div>
-			<button onClick={onClick}>Select directory</button>
+		<div className="flex h-screen w-screen flex-row justify-items-center">
+			<div>
+				<button onClick={onClick}>
+					Select local working directory
+				</button>
+				<p>
+					download example project to try out this wonderfull product
+				</p>
+			</div>
 		</div>
 	)
 }

@@ -1,22 +1,35 @@
 import React from 'react'
 
 import Header from './Header/Header'
-import Sidebar from './Sidebar/Sidebar'
-
-import TabbedPanel from './TabbedPanel/TabbedPanel'
+import TabSelector from './TabSelector'
+import PanoView from './PanoView/PanoView'
 import Preview from './Preview/Preview'
-import ScenesView from './ScenesView/ScenesView'
 
-/* should render the header, sidebar, status bar and the tabs view */
+/* should render the header, sidebar, status bar and the tabs selector 
+	the tabs decide what to render in main, and sidebar 
+*/
+
+const options = [
+	{ label: 'Panoramas', value: <PanoView /> },
+	{ label: 'Preview', value: <Preview /> }
+]
+
 const Layout = () => {
-	const tabs = ['Scenes', 'Preview']
-	const components = [ScenesView, Preview]
+	const [selected, setSelected] = React.useState(options[0])
+
+	const handleChange = (to) => {
+		setSelected(to)
+	}
 
 	return (
-		<div>
+		<div className="bg-fuchsia-200">
 			<Header />
-			<Sidebar />
-			<TabbedPanel options={tabs} components={components} />
+			<TabSelector
+				options={options}
+				selected={selected}
+				onChange={handleChange}
+			/>
+			{selected.label == 'Panoramas' ? <PanoView /> : <Preview />}
 		</div>
 	)
 }

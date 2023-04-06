@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ScenesListItem = ({ item }) => {
+const PanoListItem = ({ item }) => {
 	return (
 		<li>
 			<img src={item} alt={item} />
@@ -8,4 +8,4 @@ const ScenesListItem = ({ item }) => {
 	)
 }
 
-export default ScenesListItem
+export default PanoListItem

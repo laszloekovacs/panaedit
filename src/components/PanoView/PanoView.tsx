@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react'
-import ScenesList from './ScenesList'
+import PanoList from './PanoList'
 import { FoldersContext } from '../FoldersProvider/FoldersProvider'
 import { findPanoramaFiles } from './findPanoramaFiles'
 
-const ScenesView = () => {
+const PanoView = () => {
 	const filesMap = useContext<Map<string, string>>(FoldersContext)
 	const [files, setFiles] = React.useState<string[]>([])
 
@@ -13,9 +13,9 @@ const ScenesView = () => {
 
 	return (
 		<div>
-			<ScenesList items={files} />
+			<PanoList items={files} />
 		</div>
 	)
 }
 
-export default ScenesView
+export default PanoView

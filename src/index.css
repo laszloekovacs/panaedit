@@ -2,24 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer components {
 	body {
-		@apply bg-neutral-200 text-neutral-900;
+		@apply min-h-screen bg-neutral-200 text-neutral-900;
+	}
+
+	#root {
+		@apply min-h-screen;
 	}
 
 	button {
-		@apply border-2 bg-green-600 px-5 text-neutral-100;
+		@apply border-2 bg-green-600 px-5 text-neutral-100 hover:bg-green-500;
 	}
 
 	img {
 		@apply max-w-xs p-1;
 	}
 
-	/* remove browser radio buttons */
-	input[type='radio'] {
-		position: fixed;
-		opacity: 0;
-		pointer-events: none;
+	label:has(+ input[checked]) {
+		@apply bg-green-600 text-neutral-100;
 	}
 }
 
@@ -30,9 +31,10 @@
 }
 
 /* debug visualizer */
-
-@layer base {
+/*
+@layer components {
 	* {
 		@apply border-1 border-dashed border-fuchsia-600 border-opacity-20;
 	}
 }
+*/
