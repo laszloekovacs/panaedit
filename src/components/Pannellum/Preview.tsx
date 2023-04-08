@@ -18,11 +18,7 @@ const Preview = ({ state }) => {
 		}
 	}, [state])
 
-	return (
-		<div id="preview" className="aspect-video">
-			Preview
-		</div>
-	)
+	return <div id="preview" className="aspect-video max-h-full"></div>
 }
 
 export default Preview

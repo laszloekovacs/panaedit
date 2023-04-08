@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+
 @layer components {
 	body {
+		font-family: 'JetBrains Mono', monospace;
 		@apply min-h-screen select-none bg-neutral-200 text-neutral-900;
 	}
 

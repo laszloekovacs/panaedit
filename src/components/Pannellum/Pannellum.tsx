@@ -27,7 +27,8 @@ const PannellumContainer = () => {
 	let stateSlice = {
 		type: 'equirectangular',
 		panorama: blob,
-		autoLoad: true
+		autoLoad: true,
+		hotSpotDebug: true
 	}
 
 	console.log('stateSlice ', stateSlice)
