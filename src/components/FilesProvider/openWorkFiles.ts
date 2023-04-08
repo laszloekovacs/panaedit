@@ -3,8 +3,7 @@ export const openWorkFiles = async (
 	setFilesMap: (files: Map<string, string>) => void,
 	directories: string[]
 ) => {
-	// select the project root folder
-
+	/* user selects the root folder */
 	const project = await window.showDirectoryPicker({
 		startIn: 'desktop'
 	})
@@ -22,7 +21,7 @@ export const openWorkFiles = async (
 			throw new Error(`Directory ${dir} not found`)
 		}
 
-		/* create url for files. append the path */
+		/* for every file, we create a filename, url pair */
 		for await (const entry of handle.values()) {
 			if (entry.kind === 'file') {
 				const f = await entry.getFile()
@@ -30,7 +29,6 @@ export const openWorkFiles = async (
 				files.set(`${dir}/${entry.name}`, url)
 			}
 		}
-		console.log(files)
 	}
 
 	setFilesMap(files)

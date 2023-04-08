@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import PanoList from './PanoList'
-import { FoldersContext } from '../FoldersProvider/FoldersProvider'
+import { FilesContext } from '../FilesProvider/FilesProvider'
 import { filteredMapToObjArray } from './filteredMapToObjArray'
 import { useDispatch } from 'react-redux'
 import { addScene } from '../../store'
@@ -10,7 +10,7 @@ todo: add loading indicator, it seems its needed
 */
 
 const PanoView = () => {
-	const filemap = useContext<Map<string, string>>(FoldersContext)
+	const filemap = useContext<Map<string, string>>(FilesContext)
 	const dispatch = useDispatch()
 
 	/* selection */

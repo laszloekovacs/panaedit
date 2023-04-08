@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 
 import ErrorBoundary from './ErrorBoundary'
-import FoldersProvider from './FoldersProvider/FoldersProvider'
+import FilesProvider from './FilesProvider/FilesProvider'
 import Layout from './Layout'
 
 import { store } from '../store'
@@ -13,9 +13,9 @@ function App() {
 	return (
 		<ErrorBoundary>
 			<Provider store={store}>
-				<FoldersProvider directories={directories}>
+				<FilesProvider directories={directories}>
 					<Layout />
-				</FoldersProvider>
+				</FilesProvider>
 			</Provider>
 		</ErrorBoundary>
 	)

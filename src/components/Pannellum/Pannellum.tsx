@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import { resolvePathsToBlobUrl } from './resolvePathsToBlobUrl'
-import { FoldersContext } from '../FoldersProvider/FoldersProvider'
+import { FilesContext } from '../FilesProvider/FilesProvider'
 import _ from 'lodash'
 import Preview from './Preview'
 /*
@@ -13,7 +13,7 @@ import Preview from './Preview'
  * if there's only one scene, the flat structure is fine, no need to have scenes["key"].{scene}
  */
 const PannellumContainer = () => {
-	const folders = useContext(FoldersContext)
+	const folders = useContext(FilesContext)
 	const _state = useSelector((state: State) => state)
 
 	if (!_state.editor.activeScene) return null
