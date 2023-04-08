@@ -5,7 +5,11 @@ type Props = {
 }
 
 const HotspotListItem = ({ hotspot }: Props) => {
-	return <li>{hotspot.sceneId}</li>
+	return (
+		<li>
+			<p>{hotspot.sceneId}</p>
+		</li>
+	)
 }
 
 export default HotspotListItem
