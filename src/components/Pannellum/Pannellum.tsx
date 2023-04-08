@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { convertToPannellumScene as resolvePathsToBlobUrl } from './convertToPannellumScene'
 
 type PropType = {
-	scene: Scene
+	scene?: Scene
 }
 
 /*
@@ -11,7 +11,7 @@ type PropType = {
 
 const Pannellum = ({ scene }: PropType) => {
 	useEffect(() => {
-		const preview = resolvePathsToBlobUrl(scene)
+		//const preview = resolvePathsToBlobUrl(scene)
 	}, [scene])
 
 	return <div>PannellumView</div>
