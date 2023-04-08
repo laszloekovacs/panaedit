@@ -5,5 +5,5 @@ import { test, expect } from '@playwright/experimental-ct-react'
 test('Test <Hotspot>', async ({ mount }) => {
 	const container = await mount(<Hotspot />)
 
-	expect(container).toHaveText('scene1')
+	await expect(container).toHaveText('scene1')
 })

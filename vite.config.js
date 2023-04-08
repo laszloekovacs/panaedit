@@ -6,6 +6,7 @@ export default defineConfig({
 		outDir: 'docs'
 	},
 	test: {
-		exclude: ['**/*.spec.ts']
+		exclude: ['**/*.spec.tsx'],
+		dir: 'test'
 	}
 })

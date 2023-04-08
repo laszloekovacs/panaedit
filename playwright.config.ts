@@ -10,6 +10,8 @@ import { defineConfig, devices } from '@playwright/test'
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+	testMatch: '**/*.spec.tsx',
+
 	testDir: './e2e',
 
 	snapshotDir: './test/__snapshots__',

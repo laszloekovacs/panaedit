@@ -1,0 +1,56 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`test reducer functions > _reset should return the default project 1`] = `
+{
+  "articles": [],
+  "default": {
+    "autoLoad": true,
+    "basePath": "/panoramas",
+    "compass": true,
+    "firstScene": "",
+    "hfov": 110,
+    "hotSpotDebug": true,
+    "maxPitch": 98,
+    "minPitch": -98,
+    "sceneFadeDuration": 1000,
+    "type": "equirectangular",
+    "vfov": 100,
+  },
+  "editor": {
+    "activeScene": "",
+  },
+  "scenes": {},
+}
+`;
+
+exports[`test reducer functions > add scene should add new key to scenes obj 1`] = `
+{
+  "articles": [],
+  "default": {
+    "autoLoad": true,
+    "basePath": "/panoramas",
+    "compass": true,
+    "firstScene": "",
+    "hfov": 110,
+    "hotSpotDebug": true,
+    "maxPitch": 98,
+    "minPitch": -98,
+    "sceneFadeDuration": 1000,
+    "type": "equirectangular",
+    "vfov": 100,
+  },
+  "editor": {
+    "activeScene": "",
+  },
+  "scenes": {
+    "testimage": {
+      "hotSpots": [],
+      "id": "testid",
+      "name": "test object",
+      "northOffset": 0,
+      "panorama": "./assets/testimage.jpg",
+      "type": "link",
+    },
+  },
+}
+`;
