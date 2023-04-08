@@ -1,19 +1,25 @@
 import React from 'react'
 
-const PanoListItem = ({ item, selected, onClick }) => {
-	/* trim path so it look better */
-	const filename = item.key.split('/').pop()
+interface PropType {
+	item: { key: string; value: string }
+	selected: boolean
+	onClick: (item: string) => void
+}
 
-	const selection = selected ? 'bg-pink-400' : ''
+const PanoListItem = ({ item, selected, onClick }: PropType) => {
+	/* trim path so it look better */
+	const filename = item.key.split('/').pop() || item.key
+
+	const selection = selected ? 'bg-pink-400' : 'bg-purple-400'
 
 	return (
 		<li
 			className="border-2 border-solid border-neutral-700 border-opacity-50"
-			onClick={() => onClick(item)}
+			onClick={() => onClick(item.key)}
 		>
 			<div className={selection ?? ''}>
 				<p>{filename}</p>
-				<img src={item.value} alt={item} />
+				<img src={item.value} alt={item.key} />
 			</div>
 		</li>
 	)

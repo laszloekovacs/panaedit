@@ -13,12 +13,18 @@ const PanoView = () => {
 	/* selection */
 	const [selected, setSelected] = React.useState<string[]>([])
 
-	const handleSelect = (item) => {
-		setSelected([...selected, item])
-
-		console.log(selected)
+	/* toggle selection of files */
+	const handleSelect = (item: string) => {
+		if (selected.includes(item)) {
+			setSelected(selected.filter((i) => i !== item))
+			console.log('removed ', item)
+		} else {
+			setSelected([...selected, item])
+			console.log('added ', item)
+		}
 	}
 
+	/* build the list of panoramas to render */
 	const items = filteredMapToObjArray(filemap, /^panorama/)
 
 	return (

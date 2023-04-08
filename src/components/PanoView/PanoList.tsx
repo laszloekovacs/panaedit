@@ -1,7 +1,13 @@
 import React from 'react'
 import PanoListItem from './PanoListItem'
 
-const PanoList = ({ items, selected, onClick }) => {
+interface PropType {
+	items: { key: string; value: string }[]
+	selected: string[]
+	onClick: (item: string) => void
+}
+
+const PanoList = ({ items, selected, onClick }: PropType) => {
 	return (
 		<ul className="flex flex-row flex-wrap">
 			{items.map((item, index) => (
@@ -9,7 +15,7 @@ const PanoList = ({ items, selected, onClick }) => {
 					key={index}
 					item={item}
 					onClick={onClick}
-					selected={selected.includes(item)}
+					selected={selected.includes(item.key)}
 				/>
 			))}
 		</ul>
