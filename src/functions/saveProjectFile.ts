@@ -1,9 +1,14 @@
-export async function saveProjectFile(data: any, window: Window) {
-	try {
-		const fileOptions = {
-			types: [{ description: 'json document', accept: { 'application/json': ['.json'] } }]
+const fileOptions = {
+	types: [
+		{
+			description: 'json document',
+			accept: { 'application/json': ['.json'] }
 		}
+	]
+}
 
+export async function saveProjectFile(data: State, window: Window) {
+	try {
 		const filehandle = await window.showSaveFilePicker(fileOptions)
 		const writable = await filehandle.createWritable()
 
