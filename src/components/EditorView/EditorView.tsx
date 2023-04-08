@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import Pannellum from '../Pannellum/Pannellum'
 
-const Editor = () => {
+const EditorView = () => {
 	return (
 		<div className="flex min-h-max flex-row">
 			<Sidebar />
@@ -11,4 +11,4 @@ const Editor = () => {
 	)
 }
 
-export default Editor
+export default EditorView

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/experimental-ct-react'
 
 import React from 'react'
-import FolderSelector from './FolderSelector'
+import FolderSelector from '../src/components/FoldersProvider/FolderSelector'
 
 test.use({ viewport: { width: 400, height: 600 } })
 
