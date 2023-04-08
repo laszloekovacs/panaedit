@@ -10,15 +10,24 @@ todo: add loading indicator, it seems its needed
 const PanoView = () => {
 	const filemap = useContext<Map<string, string>>(FoldersContext)
 
+	/* selection */
+	const [selected, setSelected] = React.useState<string[]>([])
+
 	const handleSelect = (item) => {
-		console.log(item)
+		setSelected([...selected, item])
+
+		console.log(selected)
 	}
 
 	const items = filteredMapToObjArray(filemap, /^panorama/)
 
 	return (
 		<div>
-			<PanoList items={items} onClick={handleSelect} />
+			<PanoList
+				items={items}
+				selected={selected}
+				onClick={handleSelect}
+			/>
 		</div>
 	)
 }
