@@ -4,7 +4,8 @@ import { FoldersContext } from '../FoldersProvider/FoldersProvider'
 import { filteredMapToObjArray } from './filteredMapToObjArray'
 
 /* show all panoramas in the panorama folder, click to add
- */
+todo: add loading indicator, it seems its needed
+*/
 
 const PanoView = () => {
 	const filemap = useContext<Map<string, string>>(FoldersContext)

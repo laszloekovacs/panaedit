@@ -1,18 +1,14 @@
 import React, { useEffect } from 'react'
-import { convertToPannellumScene as resolvePathsToBlobUrl } from './convertToPannellumScene'
-
-type PropType = {
-	scene?: Scene
-}
+import { resolvePathsToBlobUrl } from './resolvePathsToBlobUrl'
 
 /*
 	redux stores the paths to the images, but we need to use blobs urls
 */
 
-const Pannellum = ({ scene }: PropType) => {
+const Pannellum = () => {
 	useEffect(() => {
 		//const preview = resolvePathsToBlobUrl(scene)
-	}, [scene])
+	}, [])
 
 	return <div>PannellumView</div>
 }
