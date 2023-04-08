@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import SceneList from './SceneList'
 import { setActiveScene } from '../../store'
-import _, { values } from 'lodash'
 import { scenesToArray } from './scenesToArray'
 
 /* read the list from the store, render it into a list */
@@ -14,8 +14,7 @@ const SceneListContainer = () => {
 
 	const items = scenesToArray(scenes)
 
-	console.log(items)
-
+	/* user clicked on the list item */
 	const handleSelect = (key: string) => {
 		dispatch(setActiveScene({ sceneKey: key }))
 	}
