@@ -1,5 +1,6 @@
 import React from 'react'
 import HotspotList from './HotspotList'
+import HotspotAddInfo from './HotspotAddInfo'
 
 const hotspots: Hotspot[] = [
 	{
@@ -12,7 +13,13 @@ const hotspots: Hotspot[] = [
 ]
 
 const Hotspot = () => {
-	return <HotspotList hotspots={hotspots} />
+	return (
+		<div>
+			<h2>Hotspots</h2>
+			<HotspotAddInfo />
+			<HotspotList hotspots={hotspots} />
+		</div>
+	)
 }
 
 export default Hotspot
