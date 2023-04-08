@@ -1,0 +1,70 @@
+{
+	"default": {
+		"firstScene": "",
+		"sceneFadeDuration": 1000,
+		"type": "equirectangular",
+		"autoLoad": true,
+		"compass": true,
+		"hotSpotDebug": true,
+		"hfov": 110,
+		"vfow": 100,
+		"minPitch": -98,
+		"maxPitch": 98,
+		"basePath": "assets/panorama/",
+		"imagePath": "assets/images/"
+	},
+	"scenes": {
+		"01aa": {
+			"title": "igazgató iroda",
+			"panorama": "01aa.jpg",
+			"northOffset": 0,
+			"hotSpots": []
+		},
+		"01ab": {
+			"title": "második iroda",
+			"panorama": "01ab.jpg",
+			"northOffset": 0,
+			"hotSpots": []
+		},
+		"01b": {
+			"title": "harmadik iroda",
+			"panorama": "01b.jpg",
+			"northOffset": 0,
+			"hotSpots": []
+		},
+		"01ca": {
+			"title": "meeting szoba",
+			"panorama": "01ca.jpg",
+			"northOffset": 0,
+			"hotSpots": []
+		},
+		"01cb": {
+			"title": "01cb",
+			"panorama": "01cb.jpg",
+			"northOffset": "-166.01",
+			"hotSpots": []
+		},
+		"01cc": {
+			"title": "01cc",
+			"panorama": "01cc.jpg",
+			"northOffset": 0,
+			"hotSpots": []
+		},
+		"02a": {
+			"title": "hello",
+			"panorama": "02a.jpg",
+			"northOffset": 0,
+			"hotSpots": []
+		},
+		"02b": {
+			"title": "02b",
+			"panorama": "02b.jpg",
+			"northOffset": 0,
+			"hotSpots": []
+		}
+	},
+	"articles": [],
+	"editor": {
+		"currentScene": "01cb"
+	}
+}

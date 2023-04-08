@@ -1,0 +1,22 @@
+.container {
+    padding-bottom: 1rem;
+    border-bottom: 0.2rem solid gray;
+}
+
+.container h3 {
+    text-overflow: ellipsis;
+    margin-left: 0.2rem;
+}
+
+.container header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.container header button {
+    background: none;
+}

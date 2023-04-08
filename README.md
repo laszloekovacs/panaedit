@@ -4,7 +4,8 @@ Web based tool to create pannellum.js scene files with some extended functionali
 [panellum.js](https://pannellum.org/)
 
 
-![screenshot](./screenshots/Screenshot2.jpg)
+screenshots from old version
+![newscreenshot](./screenshots/Screenshot.png)
 
 ## how to run
 

@@ -1,0 +1,46 @@
+.facade {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1;
+   width: 100vw;
+   height: 100vh;
+   background-color: gray;
+   opacity: 20%;
+}
+
+.container {
+   position: relative;
+
+   .dialog {
+      position: absolute;
+      padding: 1.2rem;
+      z-index: 2;
+      background-color: white;
+      border: 1px solid black;
+      min-width: 400px;
+
+      div {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         margin-bottom: 1rem;
+      }
+      ul {
+         li {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+
+            p:first-child {
+               margin: 0.2rem;
+               width: 3rem;
+               overflow: dotted;
+            }
+         }
+         li:hover {
+            background-color: orangered;
+         }
+      }
+   }
+}
