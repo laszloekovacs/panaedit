@@ -5,9 +5,20 @@ type Props = {
 }
 
 const HotspotListItem = ({ hotspot }: Props) => {
+	const { sceneId, text, pitch, yaw, type } = hotspot
+
 	return (
 		<li>
-			<p>{hotspot.sceneId}</p>
+			<p>
+				<span>{sceneId}</span>
+
+				<span>{text}</span>
+			</p>
+			<p>{type}</p>
+			<p>
+				<span>{pitch}</span>
+				<span>{yaw}</span>
+			</p>
 		</li>
 	)
 }

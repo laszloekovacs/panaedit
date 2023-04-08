@@ -7,7 +7,7 @@ type Props = {
 
 const HotspotList = ({ hotspots }: Props) => {
 	return (
-		<ul>
+		<ul className="border-1">
 			{hotspots.map((hotspot, index) => {
 				return <HotspotListItem key={index} hotspot={hotspot} />
 			})}
