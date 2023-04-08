@@ -18,17 +18,17 @@ const PannellumContainer = () => {
 
 	if (!_state.editor.activeScene) return null
 
-	const blob = resolvePathsToBlobUrl(
-		(_state.scenes[_state.editor.activeScene] as Scene).panorama,
-		folders
-	)
+	const activeScene = _state.scenes[_state.editor.activeScene] as Scene
+
+	const blob = resolvePathsToBlobUrl(activeScene.panorama, folders)
 
 	/* create the preview structure */
 	let stateSlice = {
 		type: 'equirectangular',
 		panorama: blob,
 		autoLoad: true,
-		hotSpotDebug: true
+		hotSpotDebug: true,
+		hotSpots: _.clone(activeScene.hotSpots)
 	}
 
 	console.log('stateSlice ', stateSlice)
