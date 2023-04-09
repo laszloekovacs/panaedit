@@ -1,10 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addHotspot } from '../../store'
+import { useEditor } from '../../hooks'
 
 const HotspotAddInfo = () => {
 	const dispatch = useDispatch()
-	const editor = useSelector((state: State) => state.editor)
+	const { activeSceneKey, editor } = useEditor()
 
 	const handleAddInfo = (e) => {
 		console.log('add info')
@@ -16,7 +17,7 @@ const HotspotAddInfo = () => {
 			targetYaw: 'sameAzimuth'
 		}
 
-		dispatch(addHotspot({ sceneKey: editor.activeScene, hotspot }))
+		dispatch(addHotspot({ sceneKey: activeSceneKey, hotspot }))
 	}
 
 	return (

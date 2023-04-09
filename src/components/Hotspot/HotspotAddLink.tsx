@@ -1,16 +1,17 @@
 import React from 'react'
 import Dialog from '../Dialog/Dialog'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import SceneList from '../SceneListContainer/SceneList'
-import { scenesToArray } from '../SceneListContainer/scenesToArray'
+
 import { addHotspot } from '../../store'
+import { useEditor } from '../../hooks'
 
 const HotspotAddLink = () => {
-	const sceneList = scenesToArray(useSelector((state: State) => state.scenes))
 	const [showDialog, setShowDialog] = React.useState(false)
-	const { yaw, pitch } = useSelector((state: State) => state.editor)
 	const dispatch = useDispatch()
-	const sceneKey = useSelector((state: State) => state.editor.activeScene)
+	const { scenes, editor, activeSceneKey } = useEditor()
+	const sceneList = Object.values(scenes)
+	const { yaw, pitch } = editor
 
 	const showLinkDialog = () => {
 		setShowDialog(true)
@@ -33,7 +34,7 @@ const HotspotAddLink = () => {
 		}
 
 		/* add hotspot to the current scene */
-		dispatch(addHotspot({ sceneKey, hotspot }))
+		dispatch(addHotspot({ sceneKey: activeSceneKey, hotspot }))
 	}
 
 	return (

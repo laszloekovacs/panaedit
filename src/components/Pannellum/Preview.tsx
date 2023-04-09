@@ -16,12 +16,12 @@ const Preview = ({ state, container }) => {
 		}
 
 		/*
-		 * warning: panellum mutates its inputs
+		 * warning: panellum mutates its inputs, give it a copy
 		 */
 		const stateCopy = _.cloneDeep(state)
 		viewerRef.current = window.pannellum.viewer(container, stateCopy)
 
-		/* store orientation when done rotating */
+		/* store orientation when done rotating 
 		viewerRef.current?.on('animatefinished', (data) => {
 			const yaw = viewerRef.current?.getYaw() || 0
 			const pitch = viewerRef.current?.getPitch() || 0
@@ -33,7 +33,7 @@ const Preview = ({ state, container }) => {
 
 			dispatch(setEditorOrientation(payload))
 		})
-
+*/
 		/*
 		 * cleanup
 		 */

@@ -11,9 +11,9 @@ const SceneListContainer = () => {
 	const { scenes } = useEditor()
 	const dispatch = useDispatch()
 
-	if (!Object.keys(scenes)) return <p>no scenes, add some</p>
+	const items = Object.values(scenes)
 
-	const items = scenesToArray(scenes)
+	if (!items) return <p>no scenes, add some</p>
 
 	/* user clicked on the list item */
 	const handleSelect = (key: string) => {
