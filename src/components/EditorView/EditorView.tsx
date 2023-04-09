@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
-import PannellumContainer from '../Pannellum/Pannellum'
+import Pannellum from '../Pannellum/Pannellum'
 
 const EditorView = () => {
 	return (

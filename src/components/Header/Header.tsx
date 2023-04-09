@@ -1,13 +1,12 @@
 import React from 'react'
-
-import Files from './Files'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { loadProjectFile, saveProjectFile, resetProject } from '../../functions'
 
+import Files from './Files'
+
 /* header container */
 const Header = () => {
-	const state = useSelector((s) => s)
+	const state: State = useSelector((s: State) => s)
 	const dispatch = useDispatch()
 
 	const onNew = async () => {

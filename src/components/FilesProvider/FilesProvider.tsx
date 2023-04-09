@@ -22,8 +22,6 @@ const FilesProvider = ({ children, directories = _directories }) => {
 		dispatch(replaceCache({ map }))
 	}
 
-	console.log(cache.length)
-
 	if (!cache || cache.length == 0) {
 		return <FolderSelector onClick={onClick} />
 	} else {

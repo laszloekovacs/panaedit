@@ -15,8 +15,6 @@ import { setActiveScene } from '../../store'
  * if there's only one scene, the flat structure is fine, no need to have scenes["key"].{scene}
  */
 const PannellumContainer = () => {
-	return null
-
 	const folders = useContext(FilesContext)
 	const state = useSelector((state: State) => state)
 	const dispatch = useDispatch()
