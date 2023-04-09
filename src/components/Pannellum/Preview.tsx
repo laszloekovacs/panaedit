@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { setEditorOrientation } from '../../store'
+import _ from 'lodash'
 
 /* Create a panorama view from the state */
 const Preview = ({ state, container }) => {
@@ -14,7 +15,9 @@ const Preview = ({ state, container }) => {
 			throw new Error('Pannellum not loaded')
 		}
 
-		viewerRef.current = window.pannellum.viewer(container, state)
+		const stateCopy = _.cloneDeep(state)
+
+		viewerRef.current = window.pannellum.viewer(container, stateCopy)
 
 		/* store orientation when done rotating */
 		viewerRef.current?.on('animatefinished', (data) => {
@@ -36,7 +39,7 @@ const Preview = ({ state, container }) => {
 			console.log('unmounting preview')
 			viewerRef.current?.destroy()
 		}
-	}, [state.panorama])
+	}, [state.panorama, state.hotSpots])
 
 	/* returned element */
 	return <div id={container} className="aspect-video max-h-full"></div>

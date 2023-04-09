@@ -28,10 +28,11 @@ const PannellumContainer = () => {
 		panorama: blob,
 		autoLoad: true,
 		hotSpotDebug: true,
-		hotSpots: _.clone(activeScene.hotSpots)
+		hotSpots: activeScene.hotSpots,
+		// restore rotation from editor
+		yaw: state.editor.yaw,
+		pitch: state.editor.pitch
 	}
-
-	console.log('stateSlice ', stateSlice)
 
 	return <Preview state={stateSlice} container={'preview'} />
 }
