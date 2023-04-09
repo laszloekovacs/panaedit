@@ -50,7 +50,7 @@ export function _setSceneTitle(state: State, action: SetSceneTitleAction) {
 	}
 
 	// set the title of the scene
-	;(state.scenes[sceneKey] as Scene).name = title
+	;(state.scenes[sceneKey] as Scene).title = title
 
 	return state
 }
