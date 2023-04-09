@@ -1,4 +1,4 @@
-const storeDefaultState: State = {
+const storeDefaults: State = {
 	default: {
 		firstScene: '',
 		sceneFadeDuration: 1000,
@@ -18,7 +18,11 @@ const storeDefaultState: State = {
 		activeScene: '',
 		yaw: 0,
 		pitch: 0
+	},
+	cache: {
+		pathmap: new Map<string, string>()
 	}
 }
 
-export default storeDefaultState
+// TODO: do we need panoramas as base path
+export default storeDefaults

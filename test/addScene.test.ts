@@ -1,6 +1,6 @@
 import { _reset, _addScene } from '../src/store/actions'
 import { describe, it } from 'vitest'
-import storeDefaultState from '../src/store/storeDefaultState'
+import storeDefaults from '../src/store/storeDefaultState'
 
 describe('test reducer functions', () => {
 	it('_reset should return the default project', async ({ expect }) => {
@@ -19,7 +19,7 @@ describe('test reducer functions', () => {
 			type: 'link'
 		}
 
-		const project = storeDefaultState
+		const project = storeDefaults
 
 		const output = _addScene(project, { payload: { scene: scene } })
 

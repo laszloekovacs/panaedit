@@ -1,5 +1,5 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
-import storeDefaultState from './storeDefaultState'
+import storeDefaults from './storeDefaultState'
 
 /* individual actions */
 import {
@@ -27,7 +27,7 @@ import {
 */
 const projectSlice = createSlice({
 	name: 'project',
-	initialState: storeDefaultState,
+	initialState: storeDefaults,
 	reducers: {
 		addArticle: _addArticle,
 		removeArticle: _removeArticle,
@@ -73,5 +73,5 @@ export const {
 /* export the store */
 export const store = configureStore({
 	reducer: projectSlice.reducer,
-	preloadedState: storeDefaultState
+	preloadedState: storeDefaults
 })
