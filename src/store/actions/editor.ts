@@ -10,3 +10,15 @@ export function _setActiveScene(state: State, action: SetActiveSceneAction) {
 
 	return state
 }
+
+export function _SetEditorOrientation(
+	state: State,
+	action: SetEditorOrientationAction
+) {
+	const { yaw, pitch } = action.payload
+
+	state.editor.yaw = yaw
+	state.editor.pitch = pitch
+
+	return state
+}

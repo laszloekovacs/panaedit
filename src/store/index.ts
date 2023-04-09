@@ -17,7 +17,8 @@ import {
 	_addScene,
 	_removeScene,
 	_setSceneTitle,
-	_setSceneNorthOffset
+	_setSceneNorthOffset,
+	_SetEditorOrientation
 } from './actions'
 
 /* 
@@ -41,7 +42,8 @@ const projectSlice = createSlice({
 		addScene: _addScene,
 		removeScene: _removeScene,
 		setSceneTitle: _setSceneTitle,
-		setSceneNorthOffset: _setSceneNorthOffset
+		setSceneNorthOffset: _setSceneNorthOffset,
+		setEditorOrientation: _SetEditorOrientation
 	}
 })
 
@@ -61,7 +63,8 @@ export const {
 	addScene,
 	removeScene,
 	setSceneTitle,
-	setSceneNorthOffset
+	setSceneNorthOffset,
+	setEditorOrientation
 } = projectSlice.actions
 
 /* export the store */

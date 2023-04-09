@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react'
  * it reverts into its original value. loosing focus cancels the edit
  */
 
-const EditableText = ({ value, onDoneEditing }) => {
+const EditableLabel = ({ value, onDoneEditing }) => {
 	const [isEditing, setIsEditing] = React.useState(false)
 	const [text, setText] = React.useState(value)
 
@@ -63,4 +63,4 @@ const EditableText = ({ value, onDoneEditing }) => {
 	)
 }
 
-export default EditableText
+export default EditableLabel

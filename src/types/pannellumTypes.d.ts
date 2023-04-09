@@ -12,7 +12,7 @@ declare global {
 	type viewerEvent = 'error' | 'load' | 'scenechange' | 'animatefinished'
 
 	interface PannellumViewer {
-		on: (event: viewerEvent, listener: (data: any) => void) => void
+		on: (event: viewerEvent, listener: (data: unknown) => void) => void
 		destroy: () => void
 		getYaw: () => number
 		getPitch: () => number

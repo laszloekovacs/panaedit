@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSceneNorthOffset, setSceneTitle } from '../../store'
-import EditableText from '../EditableText/EditableText'
+import EditableLabel from '../EditableLabel/EditableLabel'
 
 /* Edit title and north offset of the current scene */
 const SceneSettings = () => {
@@ -38,7 +38,7 @@ const SceneSettings = () => {
 				<span>{scene.northOffset}</span>
 			</p>
 
-			<EditableText
+			<EditableLabel
 				value={scene.title}
 				onDoneEditing={handleTitleChange}
 			/>

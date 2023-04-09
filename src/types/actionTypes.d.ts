@@ -96,3 +96,10 @@ declare interface SetEditorActiveSceneAction extends Action {
 		sceneKey: string
 	}
 }
+
+declare interface SetEditorOrientationAction extends Action {
+	payload: {
+		yaw: number
+		pitch: number
+	}
+}
