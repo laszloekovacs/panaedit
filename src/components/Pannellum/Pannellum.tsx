@@ -25,8 +25,8 @@ const PannellumContainer = () => {
 	const blob = resolvePathsToBlobUrl(activeScene.panorama, folders)
 
 	/* redirect clicks on hotspots so pannellum does not try to navigate */
-	const clickHandlerFunc = (e: unknown, sceneKey: string) => {
-		e.preventDefault()
+	const clickHandlerFunc = (event: MouseEvent, sceneKey: string) => {
+		event.preventDefault()
 		if (!sceneKey) return
 
 		// set active scene to sceneKey
