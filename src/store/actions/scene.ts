@@ -2,15 +2,15 @@ import _ from 'lodash'
 
 /* add scene. we use the filename as the key in the scene array */
 export function _addScene(state: State, action: AddSceneAction) {
-	const { panorama } = action.payload.scene
+	const { sceneKey, blob } = action.payload
 
-	if (!panorama) {
+	if (!sceneKey) {
 		throw new Error('scene has no panorama file path')
 	}
 
 	// find the file name from the path, remove file extension
 	// having '.' in the key makes lodash create more nested objects
-	const fname = _.last(panorama.split('/'))
+	const fname = _.last(sceneKey.split('/'))
 	const key = _.first(fname?.split('.'))
 
 	if (!key) {
@@ -21,8 +21,16 @@ export function _addScene(state: State, action: AddSceneAction) {
 		throw new Error('scene already exists')
 	}
 
+	// create a new scene
+	const scene: Scene = {
+		title: key,
+		panorama: blob,
+		hotSpots: [],
+		northOffset: 0
+	}
+
 	// add scene to state,
-	_.set(state.scenes, key, action.payload.scene)
+	_.set(state.scenes, key, scene)
 
 	return state
 }

@@ -23,7 +23,7 @@ export const openWorkFiles = async (directories: string[]) => {
 				const f = await entry.getFile()
 				const blob = URL.createObjectURL(f)
 
-				files.push({ path: `${dir}/${entry.name}`, blob })
+				files.push({ key: `${dir}/${entry.name}`, value: blob })
 			}
 		}
 	}

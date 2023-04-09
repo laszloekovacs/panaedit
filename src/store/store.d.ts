@@ -26,8 +26,8 @@ declare global {
 	}
 
 	declare interface CacheLine {
-		path: string
-		blob: string
+		key: string
+		value: string
 	}
 
 	declare interface Scene {

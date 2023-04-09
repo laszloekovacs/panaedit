@@ -23,7 +23,8 @@ declare interface SetPhotoLabelAction extends Action {
 declare
 interface AddSceneAction extends Action {
 	payload: {
-		scene: Scene
+		sceneKey: string
+		blob: string
 	}
 }
 
