@@ -15,7 +15,9 @@ const storeDefaultState: State = {
 	scenes: {},
 	articles: [],
 	editor: {
-		activeScene: ''
+		activeScene: '',
+		yaw: 0,
+		pitch: 0
 	}
 }
 

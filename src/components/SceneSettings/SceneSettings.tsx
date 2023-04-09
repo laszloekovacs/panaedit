@@ -1,24 +1,33 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setSceneNorthOffset } from '../../store'
+import { setSceneNorthOffset, setSceneTitle } from '../../store'
+import EditableText from '../EditableText/EditableText'
 
 /* Edit title and north offset of the current scene */
 const SceneSettings = () => {
 	const dispatch = useDispatch()
-	const sceneKey = useSelector((state: State) => state.editor.activeScene)
+	const yaw: number = useSelector((state: State) => state.editor.yaw)
+	const sceneKey: string = useSelector(
+		(state: State) => state.editor.activeScene
+	)
 	const scene: Scene = useSelector(
 		(state: State) => state.scenes[state.editor.activeScene]
 	)
 
-	if (!scene) return null
+	if (!sceneKey) return null
 
+	/* changing the offset */
 	const handleSetOffset = (e: unknown) => {
-		const payload = {
+		const offset = {
 			sceneKey: sceneKey,
-			northOffset: 0
+			northOffset: yaw
 		}
+		dispatch(setSceneNorthOffset(offset))
+	}
 
-		dispatch(setSceneNorthOffset(payload))
+	/* changing the scene's title */
+	const handleTitleChange = (newTitle: string) => {
+		dispatch(setSceneTitle({ sceneKey, title: newTitle }))
 	}
 
 	return (
@@ -29,6 +38,10 @@ const SceneSettings = () => {
 				<span>{scene.northOffset}</span>
 			</p>
 
+			<EditableText
+				value={scene.title}
+				onDoneEditing={handleTitleChange}
+			/>
 			<button onClick={handleSetOffset}>setFromView</button>
 		</div>
 	)
