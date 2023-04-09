@@ -9,7 +9,13 @@ const HotspotList = ({ hotspots }: Props) => {
 	return (
 		<ul className="border-1">
 			{hotspots.map((hotspot, index) => {
-				return <HotspotListItem key={index} hotspot={hotspot} />
+				return (
+					<HotspotListItem
+						key={index}
+						hotspot={hotspot}
+						index={index}
+					/>
+				)
 			})}
 		</ul>
 	)

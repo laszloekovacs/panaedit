@@ -1,23 +1,21 @@
 import React from 'react'
 import HotspotList from './HotspotList'
 import HotspotAddInfo from './HotspotAddInfo'
+import { useSelector } from 'react-redux'
 
-const hotspots: Hotspot[] = [
-	{
-		sceneId: 'scene1',
-		pitch: 0,
-		yaw: 0,
-		type: 'info',
-		text: 'This is a hotspot'
-	}
-]
-
+/* container of hotspots */
 const Hotspot = () => {
+	const scene: Scene = useSelector(
+		(state: State) => state.scenes[state.editor.activeScene]
+	)
+
+	const { hotSpots } = scene || []
+
 	return (
 		<div>
 			<h2>Hotspots</h2>
 			<HotspotAddInfo />
-			<HotspotList hotspots={hotspots} />
+			{hotSpots && <HotspotList hotspots={hotSpots} />}
 		</div>
 	)
 }

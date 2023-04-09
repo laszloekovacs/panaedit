@@ -2,9 +2,10 @@ import React from 'react'
 
 type Props = {
 	hotspot: Hotspot
+	index: number
 }
 
-const HotspotListItem = ({ hotspot }: Props) => {
+const HotspotListItem = ({ hotspot, index }: Props) => {
 	const { sceneId, text, pitch, yaw, type } = hotspot
 
 	return (
