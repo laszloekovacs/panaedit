@@ -13,10 +13,6 @@ const PanoramaListItem = ({ item }: { item: CacheLine }) => {
 	/* add to project */
 	const handleAddToProject = (e) => {
 		dispatch(addScene({ path: item.key }))
-		/* if this is the first image added, set first scene too */
-		if (Object.keys(scenes).length === 1) {
-			dispatch(setActiveScene({ sceneKey: item.key }))
-		}
 	}
 
 	return (
