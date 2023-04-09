@@ -3,9 +3,11 @@ import HotspotListItem from './HotspotListItem'
 
 type Props = {
 	hotspots: Hotspot[]
+	dispatch: (action) => void
+	sceneKey: string
 }
 
-const HotspotList = ({ hotspots }: Props) => {
+const HotspotList = ({ hotspots, dispatch, sceneKey }: Props) => {
 	return (
 		<ul className="border-1">
 			{hotspots.map((hotspot, index) => {
@@ -13,7 +15,9 @@ const HotspotList = ({ hotspots }: Props) => {
 					<HotspotListItem
 						key={index}
 						hotspot={hotspot}
-						index={index}
+						hotspotIndex={index}
+						dispatch={dispatch}
+						sceneKey={sceneKey}
 					/>
 				)
 			})}

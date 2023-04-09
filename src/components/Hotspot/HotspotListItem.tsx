@@ -1,12 +1,24 @@
 import React from 'react'
+import { removeHotspot } from '../../store'
 
 type Props = {
 	hotspot: Hotspot
-	index: number
+	hotspotIndex: number
+	dispatch: (action) => void
+	sceneKey: string
 }
 
-const HotspotListItem = ({ hotspot, index }: Props) => {
+const HotspotListItem = ({
+	hotspot,
+	hotspotIndex,
+	sceneKey,
+	dispatch
+}: Props) => {
 	const { sceneId, text, pitch, yaw, type } = hotspot
+
+	const handleRemove = (e) => {
+		dispatch(removeHotspot({ sceneKey, hotspotIndex }))
+	}
 
 	return (
 		<li className="m-1 flex flex-row flex-nowrap bg-slate-900 bg-opacity-30 p-2">
@@ -33,7 +45,7 @@ const HotspotListItem = ({ hotspot, index }: Props) => {
 				</p>
 			</div>
 			<div>
-				<button>remove</button>
+				<button onClick={handleRemove}>remove</button>
 			</div>
 		</li>
 	)
