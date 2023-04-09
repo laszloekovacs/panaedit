@@ -1,14 +1,25 @@
 import _ from 'lodash'
 
-export function _AddToCache(state: State, action: AddToCacheAction) {
-	const { path, blobUrl } = action.payload
+export function _AddToCache(
+	state: State,
+	action: {
+		payload: {
+			key: string
+			value: string
+		}
+	}
+) {
+	const { key, value } = action.payload
 
-	state.cache[path] = blobUrl
+	state.cache[key] = value
 
 	return state
 }
 
-export function _ReplaceCache(state: State, action: ReplaceCacheAction) {
+export function _ReplaceCache(
+	state: State,
+	action: { payload: { map: CacheLine[] } }
+) {
 	const { map } = action.payload
 
 	state.cache = map

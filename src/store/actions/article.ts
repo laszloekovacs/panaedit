@@ -1,5 +1,12 @@
 /* add article to project */
-export function _addArticle(state: State, action: AddArticleAction): State {
+export function _addArticle(
+	state: State,
+	action: {
+		payload: {
+			article: Article
+		}
+	}
+) {
 	const { article } = action.payload
 
 	state.articles.push(article)
@@ -8,7 +15,14 @@ export function _addArticle(state: State, action: AddArticleAction): State {
 }
 
 /* remove an article from the project */
-export function _removeArticle(state: State, action: RemoveArticleAction): State {
+export function _removeArticle(
+	state: State,
+	action: {
+		payload: {
+			articleId: string
+		}
+	}
+) {
 	const { articleId } = action.payload
 
 	// find the article by id

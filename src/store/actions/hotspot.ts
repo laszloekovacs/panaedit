@@ -1,7 +1,15 @@
 import _ from 'lodash'
 
 /* add hotspot */
-export function _addHotspot(state: State, action: AddHotspotAction) {
+export function _addHotspot(
+	state: State,
+	action: {
+		payload: {
+			sceneKey: string
+			hotspot: Hotspot
+		}
+	}
+) {
 	const { sceneKey, hotspot } = action.payload
 
 	;(state.scenes[sceneKey] as Scene).hotSpots.push(hotspot)
@@ -10,7 +18,7 @@ export function _addHotspot(state: State, action: AddHotspotAction) {
 }
 
 /* remove hotspot with index */
-export function _removeHotspot(state: State, action: RemoveHotspotAction) {
+export function _removeHotspot(state: State, action: { payload: { sceneKey: string; hotspotIndex: number } }) {
 	const { sceneKey, hotspotIndex } = action.payload
 
 	if (!state.scenes[sceneKey]) {
@@ -22,7 +30,10 @@ export function _removeHotspot(state: State, action: RemoveHotspotAction) {
 	return state
 }
 
-export function _updateHotspot(state: State, action: UpdateHotspotAction) {
+export function _updateHotspot(
+	state: State,
+	action: { payload: { sceneKey: string; hotspotIndex: number; hotspot: Hotspot } }
+) {
 	const { sceneKey, hotspotIndex, hotspot } = action.payload
 
 	if (!state.scenes[sceneKey]) {

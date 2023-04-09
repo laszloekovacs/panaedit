@@ -1,5 +1,12 @@
 /* set the active scene for the editor. */
-export function _setActiveScene(state: State, action: SetActiveSceneAction) {
+export function _setActiveScene(
+	state: State,
+	action: {
+		payload: {
+			sceneKey: string
+		}
+	}
+) {
 	const { sceneKey } = action.payload
 
 	if (!state.scenes[sceneKey]) {
@@ -13,7 +20,12 @@ export function _setActiveScene(state: State, action: SetActiveSceneAction) {
 
 export function _SetEditorOrientation(
 	state: State,
-	action: SetEditorOrientationAction
+	action: {
+		payload: {
+			yaw: number
+			pitch: number
+		}
+	}
 ) {
 	const { yaw, pitch } = action.payload
 
@@ -23,7 +35,14 @@ export function _SetEditorOrientation(
 	return state
 }
 
-export function _SetActiveView(state: State, action: SetActiveViewAction) {
+export function _SetActiveView(
+	state: State,
+	action: {
+		payload: {
+			view: string
+		}
+	}
+) {
 	const { view } = action.payload
 
 	state.editor.activeView = view

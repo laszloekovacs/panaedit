@@ -1,7 +1,15 @@
 import _ from 'lodash'
 
 /* add scene. we use the filename as the key in the scene array */
-export function _addScene(state: State, action: AddSceneAction) {
+export function _addScene(
+	state: State,
+	action: {
+		payload: {
+			sceneKey: string
+			blob: string
+		}
+	}
+) {
 	const { sceneKey, blob } = action.payload
 
 	if (!sceneKey) {
@@ -36,7 +44,14 @@ export function _addScene(state: State, action: AddSceneAction) {
 }
 
 /* remove scene */
-export function _removeScene(state: State, action: RemoveSceneAction) {
+export function _removeScene(
+	state: State,
+	action: {
+		payload: {
+			sceneKey: string
+		}
+	}
+) {
 	const { sceneKey } = action.payload
 
 	if (!state.scenes[sceneKey]) {
@@ -50,7 +65,15 @@ export function _removeScene(state: State, action: RemoveSceneAction) {
 }
 
 /* set the title of the scene */
-export function _setSceneTitle(state: State, action: SetSceneTitleAction) {
+export function _setSceneTitle(
+	state: State,
+	action: {
+		payload: {
+			sceneKey: string
+			title: string
+		}
+	}
+) {
 	const { sceneKey, title } = action.payload
 
 	if (!state.scenes[sceneKey]) {
@@ -66,7 +89,12 @@ export function _setSceneTitle(state: State, action: SetSceneTitleAction) {
 /* set the north offset of the scene */
 export function _setSceneNorthOffset(
 	state: State,
-	action: SetSceneNorthOffsetAction
+	action: {
+		payload: {
+			sceneKey: string
+			northOffset: number
+		}
+	}
 ) {
 	const { sceneKey, northOffset } = action.payload
 
