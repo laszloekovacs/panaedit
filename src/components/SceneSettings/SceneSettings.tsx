@@ -20,7 +20,7 @@ const SceneSettings = () => {
 	const handleSetOffset = (e: unknown) => {
 		const offset = {
 			sceneKey: sceneKey,
-			northOffset: yaw
+			northOffset: Number(yaw.toFixed(2))
 		}
 		dispatch(setSceneNorthOffset(offset))
 	}

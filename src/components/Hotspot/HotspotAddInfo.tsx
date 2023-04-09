@@ -12,7 +12,8 @@ const HotspotAddInfo = () => {
 			type: 'info',
 			yaw: editor.yaw,
 			pitch: editor.pitch,
-			text: 'new info'
+			text: 'new info',
+			targetYaw: 'sameAzimuth'
 		}
 
 		dispatch(addHotspot({ sceneKey: editor.activeScene, hotspot }))
@@ -20,7 +21,7 @@ const HotspotAddInfo = () => {
 
 	return (
 		<div className="flex flex-row">
-			<button onClick={handleAddInfo}>add info</button>
+			<button onClick={handleAddInfo}>add hotspot</button>
 		</div>
 	)
 }

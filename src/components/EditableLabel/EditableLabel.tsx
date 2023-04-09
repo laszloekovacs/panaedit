@@ -46,7 +46,7 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 	}
 
 	return (
-		<div className="editable-text">
+		<span className="editable-text">
 			{isEditing ? (
 				<input
 					ref={inputRef}
@@ -59,7 +59,7 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 			) : (
 				<span onClick={handleClick}>{text}</span>
 			)}
-		</div>
+		</span>
 	)
 }
 

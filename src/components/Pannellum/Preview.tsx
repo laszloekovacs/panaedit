@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
-import { setEditorOrientation } from '../../store'
+import { setActiveScene, setEditorOrientation } from '../../store'
 import _ from 'lodash'
 
 /* Create a panorama view from the state */
-const Preview = ({ state, container }) => {
+const Preview = ({ state, container, dispatch, window }) => {
 	const viewerRef = useRef<PannellumViewer | null>(null)
-	const dispatch = useDispatch()
 
 	useEffect(() => {
 		console.log('mounting preview')
@@ -15,8 +14,10 @@ const Preview = ({ state, container }) => {
 			throw new Error('Pannellum not loaded')
 		}
 
+		/*
+		 * warning: panellum mutates its inputs
+		 */
 		const stateCopy = _.cloneDeep(state)
-
 		viewerRef.current = window.pannellum.viewer(container, stateCopy)
 
 		/* store orientation when done rotating */

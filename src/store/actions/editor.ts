@@ -3,7 +3,7 @@ export function _setActiveScene(state: State, action: SetActiveSceneAction) {
 	const { sceneKey } = action.payload
 
 	if (!state.scenes[sceneKey]) {
-		throw new Error('scene does not exist')
+		throw new Error(`scene does not exist: ${sceneKey}`)
 	}
 
 	state.editor.activeScene = sceneKey

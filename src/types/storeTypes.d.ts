@@ -37,6 +37,7 @@ declare interface Hotspot {
 	type: 'scene' | 'info'
 	text: string
 	sceneId?: string
+	targetYaw: 'sameAzimuth'
 }
 
 declare interface Article {

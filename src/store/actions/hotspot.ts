@@ -21,3 +21,15 @@ export function _removeHotspot(state: State, action: RemoveHotspotAction) {
 
 	return state
 }
+
+export function _updateHotspot(state: State, action: UpdateHotspotAction) {
+	const { sceneKey, hotspotIndex, hotspot } = action.payload
+
+	if (!state.scenes[sceneKey]) {
+		throw new Error('scene does not exist, cannot update hotspot')
+	}
+
+	;(state.scenes[sceneKey] as Scene).hotSpots[hotspotIndex] = hotspot
+
+	return state
+}

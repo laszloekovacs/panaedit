@@ -18,7 +18,8 @@ import {
 	_removeScene,
 	_setSceneTitle,
 	_setSceneNorthOffset,
-	_SetEditorOrientation
+	_SetEditorOrientation,
+	_updateHotspot
 } from './actions'
 
 /* 
@@ -43,7 +44,8 @@ const projectSlice = createSlice({
 		removeScene: _removeScene,
 		setSceneTitle: _setSceneTitle,
 		setSceneNorthOffset: _setSceneNorthOffset,
-		setEditorOrientation: _SetEditorOrientation
+		setEditorOrientation: _SetEditorOrientation,
+		updateHotspot: _updateHotspot
 	}
 })
 
@@ -54,6 +56,7 @@ export const {
 	setActiveScene,
 	addHotspot,
 	removeHotspot,
+	updateHotspot,
 	addPhoto,
 	removePhoto,
 	setPhotoLabel,

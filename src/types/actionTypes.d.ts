@@ -103,3 +103,11 @@ declare interface SetEditorOrientationAction extends Action {
 		pitch: number
 	}
 }
+
+declare interface UpdateHotspotAction extends Action {
+	payload: {
+		sceneKey: string
+		hotspotIndex: number
+		hotspot: Hotspot
+	}
+}

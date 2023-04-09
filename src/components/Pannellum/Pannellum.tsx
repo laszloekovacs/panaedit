@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { resolvePathsToBlobUrl } from './resolvePathsToBlobUrl'
 import { FilesContext } from '../FilesProvider/FilesProvider'
 import _ from 'lodash'
 import Preview from './Preview'
+import { setActiveScene } from '../../store'
 /*
  * due to working in memory / on remote server, we can't use file paths, so the
  * scene object needs to be resolved to blob urls
@@ -15,6 +16,7 @@ import Preview from './Preview'
 const PannellumContainer = () => {
 	const folders = useContext(FilesContext)
 	const state = useSelector((state: State) => state)
+	const dispatch = useDispatch()
 
 	if (!state.editor.activeScene) return null
 
@@ -22,19 +24,46 @@ const PannellumContainer = () => {
 
 	const blob = resolvePathsToBlobUrl(activeScene.panorama, folders)
 
+	/* redirect clicks on hotspots so pannellum does not try to navigate */
+	const clickHandlerFunc = (e: unknown, sceneKey: string) => {
+		e.preventDefault()
+		if (!sceneKey) return
+
+		// set active scene to sceneKey
+		dispatch(setActiveScene({ sceneKey }))
+	}
+
+	const hotSpots = activeScene.hotSpots.map((hotSpot) => {
+		return {
+			...hotSpot,
+			clickHandlerFunc,
+			clickHandlerArgs: hotSpot?.sceneId || ''
+		}
+	})
+
+	console.log(hotSpots)
+
 	/* create the preview structure */
 	let stateSlice = {
 		type: 'equirectangular',
 		panorama: blob,
 		autoLoad: true,
 		hotSpotDebug: true,
-		hotSpots: activeScene.hotSpots,
+		hotSpots,
 		// restore rotation from editor
 		yaw: state.editor.yaw,
-		pitch: state.editor.pitch
+		pitch: state.editor.pitch,
+		compass: true
 	}
 
-	return <Preview state={stateSlice} container={'preview'} />
+	return (
+		<Preview
+			state={stateSlice}
+			container={'preview'}
+			dispatch={dispatch}
+			window={window}
+		/>
+	)
 }
 
 export default PannellumContainer

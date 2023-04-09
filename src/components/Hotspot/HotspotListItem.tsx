@@ -1,5 +1,6 @@
 import React from 'react'
-import { removeHotspot } from '../../store'
+import { removeHotspot, updateHotspot } from '../../store'
+import EditableLabel from '../EditableLabel/EditableLabel'
 
 type Props = {
 	hotspot: Hotspot
@@ -18,6 +19,12 @@ const HotspotListItem = ({
 
 	const handleRemove = (e) => {
 		dispatch(removeHotspot({ sceneKey, hotspotIndex }))
+	}
+
+	const handleLabelChange = (text) => {
+		const update = { ...hotspot, text: text }
+
+		dispatch(updateHotspot({ sceneKey, hotspotIndex, hotspot: update }))
 	}
 
 	return (
@@ -41,7 +48,10 @@ const HotspotListItem = ({
 				</table>
 				<p>
 					<b>Label: </b>
-					{text}
+					<EditableLabel
+						value={text}
+						onDoneEditing={handleLabelChange}
+					/>
 				</p>
 			</div>
 			<div>
