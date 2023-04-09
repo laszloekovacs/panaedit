@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setSceneNorthOffset, setSceneTitle } from '../../store'
 import EditableLabel from '../EditableLabel/EditableLabel'
 import { useEditor } from '../../hooks'

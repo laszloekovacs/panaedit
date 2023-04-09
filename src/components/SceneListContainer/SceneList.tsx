@@ -1,11 +1,11 @@
 import React from 'react'
 import SceneListItem from './SceneListItem'
 
-const SceneList = ({ items, onClick }) => {
+const SceneList = ({ items }: { items: string[] }) => {
 	return (
 		<ul>
-			{items.map((item, i) => (
-				<SceneListItem key={i} item={item} onClick={onClick} />
+			{items.map((item) => (
+				<SceneListItem key={item} itemKey={item} />
 			))}
 		</ul>
 	)
