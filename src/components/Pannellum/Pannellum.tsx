@@ -6,6 +6,7 @@ import { resolvePathsToBlobUrl } from './resolvePathsToBlobUrl'
 import _ from 'lodash'
 import Preview from './Preview'
 import { setActiveScene } from '../../store'
+import { useEditor } from '../../hooks'
 
 /*
  * due to working in memory / on remote server, we can't use file paths, so the
@@ -15,15 +16,12 @@ import { setActiveScene } from '../../store'
  * if there's only one scene, the flat structure is fine, no need to have scenes["key"].{scene}
  */
 const PannellumContainer = () => {
-	const folders = useContext(FilesContext)
-	const state = useSelector((state: State) => state)
 	const dispatch = useDispatch()
+	const { cache, activeSceneKey, scene, editor } = useEditor()
 
-	if (!state.editor.activeScene) return null
+	if (!activeSceneKey) return null
 
-	const activeScene = state.scenes[state.editor.activeScene] as Scene
-
-	const blob = resolvePathsToBlobUrl(activeScene.panorama, folders)
+	const blob = resolvePathsToBlobUrl(activeSceneKey, cache)
 
 	/* redirect clicks on hotspots so pannellum does not try to navigate */
 	const clickHandlerFunc = (event: MouseEvent, sceneKey: string) => {
@@ -34,7 +32,7 @@ const PannellumContainer = () => {
 		dispatch(setActiveScene({ sceneKey }))
 	}
 
-	const hotSpots = activeScene.hotSpots.map((hotSpot) => {
+	const hotSpots = scene.hotSpots.map((hotSpot) => {
 		return {
 			...hotSpot,
 			clickHandlerFunc,
@@ -52,19 +50,12 @@ const PannellumContainer = () => {
 		hotSpotDebug: true,
 		hotSpots,
 		// restore rotation from editor
-		yaw: state.editor.yaw,
-		pitch: state.editor.pitch,
+		yaw: editor.yaw,
+		pitch: editor.pitch,
 		compass: true
 	}
 
-	return (
-		<Preview
-			state={stateSlice}
-			container={'preview'}
-			dispatch={dispatch}
-			window={window}
-		/>
-	)
+	return <Preview state={stateSlice} container={'preview'} dispatch={dispatch} window={window} />
 }
 
 export default PannellumContainer

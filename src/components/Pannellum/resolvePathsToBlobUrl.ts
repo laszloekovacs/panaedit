@@ -1,8 +1,8 @@
-type fn = (path: string, refMap: Map<string, string>) => string
+type fn = (path: string, cache: CacheLine[]) => string
 
 /* the file path is the key, the value is the blob url */
-export const resolvePathsToBlobUrl: fn = (path, refMap) => {
-	const url = refMap.get(path)
+export const resolvePathsToBlobUrl: fn = (path, cache) => {
+	const url = cache.find((line) => line.key == path)?.value
 
 	if (!url) {
 		throw new Error(`Path ${path} is not associated with a blob url.`)

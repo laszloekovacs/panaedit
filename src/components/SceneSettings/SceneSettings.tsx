@@ -2,32 +2,28 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSceneNorthOffset, setSceneTitle } from '../../store'
 import EditableLabel from '../EditableLabel/EditableLabel'
+import { useEditor } from '../../hooks'
 
 /* Edit title and north offset of the current scene */
 const SceneSettings = () => {
 	const dispatch = useDispatch()
-	const yaw: number = useSelector((state: State) => state.editor.yaw)
-	const sceneKey: string = useSelector(
-		(state: State) => state.editor.activeScene
-	)
-	const scene: Scene = useSelector(
-		(state: State) => state.scenes[state.editor.activeScene]
-	)
+	const { scene, activeSceneKey, editor } = useEditor()
+	const yaw = editor.yaw
 
-	if (!sceneKey) return null
+	if (!activeSceneKey) return null
 
 	/* changing the offset */
 	const handleSetOffset = (e: unknown) => {
 		const offset = {
-			sceneKey: sceneKey,
+			sceneKey: activeSceneKey,
 			northOffset: Number(yaw.toFixed(2))
 		}
 		dispatch(setSceneNorthOffset(offset))
 	}
 
 	/* changing the scene's title */
-	const handleTitleChange = (newTitle: string) => {
-		dispatch(setSceneTitle({ sceneKey, title: newTitle }))
+	const handleTitleChange = (title: string) => {
+		dispatch(setSceneTitle({ sceneKey: activeSceneKey, title }))
 	}
 
 	return (
@@ -38,10 +34,7 @@ const SceneSettings = () => {
 				<span>{scene.northOffset}</span>
 			</p>
 
-			<EditableLabel
-				value={scene.title}
-				onDoneEditing={handleTitleChange}
-			/>
+			<EditableLabel value={scene.title} onDoneEditing={handleTitleChange} />
 			<button onClick={handleSetOffset}>setFromView</button>
 		</div>
 	)

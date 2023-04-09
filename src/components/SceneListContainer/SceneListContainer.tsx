@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import SceneList from './SceneList'
 import { setActiveScene } from '../../store'
 import { scenesToArray } from './scenesToArray'
+import { useEditor } from '../../hooks'
 
 /* read the list from the store, render it into a list */
 const SceneListContainer = () => {
-	const scenes = useSelector((s: State) => s.scenes)
+	const { scenes } = useEditor()
 	const dispatch = useDispatch()
 
 	if (!Object.keys(scenes)) return <p>no scenes, add some</p>

@@ -1,18 +1,10 @@
 import React from 'react'
 
-type Props = {
-	isOpen: boolean
-	children?: React.ReactNode
-	onClose: (args?: unknown) => void
-}
-
-const style = 'bg-white w-1/2 h-1/2 z-10'
-
-const Dialog = (props: Props) => {
+const Dialog = ({ children, isOpen, onClose }) => {
 	return (
-		<dialog role="dialog" className={style} open={props.isOpen}>
-			{props.children}
-			<button onClick={props.onClose}>Close</button>
+		<dialog role="dialog" className="z-10 h-1/2 w-1/2 bg-white" open={isOpen}>
+			{children}
+			<button onClick={onClose}>Close</button>
 		</dialog>
 	)
 }

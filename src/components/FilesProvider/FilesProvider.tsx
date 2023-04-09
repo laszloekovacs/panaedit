@@ -1,9 +1,10 @@
 import React from 'react'
 import FolderSelector from './FolderSelector'
 import { openWorkFiles } from './openWorkFiles'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { replaceCache } from '../../store'
 import _ from 'lodash'
+import { useEditor } from '../../hooks'
 
 /* 
 	After opening the work folder, store all files including subfolders in a js Map
@@ -14,7 +15,7 @@ const _directories = ['panoramas', 'articles', 'photos']
 
 const FilesProvider = ({ children, directories = _directories }) => {
 	const dispatch = useDispatch()
-	const cache = useSelector((state: State) => state.cache)
+	const { cache } = useEditor()
 
 	const onClick = async () => {
 		const map = await openWorkFiles(directories)

@@ -15,7 +15,7 @@ const storeDefaults: State = {
 	scenes: {},
 	articles: [],
 	editor: {
-		activeScene: '',
+		activeSceneKey: '',
 		activeView: 'panoramas',
 		yaw: 0,
 		pitch: 0

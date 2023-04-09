@@ -13,7 +13,7 @@ export function _setActiveScene(
 		throw new Error(`scene does not exist: ${sceneKey}`)
 	}
 
-	state.editor.activeScene = sceneKey
+	state.editor.activeSceneKey = sceneKey
 
 	return state
 }

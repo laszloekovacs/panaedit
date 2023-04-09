@@ -18,7 +18,7 @@ declare global {
 		articles: Article[]
 		editor: {
 			activeView: string
-			activeScene: string
+			activeSceneKey: string
 			yaw: number
 			pitch: number
 		}

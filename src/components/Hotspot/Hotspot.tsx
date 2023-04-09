@@ -3,14 +3,12 @@ import HotspotList from './HotspotList'
 import HotspotAddInfo from './HotspotAddInfo'
 import { useDispatch, useSelector } from 'react-redux'
 import HotspotAddLink from './HotspotAddLink'
+import { useEditor } from '../../hooks'
 
 /* container of hotspots */
 const Hotspot = () => {
 	const dispatch = useDispatch()
-	const scene: Scene = useSelector(
-		(state: State) => state.scenes[state.editor.activeScene]
-	)
-	const sceneKey = useSelector((state: State) => state.editor.activeScene)
+	const { scene, activeSceneKey } = useEditor()
 
 	const { hotSpots } = scene || []
 
@@ -19,13 +17,7 @@ const Hotspot = () => {
 			<h2>Hotspots</h2>
 			<HotspotAddInfo />
 			<HotspotAddLink />
-			{hotSpots && (
-				<HotspotList
-					hotspots={hotSpots}
-					sceneKey={sceneKey}
-					dispatch={dispatch}
-				/>
-			)}
+			{hotSpots && <HotspotList hotspots={hotSpots} sceneKey={activeSceneKey} dispatch={dispatch} />}
 		</div>
 	)
 }
