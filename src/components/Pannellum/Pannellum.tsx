@@ -2,10 +2,11 @@ import React, { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { resolvePathsToBlobUrl } from './resolvePathsToBlobUrl'
-import { FilesContext } from '../FilesProvider/FilesProvider'
+
 import _ from 'lodash'
 import Preview from './Preview'
 import { setActiveScene } from '../../store'
+
 /*
  * due to working in memory / on remote server, we can't use file paths, so the
  * scene object needs to be resolved to blob urls
@@ -14,6 +15,8 @@ import { setActiveScene } from '../../store'
  * if there's only one scene, the flat structure is fine, no need to have scenes["key"].{scene}
  */
 const PannellumContainer = () => {
+	return null
+
 	const folders = useContext(FilesContext)
 	const state = useSelector((state: State) => state)
 	const dispatch = useDispatch()

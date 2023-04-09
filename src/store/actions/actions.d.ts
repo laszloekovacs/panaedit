@@ -125,3 +125,9 @@ declare interface ReplaceCacheAction extends Action {
 		map: CacheLine[]
 	}
 }
+
+declare interface SetActiveViewAction extends Action {
+	payload: {
+		view: string
+	}
+}

@@ -21,7 +21,8 @@ import {
 	_SetEditorOrientation,
 	_updateHotspot,
 	_AddToCache,
-	_ReplaceCache
+	_ReplaceCache,
+	_SetActiveView
 } from './actions'
 
 /* 
@@ -49,7 +50,8 @@ const projectSlice = createSlice({
 		setEditorOrientation: _SetEditorOrientation,
 		updateHotspot: _updateHotspot,
 		addToCache: _AddToCache,
-		replaceCache: _ReplaceCache
+		replaceCache: _ReplaceCache,
+		setActiveView: _SetActiveView
 	}
 })
 
@@ -73,7 +75,8 @@ export const {
 	setSceneNorthOffset,
 	setEditorOrientation,
 	addToCache,
-	replaceCache
+	replaceCache,
+	setActiveView
 } = projectSlice.actions
 
 /* export the store */

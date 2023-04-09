@@ -22,3 +22,11 @@ export function _SetEditorOrientation(
 
 	return state
 }
+
+export function _SetActiveView(state: State, action: SetActiveViewAction) {
+	const { view } = action.payload
+
+	state.editor.activeView = view
+
+	return state
+}
