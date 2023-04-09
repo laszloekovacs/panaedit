@@ -2,38 +2,38 @@ import React from 'react'
 
 import Header from './Header/Header'
 import TabSelector from './TabSelector'
-import PanoView from './PanoView/PanoView'
+import PanoramasView from './PanoView/PanoView'
 import EditorView from './EditorView/EditorView'
 import PhotoView from './PhotoView/PhotoView'
-
-const options = [
-	{ label: 'Panoramas', value: <PanoView /> },
-	{ label: 'Editor', value: <EditorView /> },
-	{ label: 'Photos', value: <PhotoView /> }
-]
+import { useEditor } from '../hooks'
 
 /* should render the header, sidebar, status bar and the tabs selector 
 	the tabs decide what to render in main, and sidebar 
 */
-const Layout = () => {
-	const [selected, setSelected] = React.useState(options[0])
 
-	const handleChange = (to) => {
-		setSelected(to)
+const Layout = () => {
+	const { activeView } = useEditor()
+
+	const options = ['panoramas', 'editor', 'photos']
+
+	const handleChange = (option) => {
+		console.log(option)
 	}
 
 	return (
-		<div className="h-screen">
+		<div>
 			<Header />
 			<TabSelector
 				options={options}
-				selected={selected}
+				active={activeView}
 				onChange={handleChange}
 			/>
-			{selected.label == 'Panoramas' && <PanoView />}
-			{selected.label == 'Editor' && <EditorView />}
-			{selected.label == 'Photos' && <PhotoView />}
 		</div>
+		/*
+			{activeView === 'panoramas' && <PanoramasView />}
+			{activeView === 'editor' && <EditorView />}
+			{activeView === 'photos' && <PhotoView />}
+*/
 	)
 }
 

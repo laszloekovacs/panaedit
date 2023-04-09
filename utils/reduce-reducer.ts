@@ -1,4 +1,4 @@
-export default (...args) => {
+export const reduceReducers = (...args) => {
 	const initialState = typeof args[0] !== 'function' && args.shift()
 	const reducers = args
 

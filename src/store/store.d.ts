@@ -17,6 +17,7 @@ declare global {
 		scenes: Scene[string]
 		articles: Article[]
 		editor: {
+			activeView: string
 			activeScene: string
 			yaw: number
 			pitch: number

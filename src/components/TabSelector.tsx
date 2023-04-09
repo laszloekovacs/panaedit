@@ -1,24 +1,25 @@
 // @ts-nocheck
 import React from 'react'
 
-const TabSelector = ({ options, selected, onChange }) => {
+const TabSelector = ({ options, active, onChange }) => {
+	console.log(options)
+
 	return (
 		<ul className="flex flex-row justify-center">
 			{options.map((option) => (
 				<li
-					key={option.label}
+					key={option}
 					className="mx-2 border-b-2 border-b-violet-500"
 				>
-					<label key={option.label} htmlFor={option.label}>
-						<span>{option.label}</span>
-					</label>
+					<label htmlFor={option}>{option}</label>
+
 					<input
 						className="hidden"
-						id={option.label}
+						id={option}
 						type="radio"
 						name="tab"
-						value={option.label}
-						defaultChecked={selected.label === option.label}
+						value={option}
+						defaultChecked={active === option}
 						onChange={() => onChange(option)}
 					/>
 				</li>

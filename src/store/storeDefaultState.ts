@@ -16,12 +16,11 @@ const storeDefaults: State = {
 	articles: [],
 	editor: {
 		activeScene: '',
+		activeView: 'panoramas',
 		yaw: 0,
 		pitch: 0
 	},
-	cache: {
-		pathmap: new Map<string, string>()
-	}
+	cache: new Map<string, string>()
 }
 
 // TODO: do we need panoramas as base path
