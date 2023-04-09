@@ -5,20 +5,19 @@ export function _addScene(
 	state: State,
 	action: {
 		payload: {
-			sceneKey: string
-			blob: string
+			path: string
 		}
 	}
 ) {
-	const { sceneKey, blob } = action.payload
+	const { path } = action.payload
 
-	if (!sceneKey) {
+	if (!path) {
 		throw new Error('scene has no panorama file path')
 	}
 
 	// find the file name from the path, remove file extension
 	// having '.' in the key makes lodash create more nested objects
-	const fname = _.last(sceneKey.split('/'))
+	const fname = _.last(path.split('/'))
 	const key = _.first(fname?.split('.'))
 
 	if (!key) {
@@ -32,7 +31,7 @@ export function _addScene(
 	// create a new scene
 	const scene: Scene = {
 		title: key,
-		panorama: blob,
+		panorama: path,
 		hotSpots: [],
 		northOffset: 0
 	}

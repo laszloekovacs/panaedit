@@ -10,7 +10,7 @@ const PanoramaListItem = ({ item }) => {
 
 	/* add to project */
 	const handleAddToProject = (e) => {
-		dispatch(addScene({ sceneKey: item.key, blob: item.value }))
+		dispatch(addScene({ path: item.key, blob: item.value }))
 	}
 
 	return (

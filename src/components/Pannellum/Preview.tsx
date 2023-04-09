@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
-import { setActiveScene, setEditorOrientation } from '../../store'
+import { setEditorOrientation } from '../../store'
 import _ from 'lodash'
 
 /* Create a panorama view from the state */
-const Preview = ({ state, container, dispatch, window }) => {
+const Preview = ({ state, container }) => {
+	const dispatch = useDispatch()
 	const viewerRef = useRef<PannellumViewer | null>(null)
 
 	useEffect(() => {

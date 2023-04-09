@@ -6,6 +6,7 @@ const EditorView = () => {
 	return (
 		<div className="flex min-h-max flex-row">
 			<Sidebar />
+			<Pannellum />
 		</div>
 	)
 }

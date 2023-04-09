@@ -21,17 +21,17 @@ const PannellumContainer = () => {
 
 	if (!activeSceneKey) return null
 
-	const blob = resolvePathsToBlobUrl(activeSceneKey, cache)
+	const blob = resolvePathsToBlobUrl(scene.panorama, cache)
 
 	/* redirect clicks on hotspots so pannellum does not try to navigate */
 	const clickHandlerFunc = (event: MouseEvent, sceneKey: string) => {
 		event.preventDefault()
 		if (!sceneKey) return
-
 		// set active scene to sceneKey
 		dispatch(setActiveScene({ sceneKey }))
 	}
 
+	/* replace the click handler on hotspots */
 	const hotSpots = scene.hotSpots.map((hotSpot) => {
 		return {
 			...hotSpot,
@@ -40,8 +40,6 @@ const PannellumContainer = () => {
 		}
 	})
 
-	console.log(hotSpots)
-
 	/* create the preview structure */
 	let stateSlice = {
 		type: 'equirectangular',
@@ -49,13 +47,13 @@ const PannellumContainer = () => {
 		autoLoad: true,
 		hotSpotDebug: true,
 		hotSpots,
-		// restore rotation from editor
+		//restore rotation from editor
 		yaw: editor.yaw,
 		pitch: editor.pitch,
 		compass: true
 	}
 
-	return <Preview state={stateSlice} container={'preview'} dispatch={dispatch} window={window} />
+	return <Preview state={stateSlice} container={'preview'} />
 }
 
 export default PannellumContainer
