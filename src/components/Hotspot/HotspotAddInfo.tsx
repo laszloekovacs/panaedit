@@ -1,23 +1,26 @@
 import React from 'react'
-import Dialog from '../Dialog/Dialog'
+import { useDispatch, useSelector } from 'react-redux'
+import { addHotspot } from '../../store'
 
 const HotspotAddInfo = () => {
-	const [isOpen, setIsOpen] = React.useState(false)
+	const dispatch = useDispatch()
+	const editor = useSelector((state: State) => state.editor)
 
-	const openDialog = () => {
-		setIsOpen(true)
-	}
+	const handleAddInfo = (e) => {
+		console.log('add info')
+		const hotspot: Hotspot = {
+			type: 'info',
+			yaw: editor.yaw,
+			pitch: editor.pitch,
+			text: 'new info'
+		}
 
-	const closeDialog = () => {
-		setIsOpen(false)
+		dispatch(addHotspot({ sceneKey: editor.activeScene, hotspot }))
 	}
 
 	return (
 		<div className="flex flex-row">
-			<button onClick={openDialog}>add info</button>
-			<Dialog isOpen={isOpen} onClose={closeDialog}>
-				<p>hello</p>
-			</Dialog>
+			<button onClick={handleAddInfo}>add info</button>
 		</div>
 	)
 }

@@ -36,7 +36,7 @@ declare interface Hotspot {
 	yaw: number
 	type: 'scene' | 'info'
 	text: string
-	sceneId: string
+	sceneId?: string
 }
 
 declare interface Article {
