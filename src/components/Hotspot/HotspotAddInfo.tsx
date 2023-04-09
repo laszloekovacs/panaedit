@@ -1,5 +1,5 @@
 import React from 'react'
-import Dialog from './Dialog'
+import Dialog from '../Dialog/Dialog'
 
 const HotspotAddInfo = () => {
 	const [isOpen, setIsOpen] = React.useState(false)

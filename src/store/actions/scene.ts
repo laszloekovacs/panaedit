@@ -56,7 +56,10 @@ export function _setSceneTitle(state: State, action: SetSceneTitleAction) {
 }
 
 /* set the north offset of the scene */
-export function _setSceneNorthOffset(state: State, action: SetSceneNorthOffsetAction) {
+export function _setSceneNorthOffset(
+	state: State,
+	action: SetSceneNorthOffsetAction
+) {
 	const { sceneKey, northOffset } = action.payload
 
 	if (!state.scenes[sceneKey]) {

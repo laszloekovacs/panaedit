@@ -6,7 +6,7 @@ import { FilesContext } from '../FilesProvider/FilesProvider'
 import _ from 'lodash'
 import Preview from './Preview'
 /*
- * due to working in memory, we can't use file paths, so the
+ * due to working in memory / on remote server, we can't use file paths, so the
  * scene object needs to be resolved to blob urls
  * use lodash to deep copy the defaults and scene into one object
  * warning: pannellum mutates its inputs
@@ -14,11 +14,11 @@ import Preview from './Preview'
  */
 const PannellumContainer = () => {
 	const folders = useContext(FilesContext)
-	const _state = useSelector((state: State) => state)
+	const state = useSelector((state: State) => state)
 
-	if (!_state.editor.activeScene) return null
+	if (!state.editor.activeScene) return null
 
-	const activeScene = _state.scenes[_state.editor.activeScene] as Scene
+	const activeScene = state.scenes[state.editor.activeScene] as Scene
 
 	const blob = resolvePathsToBlobUrl(activeScene.panorama, folders)
 
@@ -33,7 +33,7 @@ const PannellumContainer = () => {
 
 	console.log('stateSlice ', stateSlice)
 
-	return <Preview state={stateSlice} />
+	return <Preview state={stateSlice} container={'preview'} />
 }
 
 export default PannellumContainer

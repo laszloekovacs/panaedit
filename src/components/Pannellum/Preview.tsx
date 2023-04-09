@@ -1,15 +1,18 @@
 import React, { useEffect, useRef } from 'react'
 
-const Preview = ({ state }) => {
+/* Create a panorama view from the state */
+const Preview = ({ state, container }) => {
 	const viewerRef = useRef<PannellumViewer | null>(null)
 
 	useEffect(() => {
 		console.log('mounting preview')
 
-		if (!window.pannellum) return console.log('pannellum not loaded')
+		if (!window.pannellum) {
+			throw new Error('Pannellum not loaded')
+		}
 
 		/* create a new instance of pannellum viewer */
-		viewerRef.current = window.pannellum.viewer('preview', state)
+		viewerRef.current = window.pannellum.viewer(container, state)
 
 		return () => {
 			console.log('unmounting preview')
@@ -18,7 +21,7 @@ const Preview = ({ state }) => {
 		}
 	}, [state])
 
-	return <div id="preview" className="aspect-video max-h-full"></div>
+	return <div id={container} className="aspect-video max-h-full"></div>
 }
 
 export default Preview

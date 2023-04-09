@@ -19,6 +19,8 @@ declare interface State {
 	articles: Article[]
 	editor: {
 		activeScene: string
+		yaw: number
+		pitch: number
 	}
 }
 
