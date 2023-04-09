@@ -4,7 +4,7 @@ export const openWorkFiles = async (directories: string[]) => {
 		startIn: 'desktop'
 	})
 
-	const files = new Map<string, string>()
+	const files: CacheLine[] = []
 
 	if (!project) return files
 
@@ -21,8 +21,9 @@ export const openWorkFiles = async (directories: string[]) => {
 		for await (const entry of handle.values()) {
 			if (entry.kind === 'file') {
 				const f = await entry.getFile()
-				const url = URL.createObjectURL(f)
-				files.set(`${dir}/${entry.name}`, url)
+				const blob = URL.createObjectURL(f)
+
+				files.push({ path: `${dir}/${entry.name}`, blob })
 			}
 		}
 	}

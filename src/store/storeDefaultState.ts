@@ -20,7 +20,7 @@ const storeDefaults: State = {
 		yaw: 0,
 		pitch: 0
 	},
-	cache: new Map<string, string>()
+	cache: []
 }
 
 // TODO: do we need panoramas as base path

@@ -111,3 +111,16 @@ declare interface UpdateHotspotAction extends Action {
 		hotspot: Hotspot
 	}
 }
+
+declare interface AddToCacheAction extends Action {
+	payload: {
+		path: string
+		blobUrl: string
+	}
+}
+
+declare interface ReplaceCacheAction extends Action {
+	payload: {
+		map: CacheLine[]
+	}
+}

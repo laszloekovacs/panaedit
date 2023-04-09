@@ -3,6 +3,7 @@
  */
 
 export * from './article'
+export * from './cache'
 export * from './editor'
 export * from './hotspot'
 // index.ts

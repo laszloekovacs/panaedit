@@ -22,7 +22,12 @@ declare global {
 			yaw: number
 			pitch: number
 		}
-		cache: Map<string, string>
+		cache: CacheLine[]
+	}
+
+	declare interface CacheLine {
+		path: string
+		blob: string
 	}
 
 	declare interface Scene {
