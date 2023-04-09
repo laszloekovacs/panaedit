@@ -1,26 +1,5 @@
 export {}
-
-/* extend window type */
 declare global {
-	interface Window {
-		pannellum: Pannellum
-	}
-	interface Pannellum {
-		viewer: (container: string, config: State) => PannellumViewer
-	}
-
-	type viewerEvent = 'error' | 'load' | 'scenechange' | 'animatefinished'
-
-	interface PannellumViewer {
-		on: (event: viewerEvent, listener: (data: unknown) => void) => void
-		destroy: () => void
-		getYaw: () => number
-		getPitch: () => number
-	}
-
-	/* 
-State. format is defined by pannellum
- */
 	declare interface State {
 		default: {
 			firstScene: string
@@ -42,9 +21,7 @@ State. format is defined by pannellum
 			yaw: number
 			pitch: number
 		}
-		cache: {
-			pathmap: Map<string, string>
-		}
+		cache: Map<string, string>
 	}
 
 	declare interface Scene {

@@ -7,13 +7,12 @@ import Layout from './Layout'
 
 import { store } from '../store'
 
+/* provide wrapper for error, store, and file selector */
 function App() {
-	const directories = ['panoramas', 'articles', 'photos']
-
 	return (
 		<ErrorBoundary>
 			<Provider store={store}>
-				<FilesProvider directories={directories}>
+				<FilesProvider>
 					<Layout />
 				</FilesProvider>
 			</Provider>

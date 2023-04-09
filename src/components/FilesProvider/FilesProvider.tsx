@@ -1,30 +1,28 @@
 import React from 'react'
 import FolderSelector from './FolderSelector'
 import { openWorkFiles } from './openWorkFiles'
-
-export const FilesContext = React.createContext(new Map<string, string>())
+import { useDispatch, useSelector } from 'react-redux'
 
 /* 
 	After opening the work folder, store all files including subfolders in a js Map
 	with the original path in the key, and an object url as the value.
 	later on, we just need to fiter out the files we need 
 */
-const FilesProvider = ({ children, directories }) => {
-	const [filesMap, setFilesMap] = React.useState(new Map<string, string>())
+const _directories = ['panoramas', 'articles', 'photos']
 
-	const handleClick = async () => {
-		await openWorkFiles(window, setFilesMap, directories)
+const FilesProvider = ({ children, directories = _directories }) => {
+	const dispatch = useDispatch()
+	const cache = useSelector((state: State) => state.cache)
+
+	const onClick = async () => {
+		const files = await openWorkFiles(directories)
+		//dispatch({ type: 'SET_CACHE', payload: files })
 	}
 
-	// return directory selector if not set
-	if (filesMap.size == 0) {
-		return <FolderSelector onClick={handleClick} />
+	if (cache.size == 0) {
+		return <FolderSelector onClick={onClick} />
 	} else {
-		return (
-			<FilesContext.Provider value={filesMap}>
-				{children}
-			</FilesContext.Provider>
-		)
+		return <>{children}</>
 	}
 }
 

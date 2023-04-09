@@ -1,5 +1,5 @@
 import { useState } from 'react'
 
-const useEditedScene = () => {
+const useScene = () => {
 	throw new Error('Not implemented')
 }

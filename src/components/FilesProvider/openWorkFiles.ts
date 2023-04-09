@@ -1,16 +1,12 @@
-export const openWorkFiles = async (
-	window: Window,
-	setFilesMap: (files: Map<string, string>) => void,
-	directories: string[]
-) => {
+export const openWorkFiles = async (directories: string[]) => {
 	/* user selects the root folder */
 	const project = await window.showDirectoryPicker({
 		startIn: 'desktop'
 	})
 
-	if (!project) return
-
 	const files = new Map<string, string>()
+
+	if (!project) return files
 
 	for (const dir of directories) {
 		const handle = await project.getDirectoryHandle(dir, {
@@ -31,5 +27,5 @@ export const openWorkFiles = async (
 		}
 	}
 
-	setFilesMap(files)
+	return files
 }
