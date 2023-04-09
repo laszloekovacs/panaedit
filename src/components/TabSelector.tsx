@@ -3,9 +3,9 @@ import React from 'react'
 
 const TabSelector = ({ options, selected, onChange }) => {
 	return (
-		<div className="flex flex-row justify-center">
+		<ul className="flex flex-row justify-center">
 			{options.map((option) => (
-				<div
+				<li
 					key={option.label}
 					className="mx-2 border-b-2 border-b-violet-500"
 				>
@@ -21,9 +21,9 @@ const TabSelector = ({ options, selected, onChange }) => {
 						defaultChecked={selected.label === option.label}
 						onChange={() => onChange(option)}
 					/>
-				</div>
+				</li>
 			))}
-		</div>
+		</ul>
 	)
 }
 
