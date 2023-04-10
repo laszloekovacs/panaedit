@@ -24,7 +24,7 @@ const FilesProvider = ({ children, directories = _directories }) => {
 
 	if (!cache || cache.length == 0) {
 		return (
-			<div>
+			<div className="flex flex-col justify-center w-10/12 m-auto h-full">
 				<div>
 					<button onClick={onClick}>Select local working directory</button>
 					<p>

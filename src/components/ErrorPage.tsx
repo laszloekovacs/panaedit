@@ -6,9 +6,9 @@ const Error = ({ message }) => {
 	}
 
 	return (
-		<div>
+		<div className="flex flex-col justify-center w-10/12 m-auto h-full">
 			<div>
-				<h2>Oh snap...</h2>
+				<h2 className="font-bold text-6xl">Oh snap...</h2>
 				<br />
 				<p>{message}</p>
 				<br />

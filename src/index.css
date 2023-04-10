@@ -5,6 +5,12 @@
 @tailwind utilities;
 
 @layer base {
+	#root,
+	html,
+	body {
+		height: 100%;
+	}
+
 	body {
 		font-family: 'JetBrains Mono', monospace;
 		user-select: none;

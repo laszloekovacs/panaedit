@@ -22,7 +22,6 @@ const PanoramaListItem = ({ item }: { item: CacheLine }) => {
 			<div className="bottom-0 gap-1 absolute hover:visible peer-hover:visible invisible mx-auto">
 				<button onClick={handleAddToProject}>add scene</button>
 				<button>set as start</button>
-				<button>remove</button>
 			</div>
 		</li>
 	)
