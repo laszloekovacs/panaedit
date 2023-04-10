@@ -34,3 +34,19 @@
 	}
 */
 }
+
+@layer components {
+	.editable {
+		background: none;
+		outline: none;
+		max-width: 100%;
+		cursor: pointer;
+	}
+	.editable:focus {
+		text-decoration: underline;
+	}
+
+	.editable:hover {
+		text-decoration: underline;
+	}
+}

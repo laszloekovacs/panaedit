@@ -52,9 +52,10 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 	}
 
 	return (
-		<span className="editable-text">
+		<span>
 			{isEditing ? (
 				<input
+					className="editable"
 					ref={inputRef}
 					type="text"
 					value={text}
@@ -63,7 +64,9 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 					onBlur={handleBlur}
 				/>
 			) : (
-				<span onClick={handleClick}>{text}</span>
+				<span className="editable" onClick={handleClick}>
+					{text}
+				</span>
 			)}
 		</span>
 	)

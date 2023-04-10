@@ -34,13 +34,18 @@ const SceneSettings = () => {
 	return (
 		<div>
 			<h2>Scene Settings</h2>
-			<p>
-				<b>north offset: </b>
-				<span>{scene.northOffset}</span>
+
+			<p className="flex flex-row flex-nowrap">
+				<b>title: </b>
+				<EditableLabel value={scene.title} onDoneEditing={handleTitleChange} />
 			</p>
 
-			<EditableLabel value={scene.title} onDoneEditing={handleTitleChange} />
-			<button onClick={handleSetOffset}>setFromView</button>
+			<div className="flex flex-row justify-between">
+				<p>
+					<b>north offset:</b> {scene.northOffset}
+				</p>
+				<button onClick={handleSetOffset}>set</button>
+			</div>
 		</div>
 	)
 }
