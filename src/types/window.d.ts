@@ -1,16 +1,10 @@
 declare global {
 	interface Window {
-		showDirectoryPicker: (
-			options?: DirectoryPickerOptions
-		) => Promise<FileSystemDirectoryHandle>
+		showDirectoryPicker: (options?: DirectoryPickerOptions) => Promise<FileSystemDirectoryHandle>
 
-		showOpenFilePicker: (
-			options?: FilePickerOptions
-		) => Promise<FileSystemFileHandle[]>
+		showOpenFilePicker: (options?: FilePickerOptions) => Promise<FileSystemFileHandle[]>
 
-		showSaveFilePicker: (
-			options?: FilePickerOptions
-		) => Promise<FileSystemFileHandle>
+		showSaveFilePicker: (options?: FilePickerOptions) => Promise<FileSystemFileHandle>
 	}
 
 	/* pannellum specific types */
@@ -29,6 +23,11 @@ declare global {
 		destroy: () => void
 		getYaw: () => number
 		getPitch: () => number
+	}
+
+	module '*.scss' {
+		const content: Record<string, string>
+		export default content
 	}
 }
 
