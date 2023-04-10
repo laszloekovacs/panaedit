@@ -1,0 +1,57 @@
+body {
+	background-color: gray;
+}
+
+%center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+
+.FilesProvider {
+	@extend %center;
+
+	button {
+		width: fit-content;
+		margin: 1rem 0;
+	}
+
+	div {
+		max-width: 70%;
+		margin: 0 auto;
+
+		a.download {
+			text-decoration: dotted;
+		}
+	}
+}
+
+.ErrorPage {
+	@extend %center;
+	div {
+		max-width: 70%;
+		margin: 0 auto;
+	}
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	background-color: deeppink;
+	margin-right: 0.2rem;
+	padding-inline: 1rem;
+	color: aliceblue;
+}
+
+button:hover {
+	background-color: darkviolet;
+}
+
+button:disabled {
+	background-color: gray;
+}
+
+a {
+	color: inherit;
+}

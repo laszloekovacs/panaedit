@@ -3,11 +3,25 @@
 	flex-direction: row;
 	justify-content: center;
 
-	li {
-		margin-inline: 0.5rem;
+	border-bottom: 2px solid black;
+
+	label {
+		padding-inline: 0.5rem;
+		cursor: pointer;
+	}
+
+	label:has(+ input:checked) {
+		background-color: black;
+		color: white;
 	}
 
 	input[type='radio'] {
 		display: none;
 	}
+}
+
+.Layout {
+	width: 100%;
+	padding: 1rem 2rem;
+	height: 100%;
 }

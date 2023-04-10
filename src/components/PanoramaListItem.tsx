@@ -17,7 +17,7 @@ const PanoramaListItem = ({ item }: { item: CacheLine }) => {
 	}
 
 	return (
-		<li className={style.PanoramaListItem}>
+		<li className={style.PanoramaListItem} data-onSelected={true}>
 			<div>
 				<p>{filename}</p>
 				<img src={item.value} alt={item.key} />

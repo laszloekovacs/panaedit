@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
-import { setEditorOrientation } from '../../store'
+import { setEditorOrientation } from '../store'
 import _ from 'lodash'
 
 /* Create a panorama view from the state */

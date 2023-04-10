@@ -6,4 +6,10 @@
 
 .PanoramaListItem {
 	flex: 0 1 30%;
+	border: 2px solid transparent;
+}
+
+.panoramalistitem[data-selected='true'] {
+	background-color: deeppink;
+	border: 2px solid deeppink;
 }
