@@ -9,7 +9,7 @@ const PhotosList = () => {
 	const photos = filterCache(cache, /^photo/)
 
 	return (
-		<ul className="grid grid-cols-3 gap-1">
+		<ul className="grid grid-cols-3 gap-1 max-h-full overflow-y-auto">
 			{photos && photos.map((photo) => <PhotosListItem key={photo.key} photo={photo} />)}
 		</ul>
 	)

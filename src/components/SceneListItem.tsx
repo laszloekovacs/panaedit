@@ -15,8 +15,12 @@ const SceneListItem = ({ itemKey }: { itemKey: string }) => {
 	}
 
 	return (
-		<li className="border-2 border-gray-300 " onClick={() => handleSelect(itemKey)}>
-			<p>{itemKey}</p>
+		<li
+			className="p-1 bg-opacity-0 odd:bg-opacity-20 bg-slate-800 hover:bg-opacity-40"
+			onClick={() => handleSelect(itemKey)}
+		>
+			<p>{scene.title}</p>
+			<p className="opacity-50">{itemKey}</p>
 		</li>
 	)
 }

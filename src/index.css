@@ -8,36 +8,29 @@
 	#root,
 	html,
 	body {
-		height: 100%;
+		height: 100vh;
 	}
 
 	body {
 		font-family: 'JetBrains Mono', monospace;
-		user-select: none;
-		@apply bg-stone-500;
+		@apply bg-stone-500 relative select-none;
 	}
 
 	button {
-		color: whitesmoke;
-		background-color: fuchsia;
-		padding-inline: 1rem;
-	}
-
-	button:hover {
-		background-color: rebeccapurple;
+		@apply bg-stone-800 text-white px-4 opacity-90 hover:bg-purple-800;
 	}
 
 	input[type='radio'] {
 		display: none;
 	}
 
+	h2 {
+		@apply text-lg font-bold mb-2;
+	}
 	/* only for debugging */
 	/*
 	div {
 		border: 1px dotted hotpink;
 	}
 */
-}
-
-@layer utilities {
 }
