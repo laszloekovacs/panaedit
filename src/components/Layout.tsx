@@ -25,7 +25,7 @@ const Layout = () => {
 	}
 
 	return (
-		<div>
+		<div className="h-full px-7 pt-4">
 			<Header />
 			<LayoutSelector options={options} active={activeView} onChange={handleChange} />
 

@@ -16,12 +16,14 @@ const PanoramaListItem = ({ item }: { item: CacheLine }) => {
 	}
 
 	return (
-		<li>
-			<div>
-				<p>{filename}</p>
-				<img src={item.value} alt={item.key} />
+		<li className="isolate relative">
+			<p className="z-10 block w-min absolute top-0 bg-white bg-opacity-40">{filename}</p>
+			<img className="peer" src={item.value} alt={item.key} />
+			<div className="bottom-0 gap-1 absolute hover:visible peer-hover:visible invisible mx-auto">
+				<button onClick={handleAddToProject}>add scene</button>
+				<button>set as start</button>
+				<button>remove</button>
 			</div>
-			<button onClick={handleAddToProject}>add scene</button>
 		</li>
 	)
 }

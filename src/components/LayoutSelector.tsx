@@ -3,12 +3,11 @@ import React from 'react'
 
 const LayoutSelector = ({ options, active, onChange }) => {
 	return (
-		<ul>
+		<ul className="flex flex-row flex-nowrap justify-center gap-2">
 			{options.map((option) => (
-				<li key={option}>
-					<label htmlFor={option}>{option}</label>
-
+				<li key={option} data-selected={active == option}>
 					<input
+						className="peer"
 						id={option}
 						type="radio"
 						name="tab"
@@ -16,6 +15,13 @@ const LayoutSelector = ({ options, active, onChange }) => {
 						defaultChecked={active === option}
 						onChange={() => onChange(option)}
 					/>
+
+					<label
+						className="px-3 cursor-pointer peer-checked:bg-black peer-checked:text-white"
+						htmlFor={option}
+					>
+						{option}
+					</label>
 				</li>
 			))}
 		</ul>
