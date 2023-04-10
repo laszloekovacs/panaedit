@@ -16,23 +16,3 @@ export function _loadProject(
 ) {
 	return action.payload.project
 }
-
-/* set first scene in the project */
-export function _setFirstScene(
-	state: State,
-	action: {
-		payload: {
-			sceneKey: string
-		}
-	}
-) {
-	const { sceneKey } = action.payload
-
-	if (!state.scenes[sceneKey]) {
-		throw new Error('scene does not exist')
-	}
-
-	state.default.firstScene = sceneKey
-
-	return state
-}

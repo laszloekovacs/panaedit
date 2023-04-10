@@ -31,7 +31,7 @@ export function _addScene(
 
 		// create a new scene
 		const scene: Scene = {
-			title: key,
+			title: path,
 			panorama: path,
 			hotSpots: [],
 			northOffset: 0
@@ -40,9 +40,15 @@ export function _addScene(
 		// add scene to state,
 		_.set(state.scenes, key, scene)
 
+		// if firstscene and active is not set, set it
+		if (!state.default.firstScene) {
+			state.default.firstScene = key
+			state.editor.activeSceneKey = key
+		}
+
 		return state
 	} catch (err) {
-		console.error(err)
+		console.log(err)
 		return state
 	}
 }
@@ -108,6 +114,26 @@ export function _setSceneNorthOffset(
 
 	// set the north offset of the scene
 	;(state.scenes[sceneKey] as Scene).northOffset = northOffset
+
+	return state
+}
+
+/* set first scene in the project */
+export function _setFirstScene(
+	state: State,
+	action: {
+		payload: {
+			sceneKey: string
+		}
+	}
+) {
+	const { sceneKey } = action.payload
+
+	if (!state.scenes[sceneKey]) {
+		throw new Error('scene does not exist')
+	}
+
+	state.default.firstScene = sceneKey
 
 	return state
 }

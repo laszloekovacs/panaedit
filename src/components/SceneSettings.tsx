@@ -13,17 +13,22 @@ const SceneSettings = () => {
 	if (!activeSceneKey) return null
 
 	/* changing the offset */
-	const handleSetOffset = (e: unknown) => {
-		const offset = {
+	const handleSetOffset = () => {
+		const payload = {
 			sceneKey: activeSceneKey,
 			northOffset: Number(yaw.toFixed(2))
 		}
-		dispatch(setSceneNorthOffset(offset))
+		dispatch(setSceneNorthOffset(payload))
 	}
 
 	/* changing the scene's title */
 	const handleTitleChange = (title: string) => {
-		dispatch(setSceneTitle({ sceneKey: activeSceneKey, title }))
+		const payload = {
+			sceneKey: activeSceneKey,
+			title
+		}
+
+		dispatch(setSceneTitle(payload))
 	}
 
 	return (

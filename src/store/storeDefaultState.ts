@@ -23,5 +23,5 @@ const storeDefaults: State = {
 	cache: []
 }
 
-// TODO: do we need panoramas as base path
+// TODO: do we need panoramas as base path?
 export default storeDefaults

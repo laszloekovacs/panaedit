@@ -1,28 +1,32 @@
 export {}
 declare global {
 	declare interface State {
-		default: {
-			firstScene: string
-			sceneFadeDuration: number
-			type: 'equirectangular'
-			autoLoad: boolean
-			compass: boolean
-			hotSpotDebug: boolean
-			hfov: number
-			vfov: number
-			minPitch: number
-			maxPitch: number
-			basePath: string
-		}
-		scenes: Scene[string]
+		default: Default
+		scenes: { [key: string]: Scene }
 		articles: Article[]
-		editor: {
-			activeView: string
-			activeSceneKey: string
-			yaw: number
-			pitch: number
-		}
+		editor: Editor
 		cache: CacheLine[]
+	}
+
+	declare interface Default {
+		firstScene: string
+		sceneFadeDuration: number
+		type: 'equirectangular'
+		autoLoad: boolean
+		compass: boolean
+		hotSpotDebug: boolean
+		hfov: number
+		vfov: number
+		minPitch: number
+		maxPitch: number
+		basePath: string
+	}
+
+	declare interface Editor {
+		activeView: string
+		activeSceneKey: string
+		yaw: number
+		pitch: number
 	}
 
 	declare interface CacheLine {

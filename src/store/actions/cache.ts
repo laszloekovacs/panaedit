@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { AnyAction } from 'redux'
 
 export function _AddToCache(
 	state: State,
@@ -16,10 +17,7 @@ export function _AddToCache(
 	return state
 }
 
-export function _ReplaceCache(
-	state: State,
-	action: { payload: { map: CacheLine[] } }
-) {
+export function _ReplaceCache(state: State, action: { payload: { map: CacheLine[] } }) {
 	const { map } = action.payload
 
 	state.cache = map

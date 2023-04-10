@@ -1,7 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addScene, setActiveScene, setFirstScene } from '../store'
-import { useEditor as useProject } from '../hooks'
 
 const PanoramaListItem = ({ item }: { item: CacheLine }) => {
 	const dispatch = useDispatch()
@@ -13,12 +12,6 @@ const PanoramaListItem = ({ item }: { item: CacheLine }) => {
 	/* add to project */
 	const handleAddToProject = (e) => {
 		dispatch(addScene({ path: item.key }))
-
-		/* if there's no first scene, set this one as too */
-		if (state.default.firstScene == '') {
-			dispatch(setFirstScene({ sceneKey: item.key }))
-			dispatch(setActiveScene({ sceneKey: item.key }))
-		}
 	}
 
 	return (
