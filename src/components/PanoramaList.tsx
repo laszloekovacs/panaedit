@@ -1,7 +1,7 @@
 import React from 'react'
 import PanoramaListItem from './PanoramaListItem'
 
-import { useEditor } from '../hooks'
+import { useEditor } from '../hooks/useEditor'
 import { filterCache } from '../functions/filterCache'
 
 const PanoramaGrid = () => {

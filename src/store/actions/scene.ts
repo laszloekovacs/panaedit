@@ -9,37 +9,42 @@ export function _addScene(
 		}
 	}
 ) {
-	const { path } = action.payload
+	try {
+		const { path } = action.payload
 
-	if (!path) {
-		throw new Error('scene has no panorama file path')
+		if (!path) {
+			throw new Error('scene has no panorama file path')
+		}
+
+		// find the file name from the path, remove file extension
+		// having '.' in the key makes lodash create more nested objects
+		const fname = _.last(path.split('/'))
+		const key = _.first(fname?.split('.'))
+
+		if (!key) {
+			throw new Error('invalid panorama name / scene key')
+		}
+
+		if (state.scenes[key]) {
+			throw new Error('scene already exists')
+		}
+
+		// create a new scene
+		const scene: Scene = {
+			title: key,
+			panorama: path,
+			hotSpots: [],
+			northOffset: 0
+		}
+
+		// add scene to state,
+		_.set(state.scenes, key, scene)
+
+		return state
+	} catch (err) {
+		console.error(err)
+		return state
 	}
-
-	// find the file name from the path, remove file extension
-	// having '.' in the key makes lodash create more nested objects
-	const fname = _.last(path.split('/'))
-	const key = _.first(fname?.split('.'))
-
-	if (!key) {
-		throw new Error('invalid panorama name / scene key')
-	}
-
-	if (state.scenes[key]) {
-		throw new Error('scene already exists')
-	}
-
-	// create a new scene
-	const scene: Scene = {
-		title: key,
-		panorama: path,
-		hotSpots: [],
-		northOffset: 0
-	}
-
-	// add scene to state,
-	_.set(state.scenes, key, scene)
-
-	return state
 }
 
 /* remove scene */

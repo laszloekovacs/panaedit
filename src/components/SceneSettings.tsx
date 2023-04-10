@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { setSceneNorthOffset, setSceneTitle } from '../store'
 import EditableLabel from './EditableLabel'
-import { useEditor } from '../hooks'
+import { useEditor } from '../hooks/useEditor'
 
 /* Edit title and north offset of the current scene */
 const SceneSettings = () => {

@@ -4,7 +4,7 @@ import { openWorkFiles } from '../functions/openWorkFiles'
 import { useDispatch } from 'react-redux'
 import { replaceCache } from '../store'
 import _ from 'lodash'
-import { useEditor } from '../hooks'
+import { useEditor } from '../hooks/useEditor'
 
 /* 
 	After opening the work folder, store all files including subfolders in a js Map

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import SceneList from './SceneList'
 
 import { addHotspot } from '../store'
-import { useEditor } from '../hooks'
+import { useEditor } from '../hooks/useEditor'
 
 const HotspotAddLink = () => {
 	const [showDialog, setShowDialog] = React.useState(false)

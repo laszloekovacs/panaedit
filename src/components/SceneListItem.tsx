@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { setActiveScene } from '../store'
-import { useEditor } from '../hooks'
+import { useEditor } from '../hooks/useEditor'
 
 const SceneListItem = ({ itemKey }: { itemKey: string }) => {
 	const dispatch = useDispatch()

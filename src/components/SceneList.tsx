@@ -1,6 +1,6 @@
 import React from 'react'
 import SceneListItem from './SceneListItem'
-import { useEditor } from '../hooks'
+import { useEditor } from '../hooks/useEditor'
 
 const SceneList = () => {
 	const { scenes } = useEditor()

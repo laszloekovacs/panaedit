@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux'
 
 export const useEditor = () => {
-	const { editor, cache, scenes } = useSelector((state: State) => state)
+	const state: State = useSelector((state: State) => state)
+	const { editor, cache, scenes } = state
 	const activeView: string = editor.activeView
 	const activeSceneKey: string = editor.activeSceneKey
 	const scene: Scene = scenes[activeSceneKey]
 
-	return { editor, cache, scenes, activeView, activeSceneKey, scene }
+	return { state, editor, cache, scenes, activeView, activeSceneKey, scene }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useEditor } from '../hooks'
+import { useEditor } from '../hooks/useEditor'
 
 import Header from './Header'
 import LayoutSelector from './LayoutSelector'
