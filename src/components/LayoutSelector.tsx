@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react'
-import style from './Layout.module.scss'
+import style from '../styles/Layout.module.scss'
 
 const LayoutSelector = ({ options, active, onChange }) => {
 	return (

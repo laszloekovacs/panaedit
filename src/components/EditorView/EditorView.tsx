@@ -1,11 +1,11 @@
 import React from 'react'
-import Sidebar from '../Sidebar/Sidebar'
+import EditorSidebar from '../EditorSidebar'
 import Pannellum from '../Pannellum/Pannellum'
 
 const EditorView = () => {
 	return (
 		<div className="flex min-h-max flex-row">
-			<Sidebar />
+			<EditorSidebar />
 			<Pannellum />
 		</div>
 	)
