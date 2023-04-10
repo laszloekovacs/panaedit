@@ -1,10 +1,10 @@
 import React from 'react'
-import Dialog from '../Dialog'
+import Dialog from './Dialog'
 import { useDispatch } from 'react-redux'
-import SceneList from '../SceneListContainer/SceneList'
+import SceneList from './SceneList'
 
-import { addHotspot } from '../../store'
-import { useEditor } from '../../hooks'
+import { addHotspot } from '../store'
+import { useEditor } from '../hooks'
 
 const HotspotAddLink = () => {
 	const [showDialog, setShowDialog] = React.useState(false)

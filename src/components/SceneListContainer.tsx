@@ -1,7 +1,7 @@
 import React from 'react'
 
 import SceneList from './SceneList'
-import { useEditor } from '../../hooks'
+import { useEditor } from '../hooks/useEditor'
 
 /* read the list from the store, render it into a list */
 const SceneListContainer = () => {

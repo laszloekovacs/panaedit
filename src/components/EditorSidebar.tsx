@@ -1,6 +1,6 @@
 import React from 'react'
-import SceneListContainer from './SceneListContainer/SceneListContainer'
-import Hotspot from './Hotspot/Hotspot'
+import SceneListContainer from './SceneListContainer'
+import Hotspot from './Hotspot'
 import SceneSettings from './SceneSettings'
 
 const EditorSidebar = () => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import HotspotList from './HotspotList'
 import HotspotAddInfo from './HotspotAddInfo'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import HotspotAddLink from './HotspotAddLink'
-import { useEditor } from '../../hooks'
+import { useEditor } from '../hooks'
 
 /* container of hotspots */
 const Hotspot = () => {

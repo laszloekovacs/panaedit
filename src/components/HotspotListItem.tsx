@@ -1,6 +1,6 @@
 import React from 'react'
-import { removeHotspot, updateHotspot } from '../../store'
-import EditableLabel from '../EditableLabel'
+import { removeHotspot, updateHotspot } from '../store'
+import EditableLabel from './EditableLabel'
 
 type Props = {
 	hotspot: Hotspot

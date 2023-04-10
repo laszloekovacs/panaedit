@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addHotspot } from '../../store'
-import { useEditor } from '../../hooks'
+import { addHotspot } from '../store'
+import { useEditor } from '../hooks'
 
 const HotspotAddInfo = () => {
 	const dispatch = useDispatch()

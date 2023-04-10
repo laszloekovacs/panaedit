@@ -19,7 +19,6 @@ const FilesProvider = ({ children, directories = _directories }) => {
 
 	const onClick = async () => {
 		const map = await openWorkFiles(directories)
-
 		dispatch(replaceCache({ map }))
 	}
 
