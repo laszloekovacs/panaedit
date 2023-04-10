@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addScene, setActiveScene } from '../../store'
-import { useEditor as useProject } from '../../hooks'
+import { addScene, setActiveScene } from '../store'
+import { useEditor as useProject } from '../hooks'
 
 const PanoramaListItem = ({ item }: { item: CacheLine }) => {
 	const dispatch = useDispatch()

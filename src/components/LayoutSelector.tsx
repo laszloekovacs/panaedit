@@ -1,20 +1,15 @@
 // @ts-nocheck
 import React from 'react'
+import style from './Layout.module.scss'
 
-const TabSelector = ({ options, active, onChange }) => {
-	console.log(options)
-
+const LayoutSelector = ({ options, active, onChange }) => {
 	return (
-		<ul className="flex flex-row justify-center">
+		<ul className={style.layoutSelector}>
 			{options.map((option) => (
-				<li
-					key={option}
-					className="mx-2 border-b-2 border-b-violet-500"
-				>
+				<li key={option}>
 					<label htmlFor={option}>{option}</label>
 
 					<input
-						className="hidden"
 						id={option}
 						type="radio"
 						name="tab"
@@ -28,4 +23,4 @@ const TabSelector = ({ options, active, onChange }) => {
 	)
 }
 
-export default TabSelector
+export default LayoutSelector

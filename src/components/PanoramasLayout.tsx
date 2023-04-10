@@ -1,8 +1,8 @@
 import React from 'react'
 import PanoramaList from './PanoramaList'
 
-const PanoramaView = () => {
+const PanoramasLayout = () => {
 	return <PanoramaList />
 }
 
-export default PanoramaView
+export default PanoramasLayout

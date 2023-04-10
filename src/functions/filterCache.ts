@@ -1,5 +1,5 @@
 /* fiter by regex, return array */
-export function filteredCache(cache: CacheLine[], regex): CacheLine[] {
+export function filterCache(cache: CacheLine[], regex): CacheLine[] {
 	let list: CacheLine[] = []
 
 	list = cache.filter((line) => {

@@ -6,7 +6,7 @@ import Header from './Header'
 import LayoutSelector from './LayoutSelector'
 import EditorView from './EditorView/EditorView'
 import PhotoView from './PhotoView/PhotoView'
-import PanoramaView from './PanoramaView/panoramaView'
+import PanoramasLayout from './PanoramasLayout'
 import { setActiveView } from '../store'
 import { useDispatch } from 'react-redux'
 
@@ -29,7 +29,7 @@ const Layout = () => {
 			<Header />
 			<LayoutSelector options={options} active={activeView} onChange={handleChange} />
 
-			{activeView === 'panoramas' && <PanoramaView />}
+			{activeView === 'panoramas' && <PanoramasLayout />}
 			{activeView === 'editor' && <EditorView />}
 			{activeView === 'photos' && <PhotoView />}
 		</div>
