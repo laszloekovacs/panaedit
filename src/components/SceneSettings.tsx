@@ -32,7 +32,7 @@ const SceneSettings = () => {
 	}
 
 	return (
-		<div>
+		<div className="mb-4">
 			<h2>Scene Settings</h2>
 
 			<p className="flex flex-row flex-nowrap">

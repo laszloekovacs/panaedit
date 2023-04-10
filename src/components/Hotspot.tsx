@@ -15,8 +15,10 @@ const Hotspot = () => {
 	return (
 		<div>
 			<h2>Hotspots</h2>
-			<HotspotAddInfo />
-			<HotspotAddLink />
+			<div className="flex flex-row flex-nowrap justify-between">
+				<HotspotAddInfo />
+				<HotspotAddLink />
+			</div>
 			{hotSpots && <HotspotList hotspots={hotSpots} sceneKey={activeSceneKey} dispatch={dispatch} />}
 		</div>
 	)

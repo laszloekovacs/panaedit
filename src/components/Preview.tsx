@@ -28,7 +28,7 @@ const Preview = ({ state, container }) => {
 	}, [state.panorama, state.hotSpots])
 
 	/* returned element */
-	return <div id={container} className="aspect-video max-h-full"></div>
+	return <div className="h-40" id={container}></div>
 }
 
 export default Preview

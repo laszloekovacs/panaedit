@@ -6,8 +6,8 @@ import SceneList from './SceneList'
 
 const EditorLayout = () => {
 	return (
-		<div className="flex min-h-max flex-row">
-			<div className="h-full w-80 mr-2">
+		<div className="flex flex-row h-full">
+			<div className="w-96 mr-2">
 				<h2>Scene List</h2>
 				<SceneList />
 				<SceneSettings />
