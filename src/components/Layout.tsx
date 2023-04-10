@@ -9,7 +9,6 @@ import PhotosLayout from './PhotoLayout'
 import PanoramasLayout from './PanoramaLayout'
 import { setActiveView } from '../store'
 import { useDispatch } from 'react-redux'
-import styles from './Layout.module.scss'
 
 /* should render the header, sidebar, status bar and the tabs selector 
 	the tabs decide what to render in main, and sidebar 
@@ -26,7 +25,7 @@ const Layout = () => {
 	}
 
 	return (
-		<div className={styles.Layout}>
+		<div>
 			<Header />
 			<LayoutSelector options={options} active={activeView} onChange={handleChange} />
 

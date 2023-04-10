@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './Styles.module.scss'
 
 const Error = ({ message }) => {
 	const onClick = () => {
@@ -7,7 +6,7 @@ const Error = ({ message }) => {
 	}
 
 	return (
-		<div className={styles.ErrorPage}>
+		<div>
 			<div>
 				<h2>Oh snap...</h2>
 				<br />

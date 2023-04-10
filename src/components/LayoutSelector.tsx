@@ -1,10 +1,9 @@
 // @ts-nocheck
 import React from 'react'
-import style from './Layout.module.scss'
 
 const LayoutSelector = ({ options, active, onChange }) => {
 	return (
-		<ul className={style.LayoutSelector}>
+		<ul>
 			{options.map((option) => (
 				<li key={option}>
 					<label htmlFor={option}>{option}</label>
