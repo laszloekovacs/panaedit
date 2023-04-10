@@ -1,5 +1,7 @@
 import { reset } from '../store'
 
 export function resetProject(dispatch) {
-	dispatch(reset())
+	if (confirm('Are you sure you want to reset the project?')) {
+		dispatch(reset())
+	}
 }

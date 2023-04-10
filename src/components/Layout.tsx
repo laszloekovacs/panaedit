@@ -2,8 +2,8 @@ import React from 'react'
 
 import { useEditor } from '../hooks'
 
-import Header from './Header/Header'
-import TabSelector from './LayoutSelector'
+import Header from './Header'
+import LayoutSelector from './LayoutSelector'
 import EditorView from './EditorView/EditorView'
 import PhotoView from './PhotoView/PhotoView'
 import PanoramaView from './PanoramaView/panoramaView'
@@ -27,7 +27,7 @@ const Layout = () => {
 	return (
 		<div>
 			<Header />
-			<TabSelector options={options} active={activeView} onChange={handleChange} />
+			<LayoutSelector options={options} active={activeView} onChange={handleChange} />
 
 			{activeView === 'panoramas' && <PanoramaView />}
 			{activeView === 'editor' && <EditorView />}

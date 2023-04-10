@@ -12,15 +12,14 @@
 		"@reduxjs/toolkit": "^1.9.3",
 		"@types/filesystem": "^0.0.32",
 		"@types/wicg-file-system-access": "^2020.9.5",
-		"autoprefixer": "^10.4.14",
+		"immer": "^9.0.21",
 		"lodash": "^4.17.21",
-		"postcss": "^8.4.21",
 		"prettier": "^2.8.7",
-		"prettier-plugin-tailwindcss": "^0.2.7",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0",
 		"react-redux": "^8.0.2",
 		"redux": "^4.2.0",
+		"sass": "^1.61.0",
 		"typescript": "^5.0.3",
 		"vite": "^4.2.1",
 		"vitest": "^0.29.8"
@@ -37,8 +36,5 @@
 		"playwright:codegen": "playwright codegen",
 		"test-ct": "playwright test -c playwright-ct.config.ts",
 		"linecount": "node ./utils/linecount.js .js .ts .jsx .tsx"
-	},
-	"dependencies": {
-		"immer": "^9.0.21"
 	}
 }

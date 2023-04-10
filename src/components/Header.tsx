@@ -1,8 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadProjectFile, saveProjectFile, resetProject } from '../../functions'
-
-import Files from './Files'
+import { loadProjectFile, saveProjectFile, resetProject } from '../functions'
 
 /* header container */
 const Header = () => {
@@ -26,7 +24,9 @@ const Header = () => {
 
 	return (
 		<div>
-			<Files onNew={onNew} onOpen={onOpen} onSave={onSave} />
+			<button onClick={onNew}>new</button>
+			<button onClick={onOpen}>open</button>
+			<button onClick={onSave}>save</button>
 		</div>
 	)
 }
