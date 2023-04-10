@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addScene, setActiveScene } from '../store'
 import { useEditor as useProject } from '../hooks'
+import style from './Panorama.module.scss'
 
 const PanoramaListItem = ({ item }: { item: CacheLine }) => {
 	const dispatch = useDispatch()
@@ -16,7 +17,7 @@ const PanoramaListItem = ({ item }: { item: CacheLine }) => {
 	}
 
 	return (
-		<li className="border-2 border-solid border-neutral-700 border-opacity-50">
+		<li className={style.PanoramaListItem}>
 			<div>
 				<p>{filename}</p>
 				<img src={item.value} alt={item.key} />

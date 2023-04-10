@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { replaceCache } from '../store'
 import _ from 'lodash'
 import { useEditor } from '../hooks'
-import styles from '../styles/FilesProvider.module.scss'
+import styles from './FilesProvider.module.scss'
 
 /* 
 	After opening the work folder, store all files including subfolders in a js Map
@@ -25,9 +25,11 @@ const FilesProvider = ({ children, directories = _directories }) => {
 
 	if (!cache || cache.length == 0) {
 		return (
-			<div className={styles.filesProvider}>
-				<button onClick={onClick}>Select local working directory</button>
-				<p>download example project to try out this wonderfull product</p>
+			<div className={styles.FilesProvider}>
+				<div>
+					<button onClick={onClick}>Select local working directory</button>
+					<p>or download example project to try out this wonderfull product</p>
+				</div>
 			</div>
 		)
 	} else {

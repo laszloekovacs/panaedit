@@ -1,0 +1,13 @@
+.FilesProvider {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	overflow: hidden;
+	height: 100%;
+	justify-content: center;
+
+	div {
+		margin: 0 auto;
+		border: 1px dotted orangered;
+	}
+}

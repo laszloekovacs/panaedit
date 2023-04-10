@@ -9,7 +9,7 @@ import fs from 'fs'
 import path from 'path'
 
 // Get the list of file extensions to search for from the command-line argument
-const extensions = process.argv.slice(2)
+const extensions = ['.js', '.ts', '.jsx', '.tsx', '.scss', '.css']
 
 // Define the starting directory to scan for files
 const startDir = './src'
@@ -43,7 +43,11 @@ function scanDirectory(dir) {
 // Call the scanDirectory function with the starting directory
 scanDirectory(startDir)
 
+let sum = 0
 // Output the line counts for each file extension
 for (const ext in lineCounts) {
 	console.log(`.${ext}: ${lineCounts[ext]}`)
+	sum += lineCounts[ext]
 }
+
+console.log(`Total: ${sum}`)

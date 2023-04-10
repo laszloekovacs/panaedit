@@ -6,7 +6,7 @@ import Header from './Header'
 import LayoutSelector from './LayoutSelector'
 import EditorLayout from './EditorLayout'
 import PhotosLayout from './PhotoLayout'
-import PanoramasLayout from './PanoramasLayout'
+import PanoramasLayout from './PanoramaLayout'
 import { setActiveView } from '../store'
 import { useDispatch } from 'react-redux'
 
