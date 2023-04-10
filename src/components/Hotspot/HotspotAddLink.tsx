@@ -1,5 +1,5 @@
 import React from 'react'
-import Dialog from '../Dialog/Dialog'
+import Dialog from '../Dialog'
 import { useDispatch } from 'react-redux'
 import SceneList from '../SceneListContainer/SceneList'
 

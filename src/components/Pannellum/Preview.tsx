@@ -21,19 +21,6 @@ const Preview = ({ state, container }) => {
 		const stateCopy = _.cloneDeep(state)
 		viewerRef.current = window.pannellum.viewer(container, stateCopy)
 
-		/* store orientation when done rotating 
-		viewerRef.current?.on('animatefinished', (data) => {
-			const yaw = viewerRef.current?.getYaw() || 0
-			const pitch = viewerRef.current?.getPitch() || 0
-
-			const payload = {
-				yaw: Number.parseFloat(yaw.toFixed(2)),
-				pitch: Number.parseFloat(pitch.toFixed(2))
-			}
-
-			dispatch(setEditorOrientation(payload))
-		})
-*/
 		/*
 		 * cleanup
 		 */
