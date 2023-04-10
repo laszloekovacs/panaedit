@@ -6,8 +6,8 @@ import SceneList from './SceneList'
 
 const EditorLayout = () => {
 	return (
-		<div className="flex flex-row h-full">
-			<div className="w-96 mr-2">
+		<div className="grid grid-cols-2">
+			<div id="sidebar" className="h-full">
 				<h2>Scene List</h2>
 				<SceneList />
 				<SceneSettings />

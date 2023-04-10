@@ -3,7 +3,7 @@ import HotspotListItem from './HotspotListItem'
 
 const HotspotList = ({ hotspots, dispatch, sceneKey }) => {
 	return (
-		<ul className="border-1 overflow-y-hidden h-3">
+		<ul id="HotspotList" className="flex flex-col border-1 overflow-y-auto">
 			{hotspots.map((hotspot, index) => {
 				return (
 					<HotspotListItem

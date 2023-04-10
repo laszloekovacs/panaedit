@@ -28,11 +28,10 @@
 		@apply text-lg font-bold mb-2;
 	}
 	/* only for debugging */
-	/*
+
 	div {
 		border: 1px dotted hotpink;
 	}
-*/
 }
 
 @layer components {

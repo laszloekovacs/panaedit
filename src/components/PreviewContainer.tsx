@@ -54,7 +54,7 @@ const PreviewContainer = () => {
 	}
 
 	return (
-		<div className="w-full max-h-full">
+		<div className="w-full">
 			<Preview state={stateSlice} container={'preview'} />
 		</div>
 	)
