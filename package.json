@@ -38,5 +38,8 @@
 		"playwright:codegen": "playwright codegen",
 		"test-ct": "playwright test -c playwright-ct.config.ts",
 		"linecount": "node ./utils/linecount.js"
+	},
+	"dependencies": {
+		"showdown": "^2.1.0"
 	}
 }

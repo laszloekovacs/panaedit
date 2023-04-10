@@ -8,7 +8,7 @@ const EditorLayout = () => {
 	return (
 		<div className="flex min-h-max flex-row">
 			<div className="h-full w-80 mr-2">
-				<h2>scene list</h2>
+				<h2>Scene List</h2>
 				<SceneList />
 				<SceneSettings />
 				<Hotspot />

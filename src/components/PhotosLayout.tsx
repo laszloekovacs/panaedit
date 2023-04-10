@@ -1,7 +1,8 @@
 import React from 'react'
+import PhotosList from './PhotosList'
 
 const PhotosLayout = () => {
-	return <div>PhotoView</div>
+	return <PhotosList />
 }
 
 export default PhotosLayout

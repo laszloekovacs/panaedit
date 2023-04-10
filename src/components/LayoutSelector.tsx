@@ -3,7 +3,7 @@ import React from 'react'
 
 const LayoutSelector = ({ options, active, onChange }) => {
 	return (
-		<ul className="flex flex-row flex-nowrap justify-center gap-2">
+		<ul className="flex flex-row flex-nowrap justify-center gap-2 mb-4">
 			{options.map((option) => (
 				<li key={option} data-selected={active == option}>
 					<input

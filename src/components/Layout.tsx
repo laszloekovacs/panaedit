@@ -1,24 +1,26 @@
 import React from 'react'
 
 import { useEditor } from '../hooks/useEditor'
-
-import Header from './Header'
-import LayoutSelector from './LayoutSelector'
-import EditorLayout from './EditorLayout'
-import PhotosLayout from './PhotoLayout'
-import PanoramasLayout from './PanoramaLayout'
 import { setActiveView } from '../store'
 import { useDispatch } from 'react-redux'
 
-/* should render the header, sidebar, status bar and the tabs selector 
-	the tabs decide what to render in main, and sidebar 
-*/
+import Header from './Header'
+import LayoutSelector from './LayoutSelector'
+
+import EditorLayout from './EditorLayout'
+import PhotosLayout from './PhotosLayout'
+import PanoramasLayout from './PanoramaLayout'
+import ArticleLayout from './ArticleLayout'
+
+/*
+ * should render the active view the header and the layout selector
+ */
 
 const Layout = () => {
 	const { activeView } = useEditor()
 	const dispatch = useDispatch()
 
-	const options = ['panoramas', 'editor', 'photos']
+	const options = ['panoramas', 'editor', 'articles', 'photos']
 
 	const handleChange = (option) => {
 		dispatch(setActiveView({ view: option }))
@@ -31,6 +33,7 @@ const Layout = () => {
 
 			{activeView === 'panoramas' && <PanoramasLayout />}
 			{activeView === 'editor' && <EditorLayout />}
+			{activeView === 'articles' && <ArticleLayout />}
 			{activeView === 'photos' && <PhotosLayout />}
 		</div>
 	)
