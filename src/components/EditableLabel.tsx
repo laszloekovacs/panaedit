@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
-/* shows a text. on clicking it turns into editable, if cancelled
+/* shows a string. on clicking it turns into editable, if cancelled
  * it reverts into its original value. loosing focus cancels the edit
  */
 
@@ -22,6 +22,7 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 		}
 	}, [isEditing])
 
+	/* stop editing when pressing enter, or cancel on escape */
 	const handleKeyDown = (e) => {
 		if (e.key === 'Enter') {
 			setIsEditing(false)
@@ -45,6 +46,11 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 		onDoneEditing(value)
 	}
 
+	/* handle change */
+	const handleChange = (e) => {
+		setText(e.target.value)
+	}
+
 	return (
 		<span className="editable-text">
 			{isEditing ? (
@@ -52,7 +58,7 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 					ref={inputRef}
 					type="text"
 					value={text}
-					onChange={(e) => setText(e.target.value)}
+					onChange={handleChange}
 					onKeyDown={handleKeyDown}
 					onBlur={handleBlur}
 				/>

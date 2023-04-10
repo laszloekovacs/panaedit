@@ -28,7 +28,7 @@ const SceneSettings = () => {
 
 	return (
 		<div>
-			<h2>SceneSettings</h2>
+			<h2>Scene Settings</h2>
 			<p>
 				<b>north offset: </b>
 				<span>{scene.northOffset}</span>

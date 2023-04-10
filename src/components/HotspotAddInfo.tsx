@@ -8,7 +8,6 @@ const HotspotAddInfo = () => {
 	const { activeSceneKey, editor } = useEditor()
 
 	const handleAddInfo = (e) => {
-		console.log('add info')
 		const hotspot: Hotspot = {
 			type: 'info',
 			yaw: editor.yaw,

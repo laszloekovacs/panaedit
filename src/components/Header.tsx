@@ -8,22 +8,19 @@ const Header = () => {
 	const dispatch = useDispatch()
 
 	const onNew = async () => {
-		console.log('new')
 		resetProject(dispatch)
 	}
 
 	const onOpen = async () => {
-		console.log('open')
 		loadProjectFile(window, dispatch)
 	}
 
 	const onSave = async () => {
-		console.log('save')
 		saveProjectFile(state, window)
 	}
 
 	return (
-		<div>
+		<div className="flex flex-row flex-nowrap">
 			<button onClick={onNew}>new</button>
 			<button onClick={onOpen}>open</button>
 			<button onClick={onSave}>save</button>

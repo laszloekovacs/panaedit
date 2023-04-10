@@ -32,11 +32,10 @@
 	}
 
 	/* only for debugging */
-	/*
+
 	div {
 		border: 1px dotted hotpink;
 	}
-	*/
 }
 
 @layer utilities {

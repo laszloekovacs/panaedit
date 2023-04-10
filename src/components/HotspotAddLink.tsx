@@ -22,7 +22,6 @@ const HotspotAddLink = () => {
 	}
 
 	const handleSelection = (target: string) => {
-		console.log('selected scene', target)
 		/* set sceneId of the newly created hotspot */
 		const hotspot: Hotspot = {
 			sceneId: target,
@@ -42,7 +41,6 @@ const HotspotAddLink = () => {
 			<button onClick={showLinkDialog}>add link</button>
 			<Dialog isOpen={showDialog} onClose={handleClose}>
 				<div>Link Dialog</div>
-				<SceneList items={sceneList} onClick={handleSelection} />
 			</Dialog>
 		</div>
 	)

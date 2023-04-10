@@ -9,8 +9,6 @@ const Preview = ({ state, container }) => {
 	const viewerRef = useRef<PannellumViewer | null>(null)
 
 	useEffect(() => {
-		console.log('mounting preview')
-
 		if (!window.pannellum) {
 			throw new Error('Pannellum not loaded')
 		}
@@ -25,7 +23,6 @@ const Preview = ({ state, container }) => {
 		 * cleanup
 		 */
 		return () => {
-			console.log('unmounting preview')
 			viewerRef.current?.destroy()
 		}
 	}, [state.panorama, state.hotSpots])
