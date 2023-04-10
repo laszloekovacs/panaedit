@@ -1,10 +1,10 @@
 import React from 'react'
-import FolderSelector from './FolderSelector'
-import { openWorkFiles } from './openWorkFiles'
+
+import { openWorkFiles } from '../functions/openWorkFiles'
 import { useDispatch } from 'react-redux'
-import { replaceCache } from '../../store'
+import { replaceCache } from '../store'
 import _ from 'lodash'
-import { useEditor } from '../../hooks'
+import { useEditor } from '../hooks'
 
 /* 
 	After opening the work folder, store all files including subfolders in a js Map
@@ -24,7 +24,12 @@ const FilesProvider = ({ children, directories = _directories }) => {
 	}
 
 	if (!cache || cache.length == 0) {
-		return <FolderSelector onClick={onClick} />
+		return (
+			<div>
+				<button onClick={onClick}>Select local working directory</button>
+				<p>download example project to try out this wonderfull product</p>
+			</div>
+		)
 	} else {
 		return <>{children}</>
 	}

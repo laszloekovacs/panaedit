@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 
 import ErrorBoundary from './ErrorBoundary'
-import FilesProvider from './FilesProvider/FilesProvider'
+import FilesProvider from './FilesProvider'
 import Layout from './Layout'
 
 import { store } from '../store'

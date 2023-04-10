@@ -1,7 +1,7 @@
 import React from 'react'
 
-const PhotoView = () => {
+const PhotosLayout = () => {
 	return <div>PhotoView</div>
 }
 
-export default PhotoView
+export default PhotosLayout

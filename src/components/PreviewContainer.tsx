@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { resolvePathsToBlobUrl } from './resolvePathsToBlobUrl'
+import { resolvePathsToBlobUrl } from '../functions/resolvePathsToBlobUrl'
 
 import _ from 'lodash'
 import Preview from './Preview'
-import { setActiveScene } from '../../store'
-import { useEditor } from '../../hooks'
+import { setActiveScene } from '../store'
+import { useEditor } from '../hooks'
 
 /*
  * due to working in memory / on remote server, we can't use file paths, so the
@@ -15,7 +15,7 @@ import { useEditor } from '../../hooks'
  * warning: pannellum mutates its inputs
  * if there's only one scene, the flat structure is fine, no need to have scenes["key"].{scene}
  */
-const PannellumContainer = () => {
+const PreviewContainer = () => {
 	const dispatch = useDispatch()
 	const { cache, activeSceneKey, scene, editor } = useEditor()
 
@@ -56,4 +56,4 @@ const PannellumContainer = () => {
 	return <Preview state={stateSlice} container={'preview'} />
 }
 
-export default PannellumContainer
+export default PreviewContainer

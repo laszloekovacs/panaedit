@@ -4,8 +4,8 @@ import { useEditor } from '../hooks'
 
 import Header from './Header'
 import LayoutSelector from './LayoutSelector'
-import EditorView from './EditorView/EditorView'
-import PhotoView from './PhotoView/PhotoView'
+import EditorLayout from './EditorLayout'
+import PhotosLayout from './PhotoLayout'
 import PanoramasLayout from './PanoramasLayout'
 import { setActiveView } from '../store'
 import { useDispatch } from 'react-redux'
@@ -30,8 +30,8 @@ const Layout = () => {
 			<LayoutSelector options={options} active={activeView} onChange={handleChange} />
 
 			{activeView === 'panoramas' && <PanoramasLayout />}
-			{activeView === 'editor' && <EditorView />}
-			{activeView === 'photos' && <PhotoView />}
+			{activeView === 'editor' && <EditorLayout />}
+			{activeView === 'photos' && <PhotosLayout />}
 		</div>
 	)
 }
