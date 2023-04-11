@@ -20,7 +20,7 @@ const Header = () => {
 	}
 
 	return (
-		<div className="flex flex-row flex-nowrap mb-2">
+		<div className="col-span-2">
 			<button onClick={onNew}>new</button>
 			<button onClick={onOpen}>open</button>
 			<button onClick={onSave}>save</button>

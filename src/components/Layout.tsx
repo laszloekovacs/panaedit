@@ -27,7 +27,7 @@ const Layout = () => {
 	}
 
 	return (
-		<div id="Layout" className="h-full mx-7 py-4">
+		<div id="Layout" className="flex flex-col flex-nowrap justify-start h-full px-6 pb-2">
 			<Header />
 			<LayoutSelector options={options} active={activeView} onChange={handleChange} />
 
