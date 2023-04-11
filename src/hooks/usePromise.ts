@@ -8,10 +8,20 @@ export function usePromise<T>(callback: () => T) {
 	const [result, setResult] = useState<T | null>(null)
 
 	useEffect(() => {
-		const promise = new Promise<T>((resolve, reject) => {
-			resolve(callback())
-		})
+		const run = async () => {
+			setLoading(true)
+			try {
+				const res = callback()
+				setResult(res)
+			} catch (e) {
+				setError(e)
+			} finally {
+				setLoading(false)
+			}
+		}
+
+		run()
 	}, [callback])
 
-	return { loading, error, result }
+	return [result, loading, error ] as const
 }

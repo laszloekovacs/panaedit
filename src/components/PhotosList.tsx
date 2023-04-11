@@ -6,21 +6,13 @@ import PhotosListItem from './PhotosListItem'
 
 const PhotosList = () => {
 	const { cache } = useEditor()
-	const [photos, setPhotos] = React.useState<CacheLine[]>([])
 
-	/*
-	useEffect(() => {
-		const p = filterCache(cache, /^photo/)
-		setPhotos(p)
-	}, [photos])
-*/
-	usePromise(() => {
-		const p = filterCache(cache, /^photo/)
-		setPhotos(p)
+	const [photos] = usePromise(() => {
+		return filterCache(cache, /^photos/)
 	})
 
-	//const photos = filterCache(cache, /^photo/)
-	if (!photos.length)
+	
+	if (!photos)
 		return (
 			<div>
 				<p>no photos found</p>
