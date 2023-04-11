@@ -8,14 +8,14 @@
 	#root,
 	html,
 	body {
-		display: flex;
-		flex-direction: column;
 		height: 100vh;
+		width: 100vw;
 	}
 
 	body {
 		font-family: 'JetBrains Mono', monospace;
 		@apply bg-stone-500 relative select-none;
+		position: absolute;
 	}
 
 	button {

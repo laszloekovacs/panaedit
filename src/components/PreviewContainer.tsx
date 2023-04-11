@@ -53,11 +53,7 @@ const PreviewContainer = () => {
 		compass: true
 	}
 
-	return (
-		<div className="w-full">
-			<Preview state={stateSlice} container={'preview'} />
-		</div>
-	)
+	return <Preview state={stateSlice} container={'preview'} />
 }
 
 export default PreviewContainer

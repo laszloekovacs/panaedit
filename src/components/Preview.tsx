@@ -28,7 +28,7 @@ const Preview = ({ state, container }) => {
 	}, [state.panorama, state.hotSpots])
 
 	/* returned element */
-	return <div className="h-40" id={container}></div>
+	return <div className="w-full border-2 border-neutral-700" id={container}></div>
 }
 
 export default Preview

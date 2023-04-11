@@ -8,7 +8,9 @@ import { useEditor } from '../hooks/useEditor'
 /* container of hotspots */
 const Hotspot = () => {
 	const dispatch = useDispatch()
-	const { scene, activeSceneKey } = useEditor()
+	const { scene, scenes, activeSceneKey } = useEditor()
+
+	if (Object.keys(scenes).length === 0) return null
 
 	const { hotSpots } = scene || []
 

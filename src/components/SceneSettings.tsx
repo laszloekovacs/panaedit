@@ -7,10 +7,10 @@ import { useEditor } from '../hooks/useEditor'
 /* Edit title and north offset of the current scene */
 const SceneSettings = () => {
 	const dispatch = useDispatch()
-	const { scene, activeSceneKey, editor } = useEditor()
+	const { scenes, scene, activeSceneKey, editor } = useEditor()
 	const yaw = editor.yaw
 
-	if (!activeSceneKey) return null
+	if (Object.keys(scenes).length === 0) return null
 
 	/* changing the offset */
 	const handleSetOffset = () => {
