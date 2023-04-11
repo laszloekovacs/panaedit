@@ -5,5 +5,6 @@ import { test, expect } from '@playwright/experimental-ct-react'
 
 test('AsyncComponent', async ({ mount }) => {
 	const elem = await mount(<AsyncComponent />)
-	expect(elem).toBeDefined()
+	await expect(elem).toBeDefined()
+	await expect(elem).toHaveText('Data: data')
 })

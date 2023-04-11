@@ -14,7 +14,7 @@ describe('test reducer functions', () => {
 			northOffset: 0,
 			hotSpots: [],
 			panorama: './assets/testimage.jpg',
-			id: 'testid',
+
 			name: 'test object',
 			type: 'link'
 		}

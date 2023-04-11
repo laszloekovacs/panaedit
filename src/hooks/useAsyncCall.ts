@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 /* wraps a long running function into a promise, and returns variables to monitor its progress */
 
-export function usePromise<T>(callback: () => T) {
+export function useAsyncCall<T>(callback: () => T) {
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState<unknown>(null)
 	const [result, setResult] = useState<T | null>(null)
@@ -21,7 +21,7 @@ export function usePromise<T>(callback: () => T) {
 		}
 
 		run()
-	}, [callback])
+	}, [])
 
-	return [result, loading, error ] as const
+	return [result, loading, error] as const
 }

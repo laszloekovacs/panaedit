@@ -1,17 +1,18 @@
 import React from 'react'
 import { filterCache } from '../functions'
 import { useEditor } from '../hooks/useEditor'
-import { usePromise } from '../hooks/usePromise'
+import { useAsyncCall } from '../hooks/useAsyncCall'
 import PhotosListItem from './PhotosListItem'
 
 const PhotosList = () => {
 	const { cache } = useEditor()
 
-	const [photos] = usePromise(() => {
+	const [photos, loading] = useAsyncCall(() => {
 		return filterCache(cache, /^photos/)
 	})
 
-	
+	if (loading) return <div>loading...</div>
+
 	if (!photos)
 		return (
 			<div>
@@ -20,7 +21,7 @@ const PhotosList = () => {
 		)
 
 	return (
-		<ul className="grid grid-cols-2 gap-1 h-full overflow-y-auto md:grid-cols-3 lg:grid-cols-4">
+		<ul className="grid h-full grid-cols-2 gap-1 overflow-y-auto md:grid-cols-3 lg:grid-cols-4">
 			{photos &&
 				photos.map((photo) => (
 					<PhotosListItem key={photo.key} photo={photo} />
