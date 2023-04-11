@@ -14,12 +14,12 @@
 
 	body {
 		font-family: 'JetBrains Mono', monospace;
-		@apply bg-stone-500 relative select-none;
+		@apply relative select-none bg-stone-500;
 		position: absolute;
 	}
 
 	button {
-		@apply bg-stone-800 text-white px-4 opacity-90 hover:bg-purple-800;
+		@apply bg-stone-800 px-4 text-white opacity-90 hover:bg-purple-800;
 	}
 
 	input[type='radio'] {
@@ -27,7 +27,7 @@
 	}
 
 	h2 {
-		@apply text-lg font-bold mb-2;
+		@apply mb-2 text-lg font-bold;
 	}
 	/* only for debugging */
 	/*
@@ -50,5 +50,14 @@
 
 	.editable:hover {
 		text-decoration: underline;
+	}
+}
+
+@layer base {
+	::-webkit-scrollbar {
+		width: 0.5rem;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: pink;
 	}
 }
