@@ -28,7 +28,7 @@ const resolveScene = (scenes, cache) => {
 const PreviewContainer = () => {
 	const { cache, editor } = useEditor()
 	const state = useSelector((state: State) => state)
-	const [buffer, setBuffer] = useState<State | null>(null)
+	const [buffer, setBuffer] = useState<unknown | null>(null)
 
 	if (!state.editor.activeSceneKey) return null
 
@@ -38,10 +38,10 @@ const PreviewContainer = () => {
 		const resolvedScenes = resolveScene(scenesSlice, cache)
 
 		// create a state copy with lodash, and add the resolved scenes + default settings
-		const defaultSlice = _.cloneDeep(state.default)
+		const defaultSlice = _.merge({}, state.default, { yaw: state.editor.yaw, pitch: state.editor.pitch })
 
 		/* merge the preview */
-		const stateSlice = _.merge({}, { default: defaultSlice }, { scenes: resolvedScenes }) as State
+		const stateSlice = _.merge({}, { default: defaultSlice }, { scenes: resolvedScenes })
 
 		setBuffer(stateSlice)
 	}, [editor.triggerRefresh])

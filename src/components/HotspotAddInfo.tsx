@@ -1,6 +1,6 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { addHotspot } from '../store'
+import { useDispatch } from 'react-redux'
+import { addHotspot, triggerRefresh } from '../store'
 import { useEditor } from '../hooks/useEditor'
 
 const HotspotAddInfo = () => {
@@ -17,6 +17,7 @@ const HotspotAddInfo = () => {
 		}
 
 		dispatch(addHotspot({ sceneKey: activeSceneKey, hotspot }))
+		dispatch(triggerRefresh())
 	}
 
 	return (

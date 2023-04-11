@@ -3,7 +3,7 @@ import Dialog from './Dialog'
 import { useDispatch } from 'react-redux'
 import SceneList from './SceneList'
 
-import { addHotspot } from '../store'
+import { addHotspot, triggerRefresh } from '../store'
 import { useEditor } from '../hooks/useEditor'
 
 const HotspotAddLink = () => {
@@ -34,6 +34,7 @@ const HotspotAddLink = () => {
 
 		/* add hotspot to the current scene */
 		dispatch(addHotspot({ sceneKey: activeSceneKey, hotspot }))
+		dispatch(triggerRefresh())
 	}
 
 	return (

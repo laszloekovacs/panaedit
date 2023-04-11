@@ -23,6 +23,8 @@ declare global {
 		destroy: () => void
 		getYaw: () => number
 		getPitch: () => number
+		setYaw: (yaw: number) => void
+		setPitch: (pitch: number) => void
 	}
 }
 

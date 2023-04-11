@@ -40,6 +40,8 @@
 		"linecount": "node ./utils/linecount.js"
 	},
 	"dependencies": {
+		"prettier-plugin-import-sort": "^0.0.7",
+		"prettier-plugin-tailwindcss": "^0.2.7",
 		"showdown": "^2.1.0"
 	}
 }
