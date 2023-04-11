@@ -49,3 +49,9 @@ export function _SetActiveView(
 
 	return state
 }
+
+export function _TriggerRefresh(state: State) {
+	state.editor.triggerRefresh = state.editor.triggerRefresh + 1
+
+	return state
+}

@@ -22,7 +22,8 @@ import {
 	_updateHotspot,
 	_AddToCache,
 	_ReplaceCache,
-	_SetActiveView
+	_SetActiveView,
+	_TriggerRefresh
 } from './actions'
 
 /* 
@@ -51,7 +52,8 @@ const projectSlice = createSlice({
 		updateHotspot: _updateHotspot,
 		addToCache: _AddToCache,
 		replaceCache: _ReplaceCache,
-		setActiveView: _SetActiveView
+		setActiveView: _SetActiveView,
+		triggerRefresh: _TriggerRefresh
 	}
 })
 
@@ -76,7 +78,8 @@ export const {
 	setEditorOrientation,
 	addToCache,
 	replaceCache,
-	setActiveView
+	setActiveView,
+	triggerRefresh
 } = projectSlice.actions
 
 /* export the store */

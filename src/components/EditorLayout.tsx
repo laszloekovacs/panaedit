@@ -1,5 +1,5 @@
 import React from 'react'
-import Pannellum from './PreviewContainer'
+import PreviewContainer from './PreviewContainer'
 import Hotspot from './Hotspot'
 import SceneSettings from './SceneSettings'
 import SceneList from './SceneList'
@@ -18,7 +18,7 @@ const EditorLayout = () => {
 				<SceneSettings />
 				<Hotspot />
 			</div>
-			<Pannellum />
+			<PreviewContainer />
 		</div>
 	)
 }

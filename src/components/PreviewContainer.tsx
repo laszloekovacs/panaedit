@@ -1,11 +1,10 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { resolvePathsToBlobUrl } from '../functions/resolvePathsToBlobUrl'
 
 import _ from 'lodash'
 import Preview from './Preview'
-import { setActiveScene } from '../store'
 import { useEditor } from '../hooks/useEditor'
 
 /*
@@ -15,45 +14,39 @@ import { useEditor } from '../hooks/useEditor'
  * warning: pannellum mutates its inputs
  * if there's only one scene, the flat structure is fine, no need to have scenes["key"].{scene}
  */
+
+const resolveScene = (scenes, cache) => {
+	/* loop trough every scene */
+	for (let key in scenes) {
+		/* resolve the paths to blob urls */
+		scenes[key].panorama = resolvePathsToBlobUrl(scenes[key].panorama, cache)
+	}
+
+	return scenes
+}
+
 const PreviewContainer = () => {
-	const dispatch = useDispatch()
-	const { cache, activeSceneKey, scene, editor } = useEditor()
+	const { cache, editor } = useEditor()
+	const state = useSelector((state: State) => state)
+	const [buffer, setBuffer] = useState<State | null>(null)
 
-	if (!activeSceneKey) return null
+	if (!state.editor.activeSceneKey) return null
 
-	const blob = resolvePathsToBlobUrl(scene.panorama, cache)
+	useEffect(() => {
+		// create a scenes copy with lodash, and resolve the paths to blob urls
+		const scenesSlice = _.cloneDeep(state.scenes)
+		const resolvedScenes = resolveScene(scenesSlice, cache)
 
-	/* redirect clicks on hotspots so pannellum does not try to navigate */
-	const clickHandlerFunc = (event: MouseEvent, sceneKey: string) => {
-		event.preventDefault()
-		if (!sceneKey) return
-		// set active scene to sceneKey
-		dispatch(setActiveScene({ sceneKey }))
-	}
+		// create a state copy with lodash, and add the resolved scenes + default settings
+		const defaultSlice = _.cloneDeep(state.default)
 
-	/* replace the click handler on hotspots */
-	const hotSpots = scene.hotSpots.map((hotSpot) => {
-		return {
-			...hotSpot,
-			clickHandlerFunc,
-			clickHandlerArgs: hotSpot?.sceneId || ''
-		}
-	})
+		/* merge the preview */
+		const stateSlice = _.merge({}, { default: defaultSlice }, { scenes: resolvedScenes }) as State
 
-	/* create the preview structure */
-	let stateSlice = {
-		type: 'equirectangular',
-		panorama: blob,
-		autoLoad: true,
-		hotSpotDebug: true,
-		hotSpots,
-		//restore rotation from editor
-		yaw: editor.yaw,
-		pitch: editor.pitch,
-		compass: true
-	}
+		setBuffer(stateSlice)
+	}, [editor.triggerRefresh])
 
-	return <Preview state={stateSlice} container={'preview'} />
+	return <>{buffer && <Preview state={buffer} container={'preview'} />}</>
 }
 
 export default PreviewContainer

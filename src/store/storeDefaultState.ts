@@ -18,7 +18,8 @@ const storeDefaults: State = {
 		activeSceneKey: '',
 		activeView: 'panoramas',
 		yaw: 0,
-		pitch: 0
+		pitch: 0,
+		triggerRefresh: 0
 	},
 	cache: []
 }

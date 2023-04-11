@@ -27,6 +27,7 @@ declare global {
 		activeSceneKey: string
 		yaw: number
 		pitch: number
+		triggerRefresh: number
 	}
 
 	declare interface CacheLine {
