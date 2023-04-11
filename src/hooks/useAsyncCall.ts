@@ -1,27 +1,27 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
-export function useAsyncCall(callback) {
-	const [isPending, setPending] = useState(false)
+/* wraps a long running function into a promise, and returns variables to monitor its progress */
 
-	const [data, setData] = useState<unknown>(null)
+export function useAsyncCall<T>(callback: () => T) {
+	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState<unknown>(null)
+	const [result, setResult] = useState<T | null>(null)
 
 	useEffect(() => {
-		setData(null)
-		setError(null)
-		setPending(true)
-
-		callback()
-			.then(setData)
-			.catch(setError)
-			.finally(() => setPending(false))
-
-		return () => {
-			setData(null)
-			setError(null)
-			setPending(false)
+		const run = async () => {
+			setLoading(true)
+			try {
+				const res = callback()
+				setResult(res)
+			} catch (e) {
+				setError(e)
+			} finally {
+				setLoading(false)
+			}
 		}
+
+		run()
 	}, [])
 
-	return { isPending, data, error }
+	return [result, loading, error] as const
 }

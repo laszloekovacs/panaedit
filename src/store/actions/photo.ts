@@ -1,5 +1,13 @@
 /* add photo to article */
-export function _addPhoto(state: State, action: AddPhotoAction): State {
+export function _addPhoto(
+	state: State,
+	action: {
+		payload: {
+			articleId: string
+			photoUrl: string
+		}
+	}
+) {
 	const { articleId, photoUrl } = action.payload
 
 	// find the article by id
@@ -18,7 +26,15 @@ export function _addPhoto(state: State, action: AddPhotoAction): State {
 }
 
 /* remove photo from article */
-export function _removePhoto(state: State, action: RemovePhotoAction): State {
+export function _removePhoto(
+	state: State,
+	action: {
+		payload: {
+			articleId: string
+			url: string
+		}
+	}
+) {
 	const { articleId, url } = action.payload
 
 	// find the article by id
@@ -35,7 +51,16 @@ export function _removePhoto(state: State, action: RemovePhotoAction): State {
 }
 
 /* set photo labe */
-export function _setPhotoLabel(state: State, action: SetPhotoLabelAction): State {
+export function _setPhotoLabel(
+	state: State,
+	action: {
+		payload: {
+			articleId: string
+			url: string
+			label: string
+		}
+	}
+) {
 	const { articleId, url, label } = action.payload
 
 	// find the article by id

@@ -1,4 +1,4 @@
-const storeDefaultState: State = {
+const storeDefaults: State = {
 	default: {
 		firstScene: '',
 		sceneFadeDuration: 1000,
@@ -15,10 +15,14 @@ const storeDefaultState: State = {
 	scenes: {},
 	articles: [],
 	editor: {
-		activeScene: '',
+		activeSceneKey: '',
+		activeView: 'panoramas',
 		yaw: 0,
-		pitch: 0
-	}
+		pitch: 0,
+		triggerRefresh: 0
+	},
+	cache: []
 }
 
-export default storeDefaultState
+// TODO: do we need panoramas as base path?
+export default storeDefaults

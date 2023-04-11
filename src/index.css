@@ -1,42 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+@layer base {
+	#root,
+	html,
 	body {
-		font-family: 'JetBrains Mono', monospace;
-		@apply min-h-screen select-none bg-neutral-200 text-neutral-900;
+		height: 100vh;
+		width: 100vw;
 	}
 
-	#root {
-		@apply min-h-screen;
+	body {
+		font-family: 'JetBrains Mono', monospace;
+		@apply relative select-none bg-neutral-300;
+		position: absolute;
 	}
 
 	button {
-		@apply border-2 bg-green-600 px-5 text-neutral-100 hover:bg-green-500;
+		@apply bg-stone-800 px-4 text-white opacity-90 hover:bg-purple-800;
 	}
 
-	img {
-		@apply max-w-xs p-1;
+	input[type='radio'] {
+		display: none;
 	}
 
-	label:has(+ input[checked]) {
-		@apply bg-green-600 text-neutral-100;
+	h2 {
+		@apply mb-2 text-lg font-bold;
 	}
-}
-
-@layer utilities {
-	.border-1 {
-		border-width: 1px;
+	/* only for debugging */
+	/*
+	div {
+		border: 1px dotted hotpink;
 	}
-}
-
-/* debug visualizer */
-/*
-@layer components {
-	* {
-		@apply border-1 border-dashed border-fuchsia-600 border-opacity-20;
-	}
-}
 */
+}
+
+@layer components {
+	.editable {
+		background: none;
+		outline: none;
+		max-width: 100%;
+		cursor: pointer;
+	}
+	.editable:focus {
+		text-decoration: underline;
+	}
+
+	.editable:hover {
+		text-decoration: underline;
+	}
+}
+
+@layer base {
+	::-webkit-scrollbar {
+		width: 0.8rem;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply bg-stone-800;
+	}
+}

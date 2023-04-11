@@ -2,18 +2,17 @@ import React from 'react'
 import { Provider } from 'react-redux'
 
 import ErrorBoundary from './ErrorBoundary'
-import FilesProvider from './FilesProvider/FilesProvider'
+import FilesProvider from './FilesProvider'
 import Layout from './Layout'
 
 import { store } from '../store'
 
+/* provide wrapper for error, store, and file selector */
 function App() {
-	const directories = ['panoramas', 'articles', 'photos']
-
 	return (
 		<ErrorBoundary>
 			<Provider store={store}>
-				<FilesProvider directories={directories}>
+				<FilesProvider>
 					<Layout />
 				</FilesProvider>
 			</Provider>

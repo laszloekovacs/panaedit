@@ -2,14 +2,11 @@ import React, { useEffect } from 'react'
 import { useAsyncCall } from '../src/hooks/useAsyncCall'
 
 const AsyncComponent = () => {
-	const { data, error, isPending } = useAsyncCall(async () => {
-		const response = await fetch(
-			'https://jsonplaceholder.typicode.com/todos/1'
-		)
-		return response.json()
+	const [data, pending, error] = useAsyncCall(() => {
+		return 'data'
 	})
 
-	if (isPending) {
+	if (pending) {
 		return <div>Loading...</div>
 	}
 
@@ -18,7 +15,7 @@ const AsyncComponent = () => {
 	}
 
 	if (data) {
-		return <div>Data: {JSON.stringify(data)}</div>
+		return <div>Data: {data}</div>
 	}
 
 	return <div>Nothing</div>

@@ -1,38 +1,40 @@
 import React from 'react'
 
-import Header from './Header/Header'
-import TabSelector from './TabSelector'
-import PanoView from './PanoView/PanoView'
-import EditorView from './EditorView/EditorView'
-import PhotoView from './PhotoView/PhotoView'
+import { useEditor } from '../hooks/useEditor'
+import { setActiveView } from '../store'
+import { useDispatch } from 'react-redux'
 
-const options = [
-	{ label: 'Panoramas', value: <PanoView /> },
-	{ label: 'Editor', value: <EditorView /> },
-	{ label: 'Photos', value: <PhotoView /> }
-]
+import Header from './Header'
+import LayoutSelector from './LayoutSelector'
 
-/* should render the header, sidebar, status bar and the tabs selector 
-	the tabs decide what to render in main, and sidebar 
-*/
+import EditorLayout from './EditorLayout'
+import PhotosLayout from './PhotosLayout'
+import PanoramasLayout from './PanoramaLayout'
+import ArticleLayout from './ArticleLayout'
+
+/*
+ * should render the active view the header and the layout selector
+ */
+
 const Layout = () => {
-	const [selected, setSelected] = React.useState(options[0])
+	const { activeView } = useEditor()
+	const dispatch = useDispatch()
 
-	const handleChange = (to) => {
-		setSelected(to)
+	const options = ['panoramas', 'editor', 'articles', 'photos']
+
+	const handleChange = (option) => {
+		dispatch(setActiveView({ view: option }))
 	}
 
 	return (
-		<div className="h-screen">
+		<div id="Layout" className="flex flex-col flex-nowrap justify-start h-full px-6 py-5 w-full">
 			<Header />
-			<TabSelector
-				options={options}
-				selected={selected}
-				onChange={handleChange}
-			/>
-			{selected.label == 'Panoramas' && <PanoView />}
-			{selected.label == 'Editor' && <EditorView />}
-			{selected.label == 'Photos' && <PhotoView />}
+			<LayoutSelector options={options} active={activeView} onChange={handleChange} />
+
+			{activeView === 'panoramas' && <PanoramasLayout />}
+			{activeView === 'editor' && <EditorLayout />}
+			{activeView === 'articles' && <ArticleLayout />}
+			{activeView === 'photos' && <PhotosLayout />}
 		</div>
 	)
 }

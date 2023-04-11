@@ -12,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test'
 export default defineConfig({
 	testMatch: '**/*.spec.tsx',
 
-	testDir: './e2e',
+	testDir: './test',
 
 	snapshotDir: './test/__snapshots__',
 	/* Run tests in files in parallel */

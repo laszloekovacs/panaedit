@@ -1,5 +1,5 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
-import storeDefaultState from './storeDefaultState'
+import storeDefaults from './storeDefaultState'
 
 /* individual actions */
 import {
@@ -19,7 +19,11 @@ import {
 	_setSceneTitle,
 	_setSceneNorthOffset,
 	_SetEditorOrientation,
-	_updateHotspot
+	_updateHotspot,
+	_AddToCache,
+	_ReplaceCache,
+	_SetActiveView,
+	_TriggerRefresh
 } from './actions'
 
 /* 
@@ -27,7 +31,7 @@ import {
 */
 const projectSlice = createSlice({
 	name: 'project',
-	initialState: storeDefaultState,
+	initialState: storeDefaults,
 	reducers: {
 		addArticle: _addArticle,
 		removeArticle: _removeArticle,
@@ -45,7 +49,11 @@ const projectSlice = createSlice({
 		setSceneTitle: _setSceneTitle,
 		setSceneNorthOffset: _setSceneNorthOffset,
 		setEditorOrientation: _SetEditorOrientation,
-		updateHotspot: _updateHotspot
+		updateHotspot: _updateHotspot,
+		addToCache: _AddToCache,
+		replaceCache: _ReplaceCache,
+		setActiveView: _SetActiveView,
+		triggerRefresh: _TriggerRefresh
 	}
 })
 
@@ -67,11 +75,15 @@ export const {
 	removeScene,
 	setSceneTitle,
 	setSceneNorthOffset,
-	setEditorOrientation
+	setEditorOrientation,
+	addToCache,
+	replaceCache,
+	setActiveView,
+	triggerRefresh
 } = projectSlice.actions
 
 /* export the store */
 export const store = configureStore({
 	reducer: projectSlice.reducer,
-	preloadedState: storeDefaultState
+	preloadedState: storeDefaults
 })

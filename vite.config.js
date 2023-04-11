@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-	base: './',
+	base: '/panaedit/',
 	build: {
-		outDir: 'docs'
+		outDir: './dist'
 	},
 	test: {
 		exclude: ['**/*.spec.tsx'],
