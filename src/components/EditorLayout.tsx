@@ -1,14 +1,20 @@
 import React from 'react'
-import PreviewContainer from './PreviewContainer'
-import Hotspot from './Hotspot'
-import SceneSettings from './SceneSettings'
-import SceneList from './SceneList'
 import { useEditor } from '../hooks/useEditor'
+import Hotspot from './Hotspot'
+import PreviewContainer from './PreviewContainer'
+import SceneList from './SceneList'
+import SceneSettings from './SceneSettings'
 
 const EditorLayout = () => {
 	const { scenes } = useEditor()
 
-	if (Object.keys(scenes).length === 0) return null
+	if (Object.keys(scenes).length === 0) {
+		return (
+			<div>
+				<p>no panoramas added to the current project</p>
+			</div>
+		)
+	}
 
 	return (
 		<div className="flex flex-row flex-nowrap h-full overflow-hidden">

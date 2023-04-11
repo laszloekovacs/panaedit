@@ -14,7 +14,7 @@
 
 	body {
 		font-family: 'JetBrains Mono', monospace;
-		@apply relative select-none bg-stone-500;
+		@apply relative select-none bg-neutral-300;
 		position: absolute;
 	}
 
@@ -55,9 +55,9 @@
 
 @layer base {
 	::-webkit-scrollbar {
-		width: 0.5rem;
+		width: 0.8rem;
 	}
 	::-webkit-scrollbar-thumb {
-		background-color: pink;
+		@apply bg-stone-800;
 	}
 }
