@@ -15,7 +15,7 @@ const Hotspot = () => {
 	return (
 		<>
 			<h2>Hotspots</h2>
-			<div className="flex flex-row justify-between">
+			<div className="flex flex-row justify-between pb-2">
 				<HotspotAddInfo />
 				<HotspotAddLink />
 			</div>
