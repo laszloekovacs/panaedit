@@ -52,7 +52,6 @@ declare global {
 	}
 
 	declare interface Article {
-		id: number
 		title: string
 		url: string
 		photos: Photo[]

@@ -24,12 +24,17 @@ const FilesProvider = ({ children, directories = _directories }) => {
 
 	if (!cache || cache.length == 0) {
 		return (
-			<div className="flex flex-col justify-center w-10/12 m-auto h-full">
+			<div className="m-auto flex h-full w-10/12 flex-col justify-center">
 				<div>
-					<button onClick={onClick}>Select local working directory</button>
+					<button onClick={onClick}>
+						Select local working directory
+					</button>
 					<p>
-						or <a href="#">download</a> example project to try out this wonderfull product
+						or <a href="#">download</a> example project to try out
+						this wonderfull product
 					</p>
+
+					<button>try online with a demo project</button>
 				</div>
 			</div>
 		)

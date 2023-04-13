@@ -11,7 +11,7 @@ export function _addPhoto(
 	const { articleId, photoUrl } = action.payload
 
 	// find the article by id
-	const article = state.articles.find((article) => article.id == articleId)
+	const article = state.articles.find((article) => article.url == articleId)
 
 	if (!article) {
 		throw new Error('cannot add photo, article does not exist')
@@ -30,15 +30,14 @@ export function _removePhoto(
 	state: State,
 	action: {
 		payload: {
-			articleId: string
 			url: string
 		}
 	}
 ) {
-	const { articleId, url } = action.payload
+	const { url } = action.payload
 
 	// find the article by id
-	const article = state.articles.find((article) => article.id == articleId)
+	const article = state.articles.find((article) => article.url == url)
 
 	if (!article) {
 		throw new Error('cannot remove photo, article does not exist')
