@@ -68,6 +68,7 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 					{text}
 				</span>
 			)}
+			<img src="edit.svg" width="1.5rem" />
 		</span>
 	)
 }
