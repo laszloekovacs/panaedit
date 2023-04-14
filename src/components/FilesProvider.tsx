@@ -24,8 +24,8 @@ const FilesProvider = ({ children, directories = _directories }) => {
 	}
 
 	// populate the cache from hosted public directory
-	const handleDemoAssets = () => {
-		const map = await loadOnlineAssets()
+	const handleLoadDemoAssets = async () => {
+		const map = await loadOnlineAssets(window.fetch, '/filemanifest.json')
 		dispatch(replaceCache({ map }))
 	}
 
@@ -41,8 +41,11 @@ const FilesProvider = ({ children, directories = _directories }) => {
 						this wonderfull product
 					</p>
 
-					<button>try online with demo assets</button>
+					<button onClick={handleLoadDemoAssets}>
+						try online with demo assets
+					</button>
 				</div>
+				<img src="/panoramas/01ab.jpg" width="400px" height="400px" />
 			</div>
 		)
 	} else {

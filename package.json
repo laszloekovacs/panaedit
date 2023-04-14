@@ -38,6 +38,7 @@
 		"playwright:ui": "playwright test --ui",
 		"playwright:codegen": "playwright codegen",
 		"test-ct": "playwright test -c playwright-ct.config.ts",
-		"linecount": "node ./tools/linecount.js"
+		"linecount": "node ./tools/linecount.js",
+		"genlist": "node ./tools/genlist.js"
 	}
 }

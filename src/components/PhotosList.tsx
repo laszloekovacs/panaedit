@@ -8,7 +8,7 @@ const PhotosList = () => {
 	const { cache } = useEditor()
 
 	const [photos, loading] = useAsyncCall(() => {
-		return filterCache(cache, /^photos/)
+		return filterCache(cache, /photos/)
 	})
 
 	if (loading) return <div>loading...</div>

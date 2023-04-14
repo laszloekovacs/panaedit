@@ -20,14 +20,18 @@ const Preview = ({ state, container }) => {
 		 */
 		const stateCopy = _.cloneDeep(state)
 		viewerRef.current = window.pannellum.viewer(container, stateCopy)
-
+		//viewerRef.current
 		/*
 		 * notify the editor of the current orientation
 		 */
 		viewerRef.current?.on('animatefinished', () => {
 			// trim to 2 decimals
-			const yaw = parseFloat((viewerRef.current?.getYaw() || 0).toFixed(2))
-			const pitch = parseFloat((viewerRef.current?.getPitch() || 0).toFixed(2))
+			const yaw = parseFloat(
+				(viewerRef.current?.getYaw() || 0).toFixed(2)
+			)
+			const pitch = parseFloat(
+				(viewerRef.current?.getPitch() || 0).toFixed(2)
+			)
 
 			dispatch(setEditorOrientation({ yaw, pitch }))
 		})
@@ -41,7 +45,12 @@ const Preview = ({ state, container }) => {
 	}, [state])
 
 	/* returned element */
-	return <div className="w-full border-2 border-neutral-700" id={container}></div>
+	return (
+		<div
+			className="w-full border-2 border-neutral-700"
+			id={container}
+		></div>
+	)
 }
 
 export default Preview
