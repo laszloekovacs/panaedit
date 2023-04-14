@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import editicon from '../../public/img/edit.svg'
 
 /* shows a string. on clicking it turns into editable, if cancelled
  * it reverts into its original value. loosing focus cancels the edit
@@ -66,7 +67,7 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 			) : (
 				<span className="editable inline" onClick={handleClick}>
 					{text}
-					<img className="inline" src="/img/edit.svg" width="18rem" />
+					<img className="inline" src={editicon} width="18rem" />
 				</span>
 			)}
 		</span>

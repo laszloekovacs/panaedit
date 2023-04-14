@@ -2,6 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { setActiveScene } from '../store'
 import { useEditor } from '../hooks/useEditor'
+import flagicon from '../../public/img/flag.svg'
+import previewicon from '../../public/img/preview.svg'
 
 type Props = {
 	itemKey: string
@@ -26,12 +28,12 @@ const SceneListItem = ({ itemKey, onClick }: Props) => {
 			<div className="flex flex-row">
 				<div className="w-6">
 					{itemKey == state.default.firstScene && (
-						<img src="/img/flag.svg" width="20rem" />
+						<img src={flagicon} width="20rem" />
 					)}
 				</div>
 				<div className="w-6">
 					{activeSceneKey == itemKey && (
-						<img src="/img/preview.svg" width="20rem" />
+						<img src={previewicon} width="20rem" />
 					)}
 				</div>
 			</div>

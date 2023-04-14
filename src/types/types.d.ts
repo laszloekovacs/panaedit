@@ -38,6 +38,11 @@ declare global {
 			hfov?: number
 		) => void
 	}
+
+	module '*.svg' {
+		const content: string
+		export default content
+	}
 }
 
 export {}
