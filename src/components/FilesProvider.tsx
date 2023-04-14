@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { replaceCache } from '../store'
 import _ from 'lodash'
 import { useEditor } from '../hooks/useEditor'
+import { loadOnlineAssets } from '../functions/loadOnlineAssets'
 
 /* 
 	After opening the work folder, store all files including subfolders in a js Map
@@ -17,8 +18,14 @@ const FilesProvider = ({ children, directories = _directories }) => {
 	const dispatch = useDispatch()
 	const { cache } = useEditor()
 
-	const onClick = async () => {
+	const handleSelectDirectory = async () => {
 		const map = await openWorkFiles(directories)
+		dispatch(replaceCache({ map }))
+	}
+
+	// populate the cache from hosted public directory
+	const handleDemoAssets = () => {
+		const map = await loadOnlineAssets()
 		dispatch(replaceCache({ map }))
 	}
 
@@ -26,7 +33,7 @@ const FilesProvider = ({ children, directories = _directories }) => {
 		return (
 			<div className="m-auto flex h-full w-10/12 flex-col justify-center">
 				<div>
-					<button onClick={onClick}>
+					<button onClick={handleSelectDirectory}>
 						Select local working directory
 					</button>
 					<p>
@@ -34,7 +41,7 @@ const FilesProvider = ({ children, directories = _directories }) => {
 						this wonderfull product
 					</p>
 
-					<button>try online with a demo project</button>
+					<button>try online with demo assets</button>
 				</div>
 			</div>
 		)
