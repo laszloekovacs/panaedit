@@ -14,14 +14,15 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	const dispatch = useDispatch()
 	const { text, pitch, yaw, type } = hotspot
 
+	/* remove hotspot */
 	const handleRemove = (e) => {
 		dispatch(removeHotspot({ sceneKey, hotspotIndex }))
 		dispatch(triggerRefresh())
 	}
 
+	/* change text of the hotspot */
 	const handleLabelChange = (text) => {
 		const update = { ...hotspot, text: text }
-
 		dispatch(updateHotspot({ sceneKey, hotspotIndex, hotspot: update }))
 	}
 
@@ -60,7 +61,6 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 			<div className="invisible flex flex-col group-hover:visible">
 				<button onClick={handleRemove}>remove</button>
 				<button>reposition</button>
-				<button>add content</button>
 			</div>
 		</li>
 	)

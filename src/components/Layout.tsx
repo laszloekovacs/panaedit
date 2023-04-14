@@ -20,16 +20,25 @@ const Layout = () => {
 	const { activeView } = useEditor()
 	const dispatch = useDispatch()
 
-	const options = ['panoramas', 'editor', 'articles', 'photos']
+	// Todo: add pictures and articles to hotspots
+	//const options = ['panoramas', 'editor', 'articles', 'photos']
+	const options = ['panoramas', 'editor']
 
 	const handleChange = (option) => {
 		dispatch(setActiveView({ view: option }))
 	}
 
 	return (
-		<div id="Layout" className="flex flex-col flex-nowrap justify-start h-full px-6 py-5 w-full">
+		<div
+			id="Layout"
+			className="flex h-full w-full flex-col flex-nowrap justify-start px-6 py-5"
+		>
 			<Header />
-			<LayoutSelector options={options} active={activeView} onChange={handleChange} />
+			<LayoutSelector
+				options={options}
+				active={activeView}
+				onChange={handleChange}
+			/>
 
 			{activeView === 'panoramas' && <PanoramasLayout />}
 			{activeView === 'editor' && <EditorLayout />}

@@ -128,8 +128,8 @@ export function _setFirstScene(
 	}
 ) {
 	const { sceneKey } = action.payload
-
-	if (!state.scenes[sceneKey]) {
+	console.log(sceneKey)
+	if (!(state.scenes as Object).hasOwnProperty(sceneKey)) {
 		throw new Error('scene does not exist')
 	}
 
