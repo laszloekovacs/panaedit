@@ -6,30 +6,23 @@ import HotspotAddLink from './HotspotAddLink'
 import { useEditor } from '../hooks/useEditor'
 
 /* container of hotspots */
-const Hotspot = () => {
-	const dispatch = useDispatch()
-	const { scene, scenes, activeSceneKey } = useEditor()
-
-	if (Object.keys(scenes).length === 0) return null
+const HotspotContainer = () => {
+	const { scene, activeSceneKey } = useEditor()
 
 	const { hotSpots } = scene || []
 
 	return (
 		<>
 			<h2>Hotspots</h2>
-			<div className="flex flex-row  pb-2">
+			<div className="flex flex-row pb-2">
 				<HotspotAddInfo />
 				<HotspotAddLink />
 			</div>
 			{hotSpots && (
-				<HotspotList
-					hotspots={hotSpots}
-					sceneKey={activeSceneKey}
-					dispatch={dispatch}
-				/>
+				<HotspotList hotspots={hotSpots} sceneKey={activeSceneKey} />
 			)}
 		</>
 	)
 }
 
-export default Hotspot
+export default HotspotContainer

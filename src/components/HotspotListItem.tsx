@@ -1,20 +1,16 @@
 import React from 'react'
 import { removeHotspot, triggerRefresh, updateHotspot } from '../store'
 import EditableLabel from './EditableLabel'
+import { useDispatch } from 'react-redux'
 
 type Props = {
 	hotspot: Hotspot
 	hotspotIndex: number
-	dispatch: (action) => void
 	sceneKey: string
 }
 
-const HotspotListItem = ({
-	hotspot,
-	hotspotIndex,
-	sceneKey,
-	dispatch
-}: Props) => {
+const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
+	const dispatch = useDispatch()
 	const { sceneId, text, pitch, yaw, type } = hotspot
 
 	const handleRemove = (e) => {
@@ -32,6 +28,8 @@ const HotspotListItem = ({
 	return (
 		<li className="m-1 flex flex-row flex-nowrap justify-between bg-slate-900 bg-opacity-30 p-2">
 			<div>
+				<EditableLabel value={text} onDoneEditing={handleLabelChange} />
+
 				<table className="text-sm">
 					<tbody>
 						<tr>
@@ -48,13 +46,6 @@ const HotspotListItem = ({
 						</tr>
 					</tbody>
 				</table>
-				<p>
-					<b>Label: </b>
-					<EditableLabel
-						value={text}
-						onDoneEditing={handleLabelChange}
-					/>
-				</p>
 			</div>
 			<div>
 				<button onClick={handleRemove}>remove</button>

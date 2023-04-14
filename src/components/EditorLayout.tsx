@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEditor } from '../hooks/useEditor'
-import Hotspot from './Hotspot'
+import HotspotContainer from './Hotspot'
 import PreviewContainer from './PreviewContainer'
 import SceneList from './SceneList'
 import SceneSettings from './SceneSettings'
@@ -22,7 +22,7 @@ const EditorLayout = () => {
 				<h2>Scene List</h2>
 				<SceneList />
 				<SceneSettings />
-				<Hotspot />
+				<HotspotContainer />
 			</div>
 			<PreviewContainer />
 		</div>

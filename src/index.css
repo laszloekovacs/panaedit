@@ -41,8 +41,7 @@
 	.editable {
 		display: inline;
 		background: none;
-		/*outline: none;*/
-		size: 6;
+		outline: none;
 		cursor: text;
 		width: fit-content;
 	}
