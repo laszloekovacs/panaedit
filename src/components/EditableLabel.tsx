@@ -66,9 +66,9 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 			) : (
 				<span className="editable" onClick={handleClick}>
 					{text}
+					<img className="inline" src="/img/edit.svg" width="18rem" />
 				</span>
 			)}
-			<img src="edit.svg" width="1.5rem" />
 		</span>
 	)
 }

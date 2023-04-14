@@ -3,7 +3,7 @@ import React from 'react'
 
 const LayoutSelector = ({ options, active, onChange }) => {
 	return (
-		<ul className="flex flex-row flex-nowrap justify-center gap-0 mb-4">
+		<ul className="mb-6 flex flex-row flex-nowrap justify-center gap-0">
 			{options.map((option) => (
 				<li key={option} data-selected={active == option}>
 					<input
@@ -17,7 +17,7 @@ const LayoutSelector = ({ options, active, onChange }) => {
 					/>
 
 					<label
-						className="px-3 cursor-pointer peer-checked:bg-black peer-checked:text-white"
+						className="cursor-pointer px-3 peer-checked:bg-black peer-checked:text-white"
 						htmlFor={option}
 					>
 						{option}

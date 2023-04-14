@@ -45,7 +45,6 @@ const FilesProvider = ({ children, directories = _directories }) => {
 						try online with demo assets
 					</button>
 				</div>
-				<img src="/panoramas/01ab.jpg" width="400px" height="400px" />
 			</div>
 		)
 	} else {

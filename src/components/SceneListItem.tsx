@@ -9,18 +9,32 @@ type Props = {
 }
 
 const SceneListItem = ({ itemKey, onClick }: Props) => {
-	const { scenes } = useEditor()
+	const { scenes, activeSceneKey, state } = useEditor()
 	const scene: Scene = scenes[itemKey]
 
 	return (
 		<li
-			className="bg-slate-800 bg-opacity-0 p-1 odd:bg-opacity-20 hover:bg-opacity-40"
+			className="flex flex-row justify-between bg-slate-800 bg-opacity-0 p-1 odd:bg-opacity-20 hover:bg-opacity-40"
 			onClick={() => {
 				onClick && onClick(itemKey)
 			}}
 		>
-			<p>{scene.title}</p>
-			<p className="opacity-50">{itemKey}</p>
+			<div>
+				<p>{scene.title}</p>
+				<p className="opacity-50">{itemKey}</p>
+			</div>
+			<div className="flex flex-row">
+				<div className="w-6">
+					{itemKey == state.default.firstScene && (
+						<img src="/img/flag.svg" width="20rem" />
+					)}
+				</div>
+				<div className="w-6">
+					{activeSceneKey == itemKey && (
+						<img src="/img/preview.svg" width="20rem" />
+					)}
+				</div>
+			</div>
 		</li>
 	)
 }

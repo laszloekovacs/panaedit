@@ -10,7 +10,7 @@ const PanoramaGrid = () => {
 	const list = filterCache(cache, /panoramas/)
 	console.log(list)
 	return (
-		<ul className="my-8 grid grid-cols-2 gap-1 md:grid-cols-3">
+		<ul className="mb-8 grid grid-cols-2 gap-1 md:grid-cols-3">
 			{list.map((item, index) => (
 				<PanoramaListItem key={index} item={item} />
 			))}

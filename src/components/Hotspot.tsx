@@ -17,11 +17,17 @@ const Hotspot = () => {
 	return (
 		<>
 			<h2>Hotspots</h2>
-			<div className="flex flex-row justify-between pb-2">
+			<div className="flex flex-row  pb-2">
 				<HotspotAddInfo />
 				<HotspotAddLink />
 			</div>
-			{hotSpots && <HotspotList hotspots={hotSpots} sceneKey={activeSceneKey} dispatch={dispatch} />}
+			{hotSpots && (
+				<HotspotList
+					hotspots={hotSpots}
+					sceneKey={activeSceneKey}
+					dispatch={dispatch}
+				/>
+			)}
 		</>
 	)
 }
