@@ -24,15 +24,23 @@ const SceneListItem = ({
 	return (
 		<li
 			onClick={() => onClick(sceneKey)}
-			className="flex flex-row justify-between odd:bg-slate-500 odd:bg-opacity-25"
+			className="flex flex-row justify-between p-1 px-2 odd:bg-slate-500 odd:bg-opacity-25"
 		>
 			<div className="grid grid-cols-1">
 				<p>{title}</p>
 				<p>{sceneKey}</p>
 			</div>
 			<div className="grid grid-cols-2">
-				{isFirst && <img src={flagicon} width="16" />}
-				{isActive && <img src={previewicon} width="16" />}
+				<img
+					className={isFirst ? 'visible' : 'invisible'}
+					src={flagicon}
+					width="18"
+				/>
+				<img
+					className={isActive ? 'visible' : 'invisible'}
+					src={previewicon}
+					width="18"
+				/>
 				{numHotspots > 0 && <p>{numHotspots}</p>}
 			</div>
 		</li>
