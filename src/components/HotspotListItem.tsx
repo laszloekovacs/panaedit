@@ -30,20 +30,20 @@ const HotspotListItem = ({
 	}
 
 	return (
-		<li className="m-1 flex flex-row flex-nowrap bg-slate-900 bg-opacity-30 p-2">
+		<li className="m-1 flex flex-row flex-nowrap justify-between bg-slate-900 bg-opacity-30 p-2">
 			<div>
-				<table>
+				<table className="text-sm">
 					<tbody>
 						<tr>
-							<th>Yaw: </th>
+							<th>Yaw:</th>
 							<td>{yaw}</td>
-							<th>Pitch: </th>
+							<th>Pitch:</th>
 							<td>{pitch}</td>
 						</tr>
 						<tr>
-							<th>Type: </th>
+							<th>Type:</th>
 							<td>{type}</td>
-							<th>Id: </th>
+							<th>Target:</th>
 							<td>{sceneId}</td>
 						</tr>
 					</tbody>

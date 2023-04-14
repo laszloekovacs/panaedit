@@ -17,8 +17,8 @@ const EditorLayout = () => {
 	}
 
 	return (
-		<div className="flex flex-row flex-nowrap h-full overflow-hidden">
-			<div id="sidebar" className="flex flex-col w-80 mr-4 flex-none">
+		<div className="flex h-full flex-row flex-nowrap overflow-hidden">
+			<div id="sidebar" className="mr-4 flex w-96 flex-none flex-col">
 				<h2>Scene List</h2>
 				<SceneList />
 				<SceneSettings />

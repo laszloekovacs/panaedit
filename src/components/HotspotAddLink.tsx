@@ -41,7 +41,10 @@ const HotspotAddLink = () => {
 		<div>
 			<button onClick={showLinkDialog}>add link</button>
 			<Dialog isOpen={showDialog} onClose={handleClose}>
-				<div>Link Dialog</div>
+				<div>
+					<h2>Select target scene</h2>
+					<SceneList />
+				</div>
 			</Dialog>
 		</div>
 	)

@@ -39,10 +39,12 @@
 
 @layer components {
 	.editable {
+		display: inline;
 		background: none;
-		outline: none;
-		max-width: 100%;
-		cursor: pointer;
+		/*outline: none;*/
+		size: 6;
+		cursor: text;
+		width: fit-content;
 	}
 	.editable:focus {
 		text-decoration: underline;

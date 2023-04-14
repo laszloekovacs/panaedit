@@ -9,6 +9,10 @@ export async function loadOnlineAssets() {
 	try {
 		//		const response = await fetch(url)
 		//		const data = await response.json()
+		// @ts-ignore
+		if (import.meta.env.MODE == 'development') {
+			console.log('dev mode')
+		}
 
 		// format the data into chache lines
 		const map: CacheLine[] = data.map((p) => {

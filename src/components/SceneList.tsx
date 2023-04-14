@@ -4,7 +4,7 @@ import { useEditor } from '../hooks/useEditor'
 import { useDispatch } from 'react-redux'
 import { setActiveScene, triggerRefresh } from '../store'
 
-const SceneList = ({ items }) => {
+const SceneList = ({ items }: { items?: string[] }) => {
 	const dispatch = useDispatch()
 	const { scenes } = useEditor()
 

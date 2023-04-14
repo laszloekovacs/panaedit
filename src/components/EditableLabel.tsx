@@ -64,7 +64,7 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 					onBlur={handleBlur}
 				/>
 			) : (
-				<span className="editable" onClick={handleClick}>
+				<span className="editable inline" onClick={handleClick}>
 					{text}
 					<img className="inline" src="/img/edit.svg" width="18rem" />
 				</span>
