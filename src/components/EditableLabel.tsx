@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import editicon from '../../public/img/edit.svg'
+import { useDispatch } from 'react-redux'
+import { triggerRefresh } from '../store'
 
 /* shows a string. on clicking it turns into editable, if cancelled
  * it reverts into its original value. loosing focus cancels the edit
@@ -8,7 +10,7 @@ import editicon from '../../public/img/edit.svg'
 const EditableLabel = ({ value, onDoneEditing }) => {
 	const [isEditing, setIsEditing] = React.useState(false)
 	const [text, setText] = React.useState(value)
-
+	const dispatch = useDispatch()
 	const inputRef = useRef<HTMLInputElement>(null)
 
 	/* update text when value changes */
@@ -28,9 +30,11 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 		if (e.key === 'Enter') {
 			setIsEditing(false)
 			onDoneEditing(text)
+			dispatch(triggerRefresh())
 		}
 		if (e.key === 'Escape') {
 			setIsEditing(false)
+			setText(value)
 			onDoneEditing(value)
 		}
 	}

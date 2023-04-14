@@ -48,10 +48,6 @@
 	.editable:focus {
 		text-decoration: underline;
 	}
-
-	.editable:hover {
-		text-decoration: underline;
-	}
 }
 
 @layer base {

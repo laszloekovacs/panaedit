@@ -23,7 +23,6 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 		const update = { ...hotspot, text: text }
 
 		dispatch(updateHotspot({ sceneKey, hotspotIndex, hotspot: update }))
-		dispatch(triggerRefresh())
 	}
 
 	return (
