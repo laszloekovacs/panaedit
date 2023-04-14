@@ -1,8 +1,8 @@
 import React from 'react'
-import PanoramaGrid from './PanoramaList'
+import PanoramaList from './PanoramaList'
 
 const PanoramasLayout = () => {
-	return <PanoramaGrid />
+	return <PanoramaList />
 }
 
 export default PanoramasLayout
