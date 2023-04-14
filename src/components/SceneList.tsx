@@ -1,35 +1,40 @@
 import React from 'react'
-import SceneListItem from './SceneListItem'
 import { useEditor } from '../hooks/useEditor'
 import { useDispatch } from 'react-redux'
 import { setActiveScene, triggerRefresh } from '../store'
+import _ from 'lodash'
+import SceneListItem from './SceneListItem'
 
-const SceneList = ({ items }: { items?: string[] }) => {
+const SceneList = () => {
 	const dispatch = useDispatch()
-	const { scenes } = useEditor()
+	const { scenes, state, editor } = useEditor()
 
-	const _items = items || Object.keys(scenes)
+	if (!Object.keys(scenes)) {
+		return null
+	}
 
-	if (_items.length === 0) return null
-
-	const handleClick = (itemKey) => {
+	const handleChangeActiveScene = (itemKey) => {
 		dispatch(setActiveScene({ sceneKey: itemKey }))
 		dispatch(triggerRefresh())
 	}
 
+	const sceneArray = _.map(scenes, (scene, key) => {
+		return {
+			title: scene.title,
+			sceneKey: key,
+			isFirst: state.default.firstScene == key,
+			isActive: editor.activeSceneKey == key,
+			onClick: handleChangeActiveScene,
+			numHotspots: scene.hotSpots.length
+		}
+	})
+
 	return (
-		<div className="mb-4 h-1/2 overflow-y-auto">
-			<ul>
-				{_items &&
-					_items.map((item) => (
-						<SceneListItem
-							key={item}
-							itemKey={item}
-							onClick={handleClick}
-						/>
-					))}
-			</ul>
-		</div>
+		<ul className="mb-4 h-3/5 overflow-y-auto">
+			{sceneArray.map((item) => (
+				<SceneListItem key={item.sceneKey} {...item} />
+			))}
+		</ul>
 	)
 }
 

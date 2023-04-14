@@ -37,12 +37,16 @@ const SceneSettings = () => {
 
 			<p className="flex flex-row flex-nowrap">
 				<b>title: </b>
-				<EditableLabel value={scene.title} onDoneEditing={handleTitleChange} />
+				<EditableLabel
+					value={scene.title}
+					onDoneEditing={handleTitleChange}
+				/>
 			</p>
 
 			<div className="flex flex-row justify-between">
 				<p>
-					<b>north offset:</b> {scene.northOffset}
+					<span>north offset:</span>
+					<span>{scene.northOffset}</span>
 				</p>
 				<button onClick={handleSetOffset}>set</button>
 			</div>

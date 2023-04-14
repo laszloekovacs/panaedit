@@ -1,41 +1,39 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { setActiveScene } from '../store'
-import { useEditor } from '../hooks/useEditor'
-import flagicon from '../../public/img/flag.svg'
 import previewicon from '../../public/img/preview.svg'
+import flagicon from '../../public/img/flag.svg'
+
+// 1997 phoenix lights
 
 type Props = {
-	itemKey: string
-	onClick?: (sceneKey: string) => void
+	title: string
+	sceneKey: string
+	isFirst: boolean
+	isActive: boolean
+	onClick: (key: string) => void
+	numHotspots: number
 }
 
-const SceneListItem = ({ itemKey, onClick }: Props) => {
-	const { scenes, activeSceneKey, state } = useEditor()
-	const scene: Scene = scenes[itemKey]
-
+const SceneListItem = ({
+	title,
+	sceneKey,
+	isFirst,
+	isActive,
+	onClick,
+	numHotspots
+}: Props) => {
 	return (
 		<li
-			className="flex flex-row justify-between bg-slate-800 bg-opacity-0 p-1 odd:bg-opacity-20 hover:bg-opacity-40"
-			onClick={() => {
-				onClick && onClick(itemKey)
-			}}
+			onClick={() => onClick(sceneKey)}
+			className="flex flex-row justify-between odd:bg-slate-500 odd:bg-opacity-25"
 		>
-			<div>
-				<p>{scene.title}</p>
-				<p className="opacity-50">{itemKey}</p>
+			<div className="grid grid-cols-1">
+				<p>{title}</p>
+				<p>{sceneKey}</p>
 			</div>
-			<div className="flex flex-row">
-				<div className="w-6">
-					{itemKey == state.default.firstScene && (
-						<img src={flagicon} width="20rem" />
-					)}
-				</div>
-				<div className="w-6">
-					{activeSceneKey == itemKey && (
-						<img src={previewicon} width="20rem" />
-					)}
-				</div>
+			<div className="grid grid-cols-2">
+				{isFirst && <img src={flagicon} width="16" />}
+				{isActive && <img src={previewicon} width="16" />}
+				{numHotspots > 0 && <p>{numHotspots}</p>}
 			</div>
 		</li>
 	)

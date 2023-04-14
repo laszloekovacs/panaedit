@@ -10,7 +10,6 @@ const HotspotAddLink = () => {
 	const [showDialog, setShowDialog] = React.useState(false)
 	const dispatch = useDispatch()
 	const { scenes, editor, activeSceneKey } = useEditor()
-	const sceneList = Object.values(scenes)
 	const { yaw, pitch } = editor
 
 	const showLinkDialog = () => {
@@ -43,7 +42,6 @@ const HotspotAddLink = () => {
 			<Dialog isOpen={showDialog} onClose={handleClose}>
 				<div>
 					<h2>Select target scene</h2>
-					<SceneList />
 				</div>
 			</Dialog>
 		</div>
