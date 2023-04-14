@@ -10,7 +10,8 @@ const storeDefaults: State = {
 		vfov: 100,
 		minPitch: -98,
 		maxPitch: 98,
-		basePath: '/panoramas'
+		basePath: '/panoramas',
+		friction: 1.0
 	},
 	scenes: {},
 	articles: [],

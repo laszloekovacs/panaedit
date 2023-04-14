@@ -20,6 +20,7 @@ declare global {
 		minPitch: number
 		maxPitch: number
 		basePath: string
+		friction: number
 	}
 
 	declare interface Editor {

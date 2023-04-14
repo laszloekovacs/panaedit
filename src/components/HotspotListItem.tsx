@@ -2,6 +2,7 @@ import React from 'react'
 import { removeHotspot, triggerRefresh, updateHotspot } from '../store'
 import EditableLabel from './EditableLabel'
 import { useDispatch } from 'react-redux'
+import pageicon from '../../public/img/page.svg'
 
 type Props = {
 	hotspot: Hotspot
@@ -11,7 +12,7 @@ type Props = {
 
 const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	const dispatch = useDispatch()
-	const { sceneId, text, pitch, yaw, type } = hotspot
+	const { text, pitch, yaw, type } = hotspot
 
 	const handleRemove = (e) => {
 		dispatch(removeHotspot({ sceneKey, hotspotIndex }))
@@ -26,29 +27,41 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	}
 
 	return (
-		<li className="m-1 flex flex-row flex-nowrap justify-between bg-slate-900 bg-opacity-30 p-2">
+		<li className="group m-1 flex flex-row flex-nowrap justify-between bg-slate-900 bg-opacity-30 p-2 text-sm">
 			<div>
-				<EditableLabel value={text} onDoneEditing={handleLabelChange} />
+				<p>
+					<span>Label:</span>
+					<EditableLabel
+						value={text}
+						onDoneEditing={handleLabelChange}
+					/>
+				</p>
 
-				<table className="text-sm">
-					<tbody>
-						<tr>
-							<th>Yaw:</th>
-							<td>{yaw}</td>
-							<th>Pitch:</th>
-							<td>{pitch}</td>
-						</tr>
-						<tr>
-							<th>Type:</th>
-							<td>{type}</td>
-							<th>Target:</th>
-							<td>{sceneId}</td>
-						</tr>
-					</tbody>
-				</table>
+				<div className="grid grid-cols-4 gap-x-1">
+					<p className="opacity-70">Yaw:</p>
+					<p>{yaw}</p>
+					<p className="opacity-70">Pitch:</p>
+					<p>{pitch}</p>
+
+					{type == 'info' && (
+						<>
+							<p className="opacity-70">Type:</p>
+							<p>{type}</p>
+						</>
+					)}
+
+					{type == 'scene' && (
+						<>
+							<p className="opacity-70">Target:</p>
+							<p>{type}</p>
+						</>
+					)}
+				</div>
 			</div>
-			<div>
+			<div className="invisible flex flex-col group-hover:visible">
 				<button onClick={handleRemove}>remove</button>
+				<button>reposition</button>
+				<button>add content</button>
 			</div>
 		</li>
 	)
