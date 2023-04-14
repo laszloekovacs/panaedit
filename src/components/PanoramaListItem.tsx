@@ -11,7 +11,7 @@ type Props = {
 const PanoramaListItem = ({ item }: Props) => {
 	const dispatch = useDispatch()
 
-	/* trim path so it look better */
+	/* trim path so it look better, create key from path */
 	const filename = item.key.split('/').pop() || item.key
 	const key = filename.split('.')[0]
 

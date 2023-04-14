@@ -19,7 +19,10 @@ const resolveScene = (scenes, cache) => {
 	/* loop trough every scene */
 	for (let key in scenes) {
 		/* resolve the paths to blob urls */
-		scenes[key].panorama = resolvePathsToBlobUrl(scenes[key].panorama, cache)
+		scenes[key].panorama = resolvePathsToBlobUrl(
+			scenes[key].panorama,
+			cache
+		)
 	}
 
 	return scenes
@@ -38,10 +41,17 @@ const PreviewContainer = () => {
 		const resolvedScenes = resolveScene(scenesSlice, cache)
 
 		// create a state copy with lodash, and add the resolved scenes + default settings
-		const defaultSlice = _.merge({}, state.default, { yaw: state.editor.yaw, pitch: state.editor.pitch })
+		const defaultSlice = _.merge({}, state.default, {
+			yaw: state.editor.yaw,
+			pitch: state.editor.pitch
+		})
 
 		/* merge the preview */
-		const stateSlice = _.merge({}, { default: defaultSlice }, { scenes: resolvedScenes })
+		const stateSlice = _.merge(
+			{},
+			{ default: defaultSlice },
+			{ scenes: resolvedScenes }
+		)
 
 		setBuffer(stateSlice)
 	}, [editor.triggerRefresh])

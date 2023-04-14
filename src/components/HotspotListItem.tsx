@@ -3,6 +3,7 @@ import { removeHotspot, triggerRefresh, updateHotspot } from '../store'
 import EditableLabel from './EditableLabel'
 import { useDispatch } from 'react-redux'
 import pageicon from '../../public/img/page.svg'
+import { useEditor } from '../hooks/useEditor'
 
 type Props = {
 	hotspot: Hotspot
@@ -12,6 +13,7 @@ type Props = {
 
 const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	const dispatch = useDispatch()
+	const { editor } = useEditor()
 	const { text, pitch, yaw, type } = hotspot
 
 	/* remove hotspot */
@@ -24,6 +26,20 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	const handleLabelChange = (text) => {
 		const update = { ...hotspot, text: text }
 		dispatch(updateHotspot({ sceneKey, hotspotIndex, hotspot: update }))
+	}
+
+	const handleReposition = () => {
+		const { yaw, pitch } = editor
+
+		dispatch(
+			updateHotspot({
+				sceneKey,
+				hotspotIndex,
+				hotspot: { ...hotspot, yaw, pitch }
+			})
+		)
+
+		dispatch(triggerRefresh())
 	}
 
 	return (
@@ -60,7 +76,7 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 			</div>
 			<div className="invisible flex flex-col group-hover:visible">
 				<button onClick={handleRemove}>remove</button>
-				<button>reposition</button>
+				<button onClick={handleReposition}>reposition</button>
 			</div>
 		</li>
 	)
