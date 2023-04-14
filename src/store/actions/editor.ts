@@ -55,3 +55,9 @@ export function _TriggerRefresh(state: State) {
 
 	return state
 }
+
+export function _SetPreviewReady(state: State, action: { payload: boolean }) {
+	state.editor.previewReady = action.payload
+
+	return state
+}

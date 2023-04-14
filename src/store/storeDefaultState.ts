@@ -20,7 +20,8 @@ const storeDefaults: State = {
 		activeView: 'panoramas',
 		yaw: 0,
 		pitch: 0,
-		triggerRefresh: 0
+		triggerRefresh: 0,
+		previewReady: false
 	},
 	cache: []
 }

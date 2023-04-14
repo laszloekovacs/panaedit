@@ -23,7 +23,8 @@ import {
 	_AddToCache,
 	_ReplaceCache,
 	_SetActiveView,
-	_TriggerRefresh
+	_TriggerRefresh,
+	_SetPreviewReady
 } from './actions'
 
 /* 
@@ -53,7 +54,8 @@ const projectSlice = createSlice({
 		addToCache: _AddToCache,
 		replaceCache: _ReplaceCache,
 		setActiveView: _SetActiveView,
-		triggerRefresh: _TriggerRefresh
+		triggerRefresh: _TriggerRefresh,
+		setPreviewReady: _SetPreviewReady
 	}
 })
 
@@ -79,7 +81,8 @@ export const {
 	addToCache,
 	replaceCache,
 	setActiveView,
-	triggerRefresh
+	triggerRefresh,
+	setPreviewReady
 } = projectSlice.actions
 
 /* export the store */

@@ -29,6 +29,7 @@ declare global {
 		yaw: number
 		pitch: number
 		triggerRefresh: number
+		previewReady: boolean
 	}
 
 	declare interface CacheLine {
