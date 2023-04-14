@@ -1,10 +1,16 @@
 declare global {
 	interface Window {
-		showDirectoryPicker: (options?: DirectoryPickerOptions) => Promise<FileSystemDirectoryHandle>
+		showDirectoryPicker: (
+			options?: DirectoryPickerOptions
+		) => Promise<FileSystemDirectoryHandle>
 
-		showOpenFilePicker: (options?: FilePickerOptions) => Promise<FileSystemFileHandle[]>
+		showOpenFilePicker: (
+			options?: FilePickerOptions
+		) => Promise<FileSystemFileHandle[]>
 
-		showSaveFilePicker: (options?: FilePickerOptions) => Promise<FileSystemFileHandle>
+		showSaveFilePicker: (
+			options?: FilePickerOptions
+		) => Promise<FileSystemFileHandle>
 	}
 
 	/* pannellum specific types */
@@ -25,6 +31,12 @@ declare global {
 		getPitch: () => number
 		setYaw: (yaw: number) => void
 		setPitch: (pitch: number) => void
+		loadScene: (
+			id: string,
+			pitch?: number,
+			yaw?: number,
+			hfov?: number
+		) => void
 	}
 }
 

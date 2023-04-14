@@ -20,7 +20,7 @@ const Preview = ({ state, container }) => {
 		 */
 		const stateCopy = _.cloneDeep(state)
 		viewerRef.current = window.pannellum.viewer(container, stateCopy)
-		//viewerRef.current
+		viewerRef.current?.loadScene(editor.activeSceneKey)
 		/*
 		 * notify the editor of the current orientation
 		 */
