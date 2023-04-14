@@ -13,11 +13,12 @@ export async function loadOnlineAssets() {
 		// format the data into chache lines
 		const map: CacheLine[] = data.map((p) => {
 			// @ts-ignore
-			if (import.meta.env.MODE != 'development') {
+			if (import.meta.env.MODE == 'development') {
+				return { key: p, value: p }
+			} else {
 				const path = '/panaedit/' + p
 				return { key: path, value: path }
 			}
-			return { key: p, value: p }
 		})
 
 		return map
