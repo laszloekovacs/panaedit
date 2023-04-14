@@ -25,10 +25,7 @@ const FilesProvider = ({ children, directories = _directories }) => {
 
 	// populate the cache from hosted public directory
 	const handleLoadDemoAssets = async () => {
-		const map = await loadOnlineAssets(
-			window.fetch,
-			'/panaedit/filemanifest.json'
-		)
+		const map = await loadOnlineAssets()
 		dispatch(replaceCache({ map }))
 	}
 

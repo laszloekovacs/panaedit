@@ -1,12 +1,14 @@
+import data from '../../public/filemanifest.json'
+
 /* 
     from a client side i don't think i can list directories
     should it load from a pre generated json?
 */
 
-export async function loadOnlineAssets(fetch, url) {
+export async function loadOnlineAssets() {
 	try {
-		const response = await fetch(url)
-		const data = await response.json()
+		//		const response = await fetch(url)
+		//		const data = await response.json()
 
 		// format the data into chache lines
 		const map: CacheLine[] = data.map((p) => {
