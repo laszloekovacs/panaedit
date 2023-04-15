@@ -1,0 +1,6 @@
+{
+	"default": {
+		"type": "equirectangular",
+		"panorama": "https://pannellum.org/images/alma.jpg"
+	}
+}

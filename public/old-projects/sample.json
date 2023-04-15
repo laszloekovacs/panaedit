@@ -1,0 +1,117 @@
+{
+	"default": {
+		"firstScene": "01ca",
+		"sceneFadeDuration": 1000,
+		"type": "equirectangular",
+		"autoLoad": true,
+		"compass": true,
+		"hotSpotDebug": true,
+		"hfov": 80,
+		"vfov": 80,
+		"minPitch": -98,
+		"maxPitch": 98,
+		"basePath": "/panoramas",
+		"friction": 1
+	},
+	"scenes": {
+		"01ca": {
+			"title": "/panoramas/01ca.jpg",
+			"panorama": "/panoramas/01ca.jpg",
+			"hotSpots": [
+				{
+					"type": "info",
+					"yaw": 42.99,
+					"pitch": 0.18,
+					"text": "new info",
+					"targetYaw": "sameAzimuth"
+				},
+				{
+					"type": "info",
+					"yaw": 0,
+					"pitch": 0,
+					"text": "new info",
+					"targetYaw": "sameAzimuth"
+				}
+			],
+			"northOffset": 0
+		},
+		"01cb": {
+			"title": "/panoramas/01cb.jpg",
+			"panorama": "/panoramas/01cb.jpg",
+			"hotSpots": [],
+			"northOffset": 0
+		},
+		"01ab": {
+			"title": "/panoramas/01ab.jpg",
+			"panorama": "/panoramas/01ab.jpg",
+			"hotSpots": [],
+			"northOffset": 0
+		}
+	},
+	"articles": [],
+	"editor": {
+		"activeSceneKey": "01ca",
+		"activeView": "editor",
+		"yaw": 13.34,
+		"pitch": -1.22,
+		"triggerRefresh": 7,
+		"previewReady": false
+	},
+	"cache": [
+		{ "key": "/img/edit.svg", "value": "/img/edit.svg" },
+		{ "key": "/img/link.svg", "value": "/img/link.svg" },
+		{ "key": "/img/preview.svg", "value": "/img/preview.svg" },
+		{ "key": "/img/settings.svg", "value": "/img/settings.svg" },
+		{
+			"key": "/old-projects/iroda.json",
+			"value": "/old-projects/iroda.json"
+		},
+		{
+			"key": "/old-projects/pince.json",
+			"value": "/old-projects/pince.json"
+		},
+		{
+			"key": "/old-projects/v2project.json",
+			"value": "/old-projects/v2project.json"
+		},
+		{ "key": "/panoramas/01aa.jpg", "value": "/panoramas/01aa.jpg" },
+		{ "key": "/panoramas/01ab.jpg", "value": "/panoramas/01ab.jpg" },
+		{ "key": "/panoramas/01b.jpg", "value": "/panoramas/01b.jpg" },
+		{ "key": "/panoramas/01ca.jpg", "value": "/panoramas/01ca.jpg" },
+		{ "key": "/panoramas/01cb.jpg", "value": "/panoramas/01cb.jpg" },
+		{ "key": "/panoramas/01cc.jpg", "value": "/panoramas/01cc.jpg" },
+		{ "key": "/panoramas/02a.jpg", "value": "/panoramas/02a.jpg" },
+		{ "key": "/panoramas/02b.jpg", "value": "/panoramas/02b.jpg" },
+		{ "key": "/panoramas/03a.jpg", "value": "/panoramas/03a.jpg" },
+		{ "key": "/panoramas/03b.jpg", "value": "/panoramas/03b.jpg" },
+		{ "key": "/panoramas/03c.jpg", "value": "/panoramas/03c.jpg" },
+		{ "key": "/panoramas/04aa.jpg", "value": "/panoramas/04aa.jpg" },
+		{ "key": "/panoramas/04ab.jpg", "value": "/panoramas/04ab.jpg" },
+		{ "key": "/photos/01.jpg", "value": "/photos/01.jpg" },
+		{ "key": "/photos/03.jpg", "value": "/photos/03.jpg" },
+		{ "key": "/photos/04.jpg", "value": "/photos/04.jpg" },
+		{ "key": "/photos/2014_22.jpg", "value": "/photos/2014_22.jpg" },
+		{ "key": "/photos/2014_413.jpg", "value": "/photos/2014_413.jpg" },
+		{
+			"key": "/photos/20220624_161403.jpg",
+			"value": "/photos/20220624_161403.jpg"
+		},
+		{ "key": "/photos/45.jpg", "value": "/photos/45.jpg" },
+		{ "key": "/photos/4_kep.jpg", "value": "/photos/4_kep.jpg" },
+		{ "key": "/photos/6_kep.jpg", "value": "/photos/6_kep.jpg" },
+		{ "key": "/photos/adidas1.jpg", "value": "/photos/adidas1.jpg" },
+		{ "key": "/photos/adidas2.jpg", "value": "/photos/adidas2.jpg" },
+		{ "key": "/photos/agyar1.jpg", "value": "/photos/agyar1.jpg" },
+		{ "key": "/photos/agyar2.jpg", "value": "/photos/agyar2.jpg" },
+		{ "key": "/photos/agyar3.jpg", "value": "/photos/agyar3.jpg" },
+		{ "key": "/photos/cipobolt.jpg", "value": "/photos/cipobolt.jpg" },
+		{ "key": "/photos/cipobolt2.jpg", "value": "/photos/cipobolt2.jpg" },
+		{ "key": "/photos/dsc0670.jpg", "value": "/photos/dsc0670.jpg" },
+		{ "key": "/photos/dsc0673.jpg", "value": "/photos/dsc0673.jpg" },
+		{ "key": "/photos/dsc0676.jpg", "value": "/photos/dsc0676.jpg" },
+		{ "key": "/photos/dsc0678.jpg", "value": "/photos/dsc0678.jpg" },
+		{ "key": "/photos/dsc0688.jpg", "value": "/photos/dsc0688.jpg" },
+		{ "key": "/photos/dsc0691.jpg", "value": "/photos/dsc0691.jpg" },
+		{ "key": "/photos/dsc0695.jpg", "value": "/photos/dsc0695.jpg" }
+	]
+}

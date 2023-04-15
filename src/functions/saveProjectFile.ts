@@ -12,7 +12,7 @@ export async function saveProjectFile(data: State, window: Window) {
 		const filehandle = await window.showSaveFilePicker(fileOptions)
 		const writable = await filehandle.createWritable()
 
-		const text = JSON.stringify(data)
+		const text = JSON.stringify(data, null, 2)
 
 		await writable.write(text)
 		await writable.close()
