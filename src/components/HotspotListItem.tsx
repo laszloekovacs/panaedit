@@ -77,20 +77,20 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 					<p>{yaw}</p>
 					<p className="opacity-70">Pitch:</p>
 					<p>{pitch}</p>
-					<div>
-						{type == 'info' && (
-							<p>
-								<span className="opacity-70">Type:</span>
-								<span>{type}</span>
-							</p>
-						)}
-						{type == 'scene' && (
-							<p>
-								<span className="opacity-70">Target:</span>
-								<span>{scenes[sceneId as string].title}</span>
-							</p>
-						)}
-					</div>
+				</div>
+				<div>
+					{type == 'info' && (
+						<p>
+							<span className="opacity-70">Type:</span>
+							<span>{type}</span>
+						</p>
+					)}
+					{type == 'scene' && (
+						<p>
+							<span className="opacity-70">Target:</span>
+							<span>{scenes[sceneId as string].title}</span>
+						</p>
+					)}
 				</div>
 			</div>
 			<div className="invisible flex flex-col group-hover:visible">
