@@ -71,7 +71,7 @@ const EditableLabel = ({ value, onDoneEditing }) => {
 			) : (
 				<span className="editable inline" onClick={handleClick}>
 					{text}
-					<img className="ml-1 inline" src={editicon} width="16rem" />
+					<img className="ml-1 inline" src={editicon} width="14rem" />
 				</span>
 			)}
 		</span>

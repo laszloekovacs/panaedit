@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
-import { setEditorOrientation } from '../store'
+import { setActiveScene, setEditorOrientation } from '../store'
 import _ from 'lodash'
 import { useEditor } from '../hooks/useEditor'
 
@@ -34,6 +34,11 @@ const Preview = ({ state, container }) => {
 			)
 
 			dispatch(setEditorOrientation({ yaw, pitch }))
+		})
+
+		/* when navigating trough the 3d view, change the active scene after load */
+		viewerRef.current?.on('scenechange', (data) => {
+			dispatch(setActiveScene({ sceneKey: data as string }))
 		})
 
 		/*
