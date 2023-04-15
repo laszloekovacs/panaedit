@@ -1,7 +1,7 @@
 import React from 'react'
+import { createPortal } from 'react-dom'
 import Dialog from './Dialog'
 import { useDispatch } from 'react-redux'
-import SceneList from './SceneList'
 
 import { addHotspot, triggerRefresh } from '../store'
 import { useEditor } from '../hooks/useEditor'
