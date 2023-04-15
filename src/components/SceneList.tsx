@@ -31,9 +31,10 @@ const SceneList = () => {
 
 	return (
 		<ul className="mb-4 h-3/5 overflow-y-auto text-sm">
-			{sceneArray.map((item) => (
-				<SceneListItem key={item.sceneKey} {...item} />
-			))}
+			{sceneArray &&
+				sceneArray.map((item) => (
+					<SceneListItem key={item.sceneKey} {...item} />
+				))}
 		</ul>
 	)
 }

@@ -31,7 +31,7 @@ const Layout = () => {
 	return (
 		<div
 			id="Layout"
-			className="flex h-full w-full flex-col flex-nowrap justify-start px-6 py-5"
+			className="flex h-full w-full flex-col flex-nowrap justify-start px-5 py-5"
 		>
 			<Header />
 			<LayoutSelector

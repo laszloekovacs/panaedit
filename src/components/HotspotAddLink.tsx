@@ -5,12 +5,12 @@ import SceneList from './SceneList'
 
 import { addHotspot, triggerRefresh } from '../store'
 import { useEditor } from '../hooks/useEditor'
+import LinkSceneList from './LinkSceneList'
 
 const HotspotAddLink = () => {
 	const [showDialog, setShowDialog] = React.useState(false)
 	const dispatch = useDispatch()
-	const { scenes, editor, activeSceneKey } = useEditor()
-	const { yaw, pitch } = editor
+	const { editor, activeSceneKey } = useEditor()
 
 	const showLinkDialog = () => {
 		setShowDialog(true)
@@ -20,20 +20,18 @@ const HotspotAddLink = () => {
 		setShowDialog(false)
 	}
 
-	const handleSelection = (target: string) => {
-		/* set sceneId of the newly created hotspot */
-		const hotspot: Hotspot = {
-			sceneId: target,
-			yaw,
-			pitch,
-			targetYaw: 'sameAzimuth',
-			text: 'new scene',
-			type: 'scene'
-		}
+	const handleLinkScene = (sceneKey) => {
+		const hotspot = {
+			yaw: editor.yaw,
+			pitch: editor.pitch,
+			type: 'scene',
+			text: 'Link to ' + sceneKey,
+			sceneId: sceneKey
+		} as Hotspot
 
-		/* add hotspot to the current scene */
 		dispatch(addHotspot({ sceneKey: activeSceneKey, hotspot }))
 		dispatch(triggerRefresh())
+		setShowDialog(false)
 	}
 
 	return (
@@ -42,6 +40,7 @@ const HotspotAddLink = () => {
 			<Dialog isOpen={showDialog} onClose={handleClose}>
 				<div>
 					<h2>Select target scene</h2>
+					<LinkSceneList onClick={handleLinkScene} />
 				</div>
 			</Dialog>
 		</div>

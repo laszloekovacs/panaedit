@@ -45,13 +45,7 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	return (
 		<li className="group m-1 flex flex-row flex-nowrap justify-between bg-slate-900 bg-opacity-30 p-2 text-sm">
 			<div>
-				<p>
-					<span>Label:</span>
-					<EditableLabel
-						value={text}
-						onDoneEditing={handleLabelChange}
-					/>
-				</p>
+				<EditableLabel value={text} onDoneEditing={handleLabelChange} />
 
 				<div className="grid grid-cols-4 gap-x-1">
 					<p className="opacity-70">Yaw:</p>

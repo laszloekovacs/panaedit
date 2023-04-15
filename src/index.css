@@ -15,11 +15,10 @@
 	body {
 		font-family: 'JetBrains Mono', monospace;
 		@apply relative select-none bg-neutral-300;
-		position: absolute;
 	}
 
 	button {
-		@apply bg-stone-800 px-4 text-white opacity-90 hover:bg-purple-800;
+		@apply bg-stone-800 px-4 text-white opacity-90 hover:bg-purple-700 active:bg-orange-700;
 	}
 
 	input[type='radio'] {

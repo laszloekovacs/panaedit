@@ -45,7 +45,7 @@ const SceneSettings = () => {
 
 			<div className="flex flex-row justify-between">
 				<p>
-					<span>north offset:</span>
+					<span className="font-bold">north offset:</span>
 					<span>{scene.northOffset}</span>
 				</p>
 				<button onClick={handleSetOffset}>set</button>
