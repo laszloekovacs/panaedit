@@ -14,13 +14,18 @@ const Preview = ({ state, container }) => {
 		if (!window.pannellum) {
 			throw new Error('Pannellum not loaded')
 		}
-
+		console.log('state', state)
 		/*
 		 * warning: panellum mutates its inputs, give it a copy
 		 */
 		const stateCopy = _.cloneDeep(state)
 		viewerRef.current = window.pannellum.viewer(container, stateCopy)
-		viewerRef.current?.loadScene(editor.activeSceneKey)
+		// correct orientation by the north offset
+
+		const { yaw, pitch } = editor
+
+		viewerRef.current?.loadScene(editor.activeSceneKey, pitch, yaw)
+
 		/*
 		 * notify the editor of the current orientation
 		 */
