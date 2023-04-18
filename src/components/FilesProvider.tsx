@@ -38,8 +38,7 @@ const FilesProvider = ({ children, directories = _directories }) => {
 					width="100%"
 					height="100%"
 					allowFullScreen={true}
-					src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/alma.jpg&autoRotate=-4&autoLoad=true"
-				></iframe>
+					src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/alma.jpg&autoRotate=-4&autoLoad=true"></iframe>
 				<div className="absolute left-0 top-0 z-10 h-full w-full bg-black opacity-40"></div>
 				<div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center">
 					<div className="grid grid-cols-2 p-8 backdrop-blur-xl">
@@ -56,9 +55,7 @@ const FilesProvider = ({ children, directories = _directories }) => {
 							<button onClick={handleSelectDirectory}>
 								Select local working directory
 							</button>
-							<p className="text-xs">
-								note: does not work on firefox
-							</p>
+							<p className="text-xs">note: does not work on firefox</p>
 						</div>
 					</div>
 				</div>
