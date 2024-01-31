@@ -5,6 +5,7 @@ Web based tool to create pannellum.js scene files with some extended functionali
 [panellum.js](https://pannellum.org/)
 
 for an example finished tour, visit: 
+
 https://laszloekovacs.github.io/cipogyar_build/?fbclid=IwAR3vIYyobRdnjUuKgiqO-ydVZyi9a6dPVCviuxPq0X7R7puF5GPi83rv7KE 
 
 ### quick guide
@@ -18,6 +19,7 @@ https://laszloekovacs.github.io/cipogyar_build/?fbclid=IwAR3vIYyobRdnjUuKgiqO-yd
 
 screenshots from old version
 ![newscreenshot](./screenshots/Screenshot.png)
+![oldscreenshot](./screenshots/Screenshot3.png)
 
 ### How to run
 
