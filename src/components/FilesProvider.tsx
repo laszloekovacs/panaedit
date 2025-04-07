@@ -41,21 +41,20 @@ const FilesProvider = ({ children, directories = _directories }) => {
 					src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/alma.jpg&autoRotate=-4&autoLoad=true"></iframe>
 				<div className="absolute left-0 top-0 z-10 h-full w-full bg-black opacity-40"></div>
 				<div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center">
-					<div className="grid grid-cols-2 p-8 backdrop-blur-xl">
+					<div className="grid grid-cols-2 p-8 backdrop-blur-xl rounded-xl" style={{ border: "1px solid rgba(255,255,255,0.2)"}}>
 						<h1 className="text-bold col-span-2 mb-12 text-xl text-neutral-100 ">
-							Pannellum scene file editor
+							Pannellum Tour Editor
 						</h1>
 						<div>
-							<button onClick={handleLoadDemoAssets}>
-								Try online with demo assets
+							<button onClick={handleLoadDemoAssets} className="rounded-sm">
+								Read Tutorial
 							</button>
 						</div>
 
 						<div>
-							<button onClick={handleSelectDirectory}>
-								Select local working directory
+							<button onClick={handleSelectDirectory} className="rounded-sm">
+								Select Working Directory
 							</button>
-							<p className="text-xs">note: does not work on firefox</p>
 						</div>
 					</div>
 				</div>

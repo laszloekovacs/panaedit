@@ -21,8 +21,8 @@ const Layout = () => {
 	const dispatch = useDispatch()
 
 	// Todo: add pictures and articles to hotspots
-	//const options = ['panoramas', 'editor', 'articles', 'photos']
-	const options = ['panoramas', 'editor']
+	const options = ['panoramas', 'editor', 'articles', 'photos']
+	//const options = ['panoramas', 'editor']
 
 	const handleChange = (option) => {
 		dispatch(setActiveView({ view: option }))

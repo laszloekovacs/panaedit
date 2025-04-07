@@ -21,9 +21,9 @@ const Header = () => {
 
 	return (
 		<div className="col-span-2">
-			<button onClick={onNew}>new</button>
-			<button onClick={onOpen}>open</button>
-			<button onClick={onSave}>save</button>
+			<button onClick={onNew}>New</button>
+			<button onClick={onOpen}>Open</button>
+			<button onClick={onSave}>Save</button>
 		</div>
 	)
 }
