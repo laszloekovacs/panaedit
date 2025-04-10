@@ -38,7 +38,7 @@ const FilesProvider = ({ children, directories = _directories }) => {
 					width="100%"
 					height="100%"
 					allowFullScreen={true}
-					src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/alma.jpg&autoRotate=-4&autoLoad=true"></iframe>
+					src="https://cdn.pannellum.org/2.5/pannellum.htm#config=http://localhost:5173/defBG.json"></iframe>
 				<div className="absolute left-0 top-0 z-10 h-full w-full bg-black opacity-40"></div>
 				<div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center">
 					<div className="grid grid-cols-2 p-8 backdrop-blur-xl rounded-xl" style={{ border: "1px solid rgba(255,255,255,0.2)"}}>
@@ -56,6 +56,11 @@ const FilesProvider = ({ children, directories = _directories }) => {
 								Select Working Directory
 							</button>
 						</div>
+						<p className="mt-12 text-xs">
+							Working directory must contain 3 folders:
+							<br />articles, panoramas and photos
+							<br />Must be .jpg or .png (all lowercase)
+						</p>
 					</div>
 				</div>
 			</div>

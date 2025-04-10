@@ -10,10 +10,10 @@
 	body {
 		height: 100vh;
 		width: 100vw;
-		background-color: rgb(255, 255, 255);
+		background-color: rgb(118, 125, 145);
 	}
 
-	body {
+	body { 
 		font-family: 'JetBrains Mono', monospace;
 		@apply relative select-none bg-neutral-300;
 	}

@@ -12,6 +12,9 @@ export function _addHotspot(
 ) {
 	const { sceneKey, hotspot } = action.payload
 
+	console.log("Pushed:");
+	console.log(hotspot);
+
 	;(state.scenes[sceneKey] as Scene).hotSpots.push(hotspot)
 
 	return state

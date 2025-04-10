@@ -49,7 +49,7 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	const handleHover = (text) => {
 		/* find the element by its child inner text = hotspot.text */
 
-		return
+		//return
 
 		const hotspots = document.querySelectorAll('canvas + .pnlm-hotspot')
 		if (!hotspots) return
@@ -89,6 +89,12 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 						<p>
 							<span className="opacity-70">Target:</span>
 							<span>{scenes[sceneId as string].title}</span>
+						</p>
+					)}
+					{type == 'photo' && (
+						<p>
+							<span className="opacity-70">Type:</span>
+							<span>{type}</span>
 						</p>
 					)}
 				</div>

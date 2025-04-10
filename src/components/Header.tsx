@@ -13,9 +13,13 @@ const Header = () => {
 
 	const onOpen = async () => {
 		loadProjectFile(window, dispatch)
+		console.log("Open!");
+		console.log(window);
 	}
 
 	const onSave = async () => {
+		console.log("SAVING!");
+		console.log(state);
 		saveProjectFile(state, window)
 	}
 

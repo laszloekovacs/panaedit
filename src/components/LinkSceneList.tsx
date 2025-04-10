@@ -18,7 +18,7 @@ const LinkSceneList = ({ onClick }) => {
 	}).filter((item) => item.isActive == false)
 
 	return (
-		<ul>
+		<ul className='max-h-full'>
 			{list &&
 				list.map((item) => (
 					<SceneListItem key={item.sceneKey} {...item} />

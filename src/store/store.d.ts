@@ -47,10 +47,16 @@ declare global {
 	declare interface Hotspot {
 		pitch: number
 		yaw: number
-		type: 'scene' | 'info'
+		type: 'scene' | 'info' | 'photo' | 'article'
 		text: string
 		targetYaw: 'sameAzimuth'
-		sceneId?: string
+		sceneId?: string,
+		URL?: string,
+		cssClass?: string,
+		createTooltipFuncStr?: string,
+		createTooltipArgs?: object,
+		clickHandlerFuncStr?: string,
+		clickHandlerArgs?: object
 	}
 
 	declare interface Article {
