@@ -20,10 +20,8 @@ const Preview = ({ state, container }) => {
 		// Process clickHandlerFuncStr if it exists
 		if (processedHotspot.clickHandlerFuncStr) {
 			try {
-				processedHotspot.clickHandlerFunc = new Function(
-					'e', 'args',
-					`return (${processedHotspot.clickHandlerFuncStr})(e, args)`
-				)
+				// Direct evaluation is more reliable for function strings
+				processedHotspot.clickHandlerFunc = eval('(' + processedHotspot.clickHandlerFuncStr + ')');
 				console.log(`Processed clickHandler function for hotspot: ${processedHotspot.text}`)
 			} catch (error) {
 				console.error(`Error creating function from clickHandlerFuncStr: ${error}`)
@@ -33,13 +31,19 @@ const Preview = ({ state, container }) => {
 		// Process createTooltipFuncStr if it exists
 		if (processedHotspot.createTooltipFuncStr) {
 			try {
-				processedHotspot.createTooltipFunc = new Function(
-					'hotSpotDiv', 'args',
-					`return (${processedHotspot.createTooltipFuncStr})(hotSpotDiv, args)`
-				)
+				// Direct evaluation is more reliable for function strings
+				processedHotspot.createTooltipFunc = eval('(' + processedHotspot.createTooltipFuncStr + ')');
+				console.log(`Processed tooltip function for hotspot: ${processedHotspot.text}`)
 			} catch (error) {
 				console.error(`Error creating function from createTooltipFuncStr: ${error}`)
+				console.error(`Function string was: ${processedHotspot.createTooltipFuncStr.substring(0, 100)}...`)
 			}
+		}
+		
+		// For photo type hotspots, add special CSS class
+		if (processedHotspot.type === 'photo') {
+			processedHotspot.cssClass = processedHotspot.cssClass ? 
+				`${processedHotspot.cssClass} pnlm-type-photo` : 'pnlm-type-photo';
 		}
 		
 		return processedHotspot
@@ -140,6 +144,26 @@ const Preview = ({ state, container }) => {
 						console.error('Error adding hotspot:', error)
 					}
 				})
+			} else {
+				// Check for changes in existing hotspots
+				currentScene.hotSpots.forEach((hotspot, index) => {
+					const prevHotspot = prevScene.hotSpots[index];
+					
+					// Check if this hotspot was modified
+					if (!_.isEqual(hotspot, prevHotspot)) {
+						console.log('Hotspot updated:', hotspot.text);
+						
+						try {
+							// Remove and re-add the hotspot to update it
+							// Pannellum doesn't provide a direct way to update a hotspot
+							viewerRef.current?.removeHotSpot(index, editor.activeSceneKey);
+							const processedHotspot = processHotspot(hotspot);
+							viewerRef.current?.addHotSpot(processedHotspot, editor.activeSceneKey);
+						} catch (error) {
+							console.error('Error updating hotspot:', error);
+						}
+					}
+				});
 			}
 		}
 		

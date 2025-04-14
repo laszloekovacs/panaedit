@@ -58,3 +58,26 @@
 		@apply bg-stone-800;
 	}
 }
+
+@layer components {
+	.hotspot-tooltip {
+		border-radius: 4px;
+		overflow: hidden;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+		max-width: 300px;
+		background-color: white;
+	}
+	
+	.tooltip-caption {
+		padding: 4px 8px;
+		background: rgba(0, 0, 0, 0.6);
+		color: white;
+		text-align: center;
+		font-size: 0.9rem;
+	}
+	
+	/* Customize the appearance of photo hotspots */
+	.pnlm-hotspot.pnlm-type-photo .pnlm-hotspot-base {
+		background-color: rgba(255, 120, 0, 0.8); /* Orange background */
+	}
+}
