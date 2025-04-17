@@ -14,12 +14,20 @@ const SceneSettings = () => {
 
 	/* changing the offset */
 	const handleSetOffset = () => {
+		// Format yaw value for consistency
+		const normalizedYaw = Number(yaw.toFixed(2));
+		
+		// Calculate northOffset properly
+		// In Pannellum, northOffset is the negative of the yaw you want to be north
 		const payload = {
-			sceneKey: activeSceneKey,
-			northOffset: Number(yaw.toFixed(2))
+		  sceneKey: activeSceneKey,
+		  northOffset: normalizedYaw
 		}
-		dispatch(setSceneNorthOffset(payload))
-	}
+		
+		dispatch(setSceneNorthOffset(payload));
+		// Also trigger a refresh to ensure the scene reloads
+		dispatch(triggerRefresh());
+	  }
 
 	/* changing the scene's title */
 	const handleTitleChange = (title: string) => {

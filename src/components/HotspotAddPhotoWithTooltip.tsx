@@ -46,8 +46,6 @@ const HotspotAddPhotoWithTooltip = () => {
 				var img = document.createElement("img");
 				img.src = args.URL;
 				img.alt = args.text;
-				img.style.maxWidth = "200px";
-				img.style.maxHeight = "150px";
 				wrapper.appendChild(img);
 				
 				if (args.text) {

@@ -6,6 +6,7 @@ declare global {
 		articles: Article[]
 		editor: Editor
 		cache: CacheLine[]
+		floorPlan: FloorPlan
 	}
 
 	declare interface Default {
@@ -67,6 +68,19 @@ declare global {
 
 	declare interface Photo {
 		url: string
+		label: string
+	}
+	
+	declare interface FloorPlan {
+		imagePath: string
+		markers: FloorPlanMarker[]
+	}
+	
+	declare interface FloorPlanMarker {
+		id: string
+		x: number
+		y: number
+		sceneKey: string
 		label: string
 	}
 }

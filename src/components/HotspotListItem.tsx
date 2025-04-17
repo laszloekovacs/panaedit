@@ -1,5 +1,5 @@
 import React from 'react'
-import { removeHotspot, triggerRefresh, updateHotspot } from '../store'
+import { removeHotspot, triggerRefresh, updateHotspot, setActiveView } from '../store'
 import EditableLabel from './EditableLabel'
 import { useDispatch } from 'react-redux'
 import pageicon from '../../public/img/page.svg'
@@ -13,24 +13,46 @@ type Props = {
 
 const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	const dispatch = useDispatch()
-	const { editor, scenes } = useEditor()
+	const { editor, scenes, activeView } = useEditor()
 	const { text, pitch, yaw, type, sceneId } = hotspot
 
-	/* remove hotspot */
+	/* remove hotspot with forced view refresh */
 	const handleRemove = (e) => {
+		// First, dispatch the removeHotspot action
 		dispatch(removeHotspot({ sceneKey, hotspotIndex }))
-		dispatch(triggerRefresh())
+		
+		// Then do a view toggle trick to force a complete refresh
+		const currentView = activeView
+		
+		// Toggle to a different view (e.g., 'articles') and back
+		const tempView = currentView === 'panoramas' ? 'articles' : 'panoramas'
+		
+		// Use setTimeout to ensure these run in sequence
+		setTimeout(() => {
+			dispatch(setActiveView({ view: tempView }))
+			
+			// Switch back to original view after a short delay
+			setTimeout(() => {
+				dispatch(setActiveView({ view: currentView }))
+				
+				// Make sure we trigger a refresh at the end
+				dispatch(triggerRefresh())
+			}, 10)
+		}, 10)
 	}
 
 	/* change text of the hotspot */
 	const handleLabelChange = (text) => {
 		const update = { ...hotspot, text: text }
 		dispatch(updateHotspot({ sceneKey, hotspotIndex, hotspot: update }))
+		dispatch(triggerRefresh())
 	}
 
+	/* reposition hotspot with forced view refresh */
 	const handleReposition = () => {
 		const { yaw, pitch } = editor
-
+		
+		// First, update the hotspot
 		dispatch(
 			updateHotspot({
 				sceneKey,
@@ -38,8 +60,25 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 				hotspot: { ...hotspot, yaw, pitch }
 			})
 		)
-
-		dispatch(triggerRefresh())
+		
+		// Then do a view toggle trick to force a complete refresh
+		const currentView = activeView
+		
+		// Toggle to a different view (e.g., 'articles') and back
+		const tempView = currentView === 'panoramas' ? 'articles' : 'panoramas'
+		
+		// Use setTimeout to ensure these run in sequence
+		setTimeout(() => {
+			dispatch(setActiveView({ view: tempView }))
+			
+			// Switch back to original view after a short delay
+			setTimeout(() => {
+				dispatch(setActiveView({ view: currentView }))
+				
+				// Make sure we trigger a refresh at the end
+				dispatch(triggerRefresh())
+			}, 10)
+		}, 10)
 	}
 
 	/* 
@@ -48,18 +87,25 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	*/
 	const handleHover = (text) => {
 		/* find the element by its child inner text = hotspot.text */
-
-		//return
-
 		const hotspots = document.querySelectorAll('canvas + .pnlm-hotspot')
 		if (!hotspots) return
 
 		hotspots.forEach((hotspot) => {
-			console.log(hotspot.querySelector('span')?.innerText)
 			// if it has a span with the text = hotspot.text
 			if (hotspot.querySelector('span')?.innerText == text) {
 				// add border class to parent
-				hotspot.classList.add('border-2 border-pink-500')
+				hotspot.classList.add('border-2', 'border-pink-500')
+			}
+		})
+	}
+
+	const handleLeave = (text) => {
+		const hotspots = document.querySelectorAll('canvas + .pnlm-hotspot')
+		if (!hotspots) return
+		
+		hotspots.forEach((hotspot) => {
+			if (hotspot.querySelector('span')?.innerText == text) {
+				hotspot.classList.remove('border-2', 'border-pink-500')
 			}
 		})
 	}
@@ -67,6 +113,7 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 	return (
 		<li
 			onMouseOver={() => handleHover(text)}
+			onMouseOut={() => handleLeave(text)}
 			className="group m-1 flex flex-row flex-nowrap justify-between bg-slate-900 bg-opacity-30 p-2 text-sm hover:bg-opacity-25"
 		>
 			<div>
@@ -88,7 +135,7 @@ const HotspotListItem = ({ hotspot, hotspotIndex, sceneKey }: Props) => {
 					{type == 'scene' && (
 						<p>
 							<span className="opacity-70">Target:</span>
-							<span>{scenes[sceneId as string].title}</span>
+							<span>{scenes[sceneId as string]?.title || 'Unknown'}</span>
 						</p>
 					)}
 					{type == 'photo' && (

@@ -11,6 +11,7 @@ import EditorLayout from './EditorLayout'
 import PhotosLayout from './PhotosLayout'
 import PanoramasLayout from './PanoramaLayout'
 import ArticleLayout from './ArticleLayout'
+import MapLayout from './MapLayout'
 
 /*
  * should render the active view the header and the layout selector
@@ -20,9 +21,8 @@ const Layout = () => {
 	const { activeView } = useEditor()
 	const dispatch = useDispatch()
 
-	// Todo: add pictures and articles to hotspots
-	const options = ['panoramas', 'editor', 'articles', 'photos']
-	//const options = ['panoramas', 'editor']
+	// Added 'map' to the options
+	const options = ['panoramas', 'editor', 'articles', 'photos', 'map']
 
 	const handleChange = (option) => {
 		dispatch(setActiveView({ view: option }))
@@ -44,6 +44,7 @@ const Layout = () => {
 			{activeView === 'editor' && <EditorLayout />}
 			{activeView === 'articles' && <ArticleLayout />}
 			{activeView === 'photos' && <PhotosLayout />}
+			{activeView === 'map' && <MapLayout />}
 		</div>
 	)
 }

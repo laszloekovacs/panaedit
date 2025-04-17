@@ -55,7 +55,49 @@ const projectSlice = createSlice({
 		replaceCache: _ReplaceCache,
 		setActiveView: _SetActiveView,
 		triggerRefresh: _TriggerRefresh,
-		setPreviewReady: _SetPreviewReady
+		setPreviewReady: _SetPreviewReady,
+		// Floor plan actions will be added in a separate PR
+		setFloorPlanImage: (state, action) => {
+			if (!state.floorPlan) {
+				state.floorPlan = { imagePath: '', markers: [] };
+			}
+			state.floorPlan.imagePath = action.payload.path;
+			return state;
+		},
+		addFloorPlanMarker: (state, action) => {
+			if (!state.floorPlan) {
+				state.floorPlan = { imagePath: '', markers: [] };
+			}
+			state.floorPlan.markers.push(action.payload.marker);
+			return state;
+		},
+		updateFloorPlanMarker: (state, action) => {
+			if (!state.floorPlan) return state;
+			
+			const { id, updates } = action.payload;
+			const markerIndex = state.floorPlan.markers.findIndex(marker => marker.id === id);
+			
+			if (markerIndex !== -1) {
+				state.floorPlan.markers[markerIndex] = {
+					...state.floorPlan.markers[markerIndex],
+					...updates
+				};
+			}
+			return state;
+		},
+		removeFloorPlanMarker: (state, action) => {
+			if (!state.floorPlan) return state;
+			
+			const { id } = action.payload;
+			state.floorPlan.markers = state.floorPlan.markers.filter(marker => marker.id !== id);
+			return state;
+		},
+		clearFloorPlanMarkers: (state) => {
+			if (!state.floorPlan) return state;
+			
+			state.floorPlan.markers = [];
+			return state;
+		}
 	}
 })
 
@@ -82,7 +124,13 @@ export const {
 	replaceCache,
 	setActiveView,
 	triggerRefresh,
-	setPreviewReady
+	setPreviewReady,
+	// Export floor plan actions
+	setFloorPlanImage,
+	addFloorPlanMarker,
+	updateFloorPlanMarker,
+	removeFloorPlanMarker,
+	clearFloorPlanMarkers
 } = projectSlice.actions
 
 /* export the store */

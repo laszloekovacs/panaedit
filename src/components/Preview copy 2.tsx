@@ -61,20 +61,9 @@ const Preview = ({ state, container }) => {
 			// Deep clone state to avoid mutations
 			const stateCopy = _.cloneDeep(state)
 			
-			// Ensure compass is enabled in default configuration
-			if (stateCopy.default) {
-				stateCopy.default.compass = true;
-				console.log('Compass enabled in default configuration');
-			}
-			
-			// Process all hotspots in all scenes and ensure northOffset is applied
+			// Process all hotspots in all scenes
 			for (const sceneKey in stateCopy.scenes) {
 				const scene = stateCopy.scenes[sceneKey]
-				// Explicitly log the northOffset to help debugging
-				if (scene.northOffset !== undefined) {
-					console.log(`Scene ${sceneKey} has northOffset: ${scene.northOffset}`);
-				}
-				
 				if (scene.hotSpots && scene.hotSpots.length > 0) {
 					scene.hotSpots = scene.hotSpots.map(processHotspot)
 				}
@@ -119,7 +108,7 @@ const Preview = ({ state, container }) => {
 		}
 	}, []) // Empty dependency array means this only runs once
 
-	// Handle hotspot updates and northOffset changes
+	// Handle hotspot updates without full reinitialization
 	useEffect(() => {
 		if (!isInitialized || !viewerRef.current) return
 		
@@ -131,28 +120,11 @@ const Preview = ({ state, container }) => {
 			return
 		}
 		
-		// Check for changes in the active scene
+		// Check for hotspot changes in the active scene
 		const currentScene = state.scenes[editor.activeSceneKey]
 		const prevScene = prevScenesRef.current?.[editor.activeSceneKey]
 		
 		if (currentScene && prevScene) {
-			// Check if northOffset changed
-			if (currentScene.northOffset !== prevScene.northOffset) {
-				console.log(`North offset changed from ${prevScene.northOffset} to ${currentScene.northOffset}`)
-				
-				// Get current view position
-				const currentYaw = viewerRef.current.getYaw()
-				const currentPitch = viewerRef.current.getPitch()
-				
-				// Force reload of the scene to apply the new northOffset
-				// Pannellum doesn't provide a direct API to update northOffset without reloading
-				viewerRef.current.loadScene(editor.activeSceneKey, currentPitch, currentYaw)
-				
-				// Update the reference for next comparison
-				prevScenesRef.current = _.cloneDeep(state.scenes)
-				return
-			}
-			
 			// Compare hotspot counts to detect changes
 			if (currentScene.hotSpots.length !== prevScene.hotSpots.length) {
 				console.log('Hotspot count changed, updating...')
@@ -251,7 +223,7 @@ const Preview = ({ state, container }) => {
 		// If triggerRefresh changed but we're not in a removal process,
 		// and the scene hotspot count didn't change (which would be caught by the other effect),
 		// then do a scene reload to ensure everything is in sync
-/* 		const currentScene = state.scenes[editor.activeSceneKey]
+		const currentScene = state.scenes[editor.activeSceneKey]
 		const prevScene = prevScenesRef.current?.[editor.activeSceneKey]
 		
 		if (currentScene && prevScene && currentScene.hotSpots.length === prevScene.hotSpots.length) {
@@ -270,31 +242,6 @@ const Preview = ({ state, container }) => {
 					console.error("Error during scene reload:", err)
 				}
 			}
-		} */
-
-		const currentScene = state.scenes[editor.activeSceneKey];
-		const prevScene = prevScenesRef.current?.[editor.activeSceneKey];
-		
-		if (currentScene && prevScene && currentScene.northOffset !== prevScene.northOffset) {
-			console.log(`North offset changed from ${prevScene.northOffset} to ${currentScene.northOffset}`);
-			
-			// Force reload of the scene to apply the new northOffset
-			// We need to destroy and recreate the viewer completely
-			const currentYaw = viewerRef.current.getYaw();
-			const currentPitch = viewerRef.current.getPitch();
-			
-			// Reload scene entirely to apply northOffset
-			viewerRef.current.loadScene(editor.activeSceneKey);
-			
-			// Restore view position
-			setTimeout(() => {
-			if (viewerRef.current) {
-				viewerRef.current.setYaw(currentYaw);
-				viewerRef.current.setPitch(currentPitch);
-			}
-			}, 100);
-			
-			return;
 		}
 		
 		setLastTriggerCount(editor.triggerRefresh)
