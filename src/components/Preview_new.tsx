@@ -259,30 +259,6 @@ const Preview = ({ state, container }) => {
 		// Check if this is just after a removal (which already handled the update)
 		if (isRemoving) return
 		
-		// If triggerRefresh changed but we're not in a removal process,
-		// and the scene hotspot count didn't change (which would be caught by the other effect),
-		// then do a scene reload to ensure everything is in sync
-/* 		const currentScene = state.scenes[editor.activeSceneKey]
-		const prevScene = prevScenesRef.current?.[editor.activeSceneKey]
-		
-		if (currentScene && prevScene && currentScene.hotSpots.length === prevScene.hotSpots.length) {
-			// Check if explicit reload is needed
-			if (editor.triggerRefresh > lastTriggerCount + 1) {
-				console.log('Explicit scene reload due to triggerRefresh jump')
-				
-				try {
-					// Get current position
-					const currentYaw = viewerRef.current.getYaw()
-					const currentPitch = viewerRef.current.getPitch()
-					
-					// Reload the scene
-					viewerRef.current.loadScene(editor.activeSceneKey, currentPitch, currentYaw)
-				} catch (err) {
-					console.error("Error during scene reload:", err)
-				}
-			}
-		} */
-
 		const currentScene = state.scenes[editor.activeSceneKey];
 		const prevScene = prevScenesRef.current?.[editor.activeSceneKey];
 		
@@ -304,8 +280,6 @@ const Preview = ({ state, container }) => {
 				viewerRef.current.setPitch(currentPitch);
 			}
 			}, 100);
-			
-			return;
 		}
 		
 		setLastTriggerCount(editor.triggerRefresh)

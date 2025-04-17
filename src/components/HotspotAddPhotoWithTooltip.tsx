@@ -36,15 +36,20 @@ const HotspotAddPhotoWithTooltip = () => {
 			pitch: editor.pitch,
 			text: 'Photo: ' + filename,
 			targetYaw: 'sameAzimuth',
-			// Store the photo URL for tooltip rendering
-			URL: selectedPhoto.value,
+			// Store the photo KEY rather than the blob URL
+			URL: photoKey, // This is the key path, not the blob URL
 			// Custom tooltip function that displays an image on hover
 			createTooltipFuncStr: `function(hotSpotDiv, args) {
 				var wrapper = document.createElement("div");
 				wrapper.classList.add("hotspot-tooltip");
 				
+				// First, we need to find the actual blob URL from the cache
+				var cache = window.getPhotoCacheFn ? window.getPhotoCacheFn() : [];
+				var photoItem = cache.find(function(item) { return item.key === args.URL; });
+				var photoUrl = photoItem ? photoItem.value : '';
+				
 				var img = document.createElement("img");
-				img.src = args.URL;
+				img.src = photoUrl;
 				img.alt = args.text;
 				wrapper.appendChild(img);
 				
@@ -63,7 +68,7 @@ const HotspotAddPhotoWithTooltip = () => {
 				return wrapper;
 			}`,
 			createTooltipArgs: { 
-				URL: selectedPhoto.value,
+				URL: photoKey, // Store the path, not the blob URL
 				text: filename
 			}
 		}

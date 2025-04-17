@@ -13,9 +13,9 @@ const MiniMap = () => {
   const [isExpanded, setIsExpanded] = useState(false)
   
   // Get floor plan data from Redux store
-  const floorPlan = useSelector((state: State) => state.floorPlan)
-  const floorPlanPath = floorPlan.imagePath || null
-  const markers = floorPlan.markers || []
+  const floorPlan = useSelector((state: State) => state.floorPlan || { imagePath: '', markers: [] })
+  const floorPlanPath = floorPlan?.imagePath || null
+  const markers = floorPlan?.markers || []
   
   // If there's no floor plan set but we have photos, create a fallback grid view
   useEffect(() => {

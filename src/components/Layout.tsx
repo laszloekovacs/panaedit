@@ -12,6 +12,7 @@ import PhotosLayout from './PhotosLayout'
 import PanoramasLayout from './PanoramaLayout'
 import ArticleLayout from './ArticleLayout'
 import MapLayout from './MapLayout'
+import ArticleViewer from './ArticleViewer'
 
 /*
  * should render the active view the header and the layout selector
@@ -45,6 +46,9 @@ const Layout = () => {
 			{activeView === 'articles' && <ArticleLayout />}
 			{activeView === 'photos' && <PhotosLayout />}
 			{activeView === 'map' && <MapLayout />}
+			
+			{/* Add ArticleViewer here - it's always present but hidden until needed */}
+			<ArticleViewer />
 		</div>
 	)
 }

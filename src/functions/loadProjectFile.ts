@@ -28,6 +28,12 @@ const processPanoramaScenes = async (scenes) => {
         scene.panorama = URL.createObjectURL(blob);
       }
     }
+    
+    // Process hotspots if they exist
+    if (scene.hotSpots && scene.hotSpots.length > 0) {
+      // No need to do anything for photo hotspots as we now store the path key
+      // rather than the blob URL. The actual blob URL resolution happens at runtime.
+    }
   }
   
   return processedScenes;

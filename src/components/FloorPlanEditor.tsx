@@ -31,9 +31,9 @@ const FloorPlanEditor = () => {
   const floorPlans = filterCache(cache, /photos/)
   
   // Get floor plan data from Redux store
-  const floorPlan = useSelector((state: State) => state.floorPlan)
-  const selectedPlan = floorPlan.imagePath || null
-  const markers = floorPlan.markers || []
+  const floorPlan = useSelector((state: State) => state.floorPlan || { imagePath: '', markers: [] })
+  const selectedPlan = floorPlan?.imagePath || null
+  const markers = floorPlan?.markers || []
   
   // Set up drag handling
   const { isDragging, dragTarget, setDragTarget } = useDragHandler(canvasRef, {

@@ -1,6 +1,7 @@
 import React from 'react'
 import HotspotList from './HotspotList'
 import HotspotAddInfo from './HotspotAddInfo'
+import HotspotAddArticle from './HotspotAddArticle'
 import HotspotAddLink from './HotspotAddLink'
 import HotspotAddWebLink from './HotspotAddWebLink' // Renamed from HotspotAddPhoto
 import HotspotAddPhotoWithTooltip from './HotspotAddPhotoWithTooltip'
@@ -17,6 +18,7 @@ const HotspotContainer = () => {
 			<h2>Hotspots</h2>
 			<div className="flex flex-row pb-2 flex-wrap gap-1">
 				<HotspotAddInfo />
+				<HotspotAddArticle />
 				<HotspotAddLink />
 				<HotspotAddWebLink />
 				<HotspotAddPhotoWithTooltip />
