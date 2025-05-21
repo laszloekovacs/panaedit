@@ -24,3 +24,10 @@ screenshots from old version
 ### How to run
 
 The project uses vite. Run `npm run dev` to create a developement server
+
+
+### notes & ideas & plans?
+- replace redux with zustand maybe
+- separate the internal state of the editor from panellum scene file
+- -> have abstract converter that can be implemented for different viewers too
+- update vite, tw, remove not used frameworks
