@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEditor } from '../hooks/useEditor'
 import HotspotContainer from './HotspotContainer'
 import PreviewContainer from './PreviewContainer'
 import SceneList from './SceneList'
 import SceneSettings from './SceneSettings'
+import MiniMap from './MiniMap'
 
 const EditorLayout = () => {
 	const { scenes } = useEditor()
+	const [showMiniMap, setShowMiniMap] = useState(true)
 
 	if (Object.keys(scenes).length === 0) {
 		return (
@@ -24,6 +26,21 @@ const EditorLayout = () => {
 				<h2>Scene List</h2>
 				<SceneList />
 				<SceneSettings />
+				
+				{/* Mini Map Toggle */}
+				<div className="mb-4 flex justify-between items-center">
+					<h2>Navigation Map</h2>
+					<button 
+						className="text-xs px-2"
+						onClick={() => setShowMiniMap(!showMiniMap)}
+					>
+						{showMiniMap ? 'Hide' : 'Show'}
+					</button>
+				</div>
+				
+				{/* Conditionally render MiniMap */}
+				{showMiniMap && <MiniMap />}
+				
 				<HotspotContainer />
 			</div>
 			<PreviewContainer />

@@ -13,17 +13,21 @@ const Header = () => {
 
 	const onOpen = async () => {
 		loadProjectFile(window, dispatch)
+		console.log("Open!");
+		console.log(window);
 	}
 
 	const onSave = async () => {
+		console.log("SAVING!");
+		console.log(state);
 		saveProjectFile(state, window)
 	}
 
 	return (
 		<div className="col-span-2">
-			<button onClick={onNew}>new</button>
-			<button onClick={onOpen}>open</button>
-			<button onClick={onSave}>save</button>
+			<button onClick={onNew}>New</button>
+			<button onClick={onOpen}>Open</button>
+			<button onClick={onSave}>Save</button>
 		</div>
 	)
 }

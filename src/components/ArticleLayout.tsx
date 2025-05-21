@@ -1,9 +1,10 @@
 import React from 'react'
+import ArticlesList from './ArticlesList'
 
 const ArticleLayout = () => {
 	return (
 		<div>
-			<h2>articles</h2>
+			return <ArticlesList />
 		</div>
 	)
 }

@@ -28,5 +28,6 @@ export const openWorkFiles = async (directories: string[]) => {
 		}
 	}
 
+	console.log(files);
 	return files
 }

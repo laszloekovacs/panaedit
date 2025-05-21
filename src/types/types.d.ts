@@ -15,7 +15,23 @@ declare global {
 
 	/* pannellum specific types */
 	interface Window {
+		showDirectoryPicker: (
+			options?: DirectoryPickerOptions
+		) => Promise<FileSystemDirectoryHandle>
+	
+		showOpenFilePicker: (
+			options?: FilePickerOptions
+		) => Promise<FileSystemFileHandle[]>
+	
+		showSaveFilePicker: (
+			options?: FilePickerOptions
+		) => Promise<FileSystemFileHandle>
+		
+		// Pannellum specific types
 		pannellum: Pannellum
+		
+		// Add this new function for photo cache access
+		getPhotoCacheFn?: () => CacheLine[]
 	}
 
 	interface Pannellum {

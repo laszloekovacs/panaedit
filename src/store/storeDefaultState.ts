@@ -23,8 +23,12 @@ const storeDefaults: State = {
 		triggerRefresh: 0,
 		previewReady: false
 	},
-	cache: []
+	cache: [],
+	// Add the floor plan state
+	floorPlan: {
+		imagePath: '',
+		markers: []
+	}
 }
 
-// TODO: do we need panoramas as base path?
 export default storeDefaults

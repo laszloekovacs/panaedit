@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { openWorkFiles } from '../functions/openWorkFiles'
 import { useDispatch } from 'react-redux'
@@ -16,20 +16,7 @@ const _directories = ['panoramas', 'articles', 'photos']
 
 const FilesProvider = ({ children, directories = _directories }) => {
 	const dispatch = useDispatch()
-	const { cache, scenes } = useEditor()
-
-	// Add useEffect to check if we have scenes but no cache
-	useEffect(() => {
-		// If we have scenes (from a loaded project) but no cache, try to load directory automatically
-		const hasScenes = scenes && Object.keys(scenes).length > 0
-		const hasEmptyCache = !cache || cache.length === 0
-		
-		if (hasScenes && hasEmptyCache) {
-			console.log("Project loaded with scenes but no cache. Attempting to load work files...")
-			// Try to automatically load from a predefined directory or show a prompt
-			handleSelectDirectory()
-		}
-	}, [scenes])
+	const { cache } = useEditor()
 
 	const handleSelectDirectory = async () => {
 		const map = await openWorkFiles(directories)
@@ -41,10 +28,6 @@ const FilesProvider = ({ children, directories = _directories }) => {
 		const map = await loadOnlineAssets()
 		dispatch(replaceCache({ map }))
 	}
-
-	// If we have scenes but no cache, show a more specific message
-	const hasScenes = scenes && Object.keys(scenes).length > 0
-	const hasScenesButNoCache = hasScenes && (!cache || cache.length === 0)
 
 	if (!cache || cache.length == 0) {
 		return (
@@ -59,19 +42,9 @@ const FilesProvider = ({ children, directories = _directories }) => {
 				<div className="absolute left-0 top-0 z-10 h-full w-full bg-black opacity-40"></div>
 				<div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center">
 					<div className="grid grid-cols-2 p-8 backdrop-blur-xl rounded-xl" style={{ border: "1px solid rgba(255,255,255,0.2)"}}>
-						<h1 className="text-bold col-span-2 mb-6 text-xl text-neutral-100 ">
+						<h1 className="text-bold col-span-2 mb-12 text-xl text-neutral-100 ">
 							Pannellum Tour Editor
 						</h1>
-						
-						{hasScenesButNoCache && (
-							<div className="col-span-2 mb-6 bg-blue-900 bg-opacity-50 p-4 rounded">
-								<p className="text-white">
-									Project loaded successfully but panorama files need to be loaded.
-									Please select the directory containing your panorama files.
-								</p>
-							</div>
-						)}
-						
 						<div>
 							<button onClick={handleLoadDemoAssets} className="rounded-sm">
 								Read Tutorial
@@ -83,7 +56,7 @@ const FilesProvider = ({ children, directories = _directories }) => {
 								Select Working Directory
 							</button>
 						</div>
-						<p className="mt-12 text-xs col-span-2">
+						<p className="mt-12 text-xs">
 							Working directory must contain 3 folders:
 							<br />articles, panoramas and photos
 							<br />Must be .jpg or .png (all lowercase)

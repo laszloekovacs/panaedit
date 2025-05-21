@@ -10,9 +10,10 @@
 	body {
 		height: 100vh;
 		width: 100vw;
+		background-color: rgb(182, 182, 182);
 	}
 
-	body {
+	body { 
 		font-family: 'JetBrains Mono', monospace;
 		@apply relative select-none bg-neutral-300;
 	}
@@ -57,3 +58,76 @@
 		@apply bg-stone-800;
 	}
 }
+
+@layer components {
+	.hotspot-tooltip {
+		border-radius: 4px;
+		overflow: hidden;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+		max-width: 150px;
+		background-color: white;
+		filter:grayscale(1.0);
+		transition: 0.5s linear;
+	}
+
+	.hotspot-tooltip:hover {
+		filter:grayscale(0.0);
+	}
+	
+	.tooltip-caption {
+		padding: 4px 8px;
+		background: rgba(0, 0, 0, 0.6);
+		color: white;
+		text-align: center;
+		font-size: 0.9rem;
+		display: none;
+	}
+	
+	/* Customize the appearance of photo hotspots */
+	.pnlm-hotspot.pnlm-type-photo .pnlm-hotspot-base {
+		background-color: rgba(255, 120, 0, 0.8); /* Orange background */
+	}
+}
+
+@layer components {
+	/* Article content styling */
+	.article-content {
+	  @apply text-white leading-relaxed;
+	}
+	
+	.article-content h1 {
+	  @apply text-2xl font-bold mb-4 mt-6;
+	}
+	
+	.article-content h2 {
+	  @apply text-xl font-bold mb-3 mt-5;
+	}
+	
+	.article-content h3 {
+	  @apply text-lg font-bold mb-2 mt-4;
+	}
+	
+	.article-content p {
+	  @apply mb-4;
+	}
+	
+	.article-content img {
+	  @apply my-4 mx-auto max-h-96 rounded;
+	}
+	
+	.article-content a {
+	  @apply text-blue-400 underline hover:text-blue-300;
+	}
+	
+	.article-content ul, .article-content ol {
+	  @apply pl-6 mb-4;
+	}
+	
+	.article-content ul {
+	  @apply list-disc;
+	}
+	
+	.article-content ol {
+	  @apply list-decimal;
+	}
+  }

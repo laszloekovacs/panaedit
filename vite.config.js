@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-	base: '/panaedit/',
+	base: '/panedit/',
 	build: {
 		outDir: './dist'
 	},
