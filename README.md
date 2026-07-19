@@ -1,12 +1,16 @@
-# Panorama editor
+# Panellum.js json config file editor
 
 Web based tool to create pannellum.js scene files with some extended functionality
 
 [panellum.js](https://pannellum.org/)
 
 for an example finished tour, visit: 
-
 https://laszloekovacs.github.io/cipogyar_build/?fbclid=IwAR3vIYyobRdnjUuKgiqO-ydVZyi9a6dPVCviuxPq0X7R7puF5GPi83rv7KE 
+
+### notes
+panellum.js mutates the passed scene data structure. 
+the state that redux holds should have been designed in a way that fits the editor and not the plugin, the scene has to be duplicated anyway at rendering. 
+same with exporting, it would be wiser to have an abstract exporter, this would allow saving in different 3d formats.
 
 ### quick guide
 - select `try online with demo assets`
